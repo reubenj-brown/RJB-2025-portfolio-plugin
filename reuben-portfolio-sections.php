@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Reuben Portfolio Sections
  * Description: Custom shortcodes for portfolio sections
- * Version: 1.0.1
+ * Version: 1.0
  */
 
 // Prevent direct access
@@ -26,8 +26,24 @@ class ReubenPortfolioSections {
     }
     
     public function enqueue_styles() {
-        // Only load on portfolio page
-        if (is_page_template('page-portfolio.php')) {
+        // Load on portfolio page - check multiple conditions to be safe
+        if (is_page_template('page-portfolio.php') || 
+            is_page('portfolio') || 
+            is_page(17) || // Your portfolio page ID
+            (is_page() && get_the_title() === 'Portfolio')) {
+            
+            wp_enqueue_style(
+                'reuben-portfolio-sections',
+                plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
+                [],
+                '1.0.1' // Incremented version to force cache refresh
+            );
+        }
+    }
+    
+    public function about_section($atts) {
+        // Enqueue styles inline if not already loaded
+        if (!wp_style_is('reuben-portfolio-sections', 'enqueued')) {
             wp_enqueue_style(
                 'reuben-portfolio-sections',
                 plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
@@ -35,33 +51,67 @@ class ReubenPortfolioSections {
                 '1.0.1'
             );
         }
-    }
-    
-    public function about_section($atts) {
+        
         ob_start();
         include plugin_dir_path(__FILE__) . 'templates/about-section.php';
         return ob_get_clean();
     }
     
     public function writing_section($atts) {
+        if (!wp_style_is('reuben-portfolio-sections', 'enqueued')) {
+            wp_enqueue_style(
+                'reuben-portfolio-sections',
+                plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
+                [],
+                '1.0.1'
+            );
+        }
+        
         ob_start();
         include plugin_dir_path(__FILE__) . 'templates/writing-section.php';
         return ob_get_clean();
     }
     
     public function photography_section($atts) {
+        if (!wp_style_is('reuben-portfolio-sections', 'enqueued')) {
+            wp_enqueue_style(
+                'reuben-portfolio-sections',
+                plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
+                [],
+                '1.0.1'
+            );
+        }
+        
         ob_start();
         include plugin_dir_path(__FILE__) . 'templates/photography-section.php';
         return ob_get_clean();
     }
     
     public function strategy_section($atts) {
+        if (!wp_style_is('reuben-portfolio-sections', 'enqueued')) {
+            wp_enqueue_style(
+                'reuben-portfolio-sections',
+                plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
+                [],
+                '1.0.1'
+            );
+        }
+        
         ob_start();
         include plugin_dir_path(__FILE__) . 'templates/strategy-section.php';
         return ob_get_clean();
     }
     
     public function cv_section($atts) {
+        if (!wp_style_is('reuben-portfolio-sections', 'enqueued')) {
+            wp_enqueue_style(
+                'reuben-portfolio-sections',
+                plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
+                [],
+                '1.0.1'
+            );
+        }
+        
         ob_start();
         include plugin_dir_path(__FILE__) . 'templates/cv-section.php';
         return ob_get_clean();
