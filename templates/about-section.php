@@ -2,7 +2,7 @@
     <div class="section-container">
         <div class="about-content">
             <div class="about-image">
-                <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/Reuben-J.-Brown-journalist-headshot-monochrome-copy.webp')); ?>" alt="Reuben J. Brown" />
+                <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/reuben-headshot.jpg')); ?>" alt="Reuben J. Brown" />
                 <div class="photo-credit">photograph: Reuben J. Brown</div>
             </div>
             <div class="about-text">
@@ -43,13 +43,7 @@
                     </p>
                 </div>
                 
-                <div class="contact-links">
-                    <a href="mailto:hello@reubenjbrown.com">email</a>
-                    <span class="link-separator">/</span>
-                    <a href="https://instagram.com/reubenjbrown" target="_blank">instagram</a>
-                    <span class="link-separator">/</span>
-                    <a href="https://linkedin.com/in/reubenjbrown" target="_blank">linkedin</a>
-                </div>
+
             </div>
         </div>
     </div>
