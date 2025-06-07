@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Reuben Portfolio Sections
  * Description: Custom shortcodes for portfolio sections
- * Version: 1.0
+ * Version: 1.0.1
  */
 
 // Prevent direct access
