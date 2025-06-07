@@ -32,7 +32,7 @@ class ReubenPortfolioSections {
                 'reuben-portfolio-sections',
                 plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
                 [],
-                '1.0.0'
+                '1.0.1'
             );
         }
     }
