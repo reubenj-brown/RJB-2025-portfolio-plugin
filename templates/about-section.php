@@ -42,8 +42,6 @@
                         for "You Were Right" by Badly Drawn Boy.
                     </p>
                 </div>
-                
-
             </div>
         </div>
     </div>
