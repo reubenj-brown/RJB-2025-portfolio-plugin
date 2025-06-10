@@ -35,12 +35,7 @@
     font-size: 32px !important;
     line-height: 1.5;
     font-weight: 400;
-    margin-bottom: 2.8rem;
     color: #000;}
-
-.about-text p:last-child {
-    margin-bottom: 0;
-}
 
 .about-image {
     position: relative;
