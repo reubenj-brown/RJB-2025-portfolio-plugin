@@ -30,7 +30,7 @@
     width: 100%;
 }
 
-.about-text p {
+.about-text {
     font-family: var(--primary-font);
     font-size: 32px !important;
     line-height: 1.5;
