@@ -2,7 +2,6 @@
 
 /* General Section Styles */
 .content-section {
-    min-height: 100vh;
     padding: 2vw;
     background: white;
     display: flex;
