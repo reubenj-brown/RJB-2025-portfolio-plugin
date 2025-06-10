@@ -2,7 +2,7 @@
 
 /* General Section Styles */
 .content-section {
-    padding: 2vw !important;
+    padding: 2vw 2vw 2vw 2vw !important;
     background: white;
     display: flex;
     align-items: center;
