@@ -25,17 +25,17 @@ class ReubenPortfolioSections {
         add_shortcode('reuben_cv', [$this, 'cv_section']);
     }
     
-    public function enqueue_styles() {
-        // Only load on portfolio page
-        if (is_page_template('page-portfolio.php')) {
-            wp_enqueue_style(
-                'reuben-portfolio-sections',
-                plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
-                [],
-                '1.0.0'
-            );
-        }
+public function enqueue_styles() {
+    // Only load on portfolio page template
+    if (is_page_template('page-portfolio.php')) {
+        wp_enqueue_style(
+            'reuben-portfolio-sections',
+            plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
+            [],
+            '1.0.1' // Version number for cache busting
+        );
     }
+}
     
     public function about_section($atts) {
         $template_path = plugin_dir_path(__FILE__) . 'templates/about-section.php';
