@@ -28,7 +28,7 @@
                 </div>
             </div>
              <div class="about-image">
-                <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/reuben-headshot.jpg')); ?>" alt="Reuben J. Brown" />
+                <img src="<?php echo esc_url(home_url('wp-content/uploads/2025/06/Reuben-J.-Brown-journalist-headshot-monochrome-copy.webp')); ?>" alt="Reuben J. Brown" />
                 <div class="photo-credit">photograph: Reuben J. Brown</div>
             </div>
         </div>
