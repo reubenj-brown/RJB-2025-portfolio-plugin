@@ -26,102 +26,75 @@ class ReubenPortfolioSections {
     }
     
     public function enqueue_styles() {
-    $should_enqueue = false;
-    
-    if (is_page_template('page-portfolio.php')) {
-        $should_enqueue = true;
-    }
-    global $post;
-    if ($post && has_shortcode($post->post_content, 'reuben_about')) {
-        $should_enqueue = true;
-    }
-    
-    // Or just enqueue on all pages for now to troubleshoot
-    // Remove this line once working
-    $should_enqueue = true;
-    
-    if ($should_enqueue) {
-        wp_enqueue_style(
-            'reuben-portfolio-sections',
-            plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
-            [],
-            '1.1' // Increment version to bust cache
-        );
-    
-    public function about_section($atts) {
-        // Enqueue styles inline if not already loaded
-        if (!wp_style_is('reuben-portfolio-sections', 'enqueued')) {
+        // Only load on portfolio page
+        if (is_page_template('page-portfolio.php')) {
             wp_enqueue_style(
                 'reuben-portfolio-sections',
                 plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
                 [],
-                '1.1'
+                '1.0.0'
             );
         }
+    }
+    
+    public function about_section($atts) {
+        $template_path = plugin_dir_path(__FILE__) . 'templates/about-section.php';
         
-        ob_start();
-        include plugin_dir_path(__FILE__) . 'templates/about-section.php';
-        return ob_get_clean();
+        if (file_exists($template_path)) {
+            ob_start();
+            include $template_path;
+            return ob_get_clean();
+        }
+        
+        return '<div class="portfolio-section-error">About section template not found.</div>';
     }
     
     public function writing_section($atts) {
-        if (!wp_style_is('reuben-portfolio-sections', 'enqueued')) {
-            wp_enqueue_style(
-                'reuben-portfolio-sections',
-                plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
-                [],
-                '1.0.1'
-            );
+        $template_path = plugin_dir_path(__FILE__) . 'templates/writing-section.php';
+        
+        if (file_exists($template_path)) {
+            ob_start();
+            include $template_path;
+            return ob_get_clean();
         }
         
-        ob_start();
-        include plugin_dir_path(__FILE__) . 'templates/writing-section.php';
-        return ob_get_clean();
+        return '<div class="portfolio-section-placeholder">Writing section coming soon...</div>';
     }
     
     public function photography_section($atts) {
-        if (!wp_style_is('reuben-portfolio-sections', 'enqueued')) {
-            wp_enqueue_style(
-                'reuben-portfolio-sections',
-                plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
-                [],
-                '1.0.1'
-            );
+        $template_path = plugin_dir_path(__FILE__) . 'templates/photography-section.php';
+        
+        if (file_exists($template_path)) {
+            ob_start();
+            include $template_path;
+            return ob_get_clean();
         }
         
-        ob_start();
-        include plugin_dir_path(__FILE__) . 'templates/photography-section.php';
-        return ob_get_clean();
+        return '<div class="portfolio-section-placeholder">Photography section coming soon...</div>';
     }
     
     public function strategy_section($atts) {
-        if (!wp_style_is('reuben-portfolio-sections', 'enqueued')) {
-            wp_enqueue_style(
-                'reuben-portfolio-sections',
-                plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
-                [],
-                '1.0.1'
-            );
+        $template_path = plugin_dir_path(__FILE__) . 'templates/strategy-section.php';
+        
+        if (file_exists($template_path)) {
+            ob_start();
+            include $template_path;
+            return ob_get_clean();
         }
         
-        ob_start();
-        include plugin_dir_path(__FILE__) . 'templates/strategy-section.php';
-        return ob_get_clean();
+        return '<div class="portfolio-section-placeholder">Strategy section coming soon...</div>';
     }
     
     public function cv_section($atts) {
-        if (!wp_style_is('reuben-portfolio-sections', 'enqueued')) {
-            wp_enqueue_style(
-                'reuben-portfolio-sections',
-                plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
-                [],
-                '1.0.1'
-            );
+        $template_path = plugin_dir_path(__FILE__) . 'templates/cv-section.php';
+        
+        if (file_exists($template_path)) {
+            ob_start();
+            include $template_path;
+            return ob_get_clean();
         }
         
-        ob_start();
-        include plugin_dir_path(__FILE__) . 'templates/cv-section.php';
-        return ob_get_clean();
+        return '<div class="portfolio-section-placeholder">CV section coming soon...</div>';
     }
 }
 
