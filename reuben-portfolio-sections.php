@@ -26,20 +26,27 @@ class ReubenPortfolioSections {
     }
     
     public function enqueue_styles() {
-        // Load on portfolio page - check multiple conditions to be safe
-        if (is_page_template('page-portfolio.php') || 
-            is_page('portfolio') || 
-            is_page(17) || // Your portfolio page ID
-            (is_page() && get_the_title() === 'Portfolio')) {
-            
-            wp_enqueue_style(
-                'reuben-portfolio-sections',
-                plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
-                [],
-                '1.0.1' // Incremented version to force cache refresh
-            );
-        }
+    $should_enqueue = false;
+    
+    if (is_page_template('page-portfolio.php')) {
+        $should_enqueue = true;
     }
+    global $post;
+    if ($post && has_shortcode($post->post_content, 'reuben_about')) {
+        $should_enqueue = true;
+    }
+    
+    // Or just enqueue on all pages for now to troubleshoot
+    // Remove this line once working
+    $should_enqueue = true;
+    
+    if ($should_enqueue) {
+        wp_enqueue_style(
+            'reuben-portfolio-sections',
+            plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
+            [],
+            '1.1' // Increment version to bust cache
+        );
     
     public function about_section($atts) {
         // Enqueue styles inline if not already loaded
@@ -48,7 +55,7 @@ class ReubenPortfolioSections {
                 'reuben-portfolio-sections',
                 plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
                 [],
-                '1.0.1'
+                '1.1'
             );
         }
         
