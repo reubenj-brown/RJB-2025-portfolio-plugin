@@ -26,13 +26,13 @@ class ReubenPortfolioSections {
     }
     
 public function enqueue_styles() {
-    // Load on portfolio template OR specific page slug
-    if (is_page_template('page-portfolio.php') || is_page('portfolio')) {
+    // Only load on portfolio page template
+    if (is_page_template('page-portfolio.php')) {
         wp_enqueue_style(
             'reuben-portfolio-sections',
             plugin_dir_url(__FILE__) . 'assets/portfolio-sections.css',
             [],
-            filemtime(plugin_dir_path(__FILE__) . 'assets/portfolio-sections.css') // Auto version based on file modification time
+            filemtime(plugin_dir_path(__FILE__) . 'assets/portfolio-sections.css') // Auto-version based on file modification
         );
     }
 }
