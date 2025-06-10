@@ -1,23 +1,7 @@
 <section class="content-section about-section" id="about">
     <div class="section-container">
         <div class="about-content">
-            <div class="about-image">
-                <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/reuben-headshot.jpg')); ?>" alt="Reuben J. Brown" />
-                <div class="photo-credit">photograph: Reuben J. Brown</div>
-            </div>
-            <div class="about-text">
-                <div class="about-nav">
-                    <span class="nav-item active">About</span>
-                    <span class="nav-separator">/</span>
-                    <span class="nav-item">Writing</span>
-                    <span class="nav-separator">/</span>
-                    <span class="nav-item">Photography</span>
-                    <span class="nav-separator">/</span>
-                    <span class="nav-item">Strategy</span>
-                    <span class="nav-separator">/</span>
-                    <span class="nav-item">CV</span>
-                </div>
-                
+            <div class="about-text">                
                 <div class="bio-text">
                     <p class="large-text">
                         Reuben is a writer, maker, and photographer interested in design, 
@@ -42,6 +26,10 @@
                         for "You Were Right" by Badly Drawn Boy.
                     </p>
                 </div>
+            </div>
+             <div class="about-image">
+                <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/reuben-headshot.jpg')); ?>" alt="Reuben J. Brown" />
+                <div class="photo-credit">photograph: Reuben J. Brown</div>
             </div>
         </div>
     </div>
