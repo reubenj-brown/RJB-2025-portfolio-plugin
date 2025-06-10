@@ -3,21 +3,20 @@
 /* General Section Styles */
 .content-section {
     min-height: 100vh;
-    padding: 4rem 3vw;
+    padding: 2vw;
     background: white;
     display: flex;
     align-items: center;
 }
 
 .section-container {
-    max-width: 100%;
-    width: 100%;
+    max-width: 100vw;
+    width: 100vw;
 }
 
 /* About Section Styles */
 .about-section {
-    padding: 6rem 3vw 4rem;
-    min-height: 100vh;
+    padding: 2vw;
     display: flex;
     align-items: center;
     background: white;
@@ -26,15 +25,15 @@
 .about-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 4rem;
+    gap: 2vw;
     align-items: start;
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
     width: 100%;
 }
 
 .about-text {
-    padding-right: 2rem;
+    padding-right: 0;
 }
 
 .bio-text {
@@ -43,10 +42,10 @@
 
 .large-text {
     font-family: var(--primary-font);
-    font-size: 1.4rem;
+    font-size: 2rem;
     line-height: 1.5;
     font-weight: 400;
-    margin-bottom: 2rem;
+    margin-bottom: 2.8rem;
     color: #000;
 }
 
@@ -63,8 +62,8 @@
 }
 
 .fun-fact {
-    font-style: italic;
-    color: #666;
+    font-style: regular;
+    color: #000;
 }
 
 
