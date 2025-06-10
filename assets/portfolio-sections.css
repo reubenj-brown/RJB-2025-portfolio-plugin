@@ -32,41 +32,17 @@
     width: 100%;
 }
 
-.about-text {
-    padding-right: 0;
-}
-
-.bio-text {
-    margin-bottom: 0;
-}
-
-.large-text {
+.about-text p {
     font-family: var(--primary-font);
     font-size: 2rem;
     line-height: 1.5;
     font-weight: 400;
     margin-bottom: 2.8rem;
-    color: #000;
-}
+    color: #000;}
 
-.bio-text p {
-    font-family: var(--primary-font);
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    color: #333;
-}
-
-.bio-text p:last-child {
+.about-text p:last-child {
     margin-bottom: 0;
 }
-
-.fun-fact {
-    font-style: regular;
-    color: #000;
-}
-
-
 
 .about-image {
     position: relative;
@@ -107,7 +83,7 @@
         order: 1;
     }
     
-    .large-text {
+    .about-text p {
         font-size: 1.2rem;
     }
 }
