@@ -27,7 +27,7 @@ class ReubenPortfolioSections {
     
     public function enqueue_styles() {
         // Only load on portfolio page
-        if (is_page_template('page-portfolio.php') || is_page_template('page-test.php')) {
+        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php')) {
             // Base styles for all sections
             wp_enqueue_style(
                 'reuben-base-sections',
