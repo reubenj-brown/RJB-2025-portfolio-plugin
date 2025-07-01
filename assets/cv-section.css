@@ -13,7 +13,7 @@
 
 .cv-column-title {
     font-family: var(--serif-font);
-    font-size: 1.8rem;
+    font-size: 2.4rem;
     font-weight: 400;
     color: #000;
     margin-bottom: 2rem;
@@ -23,7 +23,7 @@
 .cv-subsection-title {
     font-family: var(--primary-font);
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 400;
     color: #000;
     margin: 2rem 0 1rem 0;
 }
@@ -38,8 +38,8 @@
 .cv-degree {
     font-family: var(--primary-font);
     font-size: 1rem;
-    font-weight: 600;
-    color: #000;
+    font-weight: 400;
+    color: #808080;
     margin-bottom: 0.2rem;
 }
 
@@ -48,7 +48,7 @@
     font-family: var(--primary-font);
     font-size: 1rem;
     font-weight: 400;
-    color: #808080;
+    color: #000;
     margin-bottom: 0.2rem;
 }
 
@@ -56,7 +56,7 @@
     font-family: var(--primary-font);
     font-size: 1rem;
     font-weight: 400;
-    color: #000;
+    color: #808080;
     margin-bottom: 0.2rem;
 }
 
@@ -79,29 +79,8 @@
     font-family: var(--primary-font);
     font-size: 1rem;
     font-weight: 400;
-    color: #000;
+    color: #808080;
     margin: 0;
-}
-
-.cv-nav {
-    font-family: var(--primary-font);
-    font-size: 1.1rem;
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.cv-nav .nav-item {
-    color: #808080;
-}
-
-.cv-nav .nav-item.active {
-    color: var(--highlight-color);
-    font-weight: 600;
-}
-
-.cv-nav .nav-separator {
-    color: #808080;
-    margin: 0 0.8rem;
 }
 
 /* Mobile Responsive */
@@ -109,9 +88,5 @@
     .cv-content {
         grid-template-columns: 1fr;
         gap: 2.5rem;
-    }
-    
-    .cv-nav .nav-separator {
-        margin: 0 0.5rem;
     }
 }
