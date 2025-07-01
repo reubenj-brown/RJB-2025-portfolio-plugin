@@ -4,13 +4,13 @@
             <div class="strategy-grid">
                 <div class="strategy-item">
                     <a href="#" class="strategy-link">
-                        <h2 class="strategy-title">Audience<br>Strategy</h2>
+                        <h2 class="strategy-title">Audience Strategy</h2>
                     </a>
                 </div>
                 
                 <div class="strategy-item">
                     <a href="#" class="strategy-link">
-                        <h2 class="strategy-title">Artificial<br>Intelligence</h2>
+                        <h2 class="strategy-title">Artificial Intelligence</h2>
                     </a>
                 </div>
                 
