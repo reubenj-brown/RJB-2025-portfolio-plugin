@@ -1,11 +1,3 @@
-<?php
-/*
-Template Name: Writing-Section
-*/
-?>
-
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>
 <section class="content-section writing-section" id="writing">
     <div class="section-container">
         <div class="writing-content">
