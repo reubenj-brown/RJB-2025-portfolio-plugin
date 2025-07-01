@@ -1,0 +1,63 @@
+/* Base Portfolio Sections CSS */
+/* Shared styles for all sections */
+
+/* General Section Styles */
+.content-section {
+    min-height: 100vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    /* No padding - handled by main-content wrapper */
+}
+
+.section-container {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Shared Typography Elements */
+.photo-credit {
+    font-family: var(--primary-font);
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Shared Link Styles */
+.contact-links {
+    margin-top: 2rem;
+}
+
+.contact-links a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: var(--highlight-color);
+}
+
+.link-separator {
+    color: #666;
+    margin: 0 0.8rem;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .contact-links {
+        margin-top: 1.5rem;
+    }
+    
+    .link-separator {
+        margin: 0 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-credit {
+        font-size: 0.8rem;
+    }
+}
