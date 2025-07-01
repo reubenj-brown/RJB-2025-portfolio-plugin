@@ -50,11 +50,14 @@
                         <p class="cv-additional">Before this, head boy at my local state school with spotless grades.</p>
                     </div>
                 </div>
-                
+            </div>
+
             <div class="cv-column skills-column">
                 <h2 class="cv-column-title">Skills & Software</h2>
+                
+                <h3 class="cv-subsection-title">Software</h3>
                 <div class="cv-entries">
-                    <div class="cv-entry software-grid">
+                    <div class="cv-entry">
                         <div class="software-list">
                             <p>Lightroom</p>
                             <p>InDesign</p>
@@ -69,12 +72,24 @@
                             <p>Affinity Designer</p>
                             <p>After Effects</p>
                             <p>HTML, CSS, JS</p>
-                            <p>nbsp</p>
-                            <p>I hold a full U.K. driving license</p>
+                            <br>
+                            <p>I hold a full UK driving license</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <div class="cv-nav">
+            <span class="nav-item">About</span>
+            <span class="nav-separator">/</span>
+            <span class="nav-item">Writing</span>
+            <span class="nav-separator">/</span>
+            <span class="nav-item">Photography</span>
+            <span class="nav-separator">/</span>
+            <span class="nav-item">Strategy</span>
+            <span class="nav-separator">/</span>
+            <span class="nav-item active">CV</span>
         </div>
     </div>
 </section>
