@@ -3,6 +3,7 @@
 
 .content-section {
     background: white;
+    height: auto;
     display: flex;
     align-items: center;
     padding: 0;
