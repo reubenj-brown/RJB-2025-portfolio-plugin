@@ -79,17 +79,5 @@
                 </div>
             </div>
         </div>
-        
-        <div class="cv-nav">
-            <span class="nav-item">About</span>
-            <span class="nav-separator">/</span>
-            <span class="nav-item">Writing</span>
-            <span class="nav-separator">/</span>
-            <span class="nav-item">Photography</span>
-            <span class="nav-separator">/</span>
-            <span class="nav-item">Strategy</span>
-            <span class="nav-separator">/</span>
-            <span class="nav-item active">CV</span>
-        </div>
     </div>
 </section>
