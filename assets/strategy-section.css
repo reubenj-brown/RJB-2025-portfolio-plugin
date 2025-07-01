@@ -10,7 +10,7 @@
 .strategy-item {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 200px;
 }
 
@@ -20,7 +20,7 @@
     transition: all 0.3s ease;
     display: block;
     width: 100%;
-    text-align: center;
+    text-align: left;
 }
 
 .strategy-link:hover {
