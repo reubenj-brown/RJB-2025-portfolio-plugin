@@ -99,6 +99,7 @@
 /* Writing Section Styles */
 .writing-section {
     background: white;
+    padding: 2vw 0;
 }
 
 .writing-content {
@@ -288,9 +289,6 @@
 }
 
 @media (max-width: 768px) {
-    .writing-section {
-        padding: 4rem 3vw 2rem;
-    }
     
     .featured-story {
         grid-template-columns: 1fr;
@@ -345,10 +343,7 @@
 }
 
 @media (max-width: 480px) {
-    .writing-section {
-        padding: 3rem 3vw 2rem;
-    }
-    
+
     .featured-story {
         gap: 1.5rem;
         margin-bottom: 2.5rem;
