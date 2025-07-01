@@ -2,7 +2,6 @@
 /* Shared styles for all sections */
 
 .content-section {
-    min-height: 100vh;
     background: white;
     display: flex;
     align-items: center;
