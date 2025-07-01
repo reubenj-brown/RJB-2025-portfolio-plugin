@@ -53,8 +53,6 @@
                 
             <div class="cv-column skills-column">
                 <h2 class="cv-column-title">Skills & Software</h2>
-                
-                <h3 class="cv-subsection-title">Software</h3>
                 <div class="cv-entries">
                     <div class="cv-entry software-grid">
                         <div class="software-list">
