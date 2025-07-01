@@ -1,0 +1,72 @@
+/* Strategy Section Styles */
+.strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 2rem;
+    align-items: center;
+    width: 100%;
+}
+
+.strategy-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.strategy-link {
+    text-decoration: none;
+    color: #000;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.strategy-link:hover {
+    color: var(--highlight-color);
+    transform: translateY(-5px);
+}
+
+.strategy-title {
+    font-family: var(--primary-font);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.strategy-link:hover .strategy-title {
+    text-shadow: 0 4px 8px rgba(57, 229, 143, 0.2);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .strategy-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .strategy-item {
+        min-height: 150px;
+    }
+    
+    .strategy-title {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .strategy-grid {
+        gap: 1.5rem;
+    }
+    
+    .strategy-item {
+        min-height: 120px;
+    }
+    
+    .strategy-title {
+        font-size: clamp(1.8rem, 7vw, 3rem);
+    }
+}
