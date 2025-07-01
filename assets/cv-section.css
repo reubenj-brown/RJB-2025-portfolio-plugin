@@ -1,5 +1,6 @@
 /* CV Section Styles */
 .cv-section {
+    width: 100%;
     background: white;
 }
 
@@ -7,31 +8,24 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 4rem;
-    width: 100%
-    margin: 0 auto;
-    margin-bottom: 3rem;
-}
-
-.cv-column {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
 }
 
 .cv-column-title {
     font-family: var(--serif-font);
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 400;
     color: #000;
     margin-bottom: 2rem;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 .cv-subsection-title {
     font-family: var(--primary-font);
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 600;
     color: #000;
     margin: 2rem 0 1rem 0;
-    line-height: 1.3;
 }
 
 .cv-entries {
@@ -40,68 +34,34 @@
     gap: 1.5rem;
 }
 
-.cv-entry {
-    margin-bottom: 0;
-}
-
 .cv-role,
 .cv-degree {
     font-family: var(--primary-font);
     font-size: 1rem;
     font-weight: 600;
     color: #000;
-    margin-bottom: 0.3rem;
-    line-height: 1.4;
+    margin-bottom: 0.2rem;
 }
 
 .cv-company,
-.cv-institution {
-    font-family: var(--primary-font);
-    font-size: 1rem;
-    font-weight: 400;
-    color: #333;
-    margin-bottom: 0.2rem;
-    line-height: 1.4;
-}
-
-.cv-dates {
-    font-family: var(--primary-font);
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: #666;
-    margin-bottom: 0;
-    line-height: 1.4;
-}
-
-.cv-grades {
-    font-family: var(--primary-font);
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: #666;
-    margin-top: 0.2rem;
-    margin-bottom: 0;
-    line-height: 1.4;
-}
-
+.cv-institution,
 .cv-additional {
     font-family: var(--primary-font);
     font-size: 1rem;
     font-weight: 400;
-    color: #333;
-    margin-bottom: 0;
-    line-height: 1.5;
+    color: #000;
+    margin-bottom: 0.2rem;
 }
 
-.cv-qualification {
+.cv-dates,
+.cv-grades {
     font-family: var(--primary-font);
     font-size: 1rem;
     font-weight: 400;
-    color: #333;
+    color: #808080;
     margin-bottom: 0;
-    line-height: 1.5;
 }
 
-/* Software Skills Grid */
 .software-list {
     display: flex;
     flex-direction: column;
@@ -112,24 +72,19 @@
     font-family: var(--primary-font);
     font-size: 1rem;
     font-weight: 400;
-    color: #333;
+    color: #000;
     margin: 0;
-    line-height: 1.4;
 }
 
-/* CV Navigation */
 .cv-nav {
     font-family: var(--primary-font);
     font-size: 1.1rem;
     text-align: center;
-    line-height: 1.4;
-    max-width: 1400px;
-    margin: 0 auto;
+    margin-top: 3rem;
 }
 
 .cv-nav .nav-item {
-    color: #666;
-    transition: color 0.3s ease;
+    color: #808080;
 }
 
 .cv-nav .nav-item.active {
@@ -138,90 +93,18 @@
 }
 
 .cv-nav .nav-separator {
-    color: #666;
+    color: #808080;
     margin: 0 0.8rem;
 }
 
 /* Mobile Responsive */
-@media (max-width: 1024px) {
-    .cv-content {
-        gap: 3rem;
-    }
-}
-
 @media (max-width: 768px) {
-    .cv-section {
-        padding: 4rem 3vw 2rem;
-    }
-    
     .cv-content {
         grid-template-columns: 1fr;
         gap: 2.5rem;
-        margin-bottom: 2rem;
-    }
-    
-    .cv-column-title {
-        font-size: 1.3rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .cv-subsection-title {
-        font-size: 1.05rem;
-        margin: 1.5rem 0 0.8rem 0;
-    }
-    
-    .cv-entries {
-        gap: 1.2rem;
-    }
-    
-    .cv-nav {
-        font-size: 1rem;
     }
     
     .cv-nav .nav-separator {
         margin: 0 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .cv-section {
-        padding: 3rem 3vw 2rem;
-    }
-    
-    .cv-content {
-        gap: 2rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .cv-column-title {
-        font-size: 1.2rem;
-        margin-bottom: 1.2rem;
-    }
-    
-    .cv-subsection-title {
-        font-size: 1rem;
-        margin: 1.2rem 0 0.6rem 0;
-    }
-    
-    .cv-entries {
-        gap: 1rem;
-    }
-    
-    .cv-role,
-    .cv-degree,
-    .cv-company,
-    .cv-institution,
-    .cv-additional,
-    .cv-qualification {
-        font-size: 0.95rem;
-    }
-    
-    .cv-dates,
-    .cv-grades {
-        font-size: 0.85rem;
-    }
-    
-    .software-list p {
-        font-size: 0.95rem;
     }
 }
