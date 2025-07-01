@@ -1,6 +1,5 @@
 /* CV Section Styles */
 .cv-section {
-    padding: 6rem 3vw 4rem;
     background: white;
 }
 
@@ -8,7 +7,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 4rem;
-    max-width: 1400px;
+    width: 100%
     margin: 0 auto;
     margin-bottom: 3rem;
 }
@@ -19,7 +18,7 @@
 }
 
 .cv-column-title {
-    font-family: var(--primary-font);
+    font-family: var(--serif-font);
     font-size: 1.4rem;
     font-weight: 600;
     color: #000;
@@ -30,7 +29,6 @@
 .cv-subsection-title {
     font-family: var(--primary-font);
     font-size: 1.1rem;
-    font-weight: 600;
     color: #000;
     margin: 2rem 0 1rem 0;
     line-height: 1.3;
