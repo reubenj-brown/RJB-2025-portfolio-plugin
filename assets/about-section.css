@@ -15,6 +15,7 @@
 
 .about-image {
     position: relative;
+    order: 2;
 }
 
 .about-image img {
@@ -26,6 +27,7 @@
 
 .about-text {
     padding-right: 2rem;
+    order: 1;
 }
 
 .about-nav {
