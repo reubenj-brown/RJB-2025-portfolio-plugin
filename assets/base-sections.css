@@ -1,13 +1,12 @@
 /* Base Portfolio Sections CSS */
 /* Shared styles for all sections */
 
-/* General Section Styles */
 .content-section {
     min-height: 100vh;
     background: white;
     display: flex;
     align-items: center;
-    /* No padding - handled by main-content wrapper */
+    padding: 0;
 }
 
 .section-container {
