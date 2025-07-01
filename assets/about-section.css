@@ -93,6 +93,11 @@
     
     .about-text {
         padding-right: 0;
+        order: 2;
+    }
+
+    .about-image {
+        order: 1;
     }
     
     .about-nav {
