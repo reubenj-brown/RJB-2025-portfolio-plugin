@@ -119,12 +119,6 @@
     transition: all 0.3s ease;
 }
 
-.story-link:hover {
-    background: #fafafa;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
 .story-link .link-text {
     font-family: var(--primary-font);
     font-size: 1rem;
@@ -142,7 +136,7 @@
     transition: color 0.3s ease;
 }
 
-.story-link:hover .link-date {
+.story-link:hover .link-text {
     color: var(--highlight-color);
 }
 
