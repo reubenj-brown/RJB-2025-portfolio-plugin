@@ -63,8 +63,7 @@ p {
     font-weight: 400;
     line-height: 1.4;
     color: #808080;
-    margin: 0;
-    font-style: italic;
+    margin: 8px 0 0 0;
 }
 
 /* Font Size Adjustment for Legitima */
@@ -79,7 +78,7 @@ p {
 @media (max-width: 768px) {
     h1 {
         font-size: 12vw; /* Adaptive viewport-based sizing */
-        max-font-size: 80px;
+        min-font-size: 32px;
     }
     
     h2 {
