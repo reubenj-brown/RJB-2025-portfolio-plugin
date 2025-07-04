@@ -9,7 +9,7 @@
                     <div class="caption">photograph: Reuben J. Brown</div>
                 </div>
                 <div class="story-content">
-                    <h2>The Cost of a Miracle</h2>
+                    <h2 class="serif-font-scaled">The Cost of a Miracle</h2>
                     <h3>In Europe's driest region, a vast plastic sea covers a flourishing agricultural system built on intensity and innovation. But the cracks in Almeria's "miracle" are growing, too</h3>
                     <p class="story-meta">For <i>Panoramic</i> in May 2025</p>
                 </div>
@@ -25,7 +25,7 @@
                         <div class="caption">photograph: Luke O'Donovan</div>
                     </div>
                     <div class="story-content">
-                        <h3>Material Cultures, United Kingdom</h3>
+                        <h3 class="serif-font-scaled">Material Cultures, United Kingdom</h3>
                         <p>The London-based practice combines architecture with materials research and educational programmes to engender a transformation in architectural production</p>
                         <p class="story-meta">For <i>The Architectural Review</i> in November 2024</p>
                     </div>
@@ -38,7 +38,7 @@
                         <div class="caption">photograph: Johnny Umans</div>
                     </div>
                     <div class="story-content">
-                        <h3>NWLND, Belgium</h3>
+                        <h3 class="serif-font-scaled">NWLND, Belgium</h3>
                         <p>In a workshop for a secondary school in Ostend, the Belgian duo use simple strategic moves to solve complex spatial problems</p>
                         <p class="story-meta">For <i>The Architectural Review</i> in November 2025</p>
                     </div>
@@ -51,7 +51,7 @@
                         <div class="caption">photograph: Reuben J. Brown</div>
                     </div>
                     <div class="story-content">
-                        <h3>Big Wall</h3>
+                        <h3 class="serif-font-scaled">Big Wall</h3>
                         <p>At Storror's 'Big Wall Open', parkour lands in new, physical, territory</p>
                         <p class="story-meta">For <i>Re—Compose</i> in December 2023</p>
                     </div>
@@ -61,7 +61,7 @@
 
             <!-- Additional Stories List -->
             <div class="more-stories">
-                <h4 class="more-stories-title">More for <i>The Architectural Review</i></h4>
+                <h4 class="more-stories-title serif-font-scaled">More for <i>The Architectural Review</i></h4>
                 <div class="story-links">
                     <a href="#" class="story-link">
                         <span class="link-text">Learning from the 'additive architecture' of Jørn Utzon, a community centre for Syrian refugees in Turkey provides social infrastructure in a fortified shell</span>

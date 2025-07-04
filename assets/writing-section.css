@@ -35,7 +35,6 @@
 }
 
 .featured-story h2 {
-    font-family: var(--serif-font);
     margin-bottom: 1.5rem;
 }
 
@@ -69,7 +68,6 @@
 }
 
 .story-item h3 {
-    font-family: var(--serif-font);
     margin-bottom: 0.8rem;
 }
 
@@ -96,9 +94,6 @@
 }
 
 .more-stories-title {
-    font-family: var(--serif-font);
-    font-size: 1.5rem;
-    font-weight: 400;
     margin-bottom: 1.5rem;
     color: #000;
 }

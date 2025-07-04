@@ -67,6 +67,14 @@ p {
     font-style: italic;
 }
 
+/* Font Size Adjustment for Legitima */
+/* Scale Legitima up by 1.23x to match Innovator Grotesk x-height */
+.serif-font-scaled {
+    font-family: var(--serif-font);
+    font-size: calc(1em * 1.23);
+}
+
+
 /* Mobile Typography Adjustments */
 @media (max-width: 768px) {
     h1 {
