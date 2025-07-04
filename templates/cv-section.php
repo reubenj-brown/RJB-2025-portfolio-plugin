@@ -56,8 +56,6 @@ e<section class="content-section cv-section" id="cv">
                 <h2 class="serif-font-scaled">Skills & Software</h2>
                 <div class="cv-entries">
                     <div class="cv-entry">
-                    <p class="cv-degree">Software</p>
-                        <div class="software-list">
                             <p>Lightroom</p>
                             <p>InDesign</p>
                             <p>Photoshop</p>
@@ -73,7 +71,6 @@ e<section class="content-section cv-section" id="cv">
                             <p>HTML, CSS, JS</p>
                             <br>
                             <p>I hold a full UK driving license</p>
-                        </div>
                     </div>
                 </div>
             </div>
