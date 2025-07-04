@@ -2,7 +2,7 @@
     <div class="section-container">
         <div class="cv-content">
             <div class="cv-column work-column">
-                <h2>Work</h2>
+                <h2 class="serif-font-scaled">Work</h2>
                 <div class="cv-entries">
                     <div class="cv-entry">
                         <p class="cv-role">Digital Editor</p>
@@ -33,7 +33,7 @@
             </div>
 
             <div class="cv-column education-column">
-                <h2>Education</h2>
+                <h2 class="serif-font-scaled">Education</h2>
                 <div class="cv-entries">
                     <div class="cv-entry">
                         <p class="cv-degree">Masters in Journalism and Mass Communication</p>
@@ -53,7 +53,7 @@
             </div>
 
             <div class="cv-column skills-column">
-                <h2>Skills & Software</h2>
+                <h2 class="serif-font-scaled">Skills & Software</h2>
                 
                 <h3>Software</h3>
                 <div class="cv-entries">
