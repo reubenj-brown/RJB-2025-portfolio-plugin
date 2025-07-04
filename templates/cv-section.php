@@ -55,7 +55,7 @@
             <div class="cv-column skills-column">
                 <h2 class="serif-font-scaled">Skills & Software</h2>
                 <div class="cv-entries">
-                    <div class="cv-entry">
+                    <div class="cv-entry" style="color:#808080;">
                             <p>Lightroom</p>
                             <p>InDesign</p>
                             <p>Photoshop</p>
