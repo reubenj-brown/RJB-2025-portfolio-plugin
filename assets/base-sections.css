@@ -1,6 +1,10 @@
 /* Base Portfolio Sections CSS */
 /* Shared styles for all sections */
 
+.ast-scroll-top {
+    display: none !important;
+}
+
 .content-section {
     background: white;
     height: auto;
