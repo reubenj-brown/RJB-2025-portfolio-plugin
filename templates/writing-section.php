@@ -25,7 +25,7 @@
                         <div class="caption">photograph: Luke O'Donovan</div>
                     </div>
                     <div class="story-content">
-                        <h3 class="serif-font-scaled">Material Cultures, United Kingdom</h3>
+                        <h2 class="serif-font-scaled">Material Cultures, United Kingdom</h2>
                         <p>The London-based practice combines architecture with materials research and educational programmes to engender a transformation in architectural production</p>
                         <p class="story-meta">For <i>The Architectural Review</i> in November 2024</p>
                     </div>
@@ -38,7 +38,7 @@
                         <div class="caption">photograph: Johnny Umans</div>
                     </div>
                     <div class="story-content">
-                        <h3 class="serif-font-scaled">NWLND, Belgium</h3>
+                        <h2 class="serif-font-scaled">NWLND, Belgium</h2>
                         <p>In a workshop for a secondary school in Ostend, the Belgian duo use simple strategic moves to solve complex spatial problems</p>
                         <p class="story-meta">For <i>The Architectural Review</i> in November 2025</p>
                     </div>
@@ -51,7 +51,7 @@
                         <div class="caption">photograph: Reuben J. Brown</div>
                     </div>
                     <div class="story-content">
-                        <h3 class="serif-font-scaled">Big Wall</h3>
+                        <h2 class="serif-font-scaled">Big Wall</h2>
                         <p>At Storror's 'Big Wall Open', parkour lands in new, physical, territory</p>
                         <p class="story-meta">For <i>Re—Compose</i> in December 2023</p>
                     </div>
@@ -61,7 +61,7 @@
 
             <!-- Additional Stories List -->
             <div class="more-stories">
-                <h3 class="more-stories-title serif-font-scaled">More for <i>The Architectural Review</i></h3>
+                <h2 class="more-stories-title serif-font-scaled">More for <i>The Architectural Review</i></h2>
                 <div class="story-links">
                     <a href="#" class="story-link">
                         <p class="link-text">Learning from the 'additive architecture' of Jørn Utzon, a community centre for Syrian refugees in Turkey provides social infrastructure in a fortified shell</p>
