@@ -47,7 +47,7 @@
                         <p class="cv-grades">Part I – Class I (72); Part II – Class II:I (68)</p>
                     </div>
                     <div class="cv-entry">
-                        <p class="cv-additional">Before this, head boy at my local state school with spotless grades.</p>
+                        <p class="cv-additional">State schools in Brighton, nerdy grades</p>
                     </div>
                 </div>
             </div>
