@@ -68,9 +68,22 @@ p {
 
 /* Font Size Adjustment for Legitima */
 /* Scale Legitima up by 1.23x to match Innovator Grotesk x-height */
+
+/* h2 serif scaled: 40px * 1.23 = 49.2px */
+h2.serif-font-scaled {
+    font-family: var(--serif-font);
+    font-size: calc(40px * 1.23);
+}
+
+/* h3 serif scaled: 24px * 1.23 = 29.52px */
+h3.serif-font-scaled {
+    font-family: var(--serif-font);
+    font-size: calc(24px * 1.23);
+}
+
+/* Generic serif scaled for other elements */
 .serif-font-scaled {
     font-family: var(--serif-font);
-    font-size: calc(1em * 1.23);
 }
 
 
@@ -87,6 +100,15 @@ p {
     
     h3 {
         font-size: 20px;
+    }
+    
+    /* Mobile serif scaling */
+    h2.serif-font-scaled {
+        font-size: calc(32px * 1.23); /* 32px * 1.23 = 39.36px */
+    }
+    
+    h3.serif-font-scaled {
+        font-size: calc(20px * 1.23); /* 20px * 1.23 = 24.6px */
     }
     
     /* p and .caption stay the same on mobile */
