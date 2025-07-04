@@ -138,6 +138,7 @@
 
 .story-link:hover .link-text {
     color: var(--highlight-color);
+    transition: 0.3s ease;
 }
 
 /* Mobile Responsive */
