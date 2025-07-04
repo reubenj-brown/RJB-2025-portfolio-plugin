@@ -6,11 +6,11 @@
             <article class="featured-story">
                 <div class="story-image">
                     <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft13.webp')); ?>" alt="The Cost of a Miracle" />
-                    <div class="photo-credit">photograph: Reuben J. Brown</div>
+                    <div class="caption">photograph: Reuben J. Brown</div>
                 </div>
                 <div class="story-content">
-                    <h2 class="story-headline">The Cost of a Miracle</h2>
-                    <p class="story-standfirst">In Europe's driest region, a vast plastic sea covers a flourishing agricultural system built on intensity and innovation. But the cracks in Almeria's "miracle" are growing, too</p>
+                    <h2>The Cost of a Miracle</h2>
+                    <h3>In Europe's driest region, a vast plastic sea covers a flourishing agricultural system built on intensity and innovation. But the cracks in Almeria's "miracle" are growing, too</h3>
                     <div class="story-meta">
                         <span class="publication">For <i>Panoramic</i></span>
                         <span class="date">in May 2025</span>
@@ -25,11 +25,11 @@
                 <article class="story-item">
                     <div class="story-image">
                         <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Material-Cultures_Studio-Gil_Wolves-Lane_Image-Luke-ODonovan_In-Use_Small_23.jpg')); ?>" alt="Material Cultures" />
-                        <div class="photo-credit">photograph: Luke O'Donovan</div>
+                        <div class="caption">photograph: Luke O'Donovan</div>
                     </div>
                     <div class="story-content">
-                        <h3 class="story-headline">Material Cultures, United Kingdom</h3>
-                        <p class="story-standfirst">The London-based practice combines architecture with materials research and educational programmes to engender a transformation in architectural production</p>
+                        <h3>Material Cultures, United Kingdom</h3>
+                        <p>The London-based practice combines architecture with materials research and educational programmes to engender a transformation in architectural production</p>
                         <div class="story-meta">
                             <span class="publication">For <i>The Architectural Review</i></span>
                             <span class="date">in November 2024</span>
@@ -41,11 +41,11 @@
                 <article class="story-item">
                     <div class="story-image">
                         <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/NWLND-Rogiers-Vandeputte-Ostend-School-PPW-Atelier-Architecture-Architectural-Review-Reuben-J-Brown.jpg')); ?>" alt="NWLND, Belgium" />
-                        <div class="photo-credit">photograph: Johnny Umans</div>
+                        <div class="caption">photograph: Johnny Umans</div>
                     </div>
                     <div class="story-content">
-                        <h3 class="story-headline">NWLND, Belgium</h3>
-                        <p class="story-standfirst">In a workshop for a secondary school in Ostend, the Belgian duo use simple strategic moves to solve complex spatial problems</p>
+                        <h3>NWLND, Belgium</h3>
+                        <p>In a workshop for a secondary school in Ostend, the Belgian duo use simple strategic moves to solve complex spatial problems</p>
                         <div class="story-meta">
                             <span class="publication">For <i>The Architectural Review</i></span>
                             <span class="date">in November 2025</span>
@@ -57,11 +57,11 @@
                 <article class="story-item">
                     <div class="story-image">
                         <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Storror-Big-Wall-Open-Brighton-2023-Reuben-J-Brown-parkour.avif')); ?>" alt="Big Wall" />
-                        <div class="photo-credit">photograph: Reuben J. Brown</div>
+                        <div class="caption">photograph: Reuben J. Brown</div>
                     </div>
                     <div class="story-content">
-                        <h3 class="story-headline">Big Wall</h3>
-                        <p class="story-standfirst">At Storror's 'Big Wall Open', parkour lands in new, physical, territory</p>
+                        <h3>Big Wall</h3>
+                        <p>At Storror's 'Big Wall Open', parkour lands in new, physical, territory</p>
                         <div class="story-meta">
                             <span class="publication">For <i>Re—Compose</i></span>
                             <span class="date">in December 2023</span>

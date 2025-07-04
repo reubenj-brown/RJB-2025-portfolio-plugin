@@ -4,25 +4,25 @@
             <div class="strategy-grid">
                 <div class="strategy-item">
                     <a href="#" class="strategy-link">
-                        <h2 class="strategy-title">Audience Strategy</h2>
+                        <h1>Audience Strategy</h1>
                     </a>
                 </div>
                 
                 <div class="strategy-item">
                     <a href="#" class="strategy-link">
-                        <h2 class="strategy-title">Artificial Intelligence</h2>
+                        <h1>Artificial Intelligence</h1>
                     </a>
                 </div>
                 
                 <div class="strategy-item">
                     <a href="#" class="strategy-link">
-                        <h2 class="strategy-title">Web Design</h2>
+                        <h1>Web Design</h1>
                     </a>
                 </div>
                 
                 <div class="strategy-item">
                     <a href="#" class="strategy-link">
-                        <h2 class="strategy-title">Leadership</h2>
+                        <h1>Leadership</h1>
                     </a>
                 </div>
             </div>

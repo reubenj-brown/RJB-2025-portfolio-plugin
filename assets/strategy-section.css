@@ -28,16 +28,12 @@
     transform: translateY(-5px);
 }
 
-.strategy-title {
-    font-family: var(--primary-font);
+.strategy-section h1 {
     font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 600;
-    line-height: 1.1;
-    margin: 0;
     transition: all 0.3s ease;
 }
 
-.strategy-link:hover .strategy-title {
+.strategy-link:hover h1 {
     text-shadow: 0 4px 8px rgba(57, 229, 143, 0.2);
 }
 
@@ -52,7 +48,7 @@
         min-height: 150px;
     }
     
-    .strategy-title {
+    .strategy-section h1 {
         font-size: clamp(2rem, 8vw, 3.5rem);
     }
 }
@@ -66,7 +62,7 @@
         min-height: 120px;
     }
     
-    .strategy-title {
+    .strategy-section h1 {
         font-size: clamp(1.8rem, 7vw, 3rem);
     }
 }

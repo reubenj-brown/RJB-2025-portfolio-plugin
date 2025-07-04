@@ -2,30 +2,30 @@
     <div class="section-container">
         <div class="cv-content">
             <div class="cv-column work-column">
-                <h2 class="cv-column-title">Work</h2>
+                <h2>Work</h2>
                 <div class="cv-entries">
                     <div class="cv-entry">
-                        <h3 class="cv-role">Digital Editor</h3>
+                        <p class="cv-role">Digital Editor</p>
                         <p class="cv-company">The Architectural Review</p>
                         <p class="cv-dates">2023–25</p>
                     </div>
                     <div class="cv-entry">
-                        <h3 class="cv-role">Production Assistant</h3>
+                        <p class="cv-role">Production Assistant</p>
                         <p class="cv-company">BBC Maestro</p>
                         <p class="cv-dates">2023</p>
                     </div>
                     <div class="cv-entry">
-                        <h3 class="cv-role">Production Assistant</h3>
+                        <p class="cv-role">Production Assistant</p>
                         <p class="cv-company">The World Around</p>
                         <p class="cv-dates">2022</p>
                     </div>
                     <div class="cv-entry">
-                        <h3 class="cv-role">President</h3>
+                        <p class="cv-role">President</p>
                         <p class="cv-company">ARCSOC</p>
                         <p class="cv-dates">2022–23</p>
                     </div>
                     <div class="cv-entry">
-                        <h3 class="cv-role">Founder and Co-host</h3>
+                        <p class="cv-role">Founder and Co-host</p>
                         <p class="cv-company">Talking Volumes</p>
                         <p class="cv-dates">2020–22</p>
                     </div>
@@ -33,15 +33,15 @@
             </div>
 
             <div class="cv-column education-column">
-                <h2 class="cv-column-title">Education</h2>
+                <h2>Education</h2>
                 <div class="cv-entries">
                     <div class="cv-entry">
-                        <h3 class="cv-degree">Masters in Journalism and Mass Communication</h3>
+                        <p class="cv-degree">Masters in Journalism and Mass Communication</p>
                         <p class="cv-institution">Arizona State University</p>
                         <p class="cv-dates">2025–26</p>
                     </div>
                     <div class="cv-entry">
-                        <h3 class="cv-degree">BA in Architecture</h3>
+                        <p class="cv-degree">BA in Architecture</p>
                         <p class="cv-institution">University of Cambridge</p>
                         <p class="cv-dates">2020–23</p>
                         <p class="cv-grades">Part I – Class I (72); Part II – Class II:I (68)</p>
@@ -53,9 +53,9 @@
             </div>
 
             <div class="cv-column skills-column">
-                <h2 class="cv-column-title">Skills & Software</h2>
+                <h2>Skills & Software</h2>
                 
-                <h3 class="cv-subsection-title">Software</h3>
+                <h3>Software</h3>
                 <div class="cv-entries">
                     <div class="cv-entry">
                         <div class="software-list">

@@ -11,60 +11,39 @@
     width: 100%;
 }
 
-.cv-column-title {
-    font-family: var(--serif-font);
-    font-size: 2.4rem;
-    font-weight: 400;
-    color: #000;
-    margin-bottom: 2rem;
-    line-height: 1.2;
-}
-
-.cv-subsection-title {
-    font-family: var(--primary-font);
-    font-size: 1rem;
-    font-weight: 400;
-    color: #000;
-    margin: 2rem 0 1rem 0;
-}
-
 .cv-entries {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
+.cv-section h2 {
+    margin-bottom: 2rem;
+}
+
+.cv-section h3 {
+    margin: 2rem 0 1rem 0;
+}
+
 .cv-role,
 .cv-degree {
-    font-family: var(--primary-font);
-    font-size: 1rem;
-    font-weight: 400;
     color: #000;
     margin-bottom: 0.2rem;
 }
 
 .cv-company,
 .cv-institution {
-    font-family: var(--primary-font);
-    font-size: 1rem;
-    font-weight: 400;
     color: #808080;
     margin-bottom: 0.2rem;
 }
 
 .cv-additional {
-    font-family: var(--primary-font);
-    font-size: 1rem;
-    font-weight: 400;
     color: #808080;
     margin-bottom: 0.2rem;
 }
 
 .cv-dates,
 .cv-grades {
-    font-family: var(--primary-font);
-    font-size: 1rem;
-    font-weight: 400;
     color: #808080;
     margin-bottom: 0;
 }
@@ -76,9 +55,6 @@
 }
 
 .software-list p {
-    font-family: var(--primary-font);
-    font-size: 1rem;
-    font-weight: 400;
     color: #808080;
     margin: 0;
 }
