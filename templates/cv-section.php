@@ -56,21 +56,21 @@
                 <h2 class="serif-font-scaled">Skills & Software</h2>
                 <div class="cv-entries">
                     <div class="cv-entry" style="color:#808080;">
-                            <p>Lightroom</p>
-                            <p>InDesign</p>
-                            <p>Photoshop</p>
-                            <p>Illustrator</p>
-                            <p>Apple suite</p>
-                            <p>Wordpress</p>
-                            <p>Premiere Pro</p>
-                            <p>Capture One</p>
-                            <p>Final Cut Pro</p>
-                            <p>Logic Pro</p>
-                            <p>Affinity Designer</p>
-                            <p>After Effects</p>
-                            <p>HTML, CSS, JS</p>
+                        <p class="cv-dates">Lightroom</p>
+                        <p class="cv-dates">InDesign</p>
+                        <p class="cv-dates">Photoshop</p>
+                        <p class="cv-dates">Illustrator</p>
+                        <p class="cv-dates">Apple suite</p>
+                        <p class="cv-dates">Wordpress</p>
+                        <p class="cv-dates">Premiere Pro</p>
+                        <p class="cv-dates">Capture One</p>
+                        <p class="cv-dates">Final Cut Pro</p>
+                        <p class="cv-dates">Logic Pro</p>
+                        <p class="cv-dates">Affinity Designer</p>
+                        <p class="cv-dates">After Effects</p>
+                        <p class="cv-dates">HTML, CSS, JS</p>
                             <br>
-                            <p>I hold a full UK driving license</p>
+                        <p class="cv-dates">Full UK driving license</p>
                     </div>
                 </div>
             </div>
