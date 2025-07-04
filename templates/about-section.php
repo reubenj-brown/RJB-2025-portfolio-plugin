@@ -11,7 +11,7 @@
                 president of ARCSOC, the university architecture society, and wrote for 
                 numerous student newspapers and magazines. He was also assistant 
                 producer at New York-based global design platform The World Around.</p>
-                <p class="fun-fact">His first gig, at two months old, was a starring role in the music video 
+                <p>His first gig, at two months old, was a starring role in the music video 
                 for "You Were Right" by Badly Drawn Boy.</p>
             </div>
              <div class="about-image">

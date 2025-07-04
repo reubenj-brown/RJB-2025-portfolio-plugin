@@ -80,8 +80,11 @@
 
 /* Story Meta */
 .story-meta {
-    font-size: 12px;
-    color: #666;
+    color: #808080;
+}
+
+.story-meta i {
+    color: #000;
 }
 
 /* More Stories Section */

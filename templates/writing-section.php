@@ -11,10 +11,7 @@
                 <div class="story-content">
                     <h2>The Cost of a Miracle</h2>
                     <h3>In Europe's driest region, a vast plastic sea covers a flourishing agricultural system built on intensity and innovation. But the cracks in Almeria's "miracle" are growing, too</h3>
-                    <div class="story-meta">
-                        <span class="publication">For <i>Panoramic</i></span>
-                        <span class="date">in May 2025</span>
-                    </div>
+                    <p class="story-meta">For <i>Panoramic</i> in May 2025</p>
                 </div>
             </article>
 
@@ -30,10 +27,7 @@
                     <div class="story-content">
                         <h3>Material Cultures, United Kingdom</h3>
                         <p>The London-based practice combines architecture with materials research and educational programmes to engender a transformation in architectural production</p>
-                        <div class="story-meta">
-                            <span class="publication">For <i>The Architectural Review</i></span>
-                            <span class="date">in November 2024</span>
-                        </div>
+                        <p class="story-meta">For <i>The Architectural Review</i> in November 2024</p>
                     </div>
                 </article>
 
@@ -46,10 +40,7 @@
                     <div class="story-content">
                         <h3>NWLND, Belgium</h3>
                         <p>In a workshop for a secondary school in Ostend, the Belgian duo use simple strategic moves to solve complex spatial problems</p>
-                        <div class="story-meta">
-                            <span class="publication">For <i>The Architectural Review</i></span>
-                            <span class="date">in November 2025</span>
-                        </div>
+                        <p class="story-meta">For <i>The Architectural Review</i> in November 2025</p>
                     </div>
                 </article>
 
@@ -62,10 +53,7 @@
                     <div class="story-content">
                         <h3>Big Wall</h3>
                         <p>At Storror's 'Big Wall Open', parkour lands in new, physical, territory</p>
-                        <div class="story-meta">
-                            <span class="publication">For <i>Re—Compose</i></span>
-                            <span class="date">in December 2023</span>
-                        </div>
+                        <p class="story-meta">For <i>Re—Compose</i> in December 2023</p>
                     </div>
                 </article>
 
