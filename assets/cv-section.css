@@ -39,7 +39,7 @@
     font-family: var(--primary-font);
     font-size: 1rem;
     font-weight: 400;
-    color: #808080;
+    color: #000;
     margin-bottom: 0.2rem;
 }
 
@@ -48,7 +48,7 @@
     font-family: var(--primary-font);
     font-size: 1rem;
     font-weight: 400;
-    color: #000;
+    color: #808080;
     margin-bottom: 0.2rem;
 }
 
