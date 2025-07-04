@@ -106,29 +106,20 @@
 
 .story-link {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
     text-decoration: none;
     padding: 1rem 0;
-    border-bottom: 1px solid #f0f0f0;
     transition: all 0.3s ease;
 }
 
 .story-link .link-text {
-    font-family: var(--primary-font);
-    font-size: 1rem;
-    line-height: 1.4;
     color: #000;
-    flex: 1;
-    margin-right: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .story-link .link-date {
-    font-family: var(--primary-font);
-    font-size: 0.9rem;
-    color: #666;
-    white-space: nowrap;
-    transition: color 0.3s ease;
+    color: #808080;
+    margin: 0;
 }
 
 .story-link:hover .link-text {

@@ -61,19 +61,19 @@
 
             <!-- Additional Stories List -->
             <div class="more-stories">
-                <h4 class="more-stories-title serif-font-scaled">More for <i>The Architectural Review</i></h4>
+                <h3 class="more-stories-title serif-font-scaled">More for <i>The Architectural Review</i></h3>
                 <div class="story-links">
                     <a href="#" class="story-link">
-                        <span class="link-text">Learning from the 'additive architecture' of Jørn Utzon, a community centre for Syrian refugees in Turkey provides social infrastructure in a fortified shell</span>
-                        <span class="link-date">August 2024&nbsp;&nbsp;→</span>
+                        <p class="link-text">Learning from the 'additive architecture' of Jørn Utzon, a community centre for Syrian refugees in Turkey provides social infrastructure in a fortified shell</p>
+                        <p class="link-date">August 2024</p>
                     </a>
                     <a href="#" class="story-link">
-                        <span class="link-text">Indian rising stars A Threshold build a critical bridge from private commissions to public projects</span>
-                        <span class="link-date">November 2025&nbsp;&nbsp;→</span>
+                        <p class="link-text">Indian rising stars A Threshold build a critical bridge from private commissions to public projects</p>
+                        <p class="link-date">November 2025</p>
                     </a>
                     <a href="#" class="story-link">
-                        <span class="link-text">Protest architecture: timber pallets, climbing ropes and a bottle of glitter</span>
-                        <span class="link-date">November 2025&nbsp;&nbsp;→</span>
+                        <p class="link-text">Protest architecture: timber pallets, climbing ropes and a bottle of glitter</p>
+                        <p class="link-date">November 2025</p>
                     </a>
                 </div>
             </div>
