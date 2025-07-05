@@ -1,6 +1,9 @@
 <section class="content-section strategy-section" id="strategy">
     <div class="section-container">
         <div class="strategy-content">
+            <div class="strategy-intro">
+                <p>I'm interested in the intersection of journalism, technology, and audience engagement. Here are some areas where I can help your organisation.</p>
+            </div>
             <div class="strategy-grid">
                 <div class="strategy-item">
                     <a href="#" class="strategy-link">
