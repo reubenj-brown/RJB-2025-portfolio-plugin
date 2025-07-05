@@ -122,11 +122,6 @@
     flex-direction: column;
     text-decoration: none;
     padding: 0 0 1.5rem 0;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.story-link:last-child {
-    border-bottom: none;
 }
 
 .story-link .link-text {
@@ -138,7 +133,7 @@
 .story-link .link-date {
     color: #808080;
     margin: 0;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .story-link:hover .link-text {
