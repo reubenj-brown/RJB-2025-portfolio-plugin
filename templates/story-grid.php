@@ -1,5 +1,5 @@
 <!-- Secondary Stories Grid -->
-<div class="stories-grid">
+<div class="stories-grid" style="padding-top: 2vw;">
     
     <!-- Material Cultures Story -->
     <article class="story-item">
