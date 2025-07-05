@@ -23,6 +23,16 @@
 
 .cv-section p {
     line-height: 1.2;
+    margin: 0 !important;
+}
+
+.cv-entry {
+    margin-bottom: 1.5rem;
+}
+
+.cv-entry p {
+    margin: 0 !important;
+    line-height: 1.2 !important;
 }
 
 .cv-section h3 {
