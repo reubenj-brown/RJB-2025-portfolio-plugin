@@ -70,6 +70,13 @@ class ReubenPortfolioSections {
                 ['reuben-base-sections'],
                 '1.0.0'
             );
+            
+            wp_enqueue_style(
+                'reuben-featured-story-full-bleed',
+                plugin_dir_url(__FILE__) . 'assets/featured-story-full-bleed.css',
+                ['reuben-base-sections'],
+                '1.0.0'
+            );
         }
     }
     
