@@ -9,9 +9,8 @@
     text-align: center;
 }
 
-.strategy-intro p {
-    font-size: 20px;
-    line-height: 1.6;
+.strategy-intro h3 {
+    line-height: 1.3;
     color: #000;
 }
 
