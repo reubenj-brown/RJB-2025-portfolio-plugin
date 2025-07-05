@@ -20,6 +20,14 @@
 
 /* Unified Typography System */
 /* Supermax - Major section titles */
+a {
+    color: #808080;
+}
+
+a:hover {
+    color: #39e58f;
+}
+
 h1 {
     font-family: var(--primary-font);
     font-size: 80px;
@@ -116,42 +124,4 @@ h3.serif-font-scaled {
     }
     
     /* p and .caption stay the same on mobile */
-}
-
-/* Shared Link Styles */
-.contact-links {
-    margin-top: 2rem;
-}
-
-.contact-links a {
-    color: #000;
-    text-decoration: none;
-    font-weight: 400;
-    transition: color 0.3s ease;
-}
-
-.contact-links a:hover {
-    color: var(--highlight-color);
-}
-
-.link-separator {
-    color: #666;
-    margin: 0 0.8rem;
-}
-
-/* Mobile responsive adjustments */
-@media (max-width: 768px) {
-    .contact-links {
-        margin-top: 1.5rem;
-    }
-    
-    .link-separator {
-        margin: 0 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .photo-credit {
-        font-size: 0.8rem;
-    }
 }
