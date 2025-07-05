@@ -22,6 +22,13 @@ class ReubenPortfolioSections {
         add_shortcode('reuben_stories', [$this, 'stories_section']);
         add_shortcode('reuben_strategy', [$this, 'strategy_section']);
         add_shortcode('reuben_cv', [$this, 'cv_section']);
+        
+        // Story component shortcodes
+        add_shortcode('story_list', [$this, 'story_list']);
+        add_shortcode('story_grid', [$this, 'story_grid']);
+        add_shortcode('featured_story_text', [$this, 'featured_story_text']);
+        add_shortcode('featured_story_full_bleed', [$this, 'featured_story_full_bleed']);
+        add_shortcode('vertical_video', [$this, 'vertical_video']);
     }
     
  public function enqueue_styles() {
@@ -87,6 +94,37 @@ class ReubenPortfolioSections {
     public function cv_section($atts) {
         ob_start();
         include plugin_dir_path(__FILE__) . 'templates/cv-section.php';
+        return ob_get_clean();
+    }
+    
+    // Story component shortcode methods
+    public function story_list($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/story-list.php';
+        return ob_get_clean();
+    }
+    
+    public function story_grid($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/story-grid.php';
+        return ob_get_clean();
+    }
+    
+    public function featured_story_text($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/featured-story-text.php';
+        return ob_get_clean();
+    }
+    
+    public function featured_story_full_bleed($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/featured-story-full-bleed.php';
+        return ob_get_clean();
+    }
+    
+    public function vertical_video($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/vertical-video.php';
         return ob_get_clean();
     }
 }
