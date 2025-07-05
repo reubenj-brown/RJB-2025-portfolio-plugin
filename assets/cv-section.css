@@ -17,6 +17,11 @@
     gap: 1.5rem;
 }
 
+.cv-section .cv-entries .cv-entry {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 .cv-section h2 {
     margin-bottom: 2rem;
 }
@@ -26,8 +31,9 @@
     margin: 0 !important;
 }
 
-.cv-entry {
-    margin: 0;
+.cv-section .cv-entry {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .cv-entry p {
