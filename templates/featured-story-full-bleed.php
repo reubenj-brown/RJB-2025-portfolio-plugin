@@ -2,7 +2,7 @@
 <section class="featured-story-full-bleed">
     <div class="full-bleed-background">
         <video autoplay muted loop playsinline>
-            <source src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/cost-of-miracle-background-video.mp4')); ?>" type="video/mp4">
+            <source src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Eviction-of-Cortijo-El-Uno-Almeria-Spain-Greenhouse-Farms-Invernadero-Reuben-J-Brown.mp4')); ?>" type="video/mp4">
             <!-- Fallback image if video doesn't load -->
             <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft13.webp')); ?>" alt="The Cost of a Miracle" />
         </video>
