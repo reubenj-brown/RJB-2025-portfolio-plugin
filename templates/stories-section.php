@@ -1,6 +1,6 @@
-<section class="content-section writing-section" id="writing">
+<section class="content-section stories-section" id="stories">
     <div class="section-container">
-        <div class="writing-content">
+        <div class="stories-content">
             
             <!-- Featured Story -->
             <article class="featured-story">

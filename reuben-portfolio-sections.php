@@ -19,8 +19,7 @@ class ReubenPortfolioSections {
     
     public function register_shortcodes() {
         add_shortcode('reuben_about', [$this, 'about_section']);
-        add_shortcode('reuben_writing', [$this, 'writing_section']);
-        add_shortcode('reuben_photography', [$this, 'photography_section']);
+        add_shortcode('reuben_stories', [$this, 'stories_section']);
         add_shortcode('reuben_strategy', [$this, 'strategy_section']);
         add_shortcode('reuben_cv', [$this, 'cv_section']);
     }
@@ -45,15 +44,8 @@ class ReubenPortfolioSections {
             );
             
             wp_enqueue_style(
-                'reuben-writing-section',
-                plugin_dir_url(__FILE__) . 'assets/writing-section.css',
-                ['reuben-base-sections'],
-                '1.0.0'
-            );
-            
-            wp_enqueue_style(
-                'reuben-photography-section',
-                plugin_dir_url(__FILE__) . 'assets/photography-section.css',
+                'reuben-stories-section',
+                plugin_dir_url(__FILE__) . 'assets/stories-section.css',
                 ['reuben-base-sections'],
                 '1.0.0'
             );
@@ -80,15 +72,9 @@ class ReubenPortfolioSections {
         return ob_get_clean();
     }
     
-    public function writing_section($atts) {
+    public function stories_section($atts) {
         ob_start();
-        include plugin_dir_path(__FILE__) . 'templates/writing-section.php';
-        return ob_get_clean();
-    }
-    
-    public function photography_section($atts) {
-        ob_start();
-        include plugin_dir_path(__FILE__) . 'templates/photography-section.php';
+        include plugin_dir_path(__FILE__) . 'templates/stories-section.php';
         return ob_get_clean();
     }
     
