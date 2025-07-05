@@ -32,24 +32,24 @@
 .cv-role,
 .cv-degree {
     color: #000;
-    margin-bottom: 0.2rem;
+    margin: 0;
 }
 
 .cv-company,
 .cv-institution {
     color: #808080;
-    margin-bottom: 0.2rem;
+    margin: 0;
 }
 
 .cv-additional {
     color: #808080;
-    margin-bottom: 0.2rem;
+    margin: 0;
 }
 
 .cv-dates,
 .cv-grades {
     color: #808080;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .software-list {
