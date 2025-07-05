@@ -131,8 +131,8 @@
 
 .story-link .link-text {
     color: #000;
-    line-height: 1.4;
-    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    font-weight: 600;
 }
 
 .story-link .link-date {
