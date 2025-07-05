@@ -39,7 +39,7 @@
     right: 0;
     z-index: 2;
     padding: 4rem;
-    padding-bottom: calc(4rem + 2vw);
+    padding-bottom: calc(4rem + 8vw);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -48,7 +48,7 @@
 .story-text {
     max-width: 600px;
     position: sticky;
-    bottom: 2vw;
+    bottom: 8vw;
 }
 
 .story-text h2 {
@@ -75,11 +75,41 @@
     color: white;
 }
 
+/* Header overlay styles for full-bleed section */
+.site-header.over-full-bleed {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border-bottom: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.site-header.over-full-bleed .site-title {
+    color: white !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.3s ease !important;
+}
+
+.site-header.over-full-bleed .site-title .subtitle {
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.site-header.over-full-bleed .main-nav a {
+    color: white !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.3s ease !important;
+}
+
+.site-header.over-full-bleed .main-nav a:hover,
+.site-header.over-full-bleed .main-nav a.active {
+    color: #39e58f !important;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .full-bleed-content {
         padding: 2rem;
-        padding-bottom: calc(2rem + 2vw);
+        padding-bottom: calc(2rem + 8vw);
     }
     
     .story-text {
@@ -98,7 +128,7 @@
 @media (max-width: 480px) {
     .full-bleed-content {
         padding: 1.5rem;
-        padding-bottom: calc(1.5rem + 2vw);
+        padding-bottom: calc(1.5rem + 8vw);
     }
     
     .story-text h2 {
