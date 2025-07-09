@@ -8,10 +8,6 @@
                 <p>Before this, I was Digital Editor at <i>The Architectural Review</i>, where I wrote on architecture and politics and worked on cross-platform audience strategy. I graduated from the University of Cambridge, where I was president of (likely) the world’s only student architecture society to self-fund, self-design and self-deliver its university’s annual exhibition: displaying 250 students’ work in central London. I was also Production Assistant at The World Around, a New York-based global design platform, where I helped to launch the Young Climate Prize, and worked on TV shoots for BBC Maestro.</p>
                 <p>My first gig – at two months old – was a starring role in the music video for "You Were Right" by Badly Drawn Boy.</p>
             </div>
-             <div class="about-image">
-                <img src="<?php echo esc_url(home_url('wp-content/uploads/2025/06/Reuben-J.-Brown-journalist-headshot-monochrome-copy.webp')); ?>" alt="Reuben J. Brown" />
-                <div class="caption">photograph: Reuben J. Brown</div>
-            </div>
         </div>
     </div>
 </section>
