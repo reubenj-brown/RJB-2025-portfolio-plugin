@@ -13,11 +13,5 @@
             <h3>In Europe's driest region, a vast plastic sea covers a flourishing agricultural system built on intensity and innovation. But the cracks in Almeria's "miracle" are growing, too</h3>
             <p class="story-meta">For <i>Panoramic</i> in May 2025</p>
         </div>
-        <div class="full-bleed-footer">
-            <div class="footer-logo">
-                <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/Reuben-J-Brown-logo-favicon-white.png')); ?>" alt="RJB Logo" />
-            </div>
-            <div class="copyright">© Reuben J. Brown 2025</div>
-        </div>
     </div>
 </section>
