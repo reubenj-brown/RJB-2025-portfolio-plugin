@@ -34,21 +34,22 @@
 
 .full-bleed-content {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     z-index: 2;
-    padding: 4rem;
-    padding-bottom: calc(4rem + 8vw);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: center;
+    padding: 4rem;
+    padding-bottom: 4vw;
 }
 
 .story-text {
-    max-width: 600px;
-    position: sticky;
-    bottom: 8vw;
+    max-width: 800px;
+    text-align: center;
 }
 
 .story-text h2 {
@@ -105,11 +106,12 @@
     color: #39e58f !important;
 }
 
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .full-bleed-content {
         padding: 2rem;
-        padding-bottom: calc(2rem + 8vw);
+        padding-bottom: 4vw;
     }
     
     .story-text {
@@ -128,7 +130,7 @@
 @media (max-width: 480px) {
     .full-bleed-content {
         padding: 1.5rem;
-        padding-bottom: calc(1.5rem + 8vw);
+        padding-bottom: 4vw;
     }
     
     .story-text h2 {
