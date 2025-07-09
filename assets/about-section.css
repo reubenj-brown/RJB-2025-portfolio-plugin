@@ -37,11 +37,6 @@
     margin-bottom: 0;
 }
 
-.fun-fact {
-    font-style: italic;
-    color: #808080;
-}
-
 /* Mobile Responsive */
 @media (max-width: 768px) {
     
