@@ -4,7 +4,7 @@
     <!-- Top Row -->
     <article class="story-item-2x2">
         <div class="story-image">
-            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Cost-of-Miracle-Panoramic-Almeria-Reuben-J-Brown-2024.jpg')); ?>" alt="Flak Towers" />
+            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Reuben_J_Brown_Flak_Towers_Vienna_Augarten-29.jpg')); ?>" alt="Flak Towers" />
             <div class="caption">Reuben J. Brown</div>
         </div>
         <div class="story-content">
@@ -14,7 +14,7 @@
 
     <article class="story-item-2x2">
         <div class="story-image">
-            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Storror-Big-Wall-Open-Brighton-2023-Reuben-J-Brown-parkour.avif')); ?>" alt="The Death of the Queen" />
+            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft5.webp')); ?>" alt="The Death of the Queen" />
             <div class="caption">Reuben J. Brown</div>
         </div>
         <div class="story-content">
@@ -25,8 +25,8 @@
     <!-- Bottom Row -->
     <article class="story-item-2x2">
         <div class="story-image">
-            <img src="https://emap-romulus-prod.s3.eu-west-1.amazonaws.com/wp-content/uploads/sites/12/2024/06/Protest-Architecture-Exhibition-MAK-Vienna-Architectural-Review-Hambi-1.jpg" alt="Acquedotto Nottolini">
-            <div class="caption">Tim Wagner / MAK</div>
+            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Acquedotto-Nottolini-Reuben-J-Brown-26.jpg')); ?>" alt="Acquedotto Nottolini">
+            <div class="caption">Reuben J. Brown</div>
         </div>
         <div class="story-content">
             <h2 class="serif-font-scaled">Acquedotto Nottolini</h2>
@@ -35,8 +35,8 @@
 
     <article class="story-item-2x2">
         <div class="story-image">
-            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Material-Cultures_Studio-Gil_Wolves-Lane_Image-Luke-ODonovan_In-Use_Small_23-e1752333652749.jpg')); ?>" alt="Riots and Resistance in Walthamstow" />
-            <div class="caption">Luke O'Donovan</div>
+            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Walthamstow-anti-racist-rally-march-august-7-2024-Reuben-J-Brown-photojournalism-11-e1729971732596-2048x1365-1.webp')); ?>" alt="Riots and Resistance in Walthamstow" />
+            <div class="caption">Reuben J. Brown</div>
         </div>
         <div class="story-content">
             <h2 class="serif-font-scaled">Riots and Resistance in Walthamstow</h2>
