@@ -26,6 +26,7 @@ class ReubenPortfolioSections {
         // Story component shortcodes
         add_shortcode('story_list', [$this, 'story_list']);
         add_shortcode('story_grid', [$this, 'story_grid']);
+        add_shortcode('story_grid_2x2', [$this, 'story_grid_2x2']);
         add_shortcode('featured_story_text', [$this, 'featured_story_text']);
         add_shortcode('featured_story_full_bleed', [$this, 'featured_story_full_bleed']);
         add_shortcode('vertical_video', [$this, 'vertical_video']);
@@ -114,6 +115,12 @@ class ReubenPortfolioSections {
     public function story_grid($atts) {
         ob_start();
         include plugin_dir_path(__FILE__) . 'templates/story-grid.php';
+        return ob_get_clean();
+    }
+    
+    public function story_grid_2x2($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/story-grid-2x2.php';
         return ob_get_clean();
     }
     
