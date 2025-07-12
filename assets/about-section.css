@@ -5,7 +5,7 @@
 }
 
 .about-content {
-    max-width: 900px;
+    max-width: 768px;
     margin: 0 auto;
 }
 
@@ -35,11 +35,6 @@
 
 .about-text p:last-child {
     margin-bottom: 0;
-}
-
-.fun-fact {
-    font-style: italic;
-    color: #808080;
 }
 
 /* Mobile Responsive */
