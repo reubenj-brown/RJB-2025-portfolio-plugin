@@ -20,8 +20,8 @@
 /* Mobile: extend gradient to screen edges */
 @media (max-width: 768px) {
     .content-section.about-section::before {
-        left: 0;
-        right: 0;
+        left: -4vw;
+        right: -4vw;
     }
 }
 
