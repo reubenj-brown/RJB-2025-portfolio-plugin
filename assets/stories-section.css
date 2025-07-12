@@ -75,22 +75,22 @@
     content: '';
     position: absolute;
     top: 0;
-    right: calc(-4rem / 2);
+    right: -2rem;
     width: 1px;
     height: 100%;
     background-color: #e0e0e0;
-    z-index: 1;
+    z-index: 10;
 }
 
 .stories-grid-2x2 .story-item-2x2:nth-child(3)::after {
     content: '';
     position: absolute;
     top: 0;
-    right: calc(-4rem / 2);
+    right: -2rem;
     width: 1px;
     height: 100%;
     background-color: #e0e0e0;
-    z-index: 1;
+    z-index: 10;
 }
 
 .story-item {
