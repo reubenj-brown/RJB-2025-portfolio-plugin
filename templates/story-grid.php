@@ -5,7 +5,7 @@
     <article class="story-item">
         <div class="story-image">
             <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Material-Cultures_Studio-Gil_Wolves-Lane_Image-Luke-ODonovan_In-Use_Small_23-e1752333652749.jpg')); ?>" alt="Material Cultures" />
-            <div class="caption">photograph: Luke O'Donovan</div>
+            <div class="caption">Luke O'Donovan</div>
         </div>
         <div class="story-content">
             <h2 class="serif-font-scaled">Material Cultures, United Kingdom</h2>
@@ -17,8 +17,8 @@
     <!-- NWLND Story -->
     <article class="story-item">
         <div class="story-image">
-            <img src="https://emap-romulus-prod.s3.eu-west-1.amazonaws.com/wp-content/uploads/sites/12/2024/06/Protest-Architecture-Exhibition-MAK-Vienna-Architectural-Review-Hambi-1.jpg">" alt="Hambach Forest protest architecture, Germany" />
-            <div class="caption">photograph: Tim Wagner / MAK</div>
+            <img src="https://emap-romulus-prod.s3.eu-west-1.amazonaws.com/wp-content/uploads/sites/12/2024/06/Protest-Architecture-Exhibition-MAK-Vienna-Architectural-Review-Hambi-1.jpg" alt="Hambach Forest protest architecture, Germany">
+            <div class="caption">Tim Wagner / MAK</div>
         </div>
         <div class="story-content">
             <h2 class="serif-font-scaled">Protest architecture: timber pallets, climbing ropes and a bottle of glitter</h2>
@@ -31,7 +31,7 @@
     <article class="story-item">
         <div class="story-image">
             <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Storror-Big-Wall-Open-Brighton-2023-Reuben-J-Brown-parkour.avif')); ?>" alt="Big Wall" />
-            <div class="caption">photograph: Reuben J. Brown</div>
+            <div class="caption">Reuben J. Brown</div>
         </div>
         <div class="story-content">
             <h2 class="serif-font-scaled">Big Wall</h2>
