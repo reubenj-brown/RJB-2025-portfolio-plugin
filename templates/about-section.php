@@ -1,9 +1,6 @@
 <section class="content-section about-section" id="about">
     <div class="section-container">
         <div class="about-content">
-            <div class="about-image">
-                <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft5.webp')); ?>" alt="Reuben J. Brown" />
-            </div>
             <div class="about-intro">
                 <p class="large-intro-text">Reuben is a writer, maker, and photographer interested in design, culture, and the spatial impacts of the climate crisis. He is based in East London.</p>
             </div>
