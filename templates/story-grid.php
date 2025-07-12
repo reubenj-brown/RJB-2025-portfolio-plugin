@@ -23,7 +23,7 @@
         <div class="story-content">
             <h2 class="serif-font-scaled">Protest architecture</h2>
             <p>A new book and exhibition highlight the aesthetic triumph and practicel nous of ‘protest architecture’, but its actual political record deserves further scrutiny</p>
-            <p class="story-meta">For <i>The Architectural Review</i> in November 2024</p>
+            <p class="story-meta">For <i>The Architectural Review</i> in May 2024</p>
         </div>
     </article>
 
