@@ -17,7 +17,7 @@
 .section-container {
     max-width: 100%;
     width: 100%;
-    border-bottom: 1px solid #808080;
+    border-bottom: 1px solid #808080 !important;
 }
 
 /* Unified Typography System */
