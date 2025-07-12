@@ -68,7 +68,6 @@
 .story-item .story-image {
     position: relative;
     margin-bottom: 1rem;
-    aspect-ratio: 3 / 4;
 }
 
 .story-item .story-image img {
