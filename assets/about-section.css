@@ -1,8 +1,8 @@
 /* About Section Styles */
 
-.about-section {
+.content-section.about-section {
     min-height: 100vh;
-    background: linear-gradient(to bottom, var(--highlight-color), white);
+    background: linear-gradient(to bottom, #39e58f, white) !important;
 }
 
 .about-content {
