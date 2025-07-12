@@ -100,7 +100,9 @@
 
 .story-item-2x2 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
     position: relative;
 }
 
@@ -117,11 +119,19 @@
     display: block;
 }
 
-/* Force 4:3 aspect ratio for 2x2 grid images */
+/* Text and image layout for 2x2 grid */
+.story-item-2x2 .story-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: 0;
+}
+
 .story-item-2x2 .story-image {
-    width: 100%;
+    flex: 1;
     aspect-ratio: 4/3;
     overflow: hidden;
+    margin-bottom: 0;
 }
 
 .story-item-2x2 .story-image img {
@@ -243,6 +253,16 @@
         margin-bottom: 3rem;
     }
     
+    /* Stack text and image vertically on mobile */
+    .story-item-2x2 {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .story-item-2x2 .story-image {
+        margin-bottom: 8px;
+    }
+    
     /* Hide divider lines on mobile */
     .stories-grid-2x2 .story-item-2x2:nth-child(1)::after,
     .stories-grid-2x2 .story-item-2x2:nth-child(3)::after {
@@ -275,6 +295,12 @@
     .stories-grid-2x2 {
         gap: 1.5rem;
         margin-bottom: 2rem;
+    }
+    
+    /* Maintain vertical stacking on small mobile */
+    .story-item-2x2 {
+        flex-direction: column;
+        gap: 8px;
     }
     
     /* Ensure divider lines are hidden on small mobile too */
