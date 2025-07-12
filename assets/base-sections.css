@@ -124,5 +124,7 @@ h3.serif-font-scaled {
         font-size: calc(20px * 1.23); /* 20px * 1.23 = 24.6px */
     }
     
-    /* p and .caption stay the same on mobile */
+    p {
+        font-size: 17px;
+    }
 }
