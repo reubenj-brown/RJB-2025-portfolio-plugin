@@ -70,27 +70,25 @@
     position: relative;
 }
 
-/* 2x2 Grid Divider Lines */
-.stories-grid-2x2::before {
+/* 2x2 Grid Divider Lines - Separate columns within each row */
+.stories-grid-2x2 .story-item-2x2:nth-child(1)::after {
     content: '';
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    right: -2rem;
     width: 1px;
     height: 100%;
     background-color: #e0e0e0;
     z-index: 1;
 }
 
-.stories-grid-2x2::after {
+.stories-grid-2x2 .story-item-2x2:nth-child(3)::after {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 100%;
-    height: 1px;
+    top: 0;
+    right: -2rem;
+    width: 1px;
+    height: 100%;
     background-color: #e0e0e0;
     z-index: 1;
 }
@@ -103,6 +101,7 @@
 .story-item-2x2 {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .story-item .story-image,
@@ -231,8 +230,8 @@
     }
     
     /* Hide divider lines on mobile */
-    .stories-grid-2x2::before,
-    .stories-grid-2x2::after {
+    .stories-grid-2x2 .story-item-2x2:nth-child(1)::after,
+    .stories-grid-2x2 .story-item-2x2:nth-child(3)::after {
         display: none;
     }
     
@@ -265,8 +264,8 @@
     }
     
     /* Ensure divider lines are hidden on small mobile too */
-    .stories-grid-2x2::before,
-    .stories-grid-2x2::after {
+    .stories-grid-2x2 .story-item-2x2:nth-child(1)::after,
+    .stories-grid-2x2 .story-item-2x2:nth-child(3)::after {
         display: none;
     }
     
