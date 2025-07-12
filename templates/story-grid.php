@@ -17,8 +17,8 @@
     <!-- NWLND Story -->
     <article class="story-item">
         <div class="story-image">
-            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/NWLND-Rogiers-Vandeputte-Ostend-School-PPW-Atelier-Architecture-Architectural-Review-Reuben-J-Brown.jpg')); ?>" alt="NWLND, Belgium" />
-            <div class="caption">photograph: Johnny Umans</div>
+            <img src="<?php echo esc_url(home_url('https://cdn.ca.emap.com/wp-content/uploads/sites/12/2024/06/Protest-Architecture-Exhibition-MAK-Vienna-Architectural-Review-Hambi-1.jpg')); ?>" alt="NWLND, Belgium" />
+            <div class="caption">photograph: Tim Wagner / MAK</div>
         </div>
         <div class="story-content">
             <h2 class="serif-font-scaled">Protest architecture: timber pallets, climbing ropes and a bottle of glitter</h2>
