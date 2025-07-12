@@ -2,7 +2,7 @@
     <div class="section-container">
         <div class="about-content">
             <div class="about-intro">
-                <p class="large-intro-text">I‘m Reuben, a multimedia journalist with a background in design. I'm interested in very big problems and the human lives within them.</p>
+                <p class="large-intro-text">I’m Reuben, a multimedia journalist with a background in design. I’m interested in very big problems and the human lives within them.</p>
             </div>
             <div class="about-text">
                 <p>This year, I’m pursuing these stories as a <a href="https://cronkite.asu.edu/specializations/business-journalism-fellowship-graduate-fellowship/">Steele Fellow in Investigative Business Journalism</a> at the Walter Cronkite School of Journalism, Arizona State University.</p>
