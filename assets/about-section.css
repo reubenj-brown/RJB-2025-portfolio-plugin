@@ -17,6 +17,14 @@
     z-index: -1;
 }
 
+/* Mobile: extend gradient to screen edges */
+@media (max-width: 768px) {
+    .content-section.about-section::before {
+        left: -100vw;
+        right: -100vw;
+    }
+}
+
 .about-content {
     width: 100%;
     max-width: none;
@@ -32,9 +40,10 @@
 }
 
 .large-intro-text {
-    font-size: 32px !important;
-    line-height: 1.3 !important;
-    font-weight: 600 !important;
+    font-family: var(--serif-font) !important;
+    font-size: 80px !important;
+    line-height: 1.2 !important;
+    font-weight: 400 !important;
     color: #000 !important;
     max-width: 800px;
     margin: 0 auto;
@@ -68,8 +77,8 @@
     }
     
     .large-intro-text {
-        font-size: 48px !important;
-        line-height: 1.2 !important;
+        font-size: 80px !important;
+        line-height: 1.1 !important;
         text-align: left;
         margin: 0;
         max-width: none;
@@ -83,56 +92,34 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    
     .about-content {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
+        padding: 3rem 0;
     }
     
-    .about-text {
-        padding-right: 0;
-        order: 2;
-    }
-
-    .about-image {
-        order: 1;
+    .about-intro {
+        margin-bottom: 3rem;
     }
     
-    .about-nav {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-    }
-    
-    .nav-separator {
-        margin: 0 0.5rem;
-    }
-    
-    .large-text {
-        font-size: 1.2rem;
-    }
-    
-    .bio-text {
-        margin-bottom: 0;
+    .large-intro-text {
+        font-size: 60px !important;
+        line-height: 1.1 !important;
+        text-align: left !important;
+        margin: 0;
+        max-width: none;
     }
 }
 
 @media (max-width: 480px) {
-    
     .about-content {
-        gap: 2rem;
+        padding: 2rem 0;
     }
     
-    .about-nav {
-        margin-bottom: 1.5rem;
+    .about-intro {
+        margin-bottom: 2rem;
     }
     
-    .large-text {
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .bio-text p {
-        font-size: 0.95rem;
-        margin-bottom: 1.2rem;
+    .large-intro-text {
+        font-size: 48px !important;
+        line-height: 1.1 !important;
     }
 }
