@@ -90,8 +90,8 @@
     }
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
+/* Mobile and Tablet Responsive */
+@media (max-width: 1023px) {
     .about-content {
         padding: 3rem 0;
     }
@@ -107,6 +107,17 @@
         margin: 0;
         max-width: none;
     }
+    
+    .about-text {
+        max-width: none;
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .large-intro-text {
+        font-size: 55px !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -119,7 +130,7 @@
     }
     
     .large-intro-text {
-        font-size: 48px !important;
+        font-size: 45px !important;
         line-height: 1.1 !important;
     }
 }
