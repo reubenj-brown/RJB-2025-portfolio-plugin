@@ -4,7 +4,7 @@
     <!-- Material Cultures Story -->
     <article class="story-item">
         <div class="story-image">
-            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Material-Cultures_Studio-Gil_Wolves-Lane_Image-Luke-ODonovan_In-Use_Small_23.jpg')); ?>" alt="Material Cultures" />
+            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Material-Cultures_Studio-Gil_Wolves-Lane_Image-Luke-ODonovan_In-Use_Small_23-e1752333652749.jpg')); ?>" alt="Material Cultures" />
             <div class="caption">photograph: Luke O'Donovan</div>
         </div>
         <div class="story-content">
