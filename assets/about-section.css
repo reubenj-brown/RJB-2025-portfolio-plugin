@@ -2,7 +2,19 @@
 
 .content-section.about-section {
     min-height: 100vh;
-    background: linear-gradient(to bottom, #39e58f, white) !important;
+    position: relative;
+    background: transparent !important;
+}
+
+.content-section.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2vw;
+    right: -2vw;
+    bottom: 0;
+    background: linear-gradient(to bottom, #39e58f, white);
+    z-index: -1;
 }
 
 .about-content {
