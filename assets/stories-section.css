@@ -67,6 +67,32 @@
     grid-template-rows: 1fr 1fr;
     gap: 4rem;
     margin-bottom: 5rem;
+    position: relative;
+}
+
+/* 2x2 Grid Divider Lines */
+.stories-grid-2x2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background-color: #e0e0e0;
+    z-index: 1;
+}
+
+.stories-grid-2x2::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 1px;
+    background-color: #e0e0e0;
+    z-index: 1;
 }
 
 .story-item {
@@ -82,7 +108,7 @@
 .story-item .story-image,
 .story-item-2x2 .story-image {
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 8px;
 }
 
 .story-item .story-image img,
@@ -204,6 +230,12 @@
         margin-bottom: 3rem;
     }
     
+    /* Hide divider lines on mobile */
+    .stories-grid-2x2::before,
+    .stories-grid-2x2::after {
+        display: none;
+    }
+    
     
     .more-stories {
         padding-top: 2rem;
@@ -230,6 +262,12 @@
     .stories-grid-2x2 {
         gap: 1.5rem;
         margin-bottom: 2rem;
+    }
+    
+    /* Ensure divider lines are hidden on small mobile too */
+    .stories-grid-2x2::before,
+    .stories-grid-2x2::after {
+        display: none;
     }
     
     
