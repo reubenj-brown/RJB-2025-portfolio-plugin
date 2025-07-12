@@ -2,6 +2,7 @@
 
 .about-section {
     min-height: 100vh;
+    background: linear-gradient(to bottom, var(--highlight-color), white);
 }
 
 .about-content {
