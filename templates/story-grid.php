@@ -17,7 +17,7 @@
     <!-- NWLND Story -->
     <article class="story-item">
         <div class="story-image">
-            <img src="<?php echo esc_url(home_url('https://cdn.ca.emap.com/wp-content/uploads/sites/12/2024/06/Protest-Architecture-Exhibition-MAK-Vienna-Architectural-Review-Hambi-1.jpg')); ?>" alt="NWLND, Belgium" />
+            <img src="https://emap-romulus-prod.s3.eu-west-1.amazonaws.com/wp-content/uploads/sites/12/2024/06/Protest-Architecture-Exhibition-MAK-Vienna-Architectural-Review-Hambi-1.jpg">" alt="Hambach Forest protest architecture, Germany" />
             <div class="caption">photograph: Tim Wagner / MAK</div>
         </div>
         <div class="story-content">
