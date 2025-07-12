@@ -121,14 +121,14 @@
 
 /* Text and image layout for 2x2 grid */
 .story-item-2x2 .story-content {
-    flex: 1;
+    flex: 0 0 40%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
 .story-item-2x2 .story-image {
-    flex: 1;
+    flex: 0 0 60%;
     aspect-ratio: 4/3;
     overflow: hidden;
     margin-bottom: 0;
