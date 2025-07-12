@@ -1,7 +1,7 @@
 /* About Section Styles */
 
 .about-section {
-    height: auto;
+    min-height: 100vh;
 }
 
 .about-content {
