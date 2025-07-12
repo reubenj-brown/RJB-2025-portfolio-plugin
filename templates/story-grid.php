@@ -8,7 +8,7 @@
             <div class="caption">Luke O'Donovan</div>
         </div>
         <div class="story-content">
-            <h2 class="serif-font-scaled">Material Cultures, United Kingdom</h2>
+            <h2 class="serif-font-scaled">Material Cultures</h2>
             <p>The London-based practice combines architecture with materials research and educational programmes to engender a transformation in architectural production</p>
             <p class="story-meta">For <i>The Architectural Review</i> in November 2024</p>
         </div>
