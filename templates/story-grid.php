@@ -21,9 +21,9 @@
             <div class="caption">photograph: Johnny Umans</div>
         </div>
         <div class="story-content">
-            <h2 class="serif-font-scaled">NWLND, Belgium</h2>
-            <p>In a workshop for a secondary school in Ostend, the Belgian duo use simple strategic moves to solve complex spatial problems</p>
-            <p class="story-meta">For <i>The Architectural Review</i> in November 2025</p>
+            <h2 class="serif-font-scaled">Protest architecture: timber pallets, climbing ropes and a bottle of glitter</h2>
+            <p>A new book and exhibition highlight the aesthetic triumph and practicel nous of ‘protest architecture’, but its actual political record deserves further scrutiny</p>
+            <p class="story-meta">For <i>The Architectural Review</i> in November 2024</p>
         </div>
     </article>
 
@@ -36,7 +36,7 @@
         <div class="story-content">
             <h2 class="serif-font-scaled">Big Wall</h2>
             <p>At Storror's 'Big Wall Open', parkour lands in new, physical, territory</p>
-            <p class="story-meta">For <i>ReCompose</i> in December 2023</p>
+            <p class="story-meta">For <i>Re—Compose</i> in December 2023</p>
         </div>
     </article>
 
