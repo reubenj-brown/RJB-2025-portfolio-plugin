@@ -2,7 +2,7 @@
     <div class="section-container">
         <div class="about-content">
             <div class="about-intro">
-                <p class="large-intro-text">Reuben is a writer, maker, and photographer interested in design, culture, and the spatial impacts of the climate crisis. He is based in East London.</p>
+                <p class="large-intro-text">I'm Reuben, a multimedia journalist with a background in design. I'm interested in very big problems and the human lives within them.</p>
             </div>
             <div class="about-text">
                 <p>Reuben is digital editor at The Architectural Review, where he writes on architecture and politics. He also works on cross-platform audience strategy and editorial operations. This year, he'll be pursuing investigative stories as a <a href="https://cronkite.asu.edu/specializations/business-journalism-fellowship-graduate-fellowship/">Steele Fellow in Investigative Business Journalism</a> at the Walter Cronkite School of Journalism, Arizona State University.</p>
