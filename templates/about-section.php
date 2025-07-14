@@ -2,7 +2,7 @@
     <div class="section-container">
         <div class="about-content">
             <div class="about-intro">
-                <p class="large-intro-text">I’m Reuben, a multimedia journalist with a background in design. I’m interested in very big problems and the human lives within them.</p>
+                <p class="large-intro-text">I’m Reuben, a multimedia journalist with a background in design. I’m interested in very big systems, the people shaping them, and the stories of the people they shape.</p>
             </div>
             <div class="about-text">
                 <p>Think the migrant workers propping up continental food systems; the complex personal costs of the huge projects we need to combat the climate crisis; the local planning board decisions that gum up national housing targets; the individual innovators pushing change in big businesses and organisations.</p>
