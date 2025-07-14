@@ -41,7 +41,7 @@
 
 .large-intro-text {
     font-family: var(--serif-font) !important;
-    font-size: 80px !important;
+    font-size: 3.8vw !important;
     line-height: 1.2 !important;
     font-weight: 400 !important;
     color: #000 !important;
@@ -77,8 +77,8 @@
     }
     
     .large-intro-text {
-        font-size: 80px !important;
-        line-height: 1.1 !important;
+        font-size: 3.8vw !important;
+        line-height: 1.2 !important;
         text-align: left;
         margin: 0;
         max-width: none;
@@ -102,7 +102,7 @@
     
     .large-intro-text {
         font-size: 60px !important;
-        line-height: 1.1 !important;
+        line-height: 1.2 !important;
         text-align: left !important;
         margin: 0;
         max-width: none;
@@ -131,6 +131,6 @@
     
     .large-intro-text {
         font-size: 45px !important;
-        line-height: 1.1 !important;
+        line-height: 1.2 !important;
     }
 }
