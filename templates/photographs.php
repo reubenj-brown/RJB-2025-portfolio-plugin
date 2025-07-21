@@ -48,7 +48,7 @@
                     <a href="#" class="photo-link">
                         <div class="photo-carousel">
                             <div class="photo-slide active">
-                                <img src="placeholder-walthamstow-1.jpg" alt="Walthamstow" />
+                                <img src="/wp-content/uploads/2025/07/Walthamstow-anti-racist-rally-march-august-7-2024-Reuben-J-Brown-photojournalism-11-e1729971732596-2048x1365-1.webp" alt="Walthamstow anti-racist protest august 2024" />
                             </div>
                             <div class="photo-slide">
                                 <img src="placeholder-walthamstow-2.jpg" alt="Walthamstow" />
