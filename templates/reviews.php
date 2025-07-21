@@ -12,7 +12,7 @@
                 <div class="caption">Photograph: Tim Wagner / MAK</div>
             </div>
             <div class="story-content">
-                <h2 class="serif-font-scaled">A book and exhibition highlight the aesthetic triumph of 'Protest Architecture' – but its political record needs examining, too</h2>
+                <h2 class="serif-font-scaled">A book and exhibition highlight the aesthetic triumph of ‘Protest Architecture’ – but its political record needs examining, too</h2>
                 <p></p>
                 <p class="story-meta">For <i>The Architectural Review</i> in June 2024</p>
             </div>
