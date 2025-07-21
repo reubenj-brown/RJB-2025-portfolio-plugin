@@ -6,10 +6,10 @@
     
     <!-- Material Cultures Story -->
     <article class="story-item">
-        <a href="#" class="story-link">
+        <a href="https://www.architectural-review.com/awards/ar-emerging/material-cultures-united-kingdom" class="story-link">
             <div class="story-image">
-                <img src="placeholder-material-cultures.jpg" alt="Material Cultures" />
-                <div class="caption">Luke O'Donovan</div>
+                <img src="https://cdn.ca.emap.com/wp-content/uploads/sites/12/2024/11/Wolves_Lane_The_Architectural_Review_©_Henry_Woide__High-Res_001_architectural_review_ar_emerging_2024-2.jpg" alt="Material Cultures" />
+                <div class="caption">Henry Woide</div>
             </div>
             <div class="story-content">
                 <h2 class="serif-font-scaled">Material Cultures</h2>
@@ -21,10 +21,10 @@
 
     <!-- A Threshold Story -->
     <article class="story-item">
-        <a href="#" class="story-link">
+        <a href="https://www.architectural-review.com/awards/ar-emerging/a-threshold-india" class="story-link">
             <div class="story-image">
-                <img src="placeholder-a-threshold.jpg" alt="A Threshold" />
-                <div class="caption">Reuben J. Brown</div>
+                <img src="https://cdn.ca.emap.com/wp-content/uploads/sites/12/2024/11/ABPAT_SR-4684_architectural_review_ar_emerging-1584x1200.jpg" alt="A Threshold" />
+                <div class="caption">Atik Bheda</div>
             </div>
             <div class="story-content">
                 <h2 class="serif-font-scaled">A Threshold</h2>
@@ -36,9 +36,9 @@
 
     <!-- NWLND Rogiers Vandeputte Story -->
     <article class="story-item">
-        <a href="#" class="story-link">
+        <a href="https://www.architectural-review.com/awards/ar-emerging/nwlnd-rogiers-vendeputte-belgium" class="story-link">
             <div class="story-image">
-                <img src="placeholder-nwlnd.jpg" alt="NWLND Rogiers Vandeputte" />
+                <img src="https://cdn.ca.emap.com/wp-content/uploads/sites/12/2024/11/NWLNDPPW3OOSTENDE001HR-1500x1200.jpg" alt="NWLND Rogiers Vandeputte" />
                 <div class="caption">Johnny Umans</div>
             </div>
             <div class="story-content">
