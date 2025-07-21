@@ -54,6 +54,8 @@
                             <br>
                         <p class="cv-dates">Full U.K. driving license</p>
                     </div>
+                </div>
+            </div>
             
             <div class="cv-column education-column">
                 <h2 class="serif-font-scaled">Education</h2>
@@ -72,10 +74,7 @@
                         <p class="cv-additional">State schools in Brighton, U.K.; nerdy grades</p>
                     </div>
                 </div>
-                
-            </div>
-                </div>
-            </div>
+        
         </div>
     </div>
 </section>
