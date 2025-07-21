@@ -138,6 +138,18 @@
     display: block;
 }
 
+.story-item .story-image .caption {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    font-size: 12px;
+    color: #808080;
+    text-align: right;
+    background: white;
+    padding: 2px 0;
+    width: 100%;
+}
+
 .story-item-2x2 .story-image img {
     width: 100%;
     height: auto;
