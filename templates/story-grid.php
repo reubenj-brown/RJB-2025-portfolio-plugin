@@ -5,7 +5,7 @@
     <article class="story-item">
         <div class="story-image">
             <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Material-Cultures_Studio-Gil_Wolves-Lane_Image-Luke-ODonovan_In-Use_Small_23-e1752333652749.jpg')); ?>" alt="Material Cultures" />
-            <div class="caption">Luke O'Donovan</div>
+            <div class="caption">Luke O’Donovan</div>
         </div>
         <div class="story-content">
             <h2 class="serif-font-scaled">Material Cultures</h2>
@@ -22,7 +22,7 @@
         </div>
         <div class="story-content">
             <h2 class="serif-font-scaled">Protest architecture</h2>
-            <p>A new book and exhibition highlight the aesthetic triumph and practicel nous of ‘protest architecture’, but its actual political record deserves further scrutiny</p>
+            <p>A new book and exhibition highlight the aesthetic triumph and practical nous of ‘protest architecture’, but its actual political record deserves further scrutiny</p>
             <p class="story-meta">For <i>The Architectural Review</i> in May 2024</p>
         </div>
     </article>
@@ -35,7 +35,7 @@
         </div>
         <div class="story-content">
             <h2 class="serif-font-scaled">Big Wall</h2>
-            <p>At Storror's 'Big Wall Open', parkour lands in new, physical, territory</p>
+            <p>At Storror's ‘Big Wall Open’, parkour lands in new, physical, territory</p>
             <p class="story-meta">For <i>Re—Compose</i> in December 2023</p>
         </div>
     </article>
