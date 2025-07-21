@@ -8,7 +8,7 @@
     <article class="story-item">
         <a href="#" class="story-link">
             <div class="story-image">
-                <img src="/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft2.webp" alt="The Desert Grows" />
+                <img src="/wp-content/uploads/2025/07/reuben-j-brown-solar-morocco-ouarzazate-noor.avif" alt="The Desert Grows" />
                 <div class="caption">Reuben J. Brown</div>
             </div>
             <div class="story-content">
