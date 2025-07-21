@@ -38,7 +38,7 @@
     <article class="story-item">
         <a href="#" class="story-link">
             <div class="story-image">
-                <img src="placeholder-community-owned.jpg" alt="Community cannot be owned" />
+                <img src="/wp-content/uploads/2025/07/MusicPoetryoftheKesh.jpeg" alt="Community cannot be owned" />
                 <div class="caption">Reuben J. Brown</div>
             </div>
             <div class="story-content">
