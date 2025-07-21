@@ -1,5 +1,8 @@
 <!-- Features Section -->
-<div class="stories-grid">
+<section class="content-section">
+    <div class="section-container">
+        <div class="stories-content">
+            <div class="stories-grid">
     
     <!-- The Desert Grows Story -->
     <article class="story-item">
@@ -40,4 +43,7 @@
         </div>
     </article>
 
-</div>
+            </div>
+        </div>
+    </div>
+</section>
