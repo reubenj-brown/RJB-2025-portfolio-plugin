@@ -82,7 +82,7 @@
 .photo-headline {
     font-family: var(--serif-font);
     font-style: italic;
-    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: calc(32px * 1.23);
     font-weight: 400;
     line-height: 1.1;
     margin: 0 0 0.5rem 0;
@@ -120,7 +120,7 @@
     }
     
     .photo-headline {
-        font-size: clamp(1.25rem, 6vw, 2rem);
+        font-size: calc(32px * 1.23);
         margin-bottom: 1rem;
     }
     
@@ -142,7 +142,7 @@
     }
     
     .photo-headline {
-        font-size: clamp(1.125rem, 7vw, 1.5rem);
+        font-size: calc(32px * 1.23);
         margin-bottom: 0.75rem;
     }
     
