@@ -41,7 +41,7 @@
                 <h2 class="serif-font-scaled">Skills & Software</h2>
                 <div class="cv-entries">
                     <div class="cv-entry" style="color:#808080;">
-                        <p class="cv-role">Video and Podcast Production</p><br>
+                        <p class="cv-role">Video and Podcast Production</p>
                         <p class="cv-dates">Adobe Premiere, Audition, After Effects, Apple Logic Pro, Final Cut Pro</p>
                     </div>
                     <div class="cv-entry" style="color:#808080;">
