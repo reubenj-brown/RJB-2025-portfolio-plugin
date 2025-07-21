@@ -9,8 +9,8 @@
         <a href="#" class="story-link">
             <div class="story-image">
                 <img src="/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft2.webp" alt="The Desert Grows" />
-                <div class="caption">Reuben J. Brown</div>
             </div>
+            <div class="caption">Reuben J. Brown</div>
             <div class="story-content">
                 <h2 class="serif-font-scaled">The Desert Grows</h2>
                 <p>A British startup hopes to generate 8% of the U.K.'s electricity from a London-sized renewables development in Southern Morocco. What about the people who live there?</p>
@@ -24,8 +24,8 @@
         <a href="#" class="story-link">
             <div class="story-image">
                 <img src="/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft.webp" alt="Storror Big Wall Open Brighton" />
-                <div class="caption">Reuben J. Brown</div>
             </div>
+            <div class="caption">Reuben J. Brown</div>
             <div class="story-content">
                 <h2 class="serif-font-scaled">Big Wall</h2>
                 <p>At Storror's "Big Wall Open", parkour lands in new, physical territory</p>
@@ -39,8 +39,8 @@
         <a href="#" class="story-link">
             <div class="story-image">
                 <img src="placeholder-community-owned.jpg" alt="Community cannot be owned" />
-                <div class="caption">Reuben J. Brown</div>
             </div>
+            <div class="caption">Reuben J. Brown</div>
             <div class="story-content">
                 <h2 class="serif-font-scaled">Community cannot be owned</h2>
                 <p>And why crypto won't save the internet</p>

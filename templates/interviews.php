@@ -9,8 +9,8 @@
         <a href="#" class="story-link">
             <div class="story-image">
                 <img src="placeholder-feminist-city.jpg" alt="The Feminist City with Leslie Kern" />
-                <div class="caption">Reuben J. Brown</div>
             </div>
+            <div class="caption">Reuben J. Brown</div>
             <div class="story-content">
                 <h2 class="serif-font-scaled">The Feminist City with Leslie Kern</h2>
                 <p></p>
@@ -23,9 +23,9 @@
     <article class="story-item">
         <a href="#" class="story-link">
             <div class="story-image">
-                <img src="placeholder-sofia-karim.jpg" alt="Sofia Karim’s architecture" />
-                <div class="caption">Reuben J. Brown</div>
+                <img src="placeholder-sofia-karim.jpg" alt="Sofia Karim's architecture" />
             </div>
+            <div class="caption">Reuben J. Brown</div>
             <div class="story-content">
                 <h2 class="serif-font-scaled">Sofia Karim’s Architecture at the 'Hinterlands of Human Experience’</h2>
                 <p></p>
@@ -39,8 +39,8 @@
         <a href="#" class="story-link">
             <div class="story-image">
                 <img src="placeholder-shakespeare-sonnets.jpg" alt="All the sonnets of Shakespeare" />
-                <div class="caption">Reuben J. Brown</div>
             </div>
+            <div class="caption">Reuben J. Brown</div>
             <div class="story-content">
                 <h2 class="serif-font-scaled">All the sonnets of Shakespeare with Paul Edmondson Sir Stanley Wells</h2>
                 <p></p>

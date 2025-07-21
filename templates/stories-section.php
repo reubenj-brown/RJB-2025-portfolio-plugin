@@ -9,8 +9,8 @@
             <article class="featured-story">
                 <div class="story-image">
                     <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft13.webp')); ?>" alt="The Cost of a Miracle" />
-                    <div class="caption">photograph: Reuben J. Brown</div>
                 </div>
+                <div class="caption">photograph: Reuben J. Brown</div>
                 <div class="story-content">
                     <h2 class="serif-font-scaled">The Cost of a Miracle</h2>
                     <h3>In Europe's driest region, a vast plastic sea covers a flourishing agricultural system built on intensity and innovation. But the cracks in Almeria's "miracle" are growing, too</h3>
@@ -25,8 +25,8 @@
                 <article class="story-item">
                     <div class="story-image">
                         <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Material-Cultures_Studio-Gil_Wolves-Lane_Image-Luke-ODonovan_In-Use_Small_23.jpg')); ?>" alt="Material Cultures" />
-                        <div class="caption">photograph: Luke O'Donovan</div>
                     </div>
+                    <div class="caption">photograph: Luke O'Donovan</div>
                     <div class="story-content">
                         <h2 class="serif-font-scaled">Material Cultures, United Kingdom</h2>
                         <p>The London-based practice combines architecture with materials research and educational programmes to engender a transformation in architectural production</p>
@@ -38,8 +38,8 @@
                 <article class="story-item">
                     <div class="story-image">
                         <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/NWLND-Rogiers-Vandeputte-Ostend-School-PPW-Atelier-Architecture-Architectural-Review-Reuben-J-Brown.jpg')); ?>" alt="NWLND, Belgium" />
-                        <div class="caption">photograph: Johnny Umans</div>
                     </div>
+                    <div class="caption">photograph: Johnny Umans</div>
                     <div class="story-content">
                         <h2 class="serif-font-scaled">NWLND, Belgium</h2>
                         <p>In a workshop for a secondary school in Ostend, the Belgian duo use simple strategic moves to solve complex spatial problems</p>
@@ -51,8 +51,8 @@
                 <article class="story-item">
                     <div class="story-image">
                         <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Storror-Big-Wall-Open-Brighton-2023-Reuben-J-Brown-parkour.avif')); ?>" alt="Big Wall" />
-                        <div class="caption">photograph: Reuben J. Brown</div>
                     </div>
+                    <div class="caption">photograph: Reuben J. Brown</div>
                     <div class="story-content">
                         <h2 class="serif-font-scaled">Big Wall</h2>
                         <p>At Storror's 'Big Wall Open', parkour lands in new, physical, territory</p>
