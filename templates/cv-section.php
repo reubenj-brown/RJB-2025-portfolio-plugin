@@ -43,12 +43,20 @@
                     <div class="cv-entry" style="color:#808080;">
                         <p class="cv-role">Video and Podcast Production</p><br>
                         <p class="cv-dates">Adobe Premiere, Audition, After Effects, Apple Logic Pro, Final Cut Pro</p>
-                        <p class="cv-role">Graphic Design and Production</p><br>
+                    </div>
+                    <div class="cv-entry" style="color:#808080;">
+                        <p class="cv-role">Graphic Design and Production</p>
                         <p class="cv-dates">Adobe InDesign, Illustrator, Affinity Designer, Autocad, Rhino</p>
-                        <p class="cv-role">Photography</p><br>
+                    </div>
+                    <div class="cv-entry" style="color:#808080;">
+                        <p class="cv-role">Photography</p>
                         <p class="cv-dates">Adobe Lightroom, Photoshop</p>
+                    </div>
+                    <div class="cv-entry" style="color:#808080;">
                         <p class="cv-role">Content Management and Analytics</p>
-                        <p class="cv-dates">WordPress, Google Analytics, Microsoft Excel, Adobe Campaigns, Shopify, Upland Adestra</p><br>
+                        <p class="cv-dates">WordPress, Google Analytics, Microsoft Excel, Adobe Campaigns, Shopify, Upland Adestra</p>
+                    </div>
+                    <div class="cv-entry" style="color:#808080;">
                         <p class="cv-role">Web Development</p>
                         <p class="cv-dates">GitHub, VS Code, Claude Code, HTML, CSS, JS</p>
                             <br>
@@ -74,6 +82,7 @@
                         <p class="cv-additional">State schools in Brighton, U.K.; nerdy grades</p>
                     </div>
                 </div>
+            </div>
         
         </div>
     </div>
