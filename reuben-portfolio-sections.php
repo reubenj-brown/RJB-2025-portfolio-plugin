@@ -15,6 +15,7 @@ class ReubenPortfolioSections {
     public function __construct() {
         add_action('init', [$this, 'register_shortcodes']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
     }
     
     public function register_shortcodes() {
@@ -83,6 +84,26 @@ class ReubenPortfolioSections {
                 plugin_dir_url(__FILE__) . 'assets/featured-story-full-bleed.css',
                 ['reuben-base-sections'],
                 '1.0.0'
+            );
+            
+            wp_enqueue_style(
+                'reuben-photographs-section',
+                plugin_dir_url(__FILE__) . 'assets/photographs-section.css',
+                ['reuben-base-sections'],
+                '1.0.0'
+            );
+        }
+    }
+    
+    public function enqueue_scripts() {
+        // Only load on portfolio page
+        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page()) {
+            wp_enqueue_script(
+                'reuben-photographs-carousel',
+                plugin_dir_url(__FILE__) . 'assets/photographs-carousel.js',
+                [],
+                '1.0.0',
+                true
             );
         }
     }
