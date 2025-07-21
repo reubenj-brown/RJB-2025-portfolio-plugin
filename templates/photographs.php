@@ -4,7 +4,7 @@
         <div class="photographs-content">
             <div class="photographs-grid">
                 
-                <!-- Musicians Photo Series -->
+                <!-- Queen Elizabeth II Funeral Photo Series -->
                 <article class="photo-item">
                     <a href="#" class="photo-link">
                         <div class="photo-carousel">
@@ -18,14 +18,14 @@
                                 <img src="placeholder-musicians-3.jpg" alt="Musicians" />
                             </div>
                             <div class="photo-overlay">
-                                <h2 class="photo-headline">Musicians</h2>
-                                <p class="photo-standfirst">Documentary photography capturing live performances and intimate portraits of musicians across London's diverse music scene</p>
+                                <h2 class="photo-headline">The Death of Queen Elizabeth II</h2>
+                                <p class="photo-standfirst">Among the mourners at the Albert Memorial, at least some were surprised at the depth of their own grief</p>
                             </div>
                         </div>
                     </a>
                 </article>
 
-                <!-- Raasay Photo Series -->
+                <!-- Flak Towers Photo Series -->
                 <article class="photo-item">
                     <a href="#" class="photo-link">
                         <div class="photo-carousel">
@@ -36,8 +36,8 @@
                                 <img src="placeholder-raasay-2.jpg" alt="Raasay" />
                             </div>
                             <div class="photo-overlay">
-                                <h2 class="photo-headline">Raasay</h2>
-                                <p class="photo-standfirst">Landscape photography from the Scottish island of Raasay, documenting the interplay between natural beauty and human settlement</p>
+                                <h2 class="photo-headline">The Nazi Monuments Vienna Can’t Take Down</h2>
+                                <p class="photo-standfirst"></p>
                             </div>
                         </div>
                     </a>
@@ -57,51 +57,14 @@
                                 <img src="placeholder-walthamstow-3.jpg" alt="Walthamstow" />
                             </div>
                             <div class="photo-overlay">
-                                <h2 class="photo-headline">Walthamstow</h2>
-                                <p class="photo-standfirst">Street photography exploring community and identity in East London's changing urban landscape</p>
+                                <h2 class="photo-headline">Anti-racist protestors quell the violence in Walthamstow</h2>
+                                <p class="photo-standfirst">Following a wave of racially motivated riots sweeping the UK, counter-protestors in Walthamstow, East London, massed to quash the violence – for now</p>
                             </div>
                         </div>
                     </a>
                 </article>
 
-                <!-- High Wycombe Photo Series -->
-                <article class="photo-item">
-                    <a href="#" class="photo-link">
-                        <div class="photo-carousel">
-                            <div class="photo-slide active">
-                                <img src="placeholder-high-wycombe-1.jpg" alt="High Wycombe" />
-                            </div>
-                            <div class="photo-slide">
-                                <img src="placeholder-high-wycombe-2.jpg" alt="High Wycombe" />
-                            </div>
-                            <div class="photo-overlay">
-                                <h2 class="photo-headline">High Wycombe</h2>
-                                <p class="photo-standfirst">Architectural photography documenting post-war housing developments and their impact on suburban communities</p>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-
-                <!-- QEII Photo Series -->
-                <article class="photo-item">
-                    <a href="#" class="photo-link">
-                        <div class="photo-carousel">
-                            <div class="photo-slide active">
-                                <img src="placeholder-qeii-1.jpg" alt="Queen Elizabeth II Funeral" />
-                            </div>
-                            <div class="photo-slide">
-                                <img src="placeholder-qeii-2.jpg" alt="Queen Elizabeth II Funeral" />
-                            </div>
-                            <div class="photo-slide">
-                                <img src="placeholder-qeii-3.jpg" alt="Queen Elizabeth II Funeral" />
-                            </div>
-                            <div class="photo-overlay">
-                                <h2 class="photo-headline">QEII</h2>
-                                <p class="photo-standfirst">Photojournalism covering Queen Elizabeth II's funeral procession and the public's response to this historic moment</p>
-                            </div>
-                        </div>
-                    </a>
-                </article>
+            
 
             </div>
         </div>
