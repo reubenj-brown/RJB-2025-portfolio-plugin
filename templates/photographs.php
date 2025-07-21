@@ -9,7 +9,7 @@
                     <a href="#" class="photo-link">
                         <div class="photo-carousel">
                             <div class="photo-slide active">
-                                <img src="placeholder-musicians-1.jpg" alt="Musicians" />
+                                <img src="/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft5.webp" alt="Funeral of Queen Elizabeth II Albert Memorial" />
                             </div>
                             <div class="photo-slide">
                                 <img src="placeholder-musicians-2.jpg" alt="Musicians" />
@@ -30,7 +30,7 @@
                     <a href="#" class="photo-link">
                         <div class="photo-carousel">
                             <div class="photo-slide active">
-                                <img src="placeholder-raasay-1.jpg" alt="Raasay" />
+                                <img src="/wp-content/uploads/2025/07/Reuben_J_Brown_Flak_Towers_Vienna_Augarten-29.jpg" alt="Flak Towers Vienna" />
                             </div>
                             <div class="photo-slide">
                                 <img src="placeholder-raasay-2.jpg" alt="Raasay" />
