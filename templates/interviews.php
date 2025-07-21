@@ -27,7 +27,7 @@
                 <div class="caption">Reuben J. Brown</div>
             </div>
             <div class="story-content">
-                <h2 class="serif-font-scaled">Sofia Karim’s Architecture at the 'Hinterlands of Human Experience’</h2>
+                <h2 class="serif-font-scaled">Sofia Karim’s Architecture at the ‘Hinterlands of Human Experience’</h2>
                 <p></p>
                 <p class="story-meta">For <i>Panoramic</i> in May 2023</p>
             </div>
