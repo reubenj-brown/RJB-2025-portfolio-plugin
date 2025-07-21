@@ -37,6 +37,24 @@
                 </div>
             </div>
 
+            <div class="cv-column skills-column">
+                <h2 class="serif-font-scaled">Skills & Software</h2>
+                <div class="cv-entries">
+                    <div class="cv-entry" style="color:#808080;">
+                        <p class="cv-role">Video and Podcast Production</p><br>
+                        <p class="cv-dates">Adobe Premiere, Audition, After Effects, Apple Logic Pro, Final Cut Pro</p>
+                        <p class="cv-role">Graphic Design and Production</p><br>
+                        <p class="cv-dates">Adobe InDesign, Illustrator, Affinity Designer, Autocad, Rhino</p>
+                        <p class="cv-role">Photography</p><br>
+                        <p class="cv-dates">Adobe Lightroom, Photoshop</p>
+                        <p class="cv-role">Content Management and Analytics</p>
+                        <p class="cv-dates">WordPress, Google Analytics, Microsoft Excel, Adobe Campaigns, Shopify, Upland Adestra</p><br>
+                        <p class="cv-role">Web Development</p>
+                        <p class="cv-dates">GitHub, VS Code, Claude Code, HTML, CSS, JS</p>
+                            <br>
+                        <p class="cv-dates">Full UK driving license</p>
+                    </div>
+            
             <div class="cv-column education-column">
                 <h2 class="serif-font-scaled">Education</h2>
                 <div class="cv-entries">
@@ -54,25 +72,8 @@
                         <p class="cv-additional">State schools in Brighton, U.K.; nerdy grades</p>
                     </div>
                 </div>
+                
             </div>
-
-            <div class="cv-column skills-column">
-                <h2 class="serif-font-scaled">Skills & Software</h2>
-                <div class="cv-entries">
-                    <div class="cv-entry" style="color:#808080;">
-                        <p class="cv-role">Video and Podcast Production</p>
-                        <p class="cv-dates">Adobe Premiere, Audition, After Effects, Apple Logic Pro, Final Cut Pro</p>
-                        <p class="cv-role">Graphic Design and Production</p>
-                        <p class="cv-dates">Adobe InDesign, Illustrator, Affinity Designer, Autocad, Rhino</p>
-                        <p class="cv-role">Photography</p>
-                        <p class="cv-dates">Adobe Lightroom, Photoshop</p>
-                        <p class="cv-role">Content Management and Analytics</p>
-                        <p class="cv-dates">WordPress, Google Analytics, Microsoft Excel, Adobe Campaigns, Shopify, Upland Adestra</p>
-                        <p class="cv-role">Web Development</p>
-                        <p class="cv-dates">GitHub, VS Code, Claude Code, HTML, CSS, JS</p>
-                            <br>
-                        <p class="cv-dates">Full UK driving license</p>
-                    </div>
                 </div>
             </div>
         </div>
