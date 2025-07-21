@@ -1,6 +1,9 @@
 <section class="content-section stories-section" id="stories">
     <div class="section-container">
         <div class="stories-content">
+            <div class="stories-intro">
+                <h3 class="serif-font-scaled">Reuben works on stories across text, photography, and podcast and video projects.</h3>
+            </div>
             
             <!-- Featured Story -->
             <article class="featured-story">

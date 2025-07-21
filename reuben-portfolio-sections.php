@@ -18,8 +18,14 @@ class ReubenPortfolioSections {
     }
     
     public function register_shortcodes() {
+        // Main section shortcodes
         add_shortcode('reuben_about', [$this, 'about_section']);
         add_shortcode('reuben_stories', [$this, 'stories_section']);
+        add_shortcode('reuben_features', [$this, 'features_section']);
+        add_shortcode('reuben_reviews', [$this, 'reviews_section']);
+        add_shortcode('reuben_profiles', [$this, 'profiles_section']);
+        add_shortcode('reuben_interviews', [$this, 'interviews_section']);
+        add_shortcode('reuben_photographs', [$this, 'photographs_section']);
         add_shortcode('reuben_strategy', [$this, 'strategy_section']);
         add_shortcode('reuben_cv', [$this, 'cv_section']);
         
@@ -90,6 +96,36 @@ class ReubenPortfolioSections {
     public function stories_section($atts) {
         ob_start();
         include plugin_dir_path(__FILE__) . 'templates/stories-section.php';
+        return ob_get_clean();
+    }
+    
+    public function features_section($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/features.php';
+        return ob_get_clean();
+    }
+    
+    public function reviews_section($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/reviews.php';
+        return ob_get_clean();
+    }
+    
+    public function profiles_section($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/profiles.php';
+        return ob_get_clean();
+    }
+    
+    public function interviews_section($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/interviews.php';
+        return ob_get_clean();
+    }
+    
+    public function photographs_section($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/photographs.php';
         return ob_get_clean();
     }
     
