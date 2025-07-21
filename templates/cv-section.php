@@ -52,7 +52,7 @@
                         <p class="cv-role">Web Development</p>
                         <p class="cv-dates">GitHub, VS Code, Claude Code, HTML, CSS, JS</p>
                             <br>
-                        <p class="cv-dates">Full UK driving license</p>
+                        <p class="cv-dates">Full U.K. driving license</p>
                     </div>
             
             <div class="cv-column education-column">
