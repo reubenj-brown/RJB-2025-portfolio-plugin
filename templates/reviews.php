@@ -6,14 +6,14 @@
     
     <!-- Protest Architecture Story -->
     <article class="story-item">
-        <a href="#" class="story-link">
+        <a href="https://www.architectural-review.com/essays/timber-pallets-climbing-ropes-and-a-bottle-of-glitter-protest-architecture-under-review" class="story-link">
             <div class="story-image">
-                <img src="placeholder-protest-architecture.jpg" alt="Protest architecture" />
-                <div class="caption">Reuben J. Brown</div>
+                <img src="https://cdn.ca.emap.com/wp-content/uploads/sites/12/2024/06/Protest-Architecture-Exhibition-MAK-Vienna-Architectural-Review-Hambi-1.jpg" alt="Protest architecture" />
+                <div class="caption">Photograph: Tim Wagner / MAK</div>
             </div>
             <div class="story-content">
-                <h2 class="serif-font-scaled">Protest architecture</h2>
-                <p>A new book and exhibition highlight the aesthetic triumph and practical nous of 'protest architecture' – but its record as a political tool needs considering, too</p>
+                <h2 class="serif-font-scaled">A book and exhibition highlight the aesthetic triumph of ‘Protest Architecture’ – but its political record needs examining, too</h2>
+                <p></p>
                 <p class="story-meta">For <i>The Architectural Review</i> in June 2024</p>
             </div>
         </a>
@@ -21,10 +21,10 @@
 
     <!-- Sharjah Architecture Triennial Story -->
     <article class="story-item">
-        <a href="#" class="story-link">
+        <a href="https://www.architectural-review.com/essays/exhibitions/building-coalition-through-contradictions-the-sharjah-architecture-triennial-2023" class="story-link">
             <div class="story-image">
-                <img src="placeholder-sharjah-triennial.jpg" alt="Sharjah Architecture Triennial" />
-                <div class="caption">Reuben J. Brown</div>
+                <img src="https://cdn.ca.emap.com/wp-content/uploads/sites/12/2023/12/Sharjah-Architecture-Triennial-2023-The-Architectural-Review-Reuben-J-Brown-02.jpg" alt="Sharjah Architecture Triennial" />
+                <div class="caption">Photograph: Reuben J. Brown</div>
             </div>
             <div class="story-content">
                 <h2 class="serif-font-scaled">The 2023 Sharjah Architecture Triennial builds coalitions through its contradictions</h2>
@@ -42,7 +42,7 @@
                 <div class="caption">Reuben J. Brown</div>
             </div>
             <div class="story-content">
-                <h2 class="serif-font-scaled">In "Drive My Car", we follow the winding path</h2>
+                <h2 class="serif-font-scaled">In “Drive My Car”, we follow the winding path</h2>
                 <p></p>
                 <p class="story-meta">For <i>Re—Compose</i> in March 2022</p>
             </div>

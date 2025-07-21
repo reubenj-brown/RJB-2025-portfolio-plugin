@@ -23,11 +23,11 @@
     <article class="story-item">
         <a href="#" class="story-link">
             <div class="story-image">
-                <img src="placeholder-sofia-karim.jpg" alt="Sofia Karim's architecture" />
+                <img src="placeholder-sofia-karim.jpg" alt="Sofia Karim’s architecture" />
                 <div class="caption">Reuben J. Brown</div>
             </div>
             <div class="story-content">
-                <h2 class="serif-font-scaled">Sofia Karim's architecture at the 'hinterlands of human experience'</h2>
+                <h2 class="serif-font-scaled">Sofia Karim’s Architecture at the 'Hinterlands of Human Experience’</h2>
                 <p></p>
                 <p class="story-meta">For <i>Panoramic</i> in May 2023</p>
             </div>
@@ -44,7 +44,7 @@
             <div class="story-content">
                 <h2 class="serif-font-scaled">All the sonnets of Shakespeare with Paul Edmondson Sir Stanley Wells</h2>
                 <p></p>
-                <p class="story-meta">For the University of Cambridge festival podcast in May 2022</p>
+                <p class="story-meta">For the <i>University of Cambridge Festival Podcast</i> in May 2022</p>
             </div>
         </a>
     </article>
