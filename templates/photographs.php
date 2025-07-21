@@ -12,10 +12,10 @@
                                 <img src="/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft5.webp" alt="Funeral of Queen Elizabeth II Albert Memorial" />
                             </div>
                             <div class="photo-slide">
-                                <img src="placeholder-musicians-2.jpg" alt="Musicians" />
+                                <img src="/wp-content/uploads/2025/07/Funeral-of-queen-elizabeth-ii-London-September-2023-Reuben-J-Brown-2.avif" alt="Musicians" />
                             </div>
                             <div class="photo-slide">
-                                <img src="placeholder-musicians-3.jpg" alt="Musicians" />
+                                <img src="/wp-content/uploads/2025/07/Funeral-of-queen-elizabeth-ii-London-September-2023-Reuben-J-Brown-1.avif" alt="Musicians" />
                             </div>
                             <div class="photo-overlay">
                                 <h2 class="photo-headline">The Death of Queen Elizabeth II</h2>
