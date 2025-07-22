@@ -3,7 +3,7 @@
  * Plugin Name: Reuben Portfolio Sections
  * Plugin URI: https://github.com/reubenj-brown/RJB-2025-portfolio-plugin
  * Description: Custom shortcodes for portfolio sections with WordPress post integration
- * Version: 1.1
+ * Version: 1.2
  * Author: Reuben J. Brown
  * License: GPL v2 or later
  */
@@ -21,6 +21,7 @@ class ReubenPortfolioSections {
     public function __construct() {
         add_action('init', [$this, 'register_shortcodes']);
         add_action('init', [$this, 'register_custom_post_types']);
+        add_action('acf/init', [$this, 'register_acf_fields']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
         add_action('admin_menu', [$this, 'add_admin_menu']);
@@ -51,6 +52,80 @@ class ReubenPortfolioSections {
         add_shortcode('featured_story_text', [$this, 'featured_story_text']);
         add_shortcode('featured_story_full_bleed', [$this, 'featured_story_full_bleed']);
         add_shortcode('vertical_video', [$this, 'vertical_video']);
+    }
+    
+    /**
+     * Register ACF field groups for stories
+     */
+    public function register_acf_fields() {
+        if (function_exists('acf_add_local_field_group')) {
+            acf_add_local_field_group(array(
+                'key' => 'group_story_metadata',
+                'title' => 'Story Metadata',
+                'fields' => array(
+                    array(
+                        'key' => 'field_publication',
+                        'label' => 'Publication',
+                        'name' => 'publication',
+                        'type' => 'text',
+                        'instructions' => 'The publication where this story was published (e.g., The Architectural Review)',
+                        'required' => 0,
+                        'placeholder' => 'e.g., The Architectural Review',
+                    ),
+                    array(
+                        'key' => 'field_publish_date',
+                        'label' => 'Publication Date',
+                        'name' => 'publish_date',
+                        'type' => 'text',
+                        'instructions' => 'When this story was published (e.g., June 2024)',
+                        'required' => 0,
+                        'placeholder' => 'e.g., June 2024',
+                    ),
+                    array(
+                        'key' => 'field_external_url',
+                        'label' => 'External URL',
+                        'name' => 'external_url',
+                        'type' => 'url',
+                        'instructions' => 'Link to the published story on external website',
+                        'required' => 0,
+                        'placeholder' => 'https://www.example.com/story',
+                    ),
+                    array(
+                        'key' => 'field_photo_credit',
+                        'label' => 'Photo Credit',
+                        'name' => 'photo_credit',
+                        'type' => 'text',
+                        'instructions' => 'Photo credit for the featured image',
+                        'required' => 0,
+                        'placeholder' => 'e.g., Reuben J. Brown',
+                    ),
+                    array(
+                        'key' => 'field_original_image_url',
+                        'label' => 'Original Image URL',
+                        'name' => 'original_image_url',
+                        'type' => 'url',
+                        'instructions' => 'Original image URL from import (for reference)',
+                        'required' => 0,
+                        'readonly' => 1,
+                    ),
+                ),
+                'location' => array(
+                    array(
+                        array(
+                            'param' => 'post_type',
+                            'operator' => '==',
+                            'value' => 'story',
+                        ),
+                    ),
+                ),
+                'menu_order' => 0,
+                'position' => 'normal',
+                'style' => 'default',
+                'label_placement' => 'top',
+                'instruction_placement' => 'label',
+                'hide_on_screen' => '',
+            ));
+        }
     }
     
     public function register_custom_post_types() {
