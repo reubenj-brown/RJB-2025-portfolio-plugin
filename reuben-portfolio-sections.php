@@ -277,7 +277,18 @@ class ReubenPortfolioSections {
         // Debug: Check if this function is being called
         error_log('ReubenPortfolioSections: add_admin_menu called');
         
-        $page = add_management_page(
+        // Try both top-level menu and Tools submenu
+        $top_page = add_menu_page(
+            'Portfolio Import',
+            'Portfolio Import',
+            'manage_options',
+            'portfolio-import',
+            [$this, 'admin_import_page'],
+            'dashicons-upload',
+            30
+        );
+        
+        $tools_page = add_management_page(
             'Import Portfolio Stories',
             'Import Portfolio Stories', 
             'manage_options',
@@ -285,8 +296,9 @@ class ReubenPortfolioSections {
             [$this, 'admin_import_page']
         );
         
-        // Debug: Log the page result
-        error_log('ReubenPortfolioSections: admin page added - ' . ($page ? 'success' : 'failed'));
+        // Debug: Log the page results
+        error_log('ReubenPortfolioSections: top menu added - ' . ($top_page ? 'success' : 'failed'));
+        error_log('ReubenPortfolioSections: tools menu added - ' . ($tools_page ? 'success' : 'failed'));
     }
     
     /**
