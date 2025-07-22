@@ -14,6 +14,7 @@ class ReubenPortfolioSections {
     
     public function __construct() {
         add_action('init', [$this, 'register_shortcodes']);
+        add_action('init', [$this, 'register_custom_post_types']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
     }
@@ -30,6 +31,9 @@ class ReubenPortfolioSections {
         add_shortcode('reuben_strategy', [$this, 'strategy_section']);
         add_shortcode('reuben_cv', [$this, 'cv_section']);
         
+        // Dynamic stories shortcode
+        add_shortcode('reuben_dynamic_stories', [$this, 'dynamic_stories_section']);
+        
         // Story component shortcodes
         add_shortcode('story_list', [$this, 'story_list']);
         add_shortcode('story_grid', [$this, 'story_grid']);
@@ -37,6 +41,52 @@ class ReubenPortfolioSections {
         add_shortcode('featured_story_text', [$this, 'featured_story_text']);
         add_shortcode('featured_story_full_bleed', [$this, 'featured_story_full_bleed']);
         add_shortcode('vertical_video', [$this, 'vertical_video']);
+    }
+    
+    public function register_custom_post_types() {
+        // Register Stories custom post type
+        register_post_type('story', [
+            'label' => 'Stories',
+            'labels' => [
+                'name' => 'Stories',
+                'singular_name' => 'Story',
+                'add_new' => 'Add New Story',
+                'add_new_item' => 'Add New Story',
+                'edit_item' => 'Edit Story',
+                'new_item' => 'New Story',
+                'view_item' => 'View Story',
+                'search_items' => 'Search Stories',
+                'not_found' => 'No stories found',
+                'not_found_in_trash' => 'No stories found in trash',
+                'all_items' => 'All Stories',
+                'menu_name' => 'Stories'
+            ],
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => ['slug' => 'stories'],
+            'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'],
+            'menu_icon' => 'dashicons-format-aside',
+            'show_in_rest' => true, // For Gutenberg editor
+        ]);
+        
+        // Register taxonomies for story categories
+        register_taxonomy('story_category', 'story', [
+            'label' => 'Story Categories',
+            'labels' => [
+                'name' => 'Story Categories',
+                'singular_name' => 'Story Category',
+                'add_new_item' => 'Add New Category',
+                'new_item_name' => 'New Category Name',
+                'edit_item' => 'Edit Category',
+                'update_item' => 'Update Category',
+                'search_items' => 'Search Categories',
+                'all_items' => 'All Categories'
+            ],
+            'hierarchical' => true,
+            'public' => true,
+            'rewrite' => ['slug' => 'story-category'],
+            'show_in_rest' => true
+        ]);
     }
     
  public function enqueue_styles() {
@@ -159,6 +209,23 @@ class ReubenPortfolioSections {
     public function cv_section($atts) {
         ob_start();
         include plugin_dir_path(__FILE__) . 'templates/cv-section.php';
+        return ob_get_clean();
+    }
+    
+    /**
+     * Dynamic Stories Section - pulls from WordPress posts
+     */
+    public function dynamic_stories_section($atts) {
+        $atts = shortcode_atts([
+            'category' => '',
+            'limit' => 6,
+            'layout' => 'grid', // grid, list, featured
+            'show_excerpt' => 'true',
+            'show_meta' => 'true'
+        ], $atts);
+        
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/dynamic-stories-section.php';
         return ob_get_clean();
     }
     

@@ -247,6 +247,85 @@
     transition: 0.3s ease;
 }
 
+/* Dynamic Stories - List Layout */
+.stories-list {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.story-list-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.story-list-item:last-child {
+    border-bottom: none;
+}
+
+.story-list-item .story-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.story-list-item h2 {
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.story-list-item .story-link:hover h2 {
+    color: #39e58f;
+}
+
+.story-list-item .story-excerpt {
+    margin-bottom: 0.5rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.story-list-item .story-meta {
+    color: #808080;
+    font-size: 14px;
+}
+
+/* View All Stories Link */
+.view-all-stories {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.view-all-link {
+    color: #39e58f;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.view-all-link:hover {
+    color: #2dc776;
+}
+
+/* No Stories Message */
+.no-stories-message {
+    text-align: center;
+    color: #666;
+    font-size: 18px;
+    margin: 3rem 0;
+}
+
+.no-stories-message a {
+    color: #39e58f;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.no-stories-message a:hover {
+    color: #2dc776;
+}
+
 /* Mobile Responsive */
 @media (max-width: 1024px) {
     .stories-grid {
