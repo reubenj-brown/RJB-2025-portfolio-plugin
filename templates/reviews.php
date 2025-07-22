@@ -38,7 +38,7 @@
     <article class="story-item">
         <a href="#" class="story-link">
             <div class="story-image">
-                <img src="placeholder-drive-my-car.jpg" alt="Drive My Car" />
+                <img src="2af947f4-5d59-42d4-9c6b-9792f4019171_976x549.jpeg" alt="Drive My Car" />
             </div>
             <div class="caption">Reuben J. Brown</div>
             <div class="story-content">
