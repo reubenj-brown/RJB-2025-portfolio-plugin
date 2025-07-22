@@ -1,14 +1,20 @@
 <?php
 /**
  * Plugin Name: Reuben Portfolio Sections
- * Description: Custom shortcodes for portfolio sections
- * Version: 1.0
+ * Plugin URI: https://github.com/reubenj-brown/RJB-2025-portfolio-plugin
+ * Description: Custom shortcodes for portfolio sections with WordPress post integration
+ * Version: 1.1
+ * Author: Reuben J. Brown
+ * License: GPL v2 or later
  */
 
 // Prevent direct access
 if (!defined('ABSPATH')) {
     exit;
 }
+
+// Debug: Log when plugin file is loaded
+error_log('ReubenPortfolioSections: Plugin file loaded at ' . date('Y-m-d H:i:s'));
 
 class ReubenPortfolioSections {
     
@@ -677,4 +683,25 @@ class ReubenPortfolioSections {
     }
 }
 
-new ReubenPortfolioSections();
+// Initialize plugin
+$reuben_portfolio = new ReubenPortfolioSections();
+
+// Also add a direct admin_menu hook as backup
+add_action('admin_menu', function() {
+    error_log('Direct admin_menu hook fired');
+    
+    add_menu_page(
+        'Portfolio Import (Direct)',
+        'Portfolio Import',
+        'manage_options',
+        'portfolio-import-direct',
+        function() {
+            echo '<div class="wrap"><h1>Portfolio Import</h1>';
+            echo '<p>Direct menu hook working! Plugin should be functioning.</p>';
+            echo '<p><a href="' . admin_url('admin.php?page=portfolio-import') . '">Try main import page</a></p>';
+            echo '</div>';
+        },
+        'dashicons-upload',
+        29
+    );
+});
