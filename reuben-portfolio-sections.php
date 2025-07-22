@@ -18,6 +18,9 @@ class ReubenPortfolioSections {
         add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
         add_action('admin_menu', [$this, 'add_admin_menu']);
+        
+        // Debug: Log that plugin is loaded
+        error_log('ReubenPortfolioSections: Plugin constructor loaded');
     }
     
     public function register_shortcodes() {
@@ -271,13 +274,19 @@ class ReubenPortfolioSections {
      * Add admin menu for importing portfolio stories
      */
     public function add_admin_menu() {
-        add_management_page(
+        // Debug: Check if this function is being called
+        error_log('ReubenPortfolioSections: add_admin_menu called');
+        
+        $page = add_management_page(
             'Import Portfolio Stories',
             'Import Portfolio Stories', 
             'manage_options',
             'import-portfolio-stories',
             [$this, 'admin_import_page']
         );
+        
+        // Debug: Log the page result
+        error_log('ReubenPortfolioSections: admin page added - ' . ($page ? 'success' : 'failed'));
     }
     
     /**
