@@ -104,9 +104,9 @@ class ReubenPortfolioSections {
                         'label' => 'Original Image URL',
                         'name' => 'original_image_url',
                         'type' => 'url',
-                        'instructions' => 'Original image URL from import (for reference)',
+                        'instructions' => 'URL of the original image (used when no featured image is set)',
                         'required' => 0,
-                        'readonly' => 1,
+                        'readonly' => 0,
                     ),
                 ),
                 'location' => array(
