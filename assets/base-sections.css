@@ -102,6 +102,15 @@ h3.serif-font-scaled {
 
 /* Tablet Typography Adjustments */
 @media (max-width: 1024px) {
+    h2 {
+        font-size: 29.5px;
+    }
+    
+    /* Tablet serif scaling */
+    h2.serif-font-scaled {
+        font-size: calc(29.5px * 1.23); /* 29.5px * 1.23 = 36.29px */
+    }
+    
     p {
         font-size: 16px;
     }
@@ -115,7 +124,7 @@ h3.serif-font-scaled {
     }
     
     h2 {
-        font-size: 32px;
+        font-size: 29.5px;
     }
     
     h3 {
@@ -124,7 +133,7 @@ h3.serif-font-scaled {
     
     /* Mobile serif scaling */
     h2.serif-font-scaled {
-        font-size: calc(32px * 1.23); /* 32px * 1.23 = 39.36px */
+        font-size: calc(29.5px * 1.23); /* 29.5px * 1.23 = 36.29px */
     }
     
     h3.serif-font-scaled {
