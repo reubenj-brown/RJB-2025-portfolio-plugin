@@ -201,6 +201,7 @@
 /* Story Meta */
 .story-meta {
     color: #808080;
+    font-size: 16px;
 }
 
 .story-meta i {
@@ -288,7 +289,7 @@
 
 .story-list-item .story-meta {
     color: #808080;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 /* View All Stories Link */
