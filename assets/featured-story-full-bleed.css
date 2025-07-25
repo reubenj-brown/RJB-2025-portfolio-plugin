@@ -37,7 +37,7 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: max(8vw, 80px);
+    bottom: max(6vw, 80px);
     z-index: 2;
     display: flex;
     flex-direction: column;
