@@ -59,6 +59,7 @@
 }
 
 .story-text h3 {
+    font-family: var(--serif-font);
     color: white;
     font-size: 20px;
     margin-bottom: 2rem;
