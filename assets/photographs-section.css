@@ -13,16 +13,24 @@
 
 .photographs-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* 3 columns on desktop */
-    gap: 32px; /* Reduced gap for 3-column layout */
+    grid-template-columns: 1fr 1fr;
+    gap: 64px; /* Match Features section total gap (32px + 32px) */
     position: relative;
     align-items: start;
     width: 100%;
 }
 
-/* Remove divider lines for 3-column layout */
+/* Divider line between grid items */
 .photographs-grid::before {
-    display: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background-color: #e0e0e0; /* Match Features section separator color */
+    z-index: 10;
 }
 
 .photo-item {
@@ -95,19 +103,16 @@
     max-width: 90%;
 }
 
-/* Tablet Responsive */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .photographs-grid {
-        grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
-        gap: 32px;
-    }
-}
-
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .photographs-grid {
-        grid-template-columns: 1fr; /* 1 column on mobile */
+        grid-template-columns: 1fr;
         gap: 3rem;
+    }
+    
+    /* Hide divider line on mobile */
+    .photographs-grid::before {
+        display: none;
     }
     
     .photo-overlay {

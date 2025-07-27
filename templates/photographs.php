@@ -50,9 +50,6 @@
                                     <?php endforeach; ?>
                                     <div class="photo-overlay">
                                         <h2 class="photo-headline"><?php echo esc_html($headline); ?></h2>
-                                        <?php if (!empty($standfirst)) : ?>
-                                            <p class="photo-standfirst"><?php echo esc_html($standfirst); ?></p>
-                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </a>
