@@ -128,6 +128,19 @@ class ReubenPortfolioSections {
                         'preview_size' => 'medium',
                         'library' => 'all',
                     ),
+                    array(
+                        'key' => 'field_photo_gallery',
+                        'label' => 'Photo Gallery',
+                        'name' => 'photo_gallery',
+                        'type' => 'gallery',
+                        'instructions' => 'Multiple images for photograph stories (used in carousel display)',
+                        'required' => 0,
+                        'return_format' => 'array',
+                        'preview_size' => 'medium',
+                        'library' => 'all',
+                        'min' => 1,
+                        'max' => 5,
+                    ),
                 ),
                 'location' => array(
                     array(

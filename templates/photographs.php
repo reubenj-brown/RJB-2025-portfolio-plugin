@@ -3,69 +3,67 @@
     <div class="section-container">
         <div class="photographs-content">
             <div class="photographs-grid">
+                <?php
+                // Get photograph stories using the same function as other sections
+                $photos_query = get_portfolio_stories('photographs', 6);
                 
-                <!-- Queen Elizabeth II Funeral Photo Series -->
-                <article class="photo-item">
-                    <a href="#" class="photo-link">
-                        <div class="photo-carousel">
-                            <div class="photo-slide active">
-                                <img src="/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft5.webp" alt="Funeral of Queen Elizabeth II Albert Memorial" />
-                            </div>
-                            <div class="photo-slide">
-                                <img src="/wp-content/uploads/2025/07/Funeral-of-queen-elizabeth-ii-London-September-2023-Reuben-J-Brown-2.avif" alt="Musicians" />
-                            </div>
-                            <div class="photo-slide">
-                                <img src="/wp-content/uploads/2025/07/Funeral-of-queen-elizabeth-ii-London-September-2023-Reuben-J-Brown-1.avif" alt="Musicians" />
-                            </div>
-                            <div class="photo-overlay">
-                                <h2 class="photo-headline">The Death of Queen Elizabeth II</h2>
-                                <p class="photo-standfirst">Among the mourners at the Albert Memorial, at least some were surprised at the depth of their own grief</p>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-
-                <!-- Flak Towers Photo Series -->
-                <article class="photo-item">
-                    <a href="#" class="photo-link">
-                        <div class="photo-carousel">
-                            <div class="photo-slide active">
-                                <img src="/wp-content/uploads/2025/07/Reuben_J_Brown_Flak_Towers_Vienna_Augarten-29.jpg" alt="Flak Towers Vienna" />
-                            </div>
-                            <div class="photo-slide">
-                                <img src="placeholder-raasay-2.jpg" alt="Raasay" />
-                            </div>
-                            <div class="photo-overlay">
-                                <h2 class="photo-headline">The Nazi Monuments Vienna Can’t Take Down</h2>
-                                <p class="photo-standfirst"></p>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-
-                <!-- Walthamstow Photo Series -->
-                <article class="photo-item">
-                    <a href="#" class="photo-link">
-                        <div class="photo-carousel">
-                            <div class="photo-slide active">
-                                <img src="/wp-content/uploads/2025/07/Walthamstow-anti-racist-rally-march-august-7-2024-Reuben-J-Brown-photojournalism-11-e1729971732596-2048x1365-1.webp" alt="Walthamstow anti-racist protest august 2024" />
-                            </div>
-                            <div class="photo-slide">
-                                <img src="placeholder-walthamstow-2.jpg" alt="Walthamstow" />
-                            </div>
-                            <div class="photo-slide">
-                                <img src="placeholder-walthamstow-3.jpg" alt="Walthamstow" />
-                            </div>
-                            <div class="photo-overlay">
-                                <h2 class="photo-headline">Anti-racist protestors quell the violence in Walthamstow</h2>
-                                <p class="photo-standfirst">Following a wave of racially motivated riots sweeping the UK, counter-protestors in Walthamstow, East London, massed to quash the violence – for now</p>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-
-            
-
+                if ($photos_query->have_posts()) {
+                    while ($photos_query->have_posts()) {
+                        $photos_query->the_post();
+                        $story_id = get_the_ID();
+                        $metadata = get_story_metadata($story_id);
+                        $featured_image = get_story_featured_image($story_id, 'large');
+                        
+                        // Get photo gallery if available
+                        $photo_gallery = !empty($metadata['photo_gallery']) ? $metadata['photo_gallery'] : [];
+                        
+                        // Build image array - use gallery if available, otherwise use featured image or fallback
+                        $images = [];
+                        if (!empty($photo_gallery)) {
+                            foreach ($photo_gallery as $gallery_image) {
+                                $images[] = [
+                                    'url' => $gallery_image['sizes']['large'] ?? $gallery_image['url'],
+                                    'alt' => $gallery_image['alt'] ?? get_the_title()
+                                ];
+                            }
+                        } else if ($featured_image) {
+                            $images[] = [
+                                'url' => $featured_image,
+                                'alt' => get_the_title()
+                            ];
+                        }
+                        
+                        if (empty($images)) continue; // Skip if no images
+                        
+                        // Use short headline if available, otherwise regular title
+                        $headline = !empty($metadata['short_headline']) ? $metadata['short_headline'] : get_the_title();
+                        $standfirst = get_the_excerpt();
+                        $permalink = get_permalink();
+                ?>
+                        <article class="photo-item">
+                            <a href="<?php echo esc_url($permalink); ?>" class="photo-link">
+                                <div class="photo-carousel">
+                                    <?php foreach ($images as $index => $image) : ?>
+                                        <div class="photo-slide<?php echo $index === 0 ? ' active' : ''; ?>">
+                                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                        </div>
+                                    <?php endforeach; ?>
+                                    <div class="photo-overlay">
+                                        <h2 class="photo-headline"><?php echo esc_html($headline); ?></h2>
+                                        <?php if (!empty($standfirst)) : ?>
+                                            <p class="photo-standfirst"><?php echo esc_html($standfirst); ?></p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                <?php
+                    }
+                    wp_reset_postdata();
+                } else {
+                    echo '<p style="text-align: center; color: #808080; padding: 4rem;">No photograph stories found.</p>';
+                }
+                ?>
             </div>
         </div>
     </div>
