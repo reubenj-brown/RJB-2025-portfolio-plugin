@@ -82,7 +82,7 @@
     line-height: 1.1;
     margin: 0 0 1.5rem 0;
     color: #000;
-    font-feature-settings: "ss02" 1;
+    font-feature-settings: "ss02" 1, "ss04" 1;
 }
 
 .reviews-primary-standfirst {
@@ -141,7 +141,7 @@
 
 .reviews-secondary-headline {
     font-family: var(--serif-font);
-    font-size: calc(24px * 1.23); /* 29.52px when scaled */
+    font-size: calc(24px * 1.23);
     font-weight: 400;
     line-height: 1.2;
     margin: 0 0 0.75rem 0;
@@ -150,7 +150,7 @@
 
 .reviews-secondary-meta {
     font-family: var(--primary-font);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.4;
     margin: 0;
@@ -248,7 +248,7 @@
     }
     
     .reviews-primary-meta {
-        font-size: 14px;
+        font-size: 16px;
     }
     
     /* Secondary stories become single column on mobile */
