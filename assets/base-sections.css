@@ -101,7 +101,7 @@ h3.serif-font-scaled {
 
 
 /* Tablet Typography Adjustments */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     h2 {
         font-size: 24px;
     }

@@ -182,7 +182,7 @@
 }
 
 /* Tablet Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     /* Primary story - switch to bottom positioning */
     .photo-primary-overlay {
         top: auto;
