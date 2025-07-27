@@ -52,6 +52,7 @@
     overflow: hidden;
     position: relative;
     min-height: 0; /* Ensure aspect-ratio works with flexbox */
+    height: auto !important; /* Let aspect-ratio control height */
 }
 
 .reviews-primary-image img {
@@ -125,6 +126,8 @@
     aspect-ratio: 4/5 !important; /* Portrait aspect ratio */
     overflow: hidden;
     margin-bottom: 12px;
+    height: auto !important; /* Let aspect-ratio control height */
+    position: relative;
 }
 
 .reviews-secondary-image img {
@@ -214,6 +217,17 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 32px;
     }
+}
+
+/* Additional specificity to ensure styles apply */
+.reviews-section .reviews-primary-image img,
+.reviews-section .reviews-secondary-image img {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+}
+
+.reviews-section .reviews-primary-image,
+.reviews-section .reviews-secondary-image {
+    aspect-ratio: 4/5 !important;
 }
 
 /* Mobile Responsive */
