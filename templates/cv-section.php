@@ -75,7 +75,7 @@
                         <p class="cv-dates">2025–26</p>
                     </div>
                     <div class="cv-entry">
-                        <p class="cv-degree">BA in Architecture</p>
+                        <p class="cv-degree">B.A. in Architecture</p>
                         <p class="cv-institution">University of Cambridge</p>
                         <p class="cv-dates">2020–23</p>
                     </div>
