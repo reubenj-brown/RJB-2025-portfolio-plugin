@@ -205,6 +205,11 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    /* Primary story container - adjust for mobile content padding */
+    .photo-primary-container {
+        width: 92vw; /* Accounts for 4vw padding on mobile */
+    }
+    
     .photographs-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
