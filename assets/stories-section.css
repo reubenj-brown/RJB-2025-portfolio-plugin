@@ -105,7 +105,6 @@
 .story-item {
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
 }
 
 .story-item-2x2 {
@@ -230,7 +229,6 @@
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    padding: 0 0 3rem 0;
 }
 
 .story-link .link-text {
