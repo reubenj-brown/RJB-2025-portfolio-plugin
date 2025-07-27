@@ -40,9 +40,10 @@
 
 .reviews-primary-story {
     display: flex;
-    align-items: center;
+    align-items: stretch; /* Make both columns same height */
     gap: 32px;
     width: 100%;
+    min-height: 0; /* Allow flexbox to work properly */
 }
 
 .reviews-primary-image {
@@ -67,7 +68,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    /* Remove height: 100% - let it match the image height via align-items: stretch */
 }
 
 /* Primary story text styling - matches Features section primary story */
