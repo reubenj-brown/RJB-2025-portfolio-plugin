@@ -38,11 +38,13 @@
                         <!-- Primary Story - Left Column -->
                         <div class="reviews-primary">
                             <article class="reviews-primary-story">
-                                <a href="<?php echo esc_url($primary_story['permalink']); ?>" class="reviews-primary-link">
-                                    <div class="reviews-primary-image">
+                                <div class="reviews-primary-image">
+                                    <a href="<?php echo esc_url($primary_story['permalink']); ?>" class="reviews-primary-image-link">
                                         <img src="<?php echo esc_url($primary_story['featured_image']); ?>" alt="<?php echo esc_attr($primary_story['title']); ?>" />
-                                    </div>
-                                    <div class="reviews-primary-content">
+                                    </a>
+                                </div>
+                                <div class="reviews-primary-content">
+                                    <a href="<?php echo esc_url($primary_story['permalink']); ?>" class="reviews-primary-text-link">
                                         <h2 class="reviews-primary-headline"><?php echo esc_html($primary_story['short_headline']); ?></h2>
                                         <?php if (!empty($primary_story['excerpt'])) : ?>
                                             <p class="reviews-primary-standfirst"><?php echo esc_html($primary_story['excerpt']); ?></p>
@@ -56,8 +58,8 @@
                                                 <?php echo date('F Y', strtotime($primary_story['metadata']['publish_date'])); ?>
                                             <?php endif; ?>
                                         </p>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </article>
                         </div>
 

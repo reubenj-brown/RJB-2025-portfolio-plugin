@@ -160,14 +160,15 @@
 }
 
 /* Link styling */
-.reviews-primary-link,
+.reviews-primary-image-link,
+.reviews-primary-text-link,
 .reviews-secondary-link {
     text-decoration: none;
     color: inherit;
     display: block;
 }
 
-.reviews-primary-link:hover .reviews-primary-headline,
+.reviews-primary-text-link:hover .reviews-primary-headline,
 .reviews-secondary-link:hover .reviews-secondary-headline {
     color: var(--highlight-color);
 }
