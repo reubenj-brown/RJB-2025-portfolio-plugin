@@ -5,7 +5,7 @@
                 <p class="large-intro-text">I’m Reuben, a multimedia journalist with a background in design. I’m interested in very big systems, the people shaping them, and the people they shape.</p>
             </div>
             <div class="about-text">
-                <p>Think the migrant workers propping up continental food systems; the complex personal costs of the huge projects we need to combat the climate crisis; the local planning board decisions that gum up national housing targets; the individual innovators pushing change in big businesses and organisations.</p>
+                <p>Think the migrant workers propping up continental food systems; the local tradeoffs of nation-spanning climate projects; the picayune planning edicts that gum up city housing targets; the individual innovators pushing change in big businesses and organisations.</p>
                 <p>This year, I’m pursuing these stories as a <a href="https://cronkite.asu.edu/specializations/business-journalism-fellowship-graduate-fellowship/">Steele Fellow in Investigative Business Journalism</a> at the Walter Cronkite School of Journalism, Arizona State University.</p>
                 <p>Before this, I was Digital Editor at <i>The Architectural Review</i>, where I wrote on architecture and politics and worked on cross-platform audience strategy.</p>
                 <p>I graduated from the University of Cambridge, where I was president of the architecture society, delivering an exhibition of 250 students’ work in London — among much, much more. I was Production Assistant at The World Around, a New York-based global design platform where I helped to launch the Young Climate Prize, and worked on TV shoots for BBC Maestro.</p>
