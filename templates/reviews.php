@@ -1,70 +1,99 @@
 <!-- Reviews Section -->
 <section class="content-section">
     <div class="section-container">
-        <div class="stories-content">
-            <div class="stories-grid">
-    
-    <!-- Protest Architecture Story -->
-    <article class="story-item">
-        <a href="https://www.architectural-review.com/essays/timber-pallets-climbing-ropes-and-a-bottle-of-glitter-protest-architecture-under-review" class="story-link">
-            <div class="story-image">
-                <img src="https://cdn.ca.emap.com/wp-content/uploads/sites/12/2024/06/Protest-Architecture-Exhibition-MAK-Vienna-Architectural-Review-Hambi-1.jpg" alt="Protest architecture" />
-            </div>
-            <div class="caption">Photograph: Tim Wagner / MAK</div>
-            <div class="story-content">
-                <h2 class="serif-font-scaled">A book and exhibition highlight the aesthetic triumph of ‘Protest Architecture’ – but its political record needs examining, too</h2>
-                <p></p>
-                <p class="story-meta">For <i>The Architectural Review</i> in June 2024</p>
-            </div>
-        </a>
-    </article>
+        <div class="reviews-content">
+            <?php
+            // Get reviews stories using the same function as other sections
+            $reviews_query = get_portfolio_stories('reviews', 4);
+            
+            if ($reviews_query->have_posts()) {
+                $stories = [];
+                
+                // Collect stories into array
+                while ($reviews_query->have_posts()) {
+                    $reviews_query->the_post();
+                    $story_id = get_the_ID();
+                    $metadata = get_story_metadata($story_id);
+                    $featured_image = get_story_featured_image($story_id, 'large');
+                    
+                    if ($featured_image) {
+                        $stories[] = [
+                            'id' => $story_id,
+                            'title' => get_the_title(),
+                            'short_headline' => !empty($metadata['short_headline']) ? $metadata['short_headline'] : get_the_title(),
+                            'excerpt' => get_the_excerpt(),
+                            'permalink' => get_permalink(),
+                            'metadata' => $metadata,
+                            'featured_image' => $featured_image
+                        ];
+                    }
+                }
+                wp_reset_postdata();
+                
+                if (!empty($stories)) {
+                    $primary_story = $stories[0];
+                    $secondary_stories = array_slice($stories, 1, 3); // Get up to 3 secondary stories
+            ?>
+                    <div class="reviews-layout">
+                        <!-- Primary Story - Left Column -->
+                        <div class="reviews-primary">
+                            <article class="reviews-primary-story">
+                                <a href="<?php echo esc_url($primary_story['permalink']); ?>" class="reviews-primary-link">
+                                    <div class="reviews-primary-image">
+                                        <img src="<?php echo esc_url($primary_story['featured_image']); ?>" alt="<?php echo esc_attr($primary_story['title']); ?>" />
+                                    </div>
+                                    <div class="reviews-primary-content">
+                                        <h2 class="reviews-primary-headline"><?php echo esc_html($primary_story['short_headline']); ?></h2>
+                                        <?php if (!empty($primary_story['excerpt'])) : ?>
+                                            <p class="reviews-primary-standfirst"><?php echo esc_html($primary_story['excerpt']); ?></p>
+                                        <?php endif; ?>
+                                        <p class="reviews-primary-meta">
+                                            <?php if (!empty($primary_story['metadata']['publication'])) : ?>
+                                                For <i><?php echo esc_html($primary_story['metadata']['publication']); ?></i>
+                                            <?php endif; ?>
+                                            <?php if (!empty($primary_story['metadata']['publish_date'])) : ?>
+                                                <?php echo !empty($primary_story['metadata']['publication']) ? ' in ' : ''; ?>
+                                                <?php echo date('F Y', strtotime($primary_story['metadata']['publish_date'])); ?>
+                                            <?php endif; ?>
+                                        </p>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
 
-    <!-- Sharjah Architecture Triennial Story -->
-    <article class="story-item">
-        <a href="https://www.architectural-review.com/essays/exhibitions/building-coalition-through-contradictions-the-sharjah-architecture-triennial-2023" class="story-link">
-            <div class="story-image">
-                <img src="https://cdn.ca.emap.com/wp-content/uploads/sites/12/2023/12/Sharjah-Architecture-Triennial-2023-The-Architectural-Review-Reuben-J-Brown-02.jpg" alt="Sharjah Architecture Triennial" />
-            </div>
-            <div class="caption">Photograph: Reuben J. Brown</div>
-            <div class="story-content">
-                <h2 class="serif-font-scaled">The 2023 Sharjah Architecture Triennial builds coalitions through its contradictions</h2>
-                <p></p>
-                <p class="story-meta">For <i>The Architectural Review</i> in December 2023</p>
-            </div>
-        </a>
-    </article>
-
-    <!-- Drive My Car Story -->
-    <article class="story-item">
-        <a href="#" class="story-link">
-            <div class="story-image">
-                <img src="2af947f4-5d59-42d4-9c6b-9792f4019171_976x549.jpeg" alt="Drive My Car" />
-            </div>
-            <div class="caption">Reuben J. Brown</div>
-            <div class="story-content">
-                <h2 class="serif-font-scaled">In “Drive My Car”, we follow the winding path</h2>
-                <p></p>
-                <p class="story-meta">For <i>Re—Compose</i> in March 2022</p>
-            </div>
-        </a>
-    </article>
-
-    <!-- Merzbow Story -->
-    <article class="story-item">
-        <a href="#" class="story-link">
-            <div class="story-image">
-                <img src="placeholder-merzbow.jpg" alt="Merzbow" />
-            </div>
-            <div class="caption">Reuben J. Brown</div>
-            <div class="story-content">
-                <h2 class="serif-font-scaled">In the music of Merzbow, the search for a sound so ugly it causes physical pain</h2>
-                <p></p>
-                <p class="story-meta">For <i>Scuff</i> in July 2022</p>
-            </div>
-        </a>
-    </article>
-
-            </div>
+                        <!-- Secondary Stories - Right Column -->
+                        <div class="reviews-secondary">
+                            <?php foreach ($secondary_stories as $story) : ?>
+                                <article class="reviews-secondary-story">
+                                    <a href="<?php echo esc_url($story['permalink']); ?>" class="reviews-secondary-link">
+                                        <div class="reviews-secondary-image">
+                                            <img src="<?php echo esc_url($story['featured_image']); ?>" alt="<?php echo esc_attr($story['title']); ?>" />
+                                        </div>
+                                        <div class="reviews-secondary-content">
+                                            <h3 class="reviews-secondary-headline"><?php echo esc_html($story['short_headline']); ?></h3>
+                                            <p class="reviews-secondary-meta">
+                                                <?php if (!empty($story['metadata']['publication'])) : ?>
+                                                    For <i><?php echo esc_html($story['metadata']['publication']); ?></i>
+                                                <?php endif; ?>
+                                                <?php if (!empty($story['metadata']['publish_date'])) : ?>
+                                                    <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
+                                                    <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
+                                                <?php endif; ?>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </article>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+            <?php
+                } else {
+                    echo '<p style="text-align: center; color: #808080; padding: 4rem;">No reviews stories found.</p>';
+                }
+            } else {
+                echo '<p style="text-align: center; color: #808080; padding: 4rem;">No reviews stories found.</p>';
+            }
+            ?>
         </div>
     </div>
 </section>

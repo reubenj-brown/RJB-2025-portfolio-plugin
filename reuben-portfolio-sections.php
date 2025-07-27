@@ -274,6 +274,13 @@ class ReubenPortfolioSections {
                 ['reuben-base-sections'],
                 '1.0.0'
             );
+            
+            wp_enqueue_style(
+                'reuben-reviews-section',
+                plugin_dir_url(__FILE__) . 'assets/reviews-section.css',
+                ['reuben-base-sections'],
+                '1.0.0'
+            );
         }
     }
     
