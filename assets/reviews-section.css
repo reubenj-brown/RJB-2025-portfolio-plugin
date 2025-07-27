@@ -62,7 +62,6 @@
     object-position: center;
     display: block;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
-    border-radius: 4px;
     position: absolute;
     top: 15px;
     left: 15px;
@@ -141,7 +140,6 @@
     object-position: center;
     display: block;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
-    border-radius: 4px;
     position: absolute;
     top: 15px;
     left: 15px;
