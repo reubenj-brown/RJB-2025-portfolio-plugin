@@ -91,6 +91,15 @@ class ReubenPortfolioSections {
                         'placeholder' => 'https://www.example.com/story',
                     ),
                     array(
+                        'key' => 'field_short_headline',
+                        'label' => 'Short Headline',
+                        'name' => 'short_headline',
+                        'type' => 'text',
+                        'instructions' => 'Alternative shorter or more allegorical version of the headline for use in different layouts',
+                        'required' => 0,
+                        'placeholder' => 'e.g., A shorter, more poetic version',
+                    ),
+                    array(
                         'key' => 'field_photo_credit',
                         'label' => 'Photo Credit',
                         'name' => 'photo_credit',
