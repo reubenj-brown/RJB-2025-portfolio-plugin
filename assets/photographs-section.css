@@ -71,12 +71,13 @@
 /* Text overlay */
 .photo-overlay {
     position: absolute;
-    top: 2vw;
+    bottom: 2vw;
     left: 2vw;
-    right: 1vw;
+    right: 2vw;
     z-index: 20;
     color: white !important;
     pointer-events: none;
+    text-align: center;
 }
 
 .photo-headline {
@@ -86,7 +87,7 @@
     text-transform: uppercase;
     font-size: calc(32px * 1.23);
     line-height: 1.1;
-    margin: 0 0 0.5rem 0;
+    margin: 0;
     color: white !important;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     font-feature-settings: "ss02" 1;
@@ -116,14 +117,13 @@
     }
     
     .photo-overlay {
-        top: 4vw;
+        bottom: 4vw;
         left: 4vw;
         right: 4vw;
     }
     
     .photo-headline {
         font-size: calc(28px * 1.23); /* Slightly smaller on mobile */
-        margin-bottom: 1rem;
     }
     
     .photo-standfirst {
@@ -138,14 +138,13 @@
     }
     
     .photo-overlay {
-        top: 5vw;
+        bottom: 5vw;
         left: 5vw;
         right: 5vw;
     }
     
     .photo-headline {
         font-size: calc(24px * 1.23); /* Even smaller on small mobile */
-        margin-bottom: 0.75rem;
     }
     
     .photo-standfirst {
