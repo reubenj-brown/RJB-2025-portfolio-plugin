@@ -221,7 +221,7 @@
     
     /* Primary story mobile adjustments */
     .photo-primary-headline {
-        font-size: 48px;
+        font-size: 28px; /* Primary story headline - compressed font */
     }
     
     .photo-primary-standfirst {
@@ -241,7 +241,7 @@
     }
     
     .photo-headline {
-        font-size: calc(28px * 1.23); /* Slightly smaller on mobile */
+        font-size: 24px; /* Standard headline size on mobile */
     }
     
     .photo-standfirst {
@@ -262,7 +262,7 @@
     }
     
     .photo-headline {
-        font-size: calc(24px * 1.23); /* Even smaller on small mobile */
+        font-size: 24px; /* Standard headline size on small mobile */
     }
     
     .photo-standfirst {
