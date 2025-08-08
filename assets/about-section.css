@@ -91,7 +91,7 @@
 }
 
 /* Mobile and Tablet Responsive */
-@media (max-width: 1199px) {
+@media (max-width: 1200px) {
     .about-content {
         padding: 3rem 0;
     }
