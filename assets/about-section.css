@@ -53,6 +53,7 @@
 .about-text {
     max-width: 600px;
     margin: 0 auto;
+    font-size: 20px;
 }
 
 .about-text p {
