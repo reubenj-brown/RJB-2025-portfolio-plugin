@@ -2,12 +2,12 @@
     <div class="section-container">
         <div class="strategy-content">
             <div class="strategy-intro">
-                <h3 class="serif-font-scaled">I'm interested in the intersection of journalism, technology, and audience engagement. Here are some areas where I can help your organisation.</h3>
+                <h3 class="serif-font-scaled">I work best in tight-knit teams with outsized impacts. Tough, go-getting teams with strong missions and intense collaboration. That was my experience at The Architectural Review, devising and delivering on the magazine’s audience strategy, creating and editing its new newsletter and developing its social media presence to develop brand loyalty and subscriptions pipelines.</h3>
             </div>
             <div class="strategy-grid">
                 <div class="strategy-item">
                     <a href="#" class="strategy-link">
-                        <h1>Audience Strategy</h1>
+                        <h1>Audience strategy at <i>The Architectural Review</i></h1>
                     </a>
                 </div>
                 
