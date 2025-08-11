@@ -53,15 +53,19 @@
 .about-text {
     max-width: 600px;
     margin: 0 auto;
-    font-size: 20px;
 }
 
 .about-text p {
     margin-bottom: 1.5rem;
+    font-size: 20px;
 }
 
 .about-text p:last-child {
     margin-bottom: 0;
+}
+
+.about-text a:hover {
+    background-color: black;
 }
 
 /* Desktop layout - two columns */
@@ -118,6 +122,10 @@
 @media (max-width: 768px) {
     .large-intro-text {
         font-size: 55px !important;
+    }
+
+    .about-text p {
+        font-size: 16px;
     }
 }
 

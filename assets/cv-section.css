@@ -29,6 +29,7 @@
 .cv-section p {
     line-height: 1.2;
     margin: 0 !important;
+    font-size: 20px;
 }
 
 .cv-section .cv-entry {
@@ -79,10 +80,19 @@
     margin: 0;
 }
 
+/* Tablet Responsive */
+@media (max-width: 1200px) {
+    
+    .cv-section p {
+        font-size: 16px;
+    }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .cv-content {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
+
 }
