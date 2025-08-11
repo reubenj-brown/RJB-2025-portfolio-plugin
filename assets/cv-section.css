@@ -80,6 +80,14 @@
     margin: 0;
 }
 
+/* Tablet Responsive */
+@media (max-width: 1200px) {
+    
+    .cv-section p {
+        font-size: 16px;
+    }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .cv-content {
@@ -87,7 +95,4 @@
         gap: 2.5rem;
     }
 
-    .cv-section p {
-        font-size: 16px;
-    }
 }
