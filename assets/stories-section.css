@@ -217,6 +217,7 @@
 
 /* View All Tile */
 .view-all-tile {
+    background-color: rgba(0, 0, 0, 0.05); /* 5% grey background */
     border: 1px solid #e0e0e0;
     border-radius: 4px;
     transition: border-color 0.3s ease;
@@ -239,12 +240,16 @@
     padding: 2rem;
 }
 
-.view-all-content h2 {
+.view-all-heading {
+    font-family: var(--primary-font) !important;
+    font-size: 24px !important;
+    font-weight: 400 !important;
     color: #808080;
     transition: color 0.3s ease;
+    margin: 0 !important;
 }
 
-.view-all-tile:hover .view-all-content h2 {
+.view-all-tile:hover .view-all-heading {
     color: var(--highlight-color);
 }
 

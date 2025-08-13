@@ -195,7 +195,7 @@ $show_meta = $atts['show_meta'] === 'true';
                             <article class="story-item view-all-tile">
                                 <a href="<?php echo get_post_type_archive_link('story'); ?>" class="story-link">
                                     <div class="story-content view-all-content">
-                                        <h2 class="serif-font-scaled">View All <?php echo ucfirst($atts['category']); ?></h2>
+                                        <h2 class="view-all-heading">View all stories →</h2>
                                     </div>
                                 </a>
                             </article>
