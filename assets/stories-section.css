@@ -65,7 +65,7 @@
 /* Secondary Stories Grid */
 .stories-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
 
@@ -186,6 +186,11 @@
 .story-item h2,
 .story-item-2x2 h2 {
     margin-bottom: 1.5rem;
+}
+
+/* Architecture section (profiles) specific headline sizing */
+.profiles-section .story-item h2.serif-font-scaled {
+    font-size: calc(24px * 1.23); /* Smaller headlines for 4-column layout */
 }
 
 .story-item p,
@@ -334,7 +339,7 @@
 /* Mobile Responsive */
 @media (max-width: 1200px) {
     .stories-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 3rem;
     }
     
@@ -348,6 +353,14 @@
         padding-bottom: 3rem;
     }
     
+}
+
+/* Small Tablet Responsive */
+@media (max-width: 900px) {
+    .stories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
