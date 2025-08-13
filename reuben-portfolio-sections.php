@@ -360,7 +360,8 @@ class ReubenPortfolioSections {
             'limit' => 6,
             'layout' => 'grid', // grid, list, featured
             'show_excerpt' => 'true',
-            'show_meta' => 'true'
+            'show_meta' => 'true',
+            'show_view_all' => 'false'
         ], $atts);
         
         ob_start();
