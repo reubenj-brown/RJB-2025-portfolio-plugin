@@ -189,20 +189,23 @@ $show_meta = $atts['show_meta'] === 'true';
                                 </a>
                             </article>
                         <?php endwhile; ?>
+                        
+                        <!-- View All Tile - part of grid -->
+                        <?php if (isset($atts['show_view_all']) && $atts['show_view_all'] === 'true') : ?>
+                            <article class="story-item view-all-tile">
+                                <a href="<?php echo get_post_type_archive_link('story'); ?>" class="story-link">
+                                    <div class="story-content view-all-content">
+                                        <h2 class="serif-font-scaled">View All <?php echo ucfirst($atts['category']); ?></h2>
+                                    </div>
+                                </a>
+                            </article>
+                        <?php endif; ?>
                     <?php else : ?>
                         <p class="no-stories-message">No stories found. <a href="<?php echo admin_url('post-new.php?post_type=story'); ?>">Add your first story</a>.</p>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
             
-            <?php if ($stories_query->found_posts > intval($atts['limit'])) : ?>
-                <!-- View All Stories Link -->
-                <div class="view-all-stories">
-                    <a href="<?php echo get_post_type_archive_link('story'); ?>" class="view-all-link">
-                        View All Stories →
-                    </a>
-                </div>
-            <?php endif; ?>
             
         </div>
     </div>
