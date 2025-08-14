@@ -43,7 +43,7 @@ $show_meta = $atts['show_meta'] === 'true';
                     
                     <div class="story-content">
                         <h2 class="serif-font-scaled">
-                            <a href="<?php the_permalink(); ?>">
+                            <a href="<?php echo !empty($meta['external_url']) ? esc_url($meta['external_url']) : get_permalink(); ?>"<?php echo !empty($meta['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                 <?php the_title(); ?>
                             </a>
                         </h2>
@@ -81,7 +81,7 @@ $show_meta = $atts['show_meta'] === 'true';
                             $story_image = function_exists('get_story_featured_image') ? get_story_featured_image(get_the_ID(), 'medium') : get_the_post_thumbnail_url(get_the_ID(), 'medium');
                         ?>
                             <article class="story-item">
-                                <a href="<?php the_permalink(); ?>" class="story-link">
+                                <a href="<?php echo !empty($meta['external_url']) ? esc_url($meta['external_url']) : get_permalink(); ?>" class="story-link"<?php echo !empty($meta['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                     <?php if ($story_image) : ?>
                                         <div class="story-image">
                                             <img src="<?php echo esc_url($story_image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" />
@@ -124,7 +124,7 @@ $show_meta = $atts['show_meta'] === 'true';
                             $meta = function_exists('get_story_metadata') ? get_story_metadata(get_the_ID()) : [];
                         ?>
                             <article class="story-list-item">
-                                <a href="<?php the_permalink(); ?>" class="story-link">
+                                <a href="<?php echo !empty($meta['external_url']) ? esc_url($meta['external_url']) : get_permalink(); ?>" class="story-link"<?php echo !empty($meta['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                     <h2 class="serif-font-scaled"><?php the_title(); ?></h2>
                                     
                                     <?php if ($show_excerpt && has_excerpt()) : ?>
@@ -157,7 +157,7 @@ $show_meta = $atts['show_meta'] === 'true';
                             $story_image = function_exists('get_story_featured_image') ? get_story_featured_image(get_the_ID(), 'medium') : get_the_post_thumbnail_url(get_the_ID(), 'medium');
                         ?>
                             <article class="story-item">
-                                <a href="<?php the_permalink(); ?>" class="story-link">
+                                <a href="<?php echo !empty($meta['external_url']) ? esc_url($meta['external_url']) : get_permalink(); ?>" class="story-link"<?php echo !empty($meta['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                     <?php if ($story_image) : ?>
                                         <div class="story-image">
                                             <img src="<?php echo esc_url($story_image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" />

@@ -39,12 +39,12 @@
                         <div class="reviews-primary">
                             <article class="reviews-primary-story">
                                 <div class="reviews-primary-image">
-                                    <a href="<?php echo esc_url($primary_story['permalink']); ?>" class="reviews-primary-image-link">
+                                    <a href="<?php echo !empty($primary_story['metadata']['external_url']) ? esc_url($primary_story['metadata']['external_url']) : esc_url($primary_story['permalink']); ?>" class="reviews-primary-image-link"<?php echo !empty($primary_story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                         <img src="<?php echo esc_url($primary_story['featured_image']); ?>" alt="<?php echo esc_attr($primary_story['title']); ?>" />
                                     </a>
                                 </div>
                                 <div class="reviews-primary-content">
-                                    <a href="<?php echo esc_url($primary_story['permalink']); ?>" class="reviews-primary-text-link">
+                                    <a href="<?php echo !empty($primary_story['metadata']['external_url']) ? esc_url($primary_story['metadata']['external_url']) : esc_url($primary_story['permalink']); ?>" class="reviews-primary-text-link"<?php echo !empty($primary_story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                         <h2 class="reviews-primary-headline"><?php echo esc_html($primary_story['short_headline']); ?></h2>
                                         <?php if (!empty($primary_story['excerpt'])) : ?>
                                             <p class="reviews-primary-standfirst"><?php echo esc_html($primary_story['excerpt']); ?></p>
@@ -67,7 +67,7 @@
                         <div class="reviews-secondary">
                             <?php foreach ($secondary_stories as $story) : ?>
                                 <article class="reviews-secondary-story">
-                                    <a href="<?php echo esc_url($story['permalink']); ?>" class="reviews-secondary-link">
+                                    <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : esc_url($story['permalink']); ?>" class="reviews-secondary-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                         <div class="reviews-secondary-image">
                                             <img src="<?php echo esc_url($story['featured_image']); ?>" alt="<?php echo esc_attr($story['title']); ?>" />
                                         </div>

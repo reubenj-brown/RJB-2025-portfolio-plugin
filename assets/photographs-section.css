@@ -119,68 +119,71 @@
     position: relative;
 }
 
-.photo-carousel {
-    position: relative;
+/* Secondary stories layout - matching features section primary story */
+.photo-story-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
     width: 100%;
-    aspect-ratio: 5/4;
+}
+
+.photo-story-content {
+    flex: 0 0 calc(40% - 9.6px); /* 40% minus 40% of gap - matches features */
+    text-align: center;
+}
+
+.photo-story-headline {
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    font-family: var(--compressed-font);
+    font-size: 96px;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.photo-story-headline a {
+    color: #000 !important;
+    text-decoration: none;
+}
+
+.photo-story-excerpt {
+    color: #808080;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+    font-family: var(--serif-font);
+    font-size: 24.5px;
+}
+
+.photo-story-meta {
+    color: #666;
+    font-weight: 500;
+    font-family: var(--primary-font);
+    font-size: 16px;
+}
+
+.photo-story-meta::after {
+    content: " →";
+}
+
+.photo-story-meta i {
+    color: #000;
+}
+
+.photo-story-image {
+    flex: 0 0 calc(60% - 14.4px); /* 60% minus 60% of gap - matches features */
+    aspect-ratio: 4/3;
     overflow: hidden;
+    position: relative;
+    margin-bottom: 8px;
 }
 
-.photo-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.photo-slide.active {
-    opacity: 1;
-}
-
-.photo-slide img {
+.photo-story-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
-}
-
-/* Text overlay */
-.photo-overlay {
-    position: absolute;
-    bottom: 2vw;
-    left: 2vw;
-    right: 2vw;
-    z-index: 20;
-    color: white !important;
-    pointer-events: none;
-    text-align: center;
-}
-
-.photo-headline {
-    font-family: var(--compressed-semibold-font);
-    font-weight: 600;
-    font-style: normal;
-    text-transform: uppercase;
-    font-size: calc(32px * 1.23);
-    line-height: 1.1;
-    margin: 0;
-    color: white !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-.photo-standfirst {
-    font-family: var(--serif-font);
-    font-size: calc(18px * 1.23); /* Scaled Legitima */
-    font-weight: 400;
-    line-height: 1.3;
-    margin: 0;
-    color: white !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-    max-width: 90%;
 }
 
 /* Tablet Responsive */
@@ -201,6 +204,22 @@
     
     .photo-primary-standfirst {
         font-size: calc(16px * 1.23); /* Matches Features section tablet size */
+    }
+
+    /* Secondary stories - keep text left of image on tablet */
+    .photo-story-layout {
+        gap: 24px;
+    }
+
+    /* Secondary stories text stays center-aligned on tablet */
+    .photo-story-content {
+        text-align: center;
+    }
+
+    /* Secondary stories body text 16px on tablet */
+    .photo-story-excerpt {
+        font-family: var(--serif-font);
+        font-size: calc(16px * 1.23); /* 16px * 1.23 = 19.68px - scaled for serif font */
     }
 }
 
@@ -235,40 +254,36 @@
         font-size: 14px;
     }
     
-    /* Secondary stories */
-    .photo-overlay {
-        bottom: 4vw;
-        left: 4vw;
-        right: 4vw;
+    /* Secondary stories - stack vertically on mobile */
+    .photo-story-layout {
+        flex-direction: column;
     }
-    
-    .photo-headline {
-        font-size: 24px; /* Standard headline size on mobile */
+
+    /* Secondary stories text stays center-aligned on mobile */
+    .photo-story-content {
+        width: 100%;
+        margin-bottom: 16px;
+        text-align: center;
     }
-    
-    .photo-standfirst {
-        font-size: calc(16px * 1.23); /* Scaled Legitima for mobile */
-        max-width: 95%;
+
+    .photo-story-image {
+        width: 100%;
+    }
+
+    /* Secondary stories headline sizes on mobile */
+    .photo-story-headline {
+        font-size: 64px; /* Secondary story headline - compressed font */
+    }
+
+    /* Secondary stories body text 16px on mobile */
+    .photo-story-excerpt {
+        font-family: var(--serif-font);
+        font-size: calc(16px * 1.23); /* 16px * 1.23 = 19.68px - scaled for serif font */
     }
 }
 
 @media (max-width: 480px) {
     .photographs-grid {
         gap: 2rem;
-    }
-    
-    .photo-overlay {
-        bottom: 5vw;
-        left: 5vw;
-        right: 5vw;
-    }
-    
-    .photo-headline {
-        font-size: 24px; /* Standard headline size on small mobile */
-    }
-    
-    .photo-standfirst {
-        font-size: calc(14px * 1.23); /* Scaled Legitima for small mobile */
-        line-height: 1.4;
     }
 }
