@@ -51,6 +51,23 @@
     text-align: center;
 }
 
+.story-text a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.story-text a:hover {
+    transform: translateY(-2px);
+}
+
+.story-text a:hover h2,
+.story-text a:hover h3,
+.story-text a:hover p {
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
 .story-text h2 {
     color: white;
     margin-bottom: 1.5rem;

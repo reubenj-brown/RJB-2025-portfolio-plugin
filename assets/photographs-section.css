@@ -1,4 +1,4 @@
-/* Photographs Section Styles - Updated v2.0.0 - No more carousel classes - Force deploy */
+/* Photographs Section Styles - Updated v3.3.0 - Made hero headline clickable */
 
 .photographs-section {
     background: white;
@@ -156,6 +156,15 @@
 .photographs-section .features-story-main h2 {
     font-size: 60px !important;
     line-height: 0.9 !important;
+    margin-bottom: 8px !important;
+}
+
+.photographs-section .features-story-main p {
+    margin-bottom: 4px !important;
+}
+
+.photographs-section .features-story-main .story-meta {
+    margin-bottom: 0 !important;
 }
 
 /* Tablet Responsive */
@@ -182,6 +191,7 @@
     .photographs-section .features-story-main h2 {
         font-size: 50px !important;
         line-height: 0.9 !important;
+        margin-bottom: 8px !important;
     }
 }
 
@@ -218,6 +228,7 @@
     .photographs-section .features-story-main h2 {
         font-size: 40px !important;
         line-height: 0.9 !important;
+        margin-bottom: 8px !important;
     }
 }
 
