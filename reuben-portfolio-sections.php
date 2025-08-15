@@ -285,16 +285,8 @@ class ReubenPortfolioSections {
     }
     
     public function enqueue_scripts() {
-        // Only load on portfolio page
-        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page()) {
-            wp_enqueue_script(
-                'reuben-photographs-carousel',
-                plugin_dir_url(__FILE__) . 'assets/photographs-carousel.js',
-                [],
-                '1.0.0',
-                true
-            );
-        }
+        // No scripts needed currently
+        // Photographs section no longer uses carousel JavaScript
     }
     
     public function about_section($atts) {
