@@ -91,17 +91,17 @@
                         <div class="photographs-grid">
                             <?php foreach ($remaining_stories as $story) : ?>
                                 <article class="photo-item">
-                                    <div class="photo-story-layout">
-                                        <div class="photo-story-content">
-                                            <h2 class="photo-story-headline">
+                                    <div class="features-story-main">
+                                        <div class="story-content">
+                                            <h2 class="serif-font-scaled">
                                                 <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : esc_url($story['permalink']); ?>"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                                     <?php echo esc_html($story['short_headline']); ?>
                                                 </a>
                                             </h2>
                                             <?php if (!empty($story['excerpt'])) : ?>
-                                                <p class="photo-story-excerpt"><?php echo esc_html($story['excerpt']); ?></p>
+                                                <p><?php echo esc_html($story['excerpt']); ?></p>
                                             <?php endif; ?>
-                                            <p class="photo-story-meta">
+                                            <p class="story-meta">
                                                 <?php if (!empty($story['metadata']['publication'])) : ?>
                                                     For <i><?php echo esc_html($story['metadata']['publication']); ?></i>
                                                 <?php endif; ?>
@@ -111,7 +111,7 @@
                                                 <?php endif; ?>
                                             </p>
                                         </div>
-                                        <div class="photo-story-image">
+                                        <div class="story-image">
                                             <img src="<?php echo esc_url($story['images'][0]['url']); ?>" alt="<?php echo esc_attr($story['images'][0]['alt']); ?>" />
                                         </div>
                                     </div>
