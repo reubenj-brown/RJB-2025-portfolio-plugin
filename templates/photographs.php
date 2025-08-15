@@ -1,4 +1,4 @@
-<!-- Photographs Section -->
+<!-- Photographs Section - Updated Classes -->
 <section class="content-section">
     <div class="section-container">
         <div class="photographs-content">
