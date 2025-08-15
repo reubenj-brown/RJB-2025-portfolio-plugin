@@ -92,28 +92,40 @@
 }
 
 .photographs-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px; /* Match Features section total gap (32px + 32px) */
-    position: relative;
-    align-items: start;
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+    overflow-x: auto;
+    overflow-y: hidden;
     width: 100%;
+    padding-bottom: 16px; /* Space for scrollbar */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
-/* Divider line between grid items */
-.photographs-grid::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1px;
-    height: 100%;
-    background-color: #e0e0e0; /* Match Features section separator color */
-    z-index: 10;
+/* No divider line needed for horizontal scroll */
+
+/* Custom scrollbar styling */
+.photographs-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.photographs-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.photographs-grid::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.photographs-grid::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
 }
 
 .photo-item {
+    flex: 0 0 450px; /* Fixed width for horizontal scroll */
     display: flex;
     flex-direction: column;
     position: relative;
@@ -162,13 +174,11 @@
     }
     
     .photographs-grid {
-        grid-template-columns: 1fr;
         gap: 3rem;
     }
-    
-    /* Hide divider line on mobile */
-    .photographs-grid::before {
-        display: none;
+
+    .photo-item {
+        flex: 0 0 350px; /* Smaller width on mobile */
     }
     
     /* Primary story mobile adjustments */
@@ -205,5 +215,9 @@
 @media (max-width: 480px) {
     .photographs-grid {
         gap: 2rem;
+    }
+
+    .photo-item {
+        flex: 0 0 300px; /* Even smaller width on small mobile */
     }
 }
