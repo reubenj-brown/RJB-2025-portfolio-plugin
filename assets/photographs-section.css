@@ -133,7 +133,26 @@
 
 /* Secondary stories now use .features-story-main classes and inherit styling from page-portfolio.php */
 
-/* Override headline size for photographs section secondary stories */
+/* Override layout and styling for photographs section secondary stories */
+.photographs-section .features-story-main {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px !important;
+}
+
+.photographs-section .features-story-main .story-content {
+    flex: none !important;
+    width: 100% !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+.photographs-section .features-story-main .story-image {
+    flex: none !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+}
+
 .photographs-section .features-story-main h2 {
     font-size: 60px !important;
     line-height: 0.9 !important;
@@ -199,16 +218,6 @@
     .photographs-section .features-story-main h2 {
         font-size: 40px !important;
         line-height: 0.9 !important;
-    }
-
-    /* Override mobile layout order for photographs section - image above text */
-    .photographs-section .features-story-main {
-        flex-direction: column-reverse !important;
-    }
-
-    .photographs-section .features-story-main .story-content {
-        margin-bottom: 0 !important;
-        margin-top: 16px !important;
     }
 }
 
