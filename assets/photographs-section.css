@@ -190,6 +190,16 @@
         font-size: 40px !important;
         line-height: 0.9 !important;
     }
+
+    /* Override mobile layout order for photographs section - image above text */
+    .photographs-section .features-story-main {
+        flex-direction: column-reverse !important;
+    }
+
+    .photographs-section .features-story-main .story-content {
+        margin-bottom: 0 !important;
+        margin-top: 16px !important;
+    }
 }
 
 @media (max-width: 480px) {
