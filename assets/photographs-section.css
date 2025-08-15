@@ -121,6 +121,12 @@
 
 /* Secondary stories now use .features-story-main classes and inherit styling from page-portfolio.php */
 
+/* Override headline size for photographs section secondary stories */
+.photographs-section .features-story-main h2 {
+    font-size: 60px !important;
+    line-height: 0.9 !important;
+}
+
 /* Tablet Responsive */
 @media (max-width: 1200px) {
     /* Primary story - switch to bottom positioning */
@@ -139,6 +145,12 @@
     
     .photo-primary-standfirst {
         font-size: calc(16px * 1.23); /* Matches Features section tablet size */
+    }
+
+    /* Override tablet headline size for photographs section secondary stories */
+    .photographs-section .features-story-main h2 {
+        font-size: 50px !important;
+        line-height: 0.9 !important;
     }
 }
 
@@ -171,6 +183,12 @@
     
     .photo-primary-meta {
         font-size: 14px;
+    }
+
+    /* Override mobile headline size for photographs section secondary stories */
+    .photographs-section .features-story-main h2 {
+        font-size: 40px !important;
+        line-height: 0.9 !important;
     }
 }
 

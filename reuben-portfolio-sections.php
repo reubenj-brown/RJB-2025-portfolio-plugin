@@ -272,7 +272,7 @@ class ReubenPortfolioSections {
                 'reuben-photographs-section',
                 plugin_dir_url(__FILE__) . 'assets/photographs-section.css',
                 ['reuben-base-sections'],
-                '2.0.0'
+                '2.1.0'
             );
             
             wp_enqueue_style(
