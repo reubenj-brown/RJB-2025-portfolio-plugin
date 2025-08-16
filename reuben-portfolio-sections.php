@@ -424,9 +424,19 @@ class ReubenPortfolioSections {
             [$this, 'admin_import_page']
         );
         
+        // Add migration submenu to Tools
+        $migration_page = add_management_page(
+            'Migrate Posts to Stories',
+            'Migrate Posts to Stories',
+            'manage_options',
+            'migrate-posts-to-stories',
+            [$this, 'admin_migration_page']
+        );
+        
         // Debug: Log the page results
         error_log('ReubenPortfolioSections: top menu added - ' . ($top_page ? 'success' : 'failed'));
         error_log('ReubenPortfolioSections: tools menu added - ' . ($tools_page ? 'success' : 'failed'));
+        error_log('ReubenPortfolioSections: migration menu added - ' . ($migration_page ? 'success' : 'failed'));
     }
     
     /**
@@ -802,6 +812,250 @@ class ReubenPortfolioSections {
             }
             echo '</div></div>';
         }
+    }
+    
+    /**
+     * Admin page for migrating posts to stories
+     */
+    public function admin_migration_page() {
+        // Handle form submission
+        if (isset($_POST['action'])) {
+            if (!wp_verify_nonce($_POST['_wpnonce'], 'migrate_posts_to_stories')) {
+                wp_die('Security check failed.');
+            }
+            
+            if ($_POST['action'] === 'migrate') {
+                $this->perform_migration();
+                return;
+            }
+        }
+        
+        // Get posts to migrate
+        $posts_to_migrate = get_posts([
+            'post_type' => 'post',
+            'post_status' => ['publish', 'draft', 'private', 'pending'],
+            'numberposts' => -1,
+            'meta_query' => [
+                [
+                    'key' => '_migrated_to_story',
+                    'compare' => 'NOT EXISTS'
+                ]
+            ]
+        ]);
+        
+        ?>
+        <div class="wrap">
+            <h1>🔄 Migrate Posts to Stories</h1>
+            
+            <div class="notice notice-info">
+                <h3>📋 Migration Overview</h3>
+                <p>This tool will safely migrate all your WordPress posts to the custom Stories post type.</p>
+                <ul>
+                    <li><strong>Found:</strong> <?php echo count($posts_to_migrate); ?> posts to migrate</li>
+                    <li><strong>Preserves:</strong> Content, metadata, featured images, categories, and publication dates</li>
+                    <li><strong>Safe:</strong> Adds migration flags to prevent duplicate migrations</li>
+                </ul>
+            </div>
+            
+            <?php if (count($posts_to_migrate) == 0): ?>
+                <div class="notice notice-success">
+                    <h3>✅ No Posts to Migrate</h3>
+                    <p>All posts have already been migrated to Stories, or you have no posts to migrate.</p>
+                    <p><a href="<?php echo admin_url('edit.php?post_type=story'); ?>" class="button button-primary">View Your Stories</a></p>
+                </div>
+            <?php else: ?>
+                
+                <div class="notice notice-warning">
+                    <h3>⚠️ Before You Begin</h3>
+                    <ul>
+                        <li><strong>Backup your database</strong> before proceeding</li>
+                        <li>URLs will change from <code>/posts/</code> to <code>/stories/</code></li>
+                        <li>Consider setting up redirects after migration</li>
+                    </ul>
+                </div>
+                
+                <div class="card" style="max-width: 800px;">
+                    <h3>📝 Posts Ready for Migration</h3>
+                    <div style="max-height: 300px; overflow-y: auto; border: 1px solid #ddd; padding: 15px; background: #f9f9f9;">
+                        <?php foreach ($posts_to_migrate as $post): ?>
+                            <div style="margin-bottom: 10px; padding: 8px; background: white; border-left: 4px solid #0073aa;">
+                                <strong><?php echo esc_html($post->post_title); ?></strong>
+                                <br>
+                                <small>
+                                    Status: <?php echo $post->post_status; ?> | 
+                                    Date: <?php echo get_the_date('Y-m-d', $post); ?> |
+                                    ID: <?php echo $post->ID; ?>
+                                </small>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                
+                <form method="post" style="margin-top: 20px;">
+                    <?php wp_nonce_field('migrate_posts_to_stories'); ?>
+                    <input type="hidden" name="action" value="migrate">
+                    
+                    <p>
+                        <button type="submit" class="button button-primary button-large" 
+                                onclick="return confirm('Are you sure you want to migrate all posts to Stories? This will modify your database. Make sure you have a backup!')">
+                            🚀 Migrate <?php echo count($posts_to_migrate); ?> Posts to Stories
+                        </button>
+                    </p>
+                </form>
+                
+            <?php endif; ?>
+            
+            <div class="card" style="margin-top: 30px; max-width: 800px;">
+                <h3>🛠️ What This Migration Does</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <h4 style="color: #008000;">✅ Preserves</h4>
+                        <ul>
+                            <li>Post title and content</li>
+                            <li>Featured images</li>
+                            <li>Custom fields & metadata</li>
+                            <li>Publication dates</li>
+                            <li>Post status (draft, published, etc.)</li>
+                            <li>Categories (converted to story categories)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #0073aa;">🔄 Changes</h4>
+                        <ul>
+                            <li>Post type: post → story</li>
+                            <li>URLs: /posts/ → /stories/</li>
+                            <li>Admin location: Posts → Stories</li>
+                            <li>Adds migration tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+    
+    /**
+     * Perform the actual migration
+     */
+    private function perform_migration() {
+        $results = [
+            'total' => 0,
+            'migrated' => 0,
+            'errors' => []
+        ];
+        
+        // Get posts to migrate
+        $posts = get_posts([
+            'post_type' => 'post',
+            'post_status' => ['publish', 'draft', 'private', 'pending'],
+            'numberposts' => -1,
+            'meta_query' => [
+                [
+                    'key' => '_migrated_to_story',
+                    'compare' => 'NOT EXISTS'
+                ]
+            ]
+        ]);
+        
+        $results['total'] = count($posts);
+        
+        foreach ($posts as $post) {
+            try {
+                // Update post type
+                $updated = wp_update_post([
+                    'ID' => $post->ID,
+                    'post_type' => 'story'
+                ], true);
+                
+                if (is_wp_error($updated)) {
+                    throw new Exception($updated->get_error_message());
+                }
+                
+                // Add migration tracking
+                update_post_meta($post->ID, '_migrated_to_story', current_time('mysql'));
+                update_post_meta($post->ID, '_original_post_type', 'post');
+                
+                // Migrate categories to story categories if the taxonomy exists
+                if (taxonomy_exists('story_category')) {
+                    $categories = wp_get_post_categories($post->ID);
+                    if (!empty($categories)) {
+                        $story_categories = [];
+                        foreach ($categories as $cat_id) {
+                            $category = get_category($cat_id);
+                            if ($category) {
+                                // Create story category if it doesn't exist
+                                $story_cat = get_term_by('slug', $category->slug, 'story_category');
+                                if (!$story_cat) {
+                                    $story_cat = wp_insert_term($category->name, 'story_category', [
+                                        'description' => $category->description,
+                                        'slug' => $category->slug
+                                    ]);
+                                    if (!is_wp_error($story_cat)) {
+                                        $story_categories[] = $story_cat['term_id'];
+                                    }
+                                } else {
+                                    $story_categories[] = $story_cat->term_id;
+                                }
+                            }
+                        }
+                        if (!empty($story_categories)) {
+                            wp_set_post_terms($post->ID, $story_categories, 'story_category');
+                        }
+                    }
+                }
+                
+                $results['migrated']++;
+                
+            } catch (Exception $e) {
+                $results['errors'][] = "Failed to migrate '{$post->post_title}' (ID: {$post->ID}): " . $e->getMessage();
+            }
+        }
+        
+        // Display results
+        ?>
+        <div class="wrap">
+            <h1>🎉 Migration Complete!</h1>
+            
+            <div class="notice notice-success">
+                <h3>📊 Migration Results</h3>
+                <ul>
+                    <li><strong>Total Posts:</strong> <?php echo $results['total']; ?></li>
+                    <li><strong>Successfully Migrated:</strong> <?php echo $results['migrated']; ?></li>
+                    <li><strong>Errors:</strong> <?php echo count($results['errors']); ?></li>
+                </ul>
+            </div>
+            
+            <?php if (!empty($results['errors'])): ?>
+                <div class="notice notice-error">
+                    <h4>❌ Migration Errors</h4>
+                    <ul>
+                        <?php foreach ($results['errors'] as $error): ?>
+                            <li><?php echo esc_html($error); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+            
+            <div class="card" style="max-width: 600px;">
+                <h3>🚀 Next Steps</h3>
+                <p><strong>Your posts have been successfully migrated to Stories!</strong></p>
+                <p>
+                    <a href="<?php echo admin_url('edit.php?post_type=story'); ?>" class="button button-primary">
+                        View Your Stories
+                    </a>
+                    <a href="<?php echo admin_url('tools.php?page=migrate-posts-to-stories'); ?>" class="button">
+                        Back to Migration Tool
+                    </a>
+                </p>
+                
+                <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-left: 4px solid #ffc107;">
+                    <h4>⚠️ Important: URL Changes</h4>
+                    <p>Your post URLs have changed from <code>/posts/</code> to <code>/stories/</code>. 
+                    Consider setting up redirects to maintain SEO and prevent broken links.</p>
+                </div>
+            </div>
+        </div>
+        <?php
     }
 }
 
