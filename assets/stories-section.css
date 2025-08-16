@@ -49,6 +49,12 @@
 .featured-story h2 {
     margin-bottom: 1.5rem;
     line-height: 1.1;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.featured-story:hover h2 {
+    color: var(--highlight-color);
 }
 
 .featured-story h3 {
@@ -186,6 +192,13 @@
 .story-item h2,
 .story-item-2x2 h2 {
     margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.story-item:hover h2,
+.story-item-2x2:hover h2 {
+    color: var(--highlight-color);
 }
 
 /* Architecture section (profiles) specific headline sizing */
