@@ -94,7 +94,7 @@
 .photographs-grid {
     display: flex;
     flex-direction: row;
-    gap: 64px;
+    gap: 2rem;
     overflow-x: auto;
     overflow-y: hidden;
     width: 100%;
@@ -203,7 +203,7 @@
     }
     
     .photographs-grid {
-        gap: 3rem;
+        gap: 2rem;
     }
 
     .photo-item {
