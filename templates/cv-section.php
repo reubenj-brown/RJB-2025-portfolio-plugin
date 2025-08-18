@@ -6,7 +6,7 @@
                 <div class="cv-entries">
                     <div class="cv-entry">
                         <p class="cv-role">Steele Fellow in Investigative Business Journalism</p>
-                        <p class="cv-company">The Reynolds Center for Business Journalism</p>
+                        <p class="cv-company">The Reynolds Center/p>
                         <p class="cv-dates">2025–</p>
                     </div>
                     <div class="cv-entry">
