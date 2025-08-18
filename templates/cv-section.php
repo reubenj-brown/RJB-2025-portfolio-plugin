@@ -26,7 +26,7 @@
                     </div>
                     <div class="cv-entry">
                         <p class="cv-role">President</p>
-                        <p class="cv-company">ARCSOC</p>
+                        <p class="cv-company">ARCSOC, the University of Cambridge Architecture Society</p>
                         <p class="cv-dates">2022–23</p>
                     </div>
                     <div class="cv-entry">
