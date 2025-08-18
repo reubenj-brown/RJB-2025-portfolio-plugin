@@ -1062,6 +1062,9 @@ class ReubenPortfolioSections {
 // Initialize plugin
 $reuben_portfolio = new ReubenPortfolioSections();
 
+// Include domain URL fix tool
+require_once plugin_dir_path(__FILE__) . 'fix-domain-urls.php';
+
 // Also add a direct admin_menu hook as backup
 add_action('admin_menu', function() {
     error_log('Direct admin_menu hook fired');
