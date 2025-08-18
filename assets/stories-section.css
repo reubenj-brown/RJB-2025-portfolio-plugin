@@ -206,6 +206,11 @@
     font-size: calc(24px * 1.23); /* Smaller headlines for 4-column layout */
 }
 
+/* Interviews section - same headline sizing as Architecture section */
+.interviews-section .story-item h2.serif-font-scaled {
+    font-size: calc(24px * 1.23); /* Same as Architecture section */
+}
+
 .story-item p,
 .story-item-2x2 p {
     margin-bottom: 1rem;
