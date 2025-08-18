@@ -3,7 +3,7 @@
     <div class="section-container">
         <div class="photographs-content">
             <div class="strategy-intro">
-                <h3 class="serif-font-scaled">I take a XXXX and YYY. And I've assisted leading editorial and architectural photographers across shoots for magazines and TV.</h3>
+                <h3 class="serif-font-scaled">Photographs are an integrated part of my practice — and I've assisted leading editorial and architectural photographers across shoots for magazines and TV.</h3>
             </div>
             <?php
             // Get photograph stories using the same function as other sections
