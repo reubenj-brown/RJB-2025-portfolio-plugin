@@ -71,15 +71,6 @@
                                         <?php if (!empty($first_story['excerpt'])) : ?>
                                             <p class="photo-primary-standfirst"><?php echo esc_html($first_story['excerpt']); ?></p>
                                         <?php endif; ?>
-                                        <p class="photo-primary-meta">
-                                            <?php if (!empty($first_story['metadata']['publication'])) : ?>
-                                                For <i><?php echo esc_html($first_story['metadata']['publication']); ?></i>
-                                            <?php endif; ?>
-                                            <?php if (!empty($first_story['metadata']['publish_date'])) : ?>
-                                                <?php echo !empty($first_story['metadata']['publication']) ? ' in ' : ''; ?>
-                                                <?php echo date('F Y', strtotime($first_story['metadata']['publish_date'])); ?>
-                                            <?php endif; ?>
-                                        </p>
                                     </div>
                                 </div>
                             </a>
@@ -101,15 +92,6 @@
                                             <?php if (!empty($story['excerpt'])) : ?>
                                                 <p><?php echo esc_html($story['excerpt']); ?></p>
                                             <?php endif; ?>
-                                            <p class="story-meta">
-                                                <?php if (!empty($story['metadata']['publication'])) : ?>
-                                                    For <i><?php echo esc_html($story['metadata']['publication']); ?></i>
-                                                <?php endif; ?>
-                                                <?php if (!empty($story['metadata']['publish_date'])) : ?>
-                                                    <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
-                                                    <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
-                                                <?php endif; ?>
-                                            </p>
                                         </div>
                                         <div class="story-image">
                                             <img src="<?php echo esc_url($story['images'][0]['url']); ?>" alt="<?php echo esc_attr($story['images'][0]['alt']); ?>" />
