@@ -26,6 +26,10 @@ class ReubenPortfolioSections {
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
         add_action('admin_menu', [$this, 'add_admin_menu']);
         
+        // Media library custom fields
+        add_filter('attachment_fields_to_edit', [$this, 'add_media_source_field'], 10, 2);
+        add_filter('attachment_fields_to_save', [$this, 'save_media_source_field'], 10, 2);
+        
         // Debug: Log that plugin is loaded
         error_log('ReubenPortfolioSections: Plugin constructor loaded');
     }
@@ -1056,6 +1060,40 @@ class ReubenPortfolioSections {
             </div>
         </div>
         <?php
+    }
+    
+    /**
+     * Add custom "source" field to media library attachment edit screen
+     */
+    public function add_media_source_field($form_fields, $post) {
+        $source = get_post_meta($post->ID, '_media_source', true);
+        
+        $form_fields['media_source'] = array(
+            'label' => 'Source',
+            'input' => 'text',
+            'value' => $source,
+            'helps' => 'Enter the source or credit for this image (e.g., photographer name, agency, etc.)'
+        );
+        
+        return $form_fields;
+    }
+    
+    /**
+     * Save custom "source" field from media library
+     */
+    public function save_media_source_field($post, $attachment) {
+        if (isset($attachment['media_source'])) {
+            update_post_meta($post['ID'], '_media_source', sanitize_text_field($attachment['media_source']));
+        }
+        
+        return $post;
+    }
+    
+    /**
+     * Helper function to get media source/credit
+     */
+    public static function get_media_source($attachment_id) {
+        return get_post_meta($attachment_id, '_media_source', true);
     }
 }
 
