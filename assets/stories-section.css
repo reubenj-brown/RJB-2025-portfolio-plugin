@@ -596,13 +596,14 @@
     display: block;
 }
 
-/* Architecture scroll area text spacing */
+/* Architecture scroll area text spacing and styling */
 .architecture-scroll-item .story-content h2 {
     margin-bottom: 16px;
 }
 
 .architecture-scroll-item .story-content p:not(.story-meta) {
     margin-bottom: 16px;
+    color: #808080; /* Grey standfirst text */
 }
 
 .architecture-scroll-item .story-content .story-meta {
