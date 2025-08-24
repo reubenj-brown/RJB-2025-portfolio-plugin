@@ -596,6 +596,19 @@
     display: block;
 }
 
+/* Architecture scroll area text spacing */
+.architecture-scroll-item .story-content h2 {
+    margin-bottom: 16px;
+}
+
+.architecture-scroll-item .story-content p:not(.story-meta) {
+    margin-bottom: 16px;
+}
+
+.architecture-scroll-item .story-content .story-meta {
+    margin-bottom: 0;
+}
+
 /* Keep all existing typography and styling for Architecture section */
 .architecture-featured-grid .story-item h2.serif-font-scaled,
 .architecture-scroll-item h2.serif-font-scaled {
