@@ -319,7 +319,7 @@ class ReubenPortfolioSections {
     
     public function profiles_section($atts) {
         ob_start();
-        include plugin_dir_path(__FILE__) . 'templates/profiles.php';
+        include plugin_dir_path(__FILE__) . 'templates/architecture.php';
         return ob_get_clean();
     }
     
