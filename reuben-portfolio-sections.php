@@ -459,7 +459,7 @@ class ReubenPortfolioSections {
             <div class="notice notice-info">
                 <p><strong>What this will create:</strong></p>
                 <ul>
-                    <li>6 story categories (Features, Reviews, Profiles, Interviews, Photographs, Featured)</li>
+                    <li>6 story categories (Features, Reviews, Architecture, Interviews, Photographs, Featured)</li>
                     <li>20+ draft posts with titles, content, and metadata</li>
                     <li>Custom fields for publication info, dates, and photo credits</li>
                     <li>Category assignments for each story</li>
@@ -729,7 +729,7 @@ class ReubenPortfolioSections {
         $categories_to_create = [
             'features' => 'Features',
             'reviews' => 'Reviews',
-            'profiles' => 'Profiles',
+            'profiles' => 'Architecture',
             'interviews' => 'Interviews',
             'photographs' => 'Photographs',
             'featured' => 'Featured'

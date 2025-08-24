@@ -1,4 +1,4 @@
-<!-- Profiles Section -->
+<!-- Architecture Section -->
 <section class="content-section">
     <div class="section-container">
         <div class="stories-content">
