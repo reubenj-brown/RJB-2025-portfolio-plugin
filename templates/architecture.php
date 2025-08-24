@@ -2,58 +2,109 @@
 <section class="content-section">
     <div class="section-container">
         <div class="stories-content">
+            <?php
+            // Get architecture stories using the same function as other sections
+            $architecture_query = get_portfolio_stories('profiles', 11);
             
-            <!-- Top Two Featured Stories Grid -->
-            <div class="architecture-featured-grid">
-                <!-- Material Cultures Story -->
-                <article class="story-item">
-                    <a href="https://www.architectural-review.com/awards/ar-emerging/material-cultures-united-kingdom" class="story-link">
-                        <div class="story-image">
-                            <img src="https://cdn.ca.emap.com/wp-content/uploads/sites/12/2024/11/Wolves_Lane_The_Architectural_Review_©_Henry_Woide__High-Res_001_architectural_review_ar_emerging_2024-2.jpg" alt="Material Cultures" />
+            if ($architecture_query->have_posts()) {
+                $story_count = 0;
+                $stories = [];
+                
+                // Collect stories into array
+                while ($architecture_query->have_posts()) {
+                    $architecture_query->the_post();
+                    $stories[] = [
+                        'id' => get_the_ID(),
+                        'title' => get_the_title(),
+                        'excerpt' => get_the_excerpt(),
+                        'image_url' => get_story_featured_image(get_the_ID(), 'large'),
+                        'metadata' => get_story_metadata(get_the_ID()),
+                        'permalink' => get_permalink()
+                    ];
+                }
+                wp_reset_postdata();
+                
+                if (!empty($stories)) {
+                    $featured_stories = array_slice($stories, 0, 2); // First two for featured grid
+                    $remaining_stories = array_slice($stories, 2);   // Rest for horizontal scroll
+            ?>
+                    <!-- Top Two Featured Stories Grid -->
+                    <?php if (!empty($featured_stories)) : ?>
+                        <div class="architecture-featured-grid">
+                            <?php foreach ($featured_stories as $story) : ?>
+                                <article class="story-item">
+                                    <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
+                                        <?php if ($story['image_url']) : ?>
+                                            <div class="story-image">
+                                                <img src="<?php echo $story['image_url']; ?>" alt="<?php echo $story['title']; ?>" />
+                                            </div>
+                                            <?php if (!empty($story['metadata']['photo_credit'])) : ?>
+                                                <div class="caption"><?php echo $story['metadata']['photo_credit']; ?></div>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                        <div class="story-content">
+                                            <h2 class="serif-font-scaled"><?php echo $story['title']; ?></h2>
+                                            <?php if (!empty($story['excerpt'])) : ?>
+                                                <p><?php echo $story['excerpt']; ?></p>
+                                            <?php endif; ?>
+                                            <p class="story-meta">
+                                                <?php if (!empty($story['metadata']['publication'])) : ?>
+                                                    For <i><?php echo $story['metadata']['publication']; ?></i>
+                                                <?php endif; ?>
+                                                <?php if (!empty($story['metadata']['publish_date'])) : ?>
+                                                    <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
+                                                    <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
+                                                <?php endif; ?>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </article>
+                            <?php endforeach; ?>
                         </div>
-                        <div class="caption">Henry Woide</div>
-                        <div class="story-content">
-                            <h2 class="serif-font-scaled">Material Cultures</h2>
-                            <p>The London-based practice combines architecture with materials research and educational programmes to engender a transformation in architectural production</p>
-                            <p class="story-meta">For <i>The Architectural Review</i> in November 2024</p>
-                        </div>
-                    </a>
-                </article>
+                    <?php endif; ?>
 
-                <!-- A Threshold Story -->
-                <article class="story-item">
-                    <a href="https://www.architectural-review.com/awards/ar-emerging/a-threshold-india" class="story-link">
-                        <div class="story-image">
-                            <img src="https://cdn.ca.emap.com/wp-content/uploads/sites/12/2024/11/ABPAT_SR-4684_architectural_review_ar_emerging-1584x1200.jpg" alt="A Threshold" />
+                    <!-- Horizontal Scroll Area -->
+                    <?php if (!empty($remaining_stories)) : ?>
+                        <div class="architecture-scroll">
+                            <?php foreach ($remaining_stories as $story) : ?>
+                                <article class="architecture-scroll-item">
+                                    <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
+                                        <?php if ($story['image_url']) : ?>
+                                            <div class="story-image">
+                                                <img src="<?php echo $story['image_url']; ?>" alt="<?php echo $story['title']; ?>" />
+                                            </div>
+                                            <?php if (!empty($story['metadata']['photo_credit'])) : ?>
+                                                <div class="caption"><?php echo $story['metadata']['photo_credit']; ?></div>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                        <div class="story-content">
+                                            <h2 class="serif-font-scaled"><?php echo $story['title']; ?></h2>
+                                            <?php if (!empty($story['excerpt'])) : ?>
+                                                <p><?php echo $story['excerpt']; ?></p>
+                                            <?php endif; ?>
+                                            <p class="story-meta">
+                                                <?php if (!empty($story['metadata']['publication'])) : ?>
+                                                    For <i><?php echo $story['metadata']['publication']; ?></i>
+                                                <?php endif; ?>
+                                                <?php if (!empty($story['metadata']['publish_date'])) : ?>
+                                                    <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
+                                                    <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
+                                                <?php endif; ?>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </article>
+                            <?php endforeach; ?>
                         </div>
-                        <div class="caption">Atik Bheda</div>
-                        <div class="story-content">
-                            <h2 class="serif-font-scaled">A Threshold</h2>
-                            <p>The Bangalore-based practice imagines a public life for a private guest house, finding community benefit in a commercial brief</p>
-                            <p class="story-meta">For <i>The Architectural Review</i> in November 2024</p>
-                        </div>
-                    </a>
-                </article>
-            </div>
-
-            <!-- Horizontal Scroll Area -->
-            <div class="architecture-scroll">
-                <!-- NWLND Rogiers Vandeputte Story -->
-                <article class="architecture-scroll-item">
-                    <a href="https://www.architectural-review.com/awards/ar-emerging/nwlnd-rogiers-vendeputte-belgium" class="story-link">
-                        <div class="story-image">
-                            <img src="https://cdn.ca.emap.com/wp-content/uploads/sites/12/2024/11/NWLNDPPW3OOSTENDE001HR-1500x1200.jpg" alt="NWLND Rogiers Vandeputte" />
-                        </div>
-                        <div class="caption">Johnny Umans</div>
-                        <div class="story-content">
-                            <h2 class="serif-font-scaled">NWLND Rogiers Vandeputte</h2>
-                            <p>In a workshop for a secondary school in Ostend, the Belgian duo use simple strategic moves to solve complex spatial problems</p>
-                            <p class="story-meta">For <i>The Architectural Review</i> in November 2024</p>
-                        </div>
-                    </a>
-                </article>
-            </div>
-            
+                    <?php endif; ?>
+            <?php
+                } else {
+                    echo '<p style="text-align: center; color: #808080; padding: 4rem;">No architecture stories found.</p>';
+                }
+            } else {
+                echo '<p style="text-align: center; color: #808080; padding: 4rem;">No architecture stories found.</p>';
+            }
+            ?>
         </div>
     </div>
 </section>

@@ -571,11 +571,12 @@
     background: #a1a1a1;
 }
 
-/* Scroll Items */
+/* Scroll Items - Match Photography section dimensions */
 .architecture-scroll-item {
-    flex: 0 0 450px; /* Fixed width for horizontal scroll */
+    flex: 0 0 450px; /* Fixed width for horizontal scroll - same as photo-item */
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 /* Keep all existing typography and styling for Architecture section */
@@ -584,7 +585,7 @@
     font-size: calc(24px * 1.23); /* Same as existing Architecture section */
 }
 
-/* Responsive - Mobile */
+/* Responsive - Mobile - Match Photography section dimensions */
 @media (max-width: 768px) {
     .architecture-featured-grid {
         grid-template-columns: 1fr;
@@ -593,20 +594,20 @@
     }
     
     .architecture-scroll {
-        gap: 2rem;
+        gap: 2rem; /* Same as photographs-grid */
     }
     
     .architecture-scroll-item {
-        flex: 0 0 350px; /* Smaller width on mobile */
+        flex: 0 0 350px; /* Same as photo-item mobile width */
     }
 }
 
 @media (max-width: 480px) {
     .architecture-scroll {
-        gap: 1.5rem;
+        gap: 2rem; /* Same as photographs-grid small mobile */
     }
     
     .architecture-scroll-item {
-        flex: 0 0 300px; /* Even smaller width on small mobile */
+        flex: 0 0 300px; /* Same as photo-item small mobile width */
     }
 }
