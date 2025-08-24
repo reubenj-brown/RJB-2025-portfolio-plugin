@@ -88,11 +88,54 @@
     }
 }
 
+/* CV Dropdown arrows - hidden on desktop */
+.cv-arrow {
+    display: none;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .cv-content {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 1rem;
+    }
+
+    /* Show arrows on mobile */
+    .cv-arrow {
+        display: inline;
+        font-size: 1.2em;
+        margin-left: 0.5rem;
+        transition: transform 0.2s ease;
+    }
+
+    /* Make headers clickable on mobile */
+    .cv-header {
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    /* Collapsed state - hide entries by default on mobile */
+    .cv-entries {
+        display: none;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    /* Expanded state - show entries */
+    .cv-entries.expanded {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Rotate arrow when expanded */
+    .cv-header.expanded .cv-arrow {
+        transform: rotate(180deg);
     }
 
 }

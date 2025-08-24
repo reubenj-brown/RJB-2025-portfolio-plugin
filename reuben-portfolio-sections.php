@@ -289,8 +289,16 @@ class ReubenPortfolioSections {
     }
     
     public function enqueue_scripts() {
-        // No scripts needed currently
-        // Photographs section no longer uses carousel JavaScript
+        // Only load on portfolio page
+        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page()) {
+            wp_enqueue_script(
+                'reuben-cv-dropdown',
+                plugin_dir_url(__FILE__) . 'assets/cv-dropdown.js',
+                [],
+                '1.0.0',
+                true
+            );
+        }
     }
     
     public function about_section($atts) {
