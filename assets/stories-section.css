@@ -528,3 +528,85 @@
         padding: 0.75rem 0;
     }
 }
+
+/* Architecture Section Layout - Two Featured + Horizontal Scroll */
+
+/* Featured Grid - Top Two Stories */
+.architecture-featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Horizontal Scroll Area */
+.architecture-scroll {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    padding-bottom: 16px; /* Space for scrollbar */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Custom scrollbar styling for architecture scroll */
+.architecture-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.architecture-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.architecture-scroll::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.architecture-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Scroll Items */
+.architecture-scroll-item {
+    flex: 0 0 450px; /* Fixed width for horizontal scroll */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Keep all existing typography and styling for Architecture section */
+.architecture-featured-grid .story-item h2.serif-font-scaled,
+.architecture-scroll-item h2.serif-font-scaled {
+    font-size: calc(24px * 1.23); /* Same as existing Architecture section */
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .architecture-featured-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .architecture-scroll {
+        gap: 2rem;
+    }
+    
+    .architecture-scroll-item {
+        flex: 0 0 350px; /* Smaller width on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .architecture-scroll {
+        gap: 1.5rem;
+    }
+    
+    .architecture-scroll-item {
+        flex: 0 0 300px; /* Even smaller width on small mobile */
+    }
+}
