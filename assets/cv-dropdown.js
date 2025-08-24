@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             entries.forEach(entry => {
                 entry.classList.remove('expanded');
-                entry.style.display = 'flex'; // Show all on desktop
+                entry.style.display = ''; // Remove inline style, let CSS handle
             });
             
             headers.forEach(header => {
@@ -50,12 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 arrow.textContent = '↓';
             });
         } else {
-            // Mobile: hide all sections by default
+            // Mobile: remove any inline styles and let CSS handle visibility
             const entries = document.querySelectorAll('.cv-entries');
             entries.forEach(entry => {
-                if (!entry.classList.contains('expanded')) {
-                    entry.style.display = 'none';
-                }
+                entry.style.display = ''; // Remove inline styles
             });
         }
     });
