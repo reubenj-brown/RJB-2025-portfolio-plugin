@@ -78,10 +78,8 @@
                                             <?php endif; ?>
                                         <?php endif; ?>
                                         <div class="story-content">
-                                            <h2 class="serif-font-scaled"><?php echo $story['title']; ?></h2>
-                                            <?php if (!empty($story['excerpt'])) : ?>
-                                                <p><?php echo $story['excerpt']; ?></p>
-                                            <?php endif; ?>
+                                            <h2 class="serif-font-scaled"><?php echo !empty($story['excerpt']) ? $story['excerpt'] : $story['title']; ?></h2>
+                                            <p><?php echo $story['title']; ?></p>
                                             <p class="story-meta">
                                                 <?php if (!empty($story['metadata']['publication'])) : ?>
                                                     For <i><?php echo $story['metadata']['publication']; ?></i>
