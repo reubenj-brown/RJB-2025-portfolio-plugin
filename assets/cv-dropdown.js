@@ -15,12 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     this.classList.toggle('expanded');
                     targetEntries.classList.toggle('expanded');
                     
-                    // Change arrow direction
-                    if (this.classList.contains('expanded')) {
-                        arrow.textContent = '↑';
-                    } else {
-                        arrow.textContent = '↓';
-                    }
+                    // Note: Arrow rotation is handled purely by CSS - no need to change text content
                 }
             });
         });
@@ -46,9 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 header.classList.remove('expanded');
             });
             
-            arrows.forEach(arrow => {
-                arrow.textContent = '↓';
-            });
+            // Arrow text content stays consistent - CSS handles rotation
         } else {
             // Mobile: remove any inline styles and let CSS handle visibility
             const entries = document.querySelectorAll('.cv-entries');
