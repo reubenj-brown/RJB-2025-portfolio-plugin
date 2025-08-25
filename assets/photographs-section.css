@@ -210,6 +210,12 @@
         flex: 0 0 350px; /* Smaller width on mobile */
     }
     
+    /* Primary story overlay - ensure 90% width on mobile */
+    .photo-primary-overlay {
+        width: 90%;
+        max-width: 90%;
+    }
+    
     /* Primary story mobile adjustments */
     .photo-primary-headline {
         font-size: 64px; /* Primary story headline - compressed font */
