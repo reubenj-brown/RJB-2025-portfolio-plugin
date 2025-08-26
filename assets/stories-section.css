@@ -201,10 +201,6 @@
     color: var(--highlight-color);
 }
 
-/* Architecture section (profiles) specific headline sizing */
-.profiles-section .story-item h2.serif-font-scaled {
-    font-size: calc(24px * 1.23); /* Smaller headlines for 4-column layout */
-}
 
 /* Interviews section - same headline sizing as Architecture section */
 .interviews-section .story-item h2.serif-font-scaled {
@@ -610,11 +606,6 @@
     margin-bottom: 0;
 }
 
-/* Keep all existing typography and styling for Architecture section */
-.architecture-featured-grid .story-item h2.serif-font-scaled,
-.architecture-scroll-item h2.serif-font-scaled {
-    font-size: calc(24px * 1.23); /* Same as existing Architecture section */
-}
 
 /* Responsive - Mobile - Match Photography section dimensions */
 @media (max-width: 768px) {
