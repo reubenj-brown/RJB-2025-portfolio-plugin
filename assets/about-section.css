@@ -98,7 +98,7 @@
 /* Mobile and Tablet Responsive */
 @media (max-width: 1200px) {
     .about-content {
-        padding: 3rem 0;
+        padding: 2vw 0 0 0;
     }
     
     .about-intro {
@@ -131,7 +131,7 @@
 
 @media (max-width: 480px) {
     .about-content {
-        padding: 2rem 0;
+        padding: 2vw 0 0 0;
     }
     
     .about-intro {
