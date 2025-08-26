@@ -196,7 +196,7 @@
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 1080px) {
     /* Primary story container - adjust for mobile content padding */
     .photo-primary-container {
         width: 92vw; /* Accounts for 4vw padding on mobile */
@@ -214,6 +214,7 @@
     .photo-primary-overlay {
         width: 90%;
         max-width: 90%;
+        min-width: 90%;
     }
     
     /* Primary story mobile adjustments */
