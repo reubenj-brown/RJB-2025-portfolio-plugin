@@ -200,7 +200,7 @@
     /* Primary story container - adjust for mobile content padding */
     .photo-primary-container {
         width: 92vw; /* Accounts for 4vw padding on mobile */
-        margin-bottom: 48px;
+        margin-bottom: 32px;
     }
     
     .photographs-grid {
