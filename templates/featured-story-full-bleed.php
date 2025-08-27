@@ -1,5 +1,5 @@
 <!-- Featured Story Full Bleed -->
-<section class="featured-story-full-bleed">
+<section class="featured-story-full-bleed" id="top">
     <div class="full-bleed-background">
         <video autoplay muted loop playsinline>
             <source src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Eviction-of-Cortijo-El-Uno-Almeria-Spain-Greenhouse-Farms-Invernadero-Reuben-J-Brown.mp4')); ?>" type="video/mp4">
