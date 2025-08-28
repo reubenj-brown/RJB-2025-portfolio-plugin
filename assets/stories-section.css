@@ -523,6 +523,11 @@
 
 /* Architecture Section Layout - Two Featured + Horizontal Scroll */
 
+/* Architecture featured grid primary stories - larger headlines */
+.architecture-featured-grid .story-item h2 {
+    font-size: calc(24px * 1.23); /* 24px * 1.23 = 29.52px for serif font scaling */
+}
+
 /* Featured Grid - Top Two Stories */
 .architecture-featured-grid {
     display: grid;
