@@ -70,7 +70,7 @@
                 <h2 class="serif-font-scaled cv-header" data-target="education-entries">Education <span class="cv-arrow">↓</span></h2>
                 <div class="cv-entries" id="education-entries">
                     <div class="cv-entry">
-                        <p class="cv-degree">Masters in Journalism and Mass Communication</p>
+                        <p class="cv-degree">Master’s of Investigative Journalism</p>
                         <p class="cv-institution">Arizona State University</p>
                         <p class="cv-dates">2025–26</p>
                     </div>
