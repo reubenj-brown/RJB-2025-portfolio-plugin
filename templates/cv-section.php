@@ -70,12 +70,12 @@
                 <h2 class="serif-font-scaled cv-header" data-target="education-entries">Education <span class="cv-arrow">↓</span></h2>
                 <div class="cv-entries" id="education-entries">
                     <div class="cv-entry">
-                        <p class="cv-degree">Master’s of Investigative Journalism</p>
+                        <p class="cv-degree">MA Investigative Journalism</p>
                         <p class="cv-institution">Arizona State University</p>
                         <p class="cv-dates">2025–26</p>
                     </div>
                     <div class="cv-entry">
-                        <p class="cv-degree">B.A. in Architecture</p>
+                        <p class="cv-degree">B.A. Architecture</p>
                         <p class="cv-institution">University of Cambridge</p>
                         <p class="cv-dates">2020–23</p>
                     </div>
