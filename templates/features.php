@@ -2,6 +2,9 @@
 <section class="content-section">
     <div class="section-container">
         <div class="stories-content">
+            <div class="strategy-intro">
+                <h3 class="serif-font-scaled">Think the migrant workers propping up continental food systems; the local tradeoffs of nation-spanning climate projects; the picayune planning edicts that gum up city housing targets; the individual innovators pushing change in big businesses and organisations.</h3>
+            </div>
             <div class="stories-grid">
     
     <!-- The Desert Grows Story -->
