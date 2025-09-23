@@ -23,13 +23,30 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    z-index: 2;
+    position: relative;
 }
 
-.full-bleed-background img {
+.full-bleed-background .fallback-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.full-bleed-background.video-error .fallback-image {
+    opacity: 1;
+}
+
+.full-bleed-background.video-error video {
+    opacity: 0;
 }
 
 .full-bleed-content {

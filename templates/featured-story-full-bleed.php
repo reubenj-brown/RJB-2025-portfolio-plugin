@@ -1,11 +1,11 @@
 <!-- Featured Story Full Bleed -->
 <section class="featured-story-full-bleed" id="top">
-    <div class="full-bleed-background">
+    <div class="full-bleed-background"
+         data-fallback-image="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft13.webp')); ?>">
         <video autoplay muted loop playsinline>
             <source src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Eviction-of-Cortijo-El-Uno-Almeria-Spain-Greenhouse-Farms-Invernadero-Reuben-J-Brown.mp4')); ?>" type="video/mp4">
-            <!-- Fallback image if video doesn't load -->
-            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft13.webp')); ?>" alt="The Cost of a Miracle" />
         </video>
+        <div class="fallback-image" style="background-image: url('<?php echo esc_url(home_url('/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft13.webp')); ?>')"></div>
     </div>
     <div class="full-bleed-content">
         <div class="story-text">
@@ -17,3 +17,49 @@
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('.featured-story-full-bleed video');
+    const background = document.querySelector('.full-bleed-background');
+
+    if (video && background) {
+        // Handle video load errors
+        video.addEventListener('error', function() {
+            console.log('Video failed to load, showing fallback image');
+            background.classList.add('video-error');
+        });
+
+        // Handle video stall/timeout (slow connection)
+        video.addEventListener('stalled', function() {
+            console.log('Video stalled, showing fallback image');
+            background.classList.add('video-error');
+        });
+
+        // Timeout fallback for very slow connections
+        const loadTimeout = setTimeout(function() {
+            if (video.readyState < 3) { // HAVE_FUTURE_DATA
+                console.log('Video load timeout, showing fallback image');
+                background.classList.add('video-error');
+            }
+        }, 3000); // 3 second timeout
+
+        // Clear timeout if video loads successfully
+        video.addEventListener('canplaythrough', function() {
+            clearTimeout(loadTimeout);
+            background.classList.remove('video-error');
+        });
+
+        // Also handle if video source fails to load
+        video.addEventListener('loadstart', function() {
+            const source = video.querySelector('source');
+            if (source) {
+                source.addEventListener('error', function() {
+                    console.log('Video source failed to load, showing fallback image');
+                    background.classList.add('video-error');
+                });
+            }
+        });
+    }
+});
+</script>
