@@ -3,7 +3,7 @@
     <div class="section-container">
         <div class="stories-content">
             <div class="strategy-intro">
-                <h3 class="serif-font-scaled">I have a background in design. My undergraduate degree was in architecture at the University of Cambridge, where I was president of ARCSOC, the student architecture society. My first journalism job was as an editor and critic at The Architectural Review.</h3>
+                <h3 class="serif-font-scaled">I have a background in design. My undergraduate degree was in architecture at the University of Cambridge, where I was president of ARCSOC, the student architecture society. My first journalism job was as an editor and critic at <i>The Architectural Review</i>.</h3>
             </div>
             <?php
             // Get architecture stories using the same function as other sections
