@@ -192,40 +192,110 @@
     color: var(--highlight-color);
 }
 
+/* Architecture Scroller Styles */
+.architecture-scroll {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    padding-bottom: 16px; /* Space for scrollbar */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    margin-top: 64px; /* Space between Reviews and Architecture sections */
+}
+
+/* Custom scrollbar styling for architecture scroll */
+.architecture-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.architecture-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.architecture-scroll::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.architecture-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Scroll Items - Match Photography section dimensions */
+.architecture-scroll-item {
+    flex: 0 0 450px; /* Fixed width for horizontal scroll - same as photo-item */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Architecture section image styling - match story grid 4:3 aspect ratio */
+.architecture-scroll-item .story-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.architecture-scroll-item .story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Architecture scroll area text spacing and styling */
+.architecture-scroll-item .story-content h2 {
+    margin-bottom: 16px;
+}
+
+.architecture-scroll-item .story-content p:not(.story-meta) {
+    margin-bottom: 16px;
+    color: #808080; /* Grey standfirst text */
+}
+
+.architecture-scroll-item .story-content .story-meta {
+    margin-bottom: 0;
+}
+
 /* Tablet Responsive */
 @media (max-width: 1200px) {
     .reviews-layout {
         grid-template-columns: 1fr;
         gap: 48px;
     }
-    
+
     .reviews-layout::before {
         display: none;
     }
-    
+
     /* Primary story becomes horizontal on tablet */
     .reviews-primary-story {
         flex-direction: row;
         gap: 24px;
     }
-    
+
     .reviews-primary-image {
         flex: 0 0 45%;
     }
-    
+
     .reviews-primary-content {
         text-align: left;
     }
-    
-    
+
+
     .reviews-primary-standfirst {
         font-size: calc(18px * 1.23);
     }
-    
-    /* Secondary stories become 2 columns on tablet */
+
+    /* Secondary stories STAY 3-wide on tablet */
     .reviews-secondary {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
     }
 }
 
@@ -245,53 +315,73 @@
     .reviews-layout {
         gap: 32px;
     }
-    
+
     /* Primary story stacks vertically on mobile */
     .reviews-primary-story {
         flex-direction: column;
         gap: 16px;
     }
-    
+
     .reviews-primary-image {
         flex: none;
         width: 60%;
         margin: 0 auto;
     }
-    
+
     .reviews-primary-content {
         text-align: center;
     }
-    
+
     .reviews-primary-headline {
         font-size: 64px; /* Primary story headline - compressed font */
         margin-bottom: 1rem;
     }
-    
+
     .reviews-primary-standfirst {
         font-size: calc(16px * 1.23);
         margin-bottom: 1.5rem;
     }
-    
+
     .reviews-primary-meta {
         font-size: 16px;
     }
-    
+
     /* Secondary stories become single column on mobile */
     .reviews-secondary {
         grid-template-columns: 1fr;
         gap: 24px;
     }
-    
+
     .reviews-secondary-image {
         width: 60%;
         margin: 0 auto 12px auto;
     }
-    
+
     .reviews-secondary-content {
         text-align: center;
     }
-    
+
     .reviews-secondary-headline {
         font-size: calc(20px * 1.23);
+    }
+
+    /* Architecture scroller mobile responsive */
+    .architecture-scroll {
+        gap: 2rem; /* Same as photographs-grid */
+        margin-top: 48px; /* Reduced margin on mobile */
+    }
+
+    .architecture-scroll-item {
+        flex: 0 0 350px; /* Same as photo-item mobile width */
+    }
+}
+
+@media (max-width: 480px) {
+    .architecture-scroll {
+        gap: 2rem; /* Same as photographs-grid small mobile */
+    }
+
+    .architecture-scroll-item {
+        flex: 0 0 300px; /* Same as photo-item small mobile width */
     }
 }
