@@ -2,6 +2,9 @@
 <section class="content-section">
     <div class="section-container">
         <div class="reviews-content">
+                        <div class="strategy-intro">
+                <h3 class="serif-font-scaled">I have a background in design. My undergraduate degree was in architecture at the University of Cambridge, where I was president of ARCSOC, the student architecture society. My first journalism job was as an editor and critic at <i>The Architectural Review</i>.</h3>
+            </div>
             <?php
             // Get reviews stories using the same function as other sections
             $reviews_query = get_portfolio_stories('reviews', 4);
