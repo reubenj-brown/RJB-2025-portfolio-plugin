@@ -1,9 +1,6 @@
 <section class="content-section cv-section" id="cv">
     <div class="section-container">
         <div class="cv-content">
-             <div class="strategy-intro">
-                <h3 class="serif-font-scaled">My first gig – at two months old – was a starring role in the <a href="https://youtu.be/K1BNOzDnOLI?t=202"> music video</a> for “You Were Right” by Badly Drawn Boy.</h3>
-            </div> 
             <div class="cv-column work-column">
                 <h2 class="serif-font-scaled cv-header" data-target="work-entries">Work <span class="cv-arrow">↓</span></h2>
                 <div class="cv-entries" id="work-entries">
