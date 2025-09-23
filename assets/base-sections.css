@@ -95,6 +95,15 @@ h3.serif-font-scaled {
     font-family: var(--serif-font);
 }
 
+/* Strategy intro section styling */
+.strategy-intro {
+    text-align: center;
+}
+
+.strategy-intro h3 {
+    text-align: center;
+}
+
 
 /* Tablet Typography Adjustments */
 @media (max-width: 1200px) {
