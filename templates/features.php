@@ -1,58 +1,92 @@
 <!-- Features Section -->
-<section class="content-section">
-    <div class="section-container">
-        <div class="stories-content">
-            <div class="strategy-intro">
-                <h3 class="serif-font-scaled">Think the migrant workers propping up continental food systems; the local tradeoffs of nation-spanning climate projects; the picayune planning edicts that gum up city housing targets; the individual innovators pushing change in big businesses and organisations.</h3>
-            </div>
-            <div class="stories-grid">
-    
-    <!-- The Desert Grows Story -->
-    <article class="story-item">
-        <a href="#" class="story-link">
-            <div class="story-image">
-                <img src="/wp-content/uploads/2025/07/reuben-j-brown-solar-morocco-ouarzazate-noor.avif" alt="The Desert Grows" />
-            </div>
-            <div class="caption">Reuben J. Brown</div>
-            <div class="story-content">
-                <h2 class="serif-font-scaled">The Desert Grows</h2>
-                <p>A British startup hopes to generate 8% of the U.K.'s electricity from a London-sized renewables development in Southern Morocco. What about the people who live there?</p>
-                <p class="story-meta">For <i>Re—Compose</i> in May 2023</p>
-            </div>
-        </a>
-    </article>
+<section class="content-section features-section" id="features">
+    <?php
+    // Get features stories
+    $features_query = get_portfolio_stories('features', 6);
 
-    <!-- Big Wall Story -->
-    <article class="story-item">
-        <a href="#" class="story-link">
-            <div class="story-image">
-                <img src="/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft.webp" alt="Storror Big Wall Open Brighton" />
-            </div>
-            <div class="caption">Reuben J. Brown</div>
-            <div class="story-content">
-                <h2 class="serif-font-scaled">Big Wall</h2>
-                <p>At Storror's "Big Wall Open", parkour lands in new, physical territory</p>
-                <p class="story-meta">For <i>Re—Compose</i> in December 2022</p>
-            </div>
-        </a>
-    </article>
+    if ($features_query->have_posts()) {
+        $story_count = 0;
+        $stories = [];
 
-    <!-- Community cannot be owned Story -->
-    <article class="story-item">
-        <a href="#" class="story-link">
-            <div class="story-image">
-                <img src="/wp-content/uploads/2025/07/MusicPoetryoftheKesh.jpeg" alt="Community cannot be owned" />
-            </div>
-            <div class="caption">Reuben J. Brown</div>
-            <div class="story-content">
-                <h2 class="serif-font-scaled">Community cannot be owned</h2>
-                <p>And why crypto won't save the internet</p>
-                <p class="story-meta">For <i>Re—Compose</i> in April 2022</p>
-            </div>
-        </a>
-    </article>
+        // Collect stories into array
+        while ($features_query->have_posts()) {
+            $features_query->the_post();
+            $stories[] = [
+                'id' => get_the_ID(),
+                'title' => get_the_title(),
+                'excerpt' => get_the_excerpt(),
+                'image_url' => get_story_featured_image(get_the_ID(), 'large'),
+                'metadata' => get_story_metadata(get_the_ID()),
+                'permalink' => get_permalink()
+            ];
+        }
+        wp_reset_postdata();
 
+        if (!empty($stories)) {
+            $first_story = $stories[0];
+            $remaining_stories = array_slice($stories, 1);
+    ?>
+            <!-- Left half - Main featured story -->
+            <div class="features-left">
+                <div class="features-story-main">
+                    <div class="story-content">
+                        <h2 class="serif-font-scaled">
+                            <a href="<?php echo !empty($first_story['metadata']['external_url']) ? esc_url($first_story['metadata']['external_url']) : $first_story['permalink']; ?>"<?php echo !empty($first_story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
+                                <?php echo !empty($first_story['metadata']['short_headline']) ? $first_story['metadata']['short_headline'] : $first_story['title']; ?>
+                            </a>
+                        </h2>
+                        <?php if (!empty($first_story['excerpt'])) : ?>
+                            <p><?php echo $first_story['excerpt']; ?></p>
+                        <?php endif; ?>
+                        <p class="story-meta">
+                            <?php if (!empty($first_story['metadata']['publication'])) : ?>
+                                For <i><?php echo $first_story['metadata']['publication']; ?></i>
+                            <?php endif; ?>
+                            <?php if (!empty($first_story['metadata']['publish_date'])) : ?>
+                                <?php echo !empty($first_story['metadata']['publication']) ? ' in ' : ''; ?>
+                                <?php echo date('F Y', strtotime($first_story['metadata']['publish_date'])); ?>
+                            <?php endif; ?>
+                        </p>
+                    </div>
+                    <div class="story-image">
+                        <img src="<?php echo $first_story['image_url']; ?>" alt="<?php echo $first_story['title']; ?>">
+                        <?php if (!empty($first_story['metadata']['photo_credit'])) : ?>
+                            <div class="caption">photograph: <?php echo $first_story['metadata']['photo_credit']; ?></div>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+
+            <!-- Right half - Secondary stories -->
+            <div class="features-right">
+                <?php foreach ($remaining_stories as $story) : ?>
+                    <div class="features-story-small">
+                        <div class="story-content">
+                            <h2 class="serif-font-scaled">
+                                <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
+                                    <?php echo $story['title']; ?>
+                                </a>
+                            </h2>
+                            <p class="story-meta">
+                                <?php if (!empty($story['metadata']['publication'])) : ?>
+                                    For <i><?php echo $story['metadata']['publication']; ?></i>
+                                <?php endif; ?>
+                                <?php if (!empty($story['metadata']['publish_date'])) : ?>
+                                    <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
+                                    <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
+                                <?php endif; ?>
+                            </p>
+                        </div>
+                        <div class="story-image">
+                            <img src="<?php echo $story['image_url']; ?>" alt="<?php echo $story['title']; ?>">
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+    <?php
+        }
+    } else {
+        echo '<p style="text-align: center; color: #808080; padding: 4rem;">No features stories found.</p>';
+    }
+    ?>
 </section>

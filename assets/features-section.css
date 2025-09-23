@@ -1,0 +1,229 @@
+/* Features Section */
+.features-section {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.features-section::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #e0e0e0;
+    z-index: 10;
+}
+
+.features-left {
+    width: 50%;
+    padding-right: 32px;
+}
+
+.features-story-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%; /* Use full available width of parent */
+}
+
+.features-story-main .story-content {
+    flex: 0 0 calc(40% - 9.6px); /* 40% minus 40% of gap */
+    text-align: center;
+}
+
+/* Ensure headlines are black */
+.features-story-main h2 a,
+.features-story-small h2 a {
+    color: #000 !important;
+    text-decoration: none;
+}
+
+/* Features section hover effects - highlight color with no transition */
+.features-story-main h2 a:hover,
+.features-story-small h2 a:hover {
+    color: var(--highlight-color) !important;
+    transition: none;
+}
+
+/* Primary story spacing removed - now handled below with font styling */
+.features-story-main p:not(.story-meta) {
+    color: #808080;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+    font-family: var(--serif-font);
+    font-size: 24.5px;
+}
+
+/* Secondary story headlines - back to original */
+.features-story-small h2 {
+    font-size: 29.5px;
+    margin-bottom: 12px;
+}
+
+/* Primary story headline - PP Right Serif at 96px */
+.features-story-main h2 {
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    font-family: var(--compressed-font);
+    font-size: 96px;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.features-story-main .story-image {
+    flex: 0 0 calc(60% - 14.4px); /* 60% minus 60% of gap */
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.features-story-main .story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Features section caption styling */
+.features-story-main .caption {
+    font-family: var(--primary-font);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #808080;
+    margin: 8px 0 0 0;
+    text-align: right;
+    background: white;
+    padding: 2px 0;
+    width: 100%;
+}
+
+.features-right {
+    width: 50%;
+    padding-left: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.features-story-small {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.features-story-small .story-content {
+    flex: 1;
+}
+
+.features-story-small .story-image {
+    width: 120px;
+    height: 120px;
+    max-height: 120px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.features-story-small .story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Tablet responsive */
+@media (max-width: 1200px) {
+    .features-section {
+        flex-direction: column;
+    }
+
+    .features-section::before {
+        display: none;
+    }
+
+    .features-left,
+    .features-right {
+        width: 100%;
+        padding: 0;
+    }
+
+    .features-left {
+        margin-bottom: 32px;
+    }
+
+    /* Keep text left of image on tablet */
+    .features-story-main {
+        gap: 24px;
+    }
+
+    /* Primary story text stays center-aligned on tablet */
+    .features-story-main .story-content {
+        text-align: center;
+    }
+
+    /* Features section body text 16px on tablet */
+    .features-story-main p:not(.story-meta) {
+        font-family: var(--serif-font);
+        font-size: calc(16px * 1.23); /* 16px * 1.23 = 19.68px - scaled for serif font */
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .features-story-main {
+        flex-direction: column;
+    }
+
+    /* Primary story text stays center-aligned on mobile */
+    .features-story-main .story-content {
+        width: 100%;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+    .features-story-main .story-image {
+        width: 100%;
+    }
+
+    /* Features section headline sizes on mobile */
+    .features-story-main h2 {
+        font-size: 64px; /* Primary story headline - compressed font */
+    }
+
+    .features-story-small h2 {
+        font-size: 24px; /* Secondary story headlines */
+    }
+
+    /* Features section body text 16px on mobile */
+    .features-story-main p:not(.story-meta) {
+        font-family: var(--serif-font);
+        font-size: calc(16px * 1.23); /* 16px * 1.23 = 19.68px - scaled for serif font */
+    }
+
+    /* Keep secondary stories horizontal on mobile with square images */
+    .features-story-small {
+        flex-direction: row;
+        gap: 24px;
+    }
+
+    .features-story-small .story-content {
+        flex: 1;
+    }
+
+    .features-story-small .story-image {
+        width: 120px;
+        height: 120px;
+        aspect-ratio: 1/1;
+        max-height: 120px;
+    }
+}

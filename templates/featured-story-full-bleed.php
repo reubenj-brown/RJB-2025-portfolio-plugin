@@ -30,10 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
             background.classList.add('video-error');
         });
 
-        // Handle video stall/timeout (slow connection)
+        // Handle video stall/timeout (slow connection) - but only if video hasn't loaded yet
         video.addEventListener('stalled', function() {
-            console.log('Video stalled, showing fallback image');
-            background.classList.add('video-error');
+            if (video.readyState < 3) { // Only show fallback if video hasn't loaded enough data
+                console.log('Video stalled during loading, showing fallback image');
+                background.classList.add('video-error');
+            }
         });
 
         // Timeout fallback for very slow connections
@@ -48,6 +50,19 @@ document.addEventListener('DOMContentLoaded', function() {
         video.addEventListener('canplaythrough', function() {
             clearTimeout(loadTimeout);
             background.classList.remove('video-error');
+        });
+
+        // Ensure video keeps looping and playing
+        video.addEventListener('ended', function() {
+            video.currentTime = 0;
+            video.play();
+        });
+
+        // Handle video pause (ensure it restarts)
+        video.addEventListener('pause', function() {
+            if (!background.classList.contains('video-error')) {
+                video.play();
+            }
         });
 
         // Also handle if video source fails to load
