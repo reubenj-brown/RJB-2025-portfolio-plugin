@@ -6,7 +6,7 @@
 .strategy-intro {
     max-width: 900px;
     margin: 0 auto 0 auto;
-    padding: 120px 0 80px 0;
+    padding: 150px 0 120px 0;
 }
 
 .strategy-intro h3 {
@@ -82,7 +82,7 @@
     .strategy-intro {
         margin-bottom: 0;
         max-width: 100%;
-        padding: 60px 1rem 40px 1rem;
+        padding: 75px 1rem 60px 1rem;
     }
     
     .strategy-grid {
