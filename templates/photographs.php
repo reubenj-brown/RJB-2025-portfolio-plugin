@@ -103,10 +103,10 @@
                     <?php endif; ?>
             <?php
                 } else {
-                    echo '<p style="text-align: center; color: #808080; padding: 4rem;">No photograph stories found.</p>';
+                    echo '<p class="no-stories-message">No photograph stories found.</p>';
                 }
             } else {
-                echo '<p style="text-align: center; color: #808080; padding: 4rem;">No photograph stories found.</p>';
+                echo '<p class="no-stories-message">No photograph stories found.</p>';
             }
             ?>
         </div>

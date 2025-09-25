@@ -53,18 +53,18 @@
 
 .cv-company,
 .cv-institution {
-    color: #808080;
+    color: var(--text-color-muted);
     margin: 0;
 }
 
 .cv-additional {
-    color: #808080;
+    color: var(--text-color-muted);
     margin: 0;
 }
 
 .cv-dates,
 .cv-grades {
-    color: #808080;
+    color: var(--text-color-muted);
     margin: 0;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .software-list p {
-    color: #808080;
+    color: var(--text-color-muted);
     margin: 0;
 }
 
@@ -106,7 +106,7 @@
         margin-left: 0.5rem;
         font-family: var(--primary-font);
         font-weight: 400;
-        color: #808080;
+        color: var(--text-color-muted);
         transform: rotate(0deg);
         transition: transform 0.2s ease;
     }

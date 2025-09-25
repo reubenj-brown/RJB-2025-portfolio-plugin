@@ -40,27 +40,27 @@
             <div class="cv-column skills-column">
                 <h2 class="serif-font-scaled cv-header" data-target="skills-entries">Skills & Software <span class="cv-arrow">↓</span></h2>
                 <div class="cv-entries" id="skills-entries">
-                    <div class="cv-entry" style="color:#808080;">
+                    <div class="cv-entry">
                         <p class="cv-role">Video and Podcast Production</p>
                         <p class="cv-dates">Adobe Premiere, Audition, After Effects, Apple Logic Pro, Final Cut Pro</p>
                     </div>
-                    <div class="cv-entry" style="color:#808080;">
+                    <div class="cv-entry">
                         <p class="cv-role">Graphic Design and Production</p>
                         <p class="cv-dates">Adobe InDesign, Illustrator, Affinity Designer, Autocad, Rhino</p>
                     </div>
-                    <div class="cv-entry" style="color:#808080;">
+                    <div class="cv-entry">
                         <p class="cv-role">Photography</p>
                         <p class="cv-dates">Adobe Lightroom, Photoshop</p>
                     </div>
-                    <div class="cv-entry" style="color:#808080;">
+                    <div class="cv-entry">
                         <p class="cv-role">Content Management and Analytics</p>
                         <p class="cv-dates">WordPress, Google Analytics, Microsoft Excel, Adobe Campaigns, Shopify, Upland Adestra</p>
                     </div>
-                    <div class="cv-entry" style="color:#808080;">
+                    <div class="cv-entry">
                         <p class="cv-role">Web Development</p>
                         <p class="cv-dates">GitHub, VS Code, Claude Code, HTML, CSS, JS</p>
                     </div>
-                    <div class="cv-entry" style="color:#808080;">
+                    <div class="cv-entry">
                         <p class="cv-dates">Full U.K. driving license</p>
                     </div>
                 </div>

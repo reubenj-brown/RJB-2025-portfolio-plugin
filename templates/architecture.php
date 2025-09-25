@@ -100,10 +100,10 @@
                     <?php endif; ?>
             <?php
                 } else {
-                    echo '<p style="text-align: center; color: #808080; padding: 4rem;">No architecture stories found.</p>';
+                    echo '<p class="no-stories-message">No architecture stories found.</p>';
                 }
             } else {
-                echo '<p style="text-align: center; color: #808080; padding: 4rem;">No architecture stories found.</p>';
+                echo '<p class="no-stories-message">No architecture stories found.</p>';
             }
             ?>
         </div>

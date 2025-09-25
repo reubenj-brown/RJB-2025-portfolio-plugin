@@ -89,7 +89,7 @@
     <?php
         }
     } else {
-        echo '<p style="text-align: center; color: #808080; padding: 4rem;">No features stories found.</p>';
+        echo '<p class="no-stories-message">No features stories found.</p>';
     }
     ?>
 </section>

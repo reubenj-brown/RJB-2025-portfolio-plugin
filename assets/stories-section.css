@@ -59,7 +59,7 @@
 
 .featured-story h3 {
     margin-bottom: 2rem;
-    color: #808080; /* 50% grey for excerpt text */
+    color: var(--text-color-muted); /* Muted text for excerpt */
     line-height: 1.3;
 }
 
@@ -147,7 +147,7 @@
 .story-item-2x2 .caption,
 .featured-story .caption {
     font-size: 12px;
-    color: #808080;
+    color: var(--text-color-muted);
     text-align: right;
     background: var(--caption-bg);
     padding: 2px 0;
@@ -206,14 +206,14 @@
 .story-item p,
 .story-item-2x2 p {
     margin-bottom: 1rem;
-    color: #808080; /* 50% grey for excerpt text */
+    color: var(--text-color-muted); /* Muted text for excerpt */
 }
 
 
 
 /* Story Meta */
 .story-meta {
-    color: #808080;
+    color: var(--text-color-muted);
     font-size: 16px;
 }
 
@@ -256,7 +256,7 @@
     font-family: var(--primary-font) !important;
     font-size: 24px !important;
     font-weight: 400 !important;
-    color: #808080;
+    color: var(--text-color-muted);
     transition: color 0.3s ease;
     margin: 0 !important;
 }
@@ -297,7 +297,7 @@
 }
 
 .story-link .link-date {
-    color: #808080;
+    color: var(--text-color-muted);
     margin: 0;
     font-weight: 400;
 }
@@ -339,12 +339,12 @@
 
 .story-list-item .story-excerpt {
     margin-bottom: 0.5rem;
-    color: #808080; /* Updated from #666 to 50% grey */
+    color: var(--text-color-muted); /* Updated from #666 to 50% grey */
     line-height: 1.5;
 }
 
 .story-list-item .story-meta {
-    color: #808080;
+    color: var(--text-color-muted);
     font-size: 16px;
 }
 
@@ -600,7 +600,7 @@
 
 .architecture-scroll-item .story-content p:not(.story-meta) {
     margin-bottom: 16px;
-    color: #808080; /* Grey standfirst text */
+    color: var(--text-color-muted); /* Grey standfirst text */
 }
 
 .architecture-scroll-item .story-content .story-meta {

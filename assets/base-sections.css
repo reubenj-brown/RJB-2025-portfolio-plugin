@@ -17,7 +17,7 @@
     :root {
         --content-bg: #050505;
         --text-color: white;
-        --text-color-muted: #808080; /* Keep muted text the same */
+        --text-color-muted: #a8a8a8; /* 66% grey for better contrast in dark mode */
         --link-color: white; /* Links become white in dark mode */
         --link-hover-color: #39e58f; /* Keep hover color the same */
         --caption-bg: rgba(5, 5, 5, 0.9); /* Caption backgrounds become dark grey */
@@ -98,7 +98,7 @@ p {
     font-size: 14px;
     font-weight: 400;
     line-height: 1.4;
-    color: #808080;
+    color: var(--text-color-muted);
     margin: 8px 0 0 0;
     text-align: right;
 }
@@ -136,6 +136,13 @@ h3.serif-font-scaled {
 
 .strategy-intro a:hover {
     color: var(--link-hover-color) !important;
+}
+
+/* No stories message styling */
+.no-stories-message {
+    text-align: center;
+    color: var(--text-color-muted);
+    padding: 4rem;
 }
 
 
