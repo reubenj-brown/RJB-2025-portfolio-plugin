@@ -37,8 +37,12 @@
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1;
-    opacity: 0;
+    opacity: 1; /* Always show fallback by default */
     transition: opacity 0.3s ease;
+}
+
+.full-bleed-background.video-loaded .fallback-image {
+    opacity: 0; /* Hide fallback when video loads successfully */
 }
 
 .full-bleed-background.video-error .fallback-image {

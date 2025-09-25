@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const background = document.querySelector('.full-bleed-background');
 
     if (video && background) {
+        // Check if video element can play - if not, show fallback immediately
+        if (video.error || !video.canPlayType || !video.canPlayType('video/mp4')) {
+            console.log('Video not supported or has error, showing fallback image');
+            background.classList.add('video-error');
+        }
+
         // Handle video load errors
         video.addEventListener('error', function() {
             console.log('Video failed to load, showing fallback image');
@@ -50,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
         video.addEventListener('canplaythrough', function() {
             clearTimeout(loadTimeout);
             background.classList.remove('video-error');
+            background.classList.add('video-loaded');
+            console.log('Video loaded successfully, hiding fallback image');
         });
 
         // Ensure video keeps looping and playing
