@@ -126,14 +126,15 @@ h3.serif-font-scaled {
 
 .strategy-intro h3 {
     text-align: center;
+    color: var(--text-color); /* Ensure strategy-intro text is white in dark mode */
 }
 
-/* H3 link styling - 50% grey/white */
-h3 a {
+/* Strategy intro link styling - 50% grey/white */
+.strategy-intro a {
     color: var(--h3-link-color) !important;
 }
 
-h3 a:hover {
+.strategy-intro a:hover {
     color: var(--link-hover-color) !important;
 }
 
