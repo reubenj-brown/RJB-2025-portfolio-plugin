@@ -87,10 +87,7 @@
         
         </div>
     </div>
-</section>
-
-
         <div class="strategy-intro">
-                <h3 class="serif-font-scaled">My first gig – at two months old – was a starring role in the for “You Were Right” by Badly Drawn Boy. Watch that <a href="https://youtu.be/K1BNOzDnOLI?t=202">here</a>, or contact me for actually serious things below:</h3>
+            <h3 class="serif-font-scaled">My first gig – at two months old – was a starring role in the for “You Were Right” by Badly Drawn Boy. Watch that <a href="https://youtu.be/K1BNOzDnOLI?t=202">here</a>, or contact me for actually serious things below:</h3>
         </div> 
-
+</section>
