@@ -9,6 +9,7 @@
     --link-color: #808080;
     --link-hover-color: #39e58f;
     --caption-bg: rgba(255, 255, 255, 0.9);
+    --h3-link-color: rgba(128, 128, 128, 0.5); /* 50% grey for h3 links */
 }
 
 /* Dark Mode Variables */
@@ -20,6 +21,7 @@
         --link-color: white; /* Links become white in dark mode */
         --link-hover-color: #39e58f; /* Keep hover color the same */
         --caption-bg: rgba(0, 0, 0, 0.9); /* Caption backgrounds become black */
+        --h3-link-color: rgba(255, 255, 255, 0.5); /* 50% white for h3 links in dark mode */
     }
 }
 
@@ -124,6 +126,15 @@ h3.serif-font-scaled {
 
 .strategy-intro h3 {
     text-align: center;
+}
+
+/* H3 link styling - 50% grey/white */
+h3 a {
+    color: var(--h3-link-color) !important;
+}
+
+h3 a:hover {
+    color: var(--link-hover-color) !important;
 }
 
 
