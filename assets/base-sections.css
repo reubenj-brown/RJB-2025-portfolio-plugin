@@ -21,7 +21,7 @@
         --link-color: white; /* Links become white in dark mode */
         --link-hover-color: #39e58f; /* Keep hover color the same */
         --caption-bg: rgba(5, 5, 5, 0.9); /* Caption backgrounds become dark grey */
-        --h3-link-color: #a8a8a8; /* 66% grey for h3 links in dark mode */
+        --h3-link-color: var(--text-color-muted); /* Use muted text variable for consistency */
     }
 }
 
