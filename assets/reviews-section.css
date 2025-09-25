@@ -112,7 +112,7 @@
 }
 
 .reviews-primary-meta i {
-    color: #000;
+    color: var(--text-color);
 }
 
 /* Secondary Stories - Right Column */
@@ -175,7 +175,7 @@
 }
 
 .reviews-secondary-meta i {
-    color: #000;
+    color: var(--text-color);
 }
 
 /* Link styling */

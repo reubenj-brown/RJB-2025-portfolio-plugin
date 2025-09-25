@@ -222,7 +222,7 @@
 }
 
 .story-meta i {
-    color: #000;
+    color: var(--text-color);
 }
 
 /* View All Tile */
