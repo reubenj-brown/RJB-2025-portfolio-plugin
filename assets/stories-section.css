@@ -149,7 +149,7 @@
     font-size: 12px;
     color: #808080;
     text-align: right;
-    background: white;
+    background: var(--caption-bg);
     padding: 2px 0;
     margin-top: 4px;
     width: 100%;

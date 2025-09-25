@@ -6,6 +6,9 @@
     --content-bg: white;
     --text-color: #000;
     --text-color-muted: #808080;
+    --link-color: #808080;
+    --link-hover-color: #39e58f;
+    --caption-bg: rgba(255, 255, 255, 0.9);
 }
 
 /* Dark Mode Variables */
@@ -14,6 +17,9 @@
         --content-bg: black;
         --text-color: white;
         --text-color-muted: #808080; /* Keep muted text the same */
+        --link-color: white; /* Links become white in dark mode */
+        --link-hover-color: #39e58f; /* Keep hover color the same */
+        --caption-bg: rgba(0, 0, 0, 0.9); /* Caption backgrounds become black */
     }
 }
 
@@ -37,11 +43,11 @@
 /* Unified Typography System */
 /* Supermax - Major section titles */
 a {
-    color: #808080;
+    color: var(--link-color);
 }
 
 a:hover {
-    color: #39e58f;
+    color: var(--link-hover-color);
 }
 
 h1 {

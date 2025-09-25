@@ -48,7 +48,7 @@
 
 .cv-role,
 .cv-degree {
-    color: #000;
+    color: var(--text-color);
     margin: 0;
 }
 
