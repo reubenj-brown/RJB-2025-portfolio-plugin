@@ -44,7 +44,8 @@ class ReubenPortfolioSections {
         add_shortcode('reuben_photographs', [$this, 'photographs_section']);
         add_shortcode('reuben_strategy', [$this, 'strategy_section']);
         add_shortcode('reuben_cv', [$this, 'cv_section']);
-        
+        add_shortcode('reuben_cronkite', [$this, 'cronkite_section']);
+
         // Dynamic stories shortcode
         add_shortcode('reuben_dynamic_stories', [$this, 'dynamic_stories_section']);
         
@@ -358,6 +359,12 @@ class ReubenPortfolioSections {
     public function cv_section($atts) {
         ob_start();
         include plugin_dir_path(__FILE__) . 'templates/cv-section.php';
+        return ob_get_clean();
+    }
+
+    public function cronkite_section($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/cronkite.php';
         return ob_get_clean();
     }
     
