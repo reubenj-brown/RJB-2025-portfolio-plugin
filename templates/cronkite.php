@@ -1,10 +1,10 @@
-<!-- Cronkite Section -->
+<!-- Cronkite Section --> 
+<div class="strategy-intro">
+                <h3 class="serif-font-scaled">This year, I’m pursuing these stories in my Master’s of Investigative Journalism at the Walter Cronkite School of Journalism, Arizona State University. I’m also a Steele Fellow at Cronkite’s Reynolds Center for Business Journalism</h3>
+            </div> 
 <section class="content-section">
     <div class="section-container">
         <div class="stories-content">
-            <div class="strategy-intro">
-                <h3 class="serif-font-scaled">Stories from the Walter Cronkite School of Journalism</h3>
-            </div>
             <?php echo do_shortcode('[reuben_dynamic_stories category="cronkite" layout="grid" limit="11" show_view_all="true" show_excerpt="false"]'); ?>
         </div>
     </div>
