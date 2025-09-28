@@ -1,8 +1,8 @@
 <!-- Features Section -->
- <div class="strategy-intro">
+ <div class="strategy-intro" style="padding-top:0 !important" id="stories">
                 <h3 class="serif-font-scaled">Think the migrant workers propping up continental food systems; the local tradeoffs of nation-spanning climate projects; the picayune planning edicts that gum up city housing targets; the individual innovators pushing change in big businesses and organisations.</h3>
             </div> 
-<section class="content-section features-section" id="features">
+<section class="content-section features-section">
     <?php
     // Get features stories
     $features_query = get_portfolio_stories('features', 6);

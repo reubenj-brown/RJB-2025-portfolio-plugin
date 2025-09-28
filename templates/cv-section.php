@@ -1,4 +1,4 @@
-<section class="content-section cv-section" id="cv">
+<section class="content-section cv-section">
     <div class="section-container">
         <div class="cv-content">
             <div class="cv-column work-column">
