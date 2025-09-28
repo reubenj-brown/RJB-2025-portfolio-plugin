@@ -1,29 +1,6 @@
 /* Base Portfolio Sections CSS */
 /* Shared styles for all sections */
-
-/* CSS Variables for Light/Dark Mode */
-:root {
-    --content-bg: white;
-    --text-color: #000;
-    --text-color-muted: #808080;
-    --link-color: #808080;
-    --link-hover-color: #39e58f;
-    --caption-bg: rgba(255, 255, 255, 0.9);
-    --h3-link-color: rgba(128, 128, 128, 0.5); /* 50% grey for h3 links */
-}
-
-/* Dark Mode Variables */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --content-bg: #050505;
-        --text-color: white;
-        --text-color-muted: #a8a8a8; /* 66% grey for better contrast in dark mode */
-        --link-color: white; /* Links become white in dark mode */
-        --link-hover-color: #39e58f; /* Keep hover color the same */
-        --caption-bg: rgba(5, 5, 5, 0.9); /* Caption backgrounds become dark grey */
-        --h3-link-color: var(--text-color-muted); /* Use muted text variable for consistency */
-    }
-}
+/* Note: CSS Variables are now defined globally in theme style.css */
 
 .ast-scroll-top {
     display: none !important;
