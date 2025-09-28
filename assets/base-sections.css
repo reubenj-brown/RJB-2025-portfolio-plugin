@@ -1,6 +1,29 @@
 /* Base Portfolio Sections CSS */
 /* Shared styles for all sections */
 /* Note: CSS Variables are now defined globally in theme style.css */
+/* Fallback values to ensure variables work if theme CSS doesn't load first */
+
+:root {
+    --content-bg: var(--content-bg, white);
+    --text-color: var(--text-color, #000);
+    --text-color-muted: var(--text-color-muted, #808080);
+    --link-color: var(--link-color, #808080);
+    --link-hover-color: var(--link-hover-color, #39e58f);
+    --caption-bg: var(--caption-bg, rgba(255, 255, 255, 0.9));
+    --h3-link-color: var(--h3-link-color, rgba(128, 128, 128, 0.5));
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --content-bg: var(--content-bg, #050505);
+        --text-color: var(--text-color, white);
+        --text-color-muted: var(--text-color-muted, #a8a8a8);
+        --link-color: var(--link-color, white);
+        --link-hover-color: var(--link-hover-color, #39e58f);
+        --caption-bg: var(--caption-bg, rgba(5, 5, 5, 0.9));
+        --h3-link-color: var(--h3-link-color, #a8a8a8);
+    }
+}
 
 .ast-scroll-top {
     display: none !important;
