@@ -45,13 +45,14 @@
     line-height: 1.2 !important;
     font-weight: 400 !important;
     color: #000 !important;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
+    transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
 .about-text {
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -68,29 +69,26 @@
     background-color: black;
 }
 
-/* Desktop layout - two columns */
+/* Desktop layout - single column */
 @media (min-width: 1200px) {
     .about-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: start;
+        padding: 2vw 0 0 0;
     }
-    
+
     .about-intro {
-        margin-bottom: 0;
+        margin-bottom: 3rem;
     }
-    
+
     .large-intro-text {
         font-size: 3.8vw !important;
         text-align: center;
-        margin: 0;
-        max-width: none;
+        margin: 0 auto;
+        max-width: 900px;
     }
-    
+
     .about-text {
-        margin: 0;
-        max-width: none;
+        margin: 0 auto;
+        max-width: 900px;
     }
 }
 
@@ -107,13 +105,13 @@
     .large-intro-text {
         font-size: 60px !important;
         text-align: center !important;
-        margin: 0;
-        max-width: none;
+        margin: 0 auto;
+        max-width: 900px;
     }
-    
+
     .about-text {
-        max-width: none;
-        margin: 0;
+        max-width: 900px;
+        margin: 0 auto;
     }
 }
 
