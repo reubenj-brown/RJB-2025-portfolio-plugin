@@ -1,7 +1,7 @@
 /* Photographs Section Styles - Updated v3.3.0 - Made hero headline clickable */
 
 .photographs-section {
-    background: white;
+    background: var(--content-bg);
     width: 100%;
 }
 
