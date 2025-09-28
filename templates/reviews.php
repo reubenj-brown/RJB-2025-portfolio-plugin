@@ -3,7 +3,7 @@
     <div class="section-container">
         <div class="reviews-content">
             <div class="strategy-intro">
-                <h3 class="serif-font-scaled">I have a background in design. My undergraduate degree was in architecture at the University of Cambridge, where I was president of ARCSOC, the student architecture society. My first journalism job was as an editor and critic at <i>The Architectural Review</i>.</h3>
+                <h3 class="serif-font-scaled">Before this, I was Digital Editor at <i>The Architectural Review</i>, where I wrote on architecture and politics and worked on cross-platform audience strategy. I graduated from the University of Cambridge, where I was president of the architecture society, delivering an exhibition of 250 students’ work in London. I was Production Assistant at The World Around, a New York-based design platform where I helped to launch the Young Climate Prize, and worked on TV shoots for BBC Maestro.</h3>
             </div>
             <?php
             // Get reviews stories using the same function as other sections
