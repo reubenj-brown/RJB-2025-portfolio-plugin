@@ -78,7 +78,7 @@ $show_meta = $atts['show_meta'] === 'true';
                         
                         while ($stories_query->have_posts()) : $stories_query->the_post();
                             $meta = function_exists('get_story_metadata') ? get_story_metadata(get_the_ID()) : [];
-                            $story_image = function_exists('get_story_featured_image') ? get_story_featured_image(get_the_ID(), 'medium') : get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                            $story_image = function_exists('get_story_featured_image') ? get_story_featured_image(get_the_ID(), 'large') : get_the_post_thumbnail_url(get_the_ID(), 'large');
                         ?>
                             <article class="story-item">
                                 <a href="<?php echo !empty($meta['external_url']) ? esc_url($meta['external_url']) : get_permalink(); ?>" class="story-link"<?php echo !empty($meta['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
@@ -154,7 +154,7 @@ $show_meta = $atts['show_meta'] === 'true';
                     <?php if ($stories_query->have_posts()) : ?>
                         <?php while ($stories_query->have_posts()) : $stories_query->the_post(); 
                             $meta = function_exists('get_story_metadata') ? get_story_metadata(get_the_ID()) : [];
-                            $story_image = function_exists('get_story_featured_image') ? get_story_featured_image(get_the_ID(), 'medium') : get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                            $story_image = function_exists('get_story_featured_image') ? get_story_featured_image(get_the_ID(), 'large') : get_the_post_thumbnail_url(get_the_ID(), 'large');
                         ?>
                             <article class="story-item">
                                 <a href="<?php echo !empty($meta['external_url']) ? esc_url($meta['external_url']) : get_permalink(); ?>" class="story-link"<?php echo !empty($meta['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
