@@ -1,7 +1,7 @@
 /* Reviews Section Styles */
 
 .reviews-section {
-    background: white;
+    background: transparent !important;
     width: 100%;
 }
 
