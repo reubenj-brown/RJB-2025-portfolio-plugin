@@ -28,6 +28,9 @@ class ReubenPortfolioSections {
         // Media library custom fields
         add_filter('attachment_fields_to_edit', [$this, 'add_media_source_field'], 10, 2);
         add_filter('attachment_fields_to_save', [$this, 'save_media_source_field'], 10, 2);
+
+        // Register meta field for REST API
+        add_action('rest_api_init', [$this, 'register_media_source_rest_field']);
         
         // Debug: Log that plugin is loaded
         error_log('ReubenPortfolioSections: Plugin constructor loaded');
@@ -454,6 +457,25 @@ class ReubenPortfolioSections {
         return $post;
     }
     
+    /**
+     * Register media source field for REST API access
+     */
+    public function register_media_source_rest_field() {
+        register_rest_field('attachment', 'media_source', array(
+            'get_callback' => function($post) {
+                return get_post_meta($post['id'], '_media_source', true);
+            },
+            'update_callback' => function($value, $post) {
+                return update_post_meta($post->ID, '_media_source', sanitize_text_field($value));
+            },
+            'schema' => array(
+                'type' => 'string',
+                'description' => 'Media source or credit information',
+                'context' => array('view', 'edit'),
+            ),
+        ));
+    }
+
     /**
      * Helper function to get media source/credit
      */
