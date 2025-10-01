@@ -356,13 +356,21 @@
         gap: 24px;
     }
 
+    .reviews-secondary-story {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
     .reviews-secondary-image {
-        width: 60%;
-        margin: 0 auto 12px auto;
+        flex: 0 0 40%;
+        width: 40%;
+        margin: 0;
     }
 
     .reviews-secondary-content {
-        text-align: center;
+        flex: 1;
+        text-align: left;
     }
 
     .reviews-secondary-headline {
