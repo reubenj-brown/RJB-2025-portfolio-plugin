@@ -359,18 +359,19 @@
     .reviews-secondary-story {
         display: flex;
         align-items: flex-start;
-        gap: 16px;
+        gap: 30px;
     }
 
     .reviews-secondary-image {
-        flex: 0 0 40%;
-        width: 40%;
+        flex: 0 0 35%;
+        width: 35%;
         margin: 0;
     }
 
     .reviews-secondary-content {
         flex: 1;
         text-align: left;
+        align-self: flex-start;
     }
 
     .reviews-secondary-headline {
