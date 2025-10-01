@@ -287,7 +287,6 @@
         text-align: left;
     }
 
-
     .reviews-primary-standfirst {
         font-size: calc(18px * 1.23);
     }
@@ -296,6 +295,11 @@
     .reviews-secondary {
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
+    }
+
+    /* Architecture scroller tablet responsive - 300px width */
+    .architecture-scroll-item {
+        flex: 0 0 300px;
     }
 }
 
@@ -372,7 +376,7 @@
     }
 
     .architecture-scroll-item {
-        flex: 0 0 350px; /* Same as photo-item mobile width */
+        flex: 0 0 250px; /* Shrunk mobile width */
     }
 }
 
@@ -382,6 +386,6 @@
     }
 
     .architecture-scroll-item {
-        flex: 0 0 300px; /* Same as photo-item small mobile width */
+        flex: 0 0 250px; /* Same as larger mobile width */
     }
 }
