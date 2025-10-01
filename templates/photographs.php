@@ -27,6 +27,8 @@
                             'url' => $metadata['original_image_url'],
                             'alt' => get_the_title()
                         ];
+                        // DEBUG: Remove this line after testing
+                        error_log("Using original_image_url for story: " . get_the_title() . " - URL: " . $metadata['original_image_url']);
                     } else {
                         // Fallback to featured image if Original Image URL not set
                         $featured_image = get_story_featured_image($story_id, 'large');
@@ -35,6 +37,8 @@
                                 'url' => $featured_image,
                                 'alt' => get_the_title()
                             ];
+                            // DEBUG: Remove this line after testing
+                            error_log("Using featured image for story: " . get_the_title() . " - URL: " . $featured_image);
                         }
                     }
                     
