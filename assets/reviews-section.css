@@ -365,7 +365,9 @@
 
     .reviews-secondary-image {
         flex: 0 0 calc(40% - 12px); /* 40% minus 40% of gap */
+        width: calc(40% - 12px);
         margin: 0;
+        margin-bottom: 0;
     }
 
     .reviews-secondary-content {
