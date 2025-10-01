@@ -360,18 +360,17 @@
         display: flex;
         align-items: flex-start;
         gap: 30px;
+        width: 100%;
     }
 
     .reviews-secondary-image {
-        flex: 0 0 35%;
-        width: 35%;
+        flex: 0 0 calc(40% - 12px); /* 40% minus 40% of gap */
         margin: 0;
     }
 
     .reviews-secondary-content {
-        flex: 1;
+        flex: 0 0 calc(60% - 18px); /* 60% minus 60% of gap */
         text-align: left;
-        align-self: flex-start;
     }
 
     .reviews-secondary-headline {
