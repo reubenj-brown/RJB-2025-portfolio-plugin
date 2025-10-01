@@ -18,26 +18,12 @@
                     $photos_query->the_post();
                     $story_id = get_the_ID();
                     $metadata = get_story_metadata($story_id);
-                    $featured_image = get_story_featured_image($story_id, 'large');
-                    
-                    // Get photo gallery if available (now a repeater field)
-                    $photo_gallery = !empty($metadata['photo_gallery']) ? $metadata['photo_gallery'] : [];
-                    
-                    // Build image array - use gallery if available, otherwise use featured image or fallback
+
+                    // Build image array - use Original Image URL from metadata for thumbnail
                     $images = [];
-                    if (!empty($photo_gallery) && is_array($photo_gallery)) {
-                        foreach ($photo_gallery as $gallery_row) {
-                            if (!empty($gallery_row['image'])) {
-                                $gallery_image = $gallery_row['image'];
-                                $images[] = [
-                                    'url' => $gallery_image['sizes']['large'] ?? $gallery_image['url'],
-                                    'alt' => $gallery_image['alt'] ?? get_the_title()
-                                ];
-                            }
-                        }
-                    } else if ($featured_image) {
+                    if (!empty($metadata['original_image_url'])) {
                         $images[] = [
-                            'url' => $featured_image,
+                            'url' => $metadata['original_image_url'],
                             'alt' => get_the_title()
                         ];
                     }
