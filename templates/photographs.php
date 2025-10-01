@@ -27,8 +27,6 @@
                             'url' => $metadata['original_image_url'],
                             'alt' => get_the_title()
                         ];
-                        // DEBUG: Remove this line after testing
-                        error_log("Using original_image_url for story: " . get_the_title() . " - URL: " . $metadata['original_image_url']);
                     } else {
                         // Fallback to featured image if Original Image URL not set
                         $featured_image = get_story_featured_image($story_id, 'large');
@@ -37,8 +35,6 @@
                                 'url' => $featured_image,
                                 'alt' => get_the_title()
                             ];
-                            // DEBUG: Remove this line after testing
-                            error_log("Using featured image for story: " . get_the_title() . " - URL: " . $featured_image);
                         }
                     }
                     
@@ -60,14 +56,12 @@
                     $first_story = $stories[0];
                     $remaining_stories = array_slice($stories, 1);
 
-                    // DEBUG: Check what image URL is being used for primary story
-                    error_log("PRIMARY STORY DEBUG - Title: " . $first_story['title']);
-                    error_log("PRIMARY STORY DEBUG - Image URL: " . $first_story['images'][0]['url']);
-                    if (!empty($first_story['metadata']['original_image_url'])) {
-                        error_log("PRIMARY STORY DEBUG - Original Image URL exists: " . $first_story['metadata']['original_image_url']);
-                    } else {
-                        error_log("PRIMARY STORY DEBUG - No Original Image URL found");
-                    }
+                    // PHOTO PRIMARY DEBUG - Single focused debug message
+                    $debug_msg = "🖼️ PHOTO PRIMARY: " . $first_story['title'] . " | ";
+                    $debug_msg .= "Using URL: " . $first_story['images'][0]['url'] . " | ";
+                    $debug_msg .= "Original URL " . (!empty($first_story['metadata']['original_image_url']) ?
+                        "EXISTS: " . $first_story['metadata']['original_image_url'] : "NOT SET");
+                    error_log($debug_msg);
             ?>
                     <!-- Primary Full-Width Story -->
                     <div class="photo-primary-container">
