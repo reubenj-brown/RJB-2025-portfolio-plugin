@@ -5,7 +5,7 @@
 <section class="content-section">
     <div class="section-container">
         <div class="stories-content">
-            <?php echo do_shortcode('[reuben_dynamic_stories category="cronkite" layout="grid" limit="11" show_view_all="false" show_excerpt="true"]'); ?>
+            <?php echo do_shortcode('[reuben_dynamic_stories category="cronkite" layout="2-wide" limit="11" show_view_all="false" show_excerpt="true"]'); ?>
         </div>
     </div>
 </section>
