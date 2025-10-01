@@ -19,13 +19,23 @@
                     $story_id = get_the_ID();
                     $metadata = get_story_metadata($story_id);
 
-                    // Build image array - use Original Image URL from metadata for thumbnail
+                    // Build image array - prefer Original Image URL, fallback to featured image
                     $images = [];
                     if (!empty($metadata['original_image_url'])) {
+                        // Use Original Image URL from metadata if available
                         $images[] = [
                             'url' => $metadata['original_image_url'],
                             'alt' => get_the_title()
                         ];
+                    } else {
+                        // Fallback to featured image if Original Image URL not set
+                        $featured_image = get_story_featured_image($story_id, 'large');
+                        if ($featured_image) {
+                            $images[] = [
+                                'url' => $featured_image,
+                                'alt' => get_the_title()
+                            ];
+                        }
                     }
                     
                     if (!empty($images)) {
