@@ -356,7 +356,7 @@
         gap: 24px;
     }
 
-    .reviews-secondary-story {
+    .reviews-secondary-link {
         display: grid;
         grid-template-columns: 40% 1fr;
         gap: 30px;
