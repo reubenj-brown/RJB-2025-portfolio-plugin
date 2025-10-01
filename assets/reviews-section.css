@@ -353,13 +353,13 @@
     /* Secondary stories become single column on mobile */
     .reviews-secondary {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 30px;
     }
 
     .reviews-secondary-link {
         display: grid;
         grid-template-columns: 40% 1fr;
-        gap: 30px;
+        gap: 20px;
         align-items: start;
     }
 
