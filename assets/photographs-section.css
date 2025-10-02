@@ -13,7 +13,7 @@
 
 /* Primary Full-Width Story */
 .photo-primary-container {
-    width: 96vw;
+    width: 100vw;
     margin: 0 auto 4rem auto;
     position: relative;
 }
@@ -199,7 +199,7 @@
 @media (max-width: 768px), (max-height: 1080px) {
     /* Primary story container - adjust for mobile content padding */
     .photo-primary-container {
-        width: 92vw; /* Accounts for 4vw padding on mobile */
+        width: 100vw; /* Full width on mobile too */
         margin-bottom: 32px;
     }
     
