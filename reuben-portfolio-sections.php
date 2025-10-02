@@ -31,6 +31,9 @@ class ReubenPortfolioSections {
 
         // Register meta field for REST API
         add_action('rest_api_init', [$this, 'register_media_source_rest_field']);
+
+        // Add admin page to manually set homepage thumbnails
+        add_action('admin_menu', [$this, 'add_thumbnail_admin_page']);
         
         // Debug: Log that plugin is loaded
         error_log('ReubenPortfolioSections: Plugin constructor loaded');
@@ -481,6 +484,94 @@ class ReubenPortfolioSections {
      */
     public static function get_media_source($attachment_id) {
         return get_post_meta($attachment_id, '_media_source', true);
+    }
+
+    /**
+     * Add admin page for setting homepage thumbnails
+     */
+    public function add_thumbnail_admin_page() {
+        add_submenu_page(
+            'edit.php?post_type=page',
+            'Homepage Thumbnails',
+            'Homepage Thumbnails',
+            'manage_options',
+            'homepage-thumbnails',
+            [$this, 'thumbnail_admin_page']
+        );
+    }
+
+    /**
+     * Admin page to manually set homepage thumbnails
+     */
+    public function thumbnail_admin_page() {
+        // Handle form submission
+        if (isset($_POST['save_thumbnails']) && wp_verify_nonce($_POST['thumbnail_nonce'], 'save_thumbnails')) {
+            foreach ($_POST['thumbnails'] as $post_id => $thumbnail_url) {
+                if (!empty($thumbnail_url)) {
+                    update_post_meta($post_id, 'homepage_thumbnail', esc_url($thumbnail_url));
+                } else {
+                    delete_post_meta($post_id, 'homepage_thumbnail');
+                }
+            }
+            echo '<div class="notice notice-success"><p>Homepage thumbnails saved!</p></div>';
+        }
+
+        // Get all posts/pages
+        $posts = get_posts([
+            'post_type' => ['post', 'page'],
+            'posts_per_page' => -1,
+            'orderby' => 'title',
+            'order' => 'ASC'
+        ]);
+
+        ?>
+        <div class="wrap">
+            <h1>Homepage Thumbnails</h1>
+            <p>Set homepage thumbnail images for stories (bypasses the database error issue):</p>
+
+            <form method="post">
+                <?php wp_nonce_field('save_thumbnails', 'thumbnail_nonce'); ?>
+
+                <table class="wp-list-table widefat fixed striped">
+                    <thead>
+                        <tr>
+                            <th>Story Title</th>
+                            <th>Current Homepage Thumbnail</th>
+                            <th>Set New Thumbnail URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($posts as $post):
+                            $current_thumbnail = get_post_meta($post->ID, 'homepage_thumbnail', true);
+                        ?>
+                        <tr>
+                            <td><strong><?php echo esc_html($post->post_title); ?></strong></td>
+                            <td>
+                                <?php if ($current_thumbnail): ?>
+                                    <img src="<?php echo esc_url($current_thumbnail); ?>" style="max-width: 100px; height: auto;">
+                                    <br><small><?php echo esc_url($current_thumbnail); ?></small>
+                                <?php else: ?>
+                                    <em>No thumbnail set</em>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <input type="url"
+                                       name="thumbnails[<?php echo $post->ID; ?>]"
+                                       value="<?php echo esc_attr($current_thumbnail); ?>"
+                                       style="width: 100%;"
+                                       placeholder="https://example.com/image.jpg">
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+                <p class="submit">
+                    <input type="submit" name="save_thumbnails" class="button-primary" value="Save Homepage Thumbnails">
+                </p>
+            </form>
+        </div>
+        <?php
     }
 }
 
