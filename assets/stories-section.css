@@ -64,7 +64,7 @@
 
 /* Story Image specifically for 2x2 grid items - ensure full coverage */
 .story-item-2x2 .story-image {
-    aspect-ratio: 16/10;
+    aspect-ratio: 4/3;
     margin-bottom: 1rem;
 }
 
@@ -73,11 +73,6 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.3s ease;
-}
-
-.story-item-2x2:hover .story-image img {
-    transform: scale(1.02);
 }
 
 /* Story Content */
