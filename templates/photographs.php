@@ -21,7 +21,21 @@
 
                     // Build image array - prefer Original Image URL, fallback to featured image
                     $images = [];
-                    if (!empty($metadata['original_image_url'])) {
+
+                    // TEMPORARY WORKAROUND: Hard-coded high-res URLs by story title
+                    $story_title = get_the_title();
+                    $high_res_urls = [
+                        'Anti-racist protestors quell the violence in Walthamstow' => 'https://reubenjbrown.com/wp-content/uploads/2025/08/Walthamstow-anti-racist-rally-march-august-7-2024-Reuben-J-Brown-photojournalism-1.webp',
+                        // Add more stories here as needed
+                    ];
+
+                    if (isset($high_res_urls[$story_title])) {
+                        // Use hard-coded high-res URL
+                        $images[] = [
+                            'url' => $high_res_urls[$story_title],
+                            'alt' => get_the_title()
+                        ];
+                    } elseif (!empty($metadata['original_image_url'])) {
                         // Use Original Image URL from metadata if available
                         $images[] = [
                             'url' => $metadata['original_image_url'],
