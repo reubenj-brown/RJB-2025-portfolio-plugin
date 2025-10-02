@@ -126,6 +126,15 @@ $show_meta = $atts['show_meta'] === 'true';
                         ?>
                             <article class="story-item-2x2" data-category="<?php echo esc_attr($atts['category']); ?>">
                                 <a href="<?php echo !empty($meta['external_url']) ? esc_url($meta['external_url']) : get_permalink(); ?>" class="story-link"<?php echo !empty($meta['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
+                                    <?php if ($story_image) : ?>
+                                        <div class="story-image">
+                                            <img src="<?php echo esc_url($story_image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" />
+                                        </div>
+                                        <?php if (!empty($meta['photo_credit'])) : ?>
+                                            <div class="caption"><?php echo esc_html($meta['photo_credit']); ?></div>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+
                                     <div class="story-content">
                                         <h2 class="serif-font-scaled"><?php the_title(); ?></h2>
 
@@ -145,15 +154,6 @@ $show_meta = $atts['show_meta'] === 'true';
                                             </p>
                                         <?php endif; ?>
                                     </div>
-
-                                    <?php if ($story_image) : ?>
-                                        <div class="story-image">
-                                            <img src="<?php echo esc_url($story_image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" />
-                                        </div>
-                                        <?php if (!empty($meta['photo_credit'])) : ?>
-                                            <div class="caption"><?php echo esc_html($meta['photo_credit']); ?></div>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
                                 </a>
                             </article>
                         <?php endwhile; ?>
