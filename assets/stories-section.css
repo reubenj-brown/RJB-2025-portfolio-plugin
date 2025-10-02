@@ -639,8 +639,19 @@
     .architecture-scroll {
         gap: 2rem; /* Same as photographs-grid small mobile */
     }
-    
+
     .architecture-scroll-item {
         flex: 0 0 300px; /* Same as photo-item small mobile width */
     }
+}
+
+/* Cronkite section specific styling */
+[data-category="cronkite"] .story-item .story-image,
+.cronkite-section .story-item .story-image {
+    margin-bottom: 0;
+}
+
+[data-category="cronkite"] .caption,
+.cronkite-section .caption {
+    margin-top: 8px;
 }
