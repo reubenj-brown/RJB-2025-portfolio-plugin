@@ -116,6 +116,52 @@ $show_meta = $atts['show_meta'] === 'true';
                     </div>
                 <?php endif; ?>
                 
+            <?php elseif ($atts['layout'] === '2-wide') : ?>
+                <!-- 2-Wide Grid Layout -->
+                <div class="stories-grid-2x2">
+                    <?php if ($stories_query->have_posts()) : ?>
+                        <?php while ($stories_query->have_posts()) : $stories_query->the_post();
+                            $meta = function_exists('get_story_metadata') ? get_story_metadata(get_the_ID()) : [];
+                            $story_image = function_exists('get_story_featured_image') ? get_story_featured_image(get_the_ID(), 'large') : get_the_post_thumbnail_url(get_the_ID(), 'large');
+                        ?>
+                            <article class="story-item-2x2" data-category="<?php echo esc_attr($atts['category']); ?>">
+                                <a href="<?php echo !empty($meta['external_url']) ? esc_url($meta['external_url']) : get_permalink(); ?>" class="story-link"<?php echo !empty($meta['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
+                                    <div class="story-content">
+                                        <h2 class="serif-font-scaled"><?php the_title(); ?></h2>
+
+                                        <?php if ($show_excerpt && has_excerpt()) : ?>
+                                            <p><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
+                                        <?php endif; ?>
+
+                                        <?php if ($show_meta && (!empty($meta['publication']) || !empty($meta['publish_date']))) : ?>
+                                            <p class="story-meta">
+                                                <?php if (!empty($meta['publication'])) : ?>
+                                                    For <i><?php echo esc_html($meta['publication']); ?></i>
+                                                <?php endif; ?>
+                                                <?php if (!empty($meta['publish_date'])) : ?>
+                                                    <?php echo !empty($meta['publication']) ? ' in ' : ''; ?>
+                                                    <?php echo esc_html($meta['publish_date']); ?>
+                                                <?php endif; ?>
+                                            </p>
+                                        <?php endif; ?>
+                                    </div>
+
+                                    <?php if ($story_image) : ?>
+                                        <div class="story-image">
+                                            <img src="<?php echo esc_url($story_image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" />
+                                        </div>
+                                        <?php if (!empty($meta['photo_credit'])) : ?>
+                                            <div class="caption"><?php echo esc_html($meta['photo_credit']); ?></div>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                </a>
+                            </article>
+                        <?php endwhile; ?>
+                    <?php else : ?>
+                        <p class="no-stories-message">No stories found. <a href="<?php echo admin_url('post-new.php?post_type=story'); ?>">Add your first story</a>.</p>
+                    <?php endif; ?>
+                </div>
+
             <?php elseif ($atts['layout'] === 'list') : ?>
                 <!-- List Layout -->
                 <div class="stories-list">
