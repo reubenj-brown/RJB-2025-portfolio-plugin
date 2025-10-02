@@ -19,30 +19,17 @@
                     $story_id = get_the_ID();
                     $metadata = get_story_metadata($story_id);
 
-                    // Build image array - prefer Original Image URL, fallback to featured image
+                    // Build image array - prefer Homepage Thumbnail, fallback to featured image
                     $images = [];
 
-                    // TEMPORARY WORKAROUND: Hard-coded high-res URLs by story title
-                    $story_title = get_the_title();
-                    $high_res_urls = [
-                        'Anti-racist protestors quell the violence in Walthamstow' => 'https://reubenjbrown.com/wp-content/uploads/2025/08/Walthamstow-anti-racist-rally-march-august-7-2024-Reuben-J-Brown-photojournalism-1.webp',
-                        // Add more stories here as needed
-                    ];
-
-                    if (isset($high_res_urls[$story_title])) {
-                        // Use hard-coded high-res URL
+                    // Use Homepage Thumbnail if available
+                    if (!empty($metadata['homepage_thumbnail'])) {
                         $images[] = [
-                            'url' => $high_res_urls[$story_title],
-                            'alt' => get_the_title()
-                        ];
-                    } elseif (!empty($metadata['original_image_url'])) {
-                        // Use Original Image URL from metadata if available
-                        $images[] = [
-                            'url' => $metadata['original_image_url'],
+                            'url' => $metadata['homepage_thumbnail'],
                             'alt' => get_the_title()
                         ];
                     } else {
-                        // Fallback to featured image if Original Image URL not set
+                        // Fallback to featured image
                         $featured_image = get_story_featured_image($story_id, 'large');
                         if ($featured_image) {
                             $images[] = [
@@ -73,8 +60,8 @@
                     // PHOTO PRIMARY DEBUG - Single focused debug message
                     $debug_msg = "🖼️ PHOTO PRIMARY: " . $first_story['title'] . " | ";
                     $debug_msg .= "Using URL: " . $first_story['images'][0]['url'] . " | ";
-                    $debug_msg .= "Original URL " . (!empty($first_story['metadata']['original_image_url']) ?
-                        "EXISTS: " . $first_story['metadata']['original_image_url'] : "NOT SET");
+                    $debug_msg .= "Homepage Thumbnail " . (!empty($first_story['metadata']['homepage_thumbnail']) ?
+                        "SET: " . $first_story['metadata']['homepage_thumbnail'] : "NOT SET - using featured image");
                     error_log($debug_msg);
             ?>
                     <!-- Primary Full-Width Story -->
