@@ -516,9 +516,9 @@ class ReubenPortfolioSections {
             echo '<div class="notice notice-success"><p>Homepage thumbnails saved!</p></div>';
         }
 
-        // Get all posts/pages
+        // Get all stories, posts, and pages
         $posts = get_posts([
-            'post_type' => ['post', 'page'],
+            'post_type' => ['story', 'post', 'page'],
             'posts_per_page' => -1,
             'orderby' => 'title',
             'order' => 'ASC'
@@ -545,7 +545,10 @@ class ReubenPortfolioSections {
                             $current_thumbnail = get_post_meta($post->ID, 'homepage_thumbnail', true);
                         ?>
                         <tr>
-                            <td><strong><?php echo esc_html($post->post_title); ?></strong></td>
+                            <td>
+                                <strong><?php echo esc_html($post->post_title); ?></strong>
+                                <br><small><?php echo esc_html(ucfirst($post->post_type)); ?> (ID: <?php echo $post->ID; ?>)</small>
+                            </td>
                             <td>
                                 <?php if ($current_thumbnail): ?>
                                     <img src="<?php echo esc_url($current_thumbnail); ?>" style="max-width: 100px; height: auto;">
