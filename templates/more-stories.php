@@ -28,7 +28,6 @@ if (!empty($stories)) :
 ?>
     <!-- More Stories Horizontal Scroll Area -->
     <div class="more-stories-section">
-        <h3 class="more-stories-heading">More Stories</h3>
         <div class="more-stories-scroll">
             <?php foreach ($stories as $story) : ?>
                 <article class="more-stories-scroll-item">
@@ -42,9 +41,9 @@ if (!empty($stories)) :
                             <?php endif; ?>
                         <?php endif; ?>
                         <div class="story-content">
-                            <h2 class="serif-font-scaled"><?php echo !empty($story['excerpt']) ? $story['excerpt'] : $story['title']; ?></h2>
-                            <p><?php echo $story['title']; ?></p>
-                            <p class="story-meta">
+                            <h2 class="more-stories-headline"><?php echo !empty($story['excerpt']) ? $story['excerpt'] : $story['title']; ?></h2>
+                            <p class="more-stories-title"><?php echo $story['title']; ?></p>
+                            <p class="more-stories-meta">
                                 <?php if (!empty($story['metadata']['publication'])) : ?>
                                     For <i><?php echo $story['metadata']['publication']; ?></i>
                                 <?php endif; ?>

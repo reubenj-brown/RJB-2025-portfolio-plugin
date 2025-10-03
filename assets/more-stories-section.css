@@ -2,17 +2,9 @@
 
 .more-stories-section {
     width: 100% !important;
-    padding: 2rem 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
     display: block !important;
-}
-
-.more-stories-heading {
-    font-family: var(--serif-font), Georgia, serif !important;
-    font-size: calc(24px * 1.23) !important;
-    font-weight: 400 !important;
-    margin: 0 0 2rem 0 !important;
-    color: var(--text-color, #000) !important;
-    text-align: left !important;
 }
 
 /* More Stories Scroller - Same as Architecture Scroller */
@@ -72,29 +64,51 @@
     display: block !important;
 }
 
-/* More stories text spacing and styling */
-.more-stories-scroll-item .story-content h2 {
-    margin-bottom: 16px;
+/* More stories text spacing and styling - match architecture scroller exactly */
+.more-stories-headline {
+    font-family: var(--serif-font), Georgia, serif !important;
+    font-size: calc(16px * 1.23) !important; /* Match architecture scroller size */
+    font-weight: 400 !important;
+    line-height: 1.2 !important;
+    margin: 0 0 16px 0 !important;
+    color: var(--text-color, #000) !important;
 }
 
-.more-stories-scroll-item .story-content p:not(.story-meta) {
-    margin-bottom: 16px;
-    color: var(--text-color-muted); /* Grey standfirst text */
+.more-stories-title {
+    font-family: var(--primary-font), Arial, sans-serif !important;
+    font-size: 16px !important; /* Match architecture scroller size */
+    font-weight: 400 !important;
+    line-height: 1.4 !important;
+    margin: 0 0 16px 0 !important;
+    color: var(--text-color-muted, #808080) !important; /* Grey standfirst text */
 }
 
-.more-stories-scroll-item .story-content .story-meta {
-    margin-bottom: 0;
+.more-stories-meta {
+    font-family: var(--primary-font), Arial, sans-serif !important;
+    font-size: 14px !important; /* Match architecture scroller size */
+    font-weight: 400 !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    color: var(--text-color-muted, #808080) !important;
+}
+
+.more-stories-meta::after {
+    content: " →";
+}
+
+.more-stories-meta i {
+    color: var(--text-color, #000) !important;
 }
 
 /* Link styling */
 .more-stories-scroll-item .story-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block !important;
 }
 
-.more-stories-scroll-item .story-link:hover .story-content h2 {
-    color: var(--highlight-color);
+.more-stories-scroll-item .story-link:hover .more-stories-headline {
+    color: var(--highlight-color, #39e58f) !important;
 }
 
 /* Caption styling */
