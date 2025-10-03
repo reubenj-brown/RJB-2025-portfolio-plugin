@@ -34,7 +34,12 @@ class ReubenPortfolioSections {
 
         // Add admin page to manually set homepage thumbnails
         add_action('admin_menu', [$this, 'add_thumbnail_admin_page']);
-        
+
+        // Add template selection for stories
+        add_filter('theme_page_templates', [$this, 'add_story_templates']);
+        add_filter('wp_insert_post_data', [$this, 'register_story_templates']);
+        add_filter('template_include', [$this, 'view_story_template']);
+
         // Debug: Log that plugin is loaded
         error_log('ReubenPortfolioSections: Plugin constructor loaded');
     }
@@ -207,7 +212,7 @@ class ReubenPortfolioSections {
             'public' => true,
             'has_archive' => true,
             'rewrite' => ['slug' => 'stories'],
-            'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'],
+            'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes'],
             'menu_icon' => 'dashicons-format-aside',
             'show_in_rest' => true, // For Gutenberg editor
         ]);
@@ -621,6 +626,83 @@ class ReubenPortfolioSections {
         include plugin_dir_path(__FILE__) . 'templates/more-stories.php';
         return ob_get_clean();
     }
+
+    /**
+     * Add story templates to the page template dropdown
+     */
+    public function add_story_templates($posts_templates) {
+        $posts_templates['single-story.php'] = 'Story Template (Full Bleed Hero)';
+        $posts_templates['single-story-split.php'] = 'Story Template (Split Hero)';
+        return $posts_templates;
+    }
+
+    /**
+     * Add a filter to the attributes metabox to inject template into the cache.
+     */
+    public function register_story_templates($atts) {
+        // Create the key used for the themes cache
+        $cache_key = 'page_templates-' . md5(get_theme_root() . '/' . get_stylesheet());
+
+        // Retrieve the cache list.
+        $templates = wp_get_theme()->get_page_templates();
+        if (empty($templates)) {
+            $templates = array();
+        }
+
+        // New cache, therefore remove the old one
+        wp_cache_delete($cache_key, 'themes');
+
+        // Now add our template to the list of templates by merging our templates
+        $templates = array_merge($templates, $this->add_story_templates(array()));
+
+        // Add the modified cache to allow WordPress to pick it up for listing
+        wp_cache_add($cache_key, $templates, 'themes', 1800);
+
+        return $atts;
+    }
+
+    /**
+     * Check if the template is assigned to the story
+     */
+    public function view_story_template($template) {
+        // Only for story post type
+        if (!is_singular('story')) {
+            return $template;
+        }
+
+        // Get global post
+        global $post;
+
+        // Return template if post is empty
+        if (!$post) {
+            return $template;
+        }
+
+        // Get the selected template
+        $selected_template = get_post_meta($post->ID, '_wp_page_template', true);
+
+        // If no template selected or template not in our list, use default
+        if (!$selected_template || !isset($this->templates[$selected_template])) {
+            return $template;
+        }
+
+        // Check if template file exists in theme directory
+        $template_path = get_stylesheet_directory() . '/' . $selected_template;
+        if (file_exists($template_path)) {
+            return $template_path;
+        }
+
+        // Fallback to default template
+        return $template;
+    }
+
+    /**
+     * Our templates
+     */
+    protected $templates = array(
+        'single-story.php' => 'Story Template (Full Bleed Hero)',
+        'single-story-split.php' => 'Story Template (Split Hero)',
+    );
 }
 
 // Initialize plugin
