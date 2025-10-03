@@ -741,9 +741,9 @@ class ReubenPortfolioSections {
         $current_color = get_post_meta($post->ID, 'story_hero_color', true);
         $current_color = !empty($current_color) ? $current_color : '#39e58f';
 
-        echo '<label for="story_hero_color">Choose hero background color for split template:</label>';
-        echo '<input type="color" id="story_hero_color" name="story_hero_color" value="' . esc_attr($current_color) . '" style="width: 100%; height: 40px; margin-top: 10px;" />';
-        echo '<p style="margin-top: 10px;"><small>This color will be used as the background for the left side of the split hero template.</small></p>';
+        echo '<label for="story_hero_color">Hero background color for split template:</label>';
+        echo '<input type="text" id="story_hero_color" name="story_hero_color" value="' . esc_attr($current_color) . '" placeholder="#39e58f" pattern="^#[0-9A-Fa-f]{6}$" style="width: 100%; padding: 8px; margin-top: 10px; font-family: monospace;" />';
+        echo '<p style="margin-top: 10px;"><small>Enter a hex color code (e.g., #39e58f, #ff0000, #0066cc). This color will be used as the background for the left side of the split hero template.</small></p>';
     }
 
     /**
