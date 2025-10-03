@@ -41,8 +41,8 @@ if (!empty($stories)) :
                             <?php endif; ?>
                         <?php endif; ?>
                         <div class="story-content">
-                            <h2 class="more-stories-headline"><?php echo !empty($story['excerpt']) ? $story['excerpt'] : $story['title']; ?></h2>
-                            <p class="more-stories-title"><?php echo $story['title']; ?></p>
+                            <h2 class="more-stories-headline"><?php echo $story['title']; ?></h2>
+                            <p class="more-stories-title"><?php echo !empty($story['excerpt']) ? $story['excerpt'] : $story['title']; ?></p>
                             <p class="more-stories-meta">
                                 <?php if (!empty($story['metadata']['publication'])) : ?>
                                     For <i><?php echo $story['metadata']['publication']; ?></i>
