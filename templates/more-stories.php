@@ -35,10 +35,10 @@ if (!empty($stories)) :
                         <?php if ($story['image_url']) : ?>
                             <div class="story-image">
                                 <img src="<?php echo $story['image_url']; ?>" alt="<?php echo $story['title']; ?>" />
+                                <?php if (!empty($story['metadata']['photo_credit'])) : ?>
+                                    <div class="caption"><?php echo $story['metadata']['photo_credit']; ?></div>
+                                <?php endif; ?>
                             </div>
-                            <?php if (!empty($story['metadata']['photo_credit'])) : ?>
-                                <div class="caption"><?php echo $story['metadata']['photo_credit']; ?></div>
-                            <?php endif; ?>
                         <?php endif; ?>
                         <div class="story-content">
                             <h2 class="more-stories-headline"><?php echo $story['title']; ?></h2>

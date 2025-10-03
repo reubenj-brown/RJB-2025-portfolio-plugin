@@ -50,6 +50,7 @@
 
 /* More Stories image styling - match story grid 4:3 aspect ratio */
 .more-stories-scroll-item .story-image {
+    position: relative !important;
     width: 100% !important;
     aspect-ratio: 4/3 !important;
     overflow: hidden !important;
@@ -113,11 +114,13 @@
 
 /* Caption styling */
 .more-stories-scroll-item .caption {
-    font-size: 12px;
-    color: var(--text-color-muted);
-    text-align: right;
-    margin-top: 4px;
-    margin-bottom: 1rem;
+    position: absolute !important;
+    bottom: 10px !important;
+    right: 10px !important;
+    font-size: 12px !important;
+    color: white !important;
+    z-index: 10 !important;
+    margin: 0 !important;
 }
 
 /* Tablet Responsive */
