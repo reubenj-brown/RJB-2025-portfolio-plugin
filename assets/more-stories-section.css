@@ -1,30 +1,31 @@
 /* More Stories Section CSS */
 
 .more-stories-section {
-    width: 100%;
-    padding: 2rem 0;
+    width: 100% !important;
+    padding: 2rem 0 !important;
+    display: block !important;
 }
 
 .more-stories-heading {
-    font-family: var(--serif-font);
-    font-size: calc(24px * 1.23);
-    font-weight: 400;
-    margin: 0 0 2rem 0;
-    color: var(--text-color);
-    text-align: left;
+    font-family: var(--serif-font), Georgia, serif !important;
+    font-size: calc(24px * 1.23) !important;
+    font-weight: 400 !important;
+    margin: 0 0 2rem 0 !important;
+    color: var(--text-color, #000) !important;
+    text-align: left !important;
 }
 
 /* More Stories Scroller - Same as Architecture Scroller */
 .more-stories-scroll {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    width: 100%;
-    padding-bottom: 16px; /* Space for scrollbar */
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 2rem !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    width: 100% !important;
+    padding-bottom: 16px !important; /* Space for scrollbar */
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important; /* Smooth scrolling on iOS */
 }
 
 /* Custom scrollbar styling for more stories scroll */
@@ -48,26 +49,27 @@
 
 /* Scroll Items - Match Architecture section dimensions */
 .more-stories-scroll-item {
-    flex: 0 0 450px; /* Fixed width for horizontal scroll - same as architecture-scroll-item */
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    flex: 0 0 450px !important; /* Fixed width for horizontal scroll - same as architecture-scroll-item */
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    min-width: 450px !important;
 }
 
 /* More Stories image styling - match story grid 4:3 aspect ratio */
 .more-stories-scroll-item .story-image {
-    width: 100%;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    margin-bottom: 8px;
+    width: 100% !important;
+    aspect-ratio: 4/3 !important;
+    overflow: hidden !important;
+    margin-bottom: 8px !important;
 }
 
 .more-stories-scroll-item .story-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
 }
 
 /* More stories text spacing and styling */
