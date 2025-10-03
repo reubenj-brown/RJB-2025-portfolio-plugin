@@ -62,6 +62,7 @@ class ReubenPortfolioSections {
         add_shortcode('featured_story_text', [$this, 'featured_story_text']);
         add_shortcode('featured_story_full_bleed', [$this, 'featured_story_full_bleed']);
         add_shortcode('vertical_video', [$this, 'vertical_video']);
+        add_shortcode('more_stories', [$this, 'more_stories']);
     }
     
     /**
@@ -295,6 +296,13 @@ class ReubenPortfolioSections {
             wp_enqueue_style(
                 'reuben-reviews-section',
                 plugin_dir_url(__FILE__) . 'assets/reviews-section.css',
+                ['reuben-base-sections'],
+                '1.0.0'
+            );
+
+            wp_enqueue_style(
+                'reuben-more-stories-section',
+                plugin_dir_url(__FILE__) . 'assets/more-stories-section.css',
                 ['reuben-base-sections'],
                 '1.0.0'
             );
@@ -575,6 +583,40 @@ class ReubenPortfolioSections {
             </form>
         </div>
         <?php
+    }
+
+    /**
+     * More Stories Block - Horizontal scroller with recent stories
+     */
+    public function more_stories($atts) {
+        $atts = shortcode_atts([
+            'limit' => 10,
+            'exclude_current' => true
+        ], $atts);
+
+        // Get current post ID to exclude it
+        global $post;
+        $current_post_id = $post ? $post->ID : 0;
+
+        // Query for recent stories
+        $args = [
+            'post_type' => 'story',
+            'posts_per_page' => intval($atts['limit']),
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC'
+        ];
+
+        // Exclude current post if on single story page
+        if ($atts['exclude_current'] && $current_post_id) {
+            $args['post__not_in'] = [$current_post_id];
+        }
+
+        $stories_query = new WP_Query($args);
+
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/more-stories.php';
+        return ob_get_clean();
     }
 }
 
