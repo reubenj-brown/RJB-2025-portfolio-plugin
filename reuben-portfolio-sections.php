@@ -37,8 +37,12 @@ class ReubenPortfolioSections {
 
         // Add template selection for stories
         add_filter('theme_page_templates', [$this, 'add_story_templates']);
-        add_filter('wp_insert_post_data', [$this, 'register_story_templates']);
+        add_filter('theme_story_templates', [$this, 'add_story_templates']);
+        add_action('init', [$this, 'register_story_templates']);
         add_filter('template_include', [$this, 'view_story_template']);
+
+        // Enable page attributes meta box for stories
+        add_action('add_meta_boxes', [$this, 'add_story_page_attributes_meta_box']);
 
         // Debug: Log that plugin is loaded
         error_log('ReubenPortfolioSections: Plugin constructor loaded');
@@ -637,9 +641,9 @@ class ReubenPortfolioSections {
     }
 
     /**
-     * Add a filter to the attributes metabox to inject template into the cache.
+     * Register story templates in WordPress cache
      */
-    public function register_story_templates($atts) {
+    public function register_story_templates() {
         // Create the key used for the themes cache
         $cache_key = 'page_templates-' . md5(get_theme_root() . '/' . get_stylesheet());
 
@@ -657,8 +661,6 @@ class ReubenPortfolioSections {
 
         // Add the modified cache to allow WordPress to pick it up for listing
         wp_cache_add($cache_key, $templates, 'themes', 1800);
-
-        return $atts;
     }
 
     /**
@@ -694,6 +696,20 @@ class ReubenPortfolioSections {
 
         // Fallback to default template
         return $template;
+    }
+
+    /**
+     * Add page attributes meta box to story post type
+     */
+    public function add_story_page_attributes_meta_box() {
+        add_meta_box(
+            'pageparentdiv',
+            __('Page Attributes'),
+            'page_attributes_meta_box',
+            'story',
+            'side',
+            'core'
+        );
     }
 
     /**
