@@ -19,17 +19,15 @@
                     $metadata = get_story_metadata($story_id);
                     $featured_image = get_story_featured_image($story_id, 'large');
 
-                    if ($featured_image) {
-                        $stories[] = [
-                            'id' => $story_id,
-                            'title' => get_the_title(),
-                            'short_headline' => !empty($metadata['short_headline']) ? $metadata['short_headline'] : get_the_title(),
-                            'excerpt' => get_the_excerpt(),
-                            'permalink' => get_permalink(),
-                            'metadata' => $metadata,
-                            'featured_image' => $featured_image
-                        ];
-                    }
+                    $stories[] = [
+                        'id' => $story_id,
+                        'title' => get_the_title(),
+                        'short_headline' => !empty($metadata['short_headline']) ? $metadata['short_headline'] : get_the_title(),
+                        'excerpt' => get_the_excerpt(),
+                        'permalink' => get_permalink(),
+                        'metadata' => $metadata,
+                        'featured_image' => $featured_image
+                    ];
                 }
                 wp_reset_postdata();
 
@@ -41,11 +39,13 @@
                         <!-- Primary Story - Left Column -->
                         <div class="reviews-primary">
                             <article class="reviews-primary-story">
+                                <?php if ($primary_story['featured_image']) : ?>
                                 <div class="reviews-primary-image">
                                     <a href="<?php echo !empty($primary_story['metadata']['external_url']) ? esc_url($primary_story['metadata']['external_url']) : esc_url($primary_story['permalink']); ?>" class="reviews-primary-image-link"<?php echo !empty($primary_story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                         <img src="<?php echo esc_url($primary_story['featured_image']); ?>" alt="<?php echo esc_attr($primary_story['title']); ?>" />
                                     </a>
                                 </div>
+                                <?php endif; ?>
                                 <div class="reviews-primary-content">
                                     <a href="<?php echo !empty($primary_story['metadata']['external_url']) ? esc_url($primary_story['metadata']['external_url']) : esc_url($primary_story['permalink']); ?>" class="reviews-primary-text-link"<?php echo !empty($primary_story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                         <h2 class="reviews-primary-headline"><?php echo esc_html($primary_story['short_headline']); ?></h2>
@@ -71,9 +71,11 @@
                             <?php foreach ($secondary_stories as $story) : ?>
                                 <article class="reviews-secondary-story">
                                     <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : esc_url($story['permalink']); ?>" class="reviews-secondary-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
+                                        <?php if ($story['featured_image']) : ?>
                                         <div class="reviews-secondary-image">
                                             <img src="<?php echo esc_url($story['featured_image']); ?>" alt="<?php echo esc_attr($story['title']); ?>" />
                                         </div>
+                                        <?php endif; ?>
                                         <div class="reviews-secondary-content">
                                             <h3 class="reviews-secondary-headline"><?php echo esc_html($story['title']); ?></h3>
                                             <p class="reviews-secondary-meta">

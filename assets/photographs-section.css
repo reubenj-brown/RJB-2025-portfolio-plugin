@@ -196,7 +196,7 @@
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px), (max-height: 1080px) {
+@media (max-width: 768px), (max-height: 720px) {
     /* Primary story container - adjust for mobile content padding */
     .photo-primary-container {
         width: 92vw; /* 92vw on mobile */
