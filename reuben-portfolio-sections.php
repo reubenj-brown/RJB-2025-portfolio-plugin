@@ -44,6 +44,10 @@ class ReubenPortfolioSections {
         // Enable page attributes meta box for stories
         add_action('add_meta_boxes', [$this, 'add_story_page_attributes_meta_box']);
 
+        // Add custom hero color meta box for stories
+        add_action('add_meta_boxes', [$this, 'add_story_hero_color_meta_box']);
+        add_action('save_post', [$this, 'save_story_hero_color']);
+
         // Debug: Log that plugin is loaded
         error_log('ReubenPortfolioSections: Plugin constructor loaded');
     }
@@ -710,6 +714,64 @@ class ReubenPortfolioSections {
             'side',
             'core'
         );
+    }
+
+    /**
+     * Add hero color meta box to story post type
+     */
+    public function add_story_hero_color_meta_box() {
+        add_meta_box(
+            'story_hero_color',
+            __('Hero Color (Split Template)'),
+            [$this, 'story_hero_color_meta_box_callback'],
+            'story',
+            'side',
+            'default'
+        );
+    }
+
+    /**
+     * Hero color meta box callback
+     */
+    public function story_hero_color_meta_box_callback($post) {
+        // Add nonce for security
+        wp_nonce_field('story_hero_color_save', 'story_hero_color_nonce');
+
+        // Get current value
+        $current_color = get_post_meta($post->ID, 'story_hero_color', true);
+        $current_color = !empty($current_color) ? $current_color : '#39e58f';
+
+        echo '<label for="story_hero_color">Choose hero background color for split template:</label>';
+        echo '<input type="color" id="story_hero_color" name="story_hero_color" value="' . esc_attr($current_color) . '" style="width: 100%; height: 40px; margin-top: 10px;" />';
+        echo '<p style="margin-top: 10px;"><small>This color will be used as the background for the left side of the split hero template.</small></p>';
+    }
+
+    /**
+     * Save hero color meta
+     */
+    public function save_story_hero_color($post_id) {
+        // Check if nonce is valid
+        if (!isset($_POST['story_hero_color_nonce']) || !wp_verify_nonce($_POST['story_hero_color_nonce'], 'story_hero_color_save')) {
+            return;
+        }
+
+        // Check if user has permission to edit the post
+        if (!current_user_can('edit_post', $post_id)) {
+            return;
+        }
+
+        // Check if this is an autosave
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return;
+        }
+
+        // Save the color
+        if (isset($_POST['story_hero_color'])) {
+            $color = sanitize_hex_color($_POST['story_hero_color']);
+            if ($color) {
+                update_post_meta($post_id, 'story_hero_color', $color);
+            }
+        }
     }
 
     /**
