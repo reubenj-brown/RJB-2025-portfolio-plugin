@@ -64,10 +64,10 @@
 }
 
 .photo-primary-standfirst {
-    font-family: var(--primary-font);
-    font-size: 16px;
+    font-family: var(--serif-font);
+    font-size: calc(20px * 1.23); /* 20px base = 24.6px scaled */
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.3;
     margin: 0 0 2rem 0;
     color: white !important;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
@@ -160,6 +160,9 @@
 }
 
 .photographs-section .features-story-main p {
+    font-family: var(--primary-font) !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
     margin-bottom: 4px !important;
 }
 
@@ -184,7 +187,7 @@
     }
     
     .photo-primary-standfirst {
-        font-size: 16px;
+        font-size: calc(16px * 1.23); /* Matches Features section tablet size */
     }
 
     /* Override tablet headline size for photographs section secondary stories */
@@ -224,7 +227,7 @@
     }
     
     .photo-primary-standfirst {
-        font-size: 16px;
+        font-size: calc(16px * 1.23); /* Matches Features section mobile size */
         margin: 0 0 1.5rem 0;
     }
     
