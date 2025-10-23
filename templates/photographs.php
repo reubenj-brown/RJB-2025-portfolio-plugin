@@ -29,8 +29,8 @@
                             'alt' => get_the_title()
                         ];
                     } else {
-                        // Fallback to featured image
-                        $featured_image = get_story_featured_image($story_id, 'large');
+                        // Fallback to featured image - use 'full' size for primary photo
+                        $featured_image = get_story_featured_image($story_id, 'full');
                         if ($featured_image) {
                             $images[] = [
                                 'url' => $featured_image,
