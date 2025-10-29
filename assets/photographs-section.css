@@ -155,11 +155,13 @@
 
 .photographs-section .features-story-main h2 {
     margin-bottom: 16px !important;
+    font-family: var(--serif-font) !important;
 }
 
 .photographs-section .features-story-main p:not(.story-meta) {
     margin-bottom: 16px !important;
-    color: var(--text-color-muted) !important;
+    font-family: var(--primary-font) !important;
+    color: var(--text-color) !important;
 }
 
 .photographs-section .features-story-main .story-meta {
