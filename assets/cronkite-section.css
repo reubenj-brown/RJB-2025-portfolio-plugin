@@ -1,0 +1,13 @@
+/* Cronkite Section Styles */
+
+/* Override stories-grid to always be 2-wide for Cronkite section */
+.cronkite-section .stories-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Mobile Responsive - single column on small screens */
+@media (max-width: 768px) {
+    .cronkite-section .stories-grid {
+        grid-template-columns: 1fr;
+    }
+}

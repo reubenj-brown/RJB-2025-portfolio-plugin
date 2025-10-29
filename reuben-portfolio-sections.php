@@ -295,6 +295,13 @@ class ReubenPortfolioSections {
                 ['reuben-base-sections'],
                 '1.0.0'
             );
+
+            wp_enqueue_style(
+                'reuben-cronkite-section',
+                plugin_dir_url(__FILE__) . 'assets/cronkite-section.css',
+                ['reuben-base-sections'],
+                '1.0.0'
+            );
         }
     }
     
