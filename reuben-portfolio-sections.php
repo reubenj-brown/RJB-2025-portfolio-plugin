@@ -3,7 +3,7 @@
  * Plugin Name: Reuben Portfolio Sections
  * Plugin URI: https://github.com/reubenj-brown/RJB-2025-portfolio-plugin
  * Description: Custom shortcodes for portfolio sections with WordPress post integration
- * Version: 1.2
+ * Version: 1.3
  * Author: Reuben J. Brown
  * License: GPL v2 or later
  */
