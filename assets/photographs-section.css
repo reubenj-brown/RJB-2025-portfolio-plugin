@@ -153,19 +153,18 @@
     margin-bottom: 0 !important;
 }
 
+/* Match architecture scroll area text spacing and styling */
 .photographs-section .features-story-main h2 {
-    margin-bottom: 16px !important;
-    font-family: var(--serif-font) !important;
+    margin-bottom: 16px;
 }
 
 .photographs-section .features-story-main p:not(.story-meta) {
-    margin-bottom: 16px !important;
-    font-family: var(--primary-font) !important;
-    color: var(--text-color-muted) !important;
+    margin-bottom: 16px;
+    color: var(--text-color-muted); /* Grey standfirst text */
 }
 
 .photographs-section .features-story-main .story-meta {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
 }
 
 /* Tablet Responsive */
