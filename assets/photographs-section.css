@@ -161,7 +161,7 @@
 .photographs-section .features-story-main p:not(.story-meta) {
     margin-bottom: 16px !important;
     font-family: var(--primary-font) !important;
-    color: var(--text-color) !important;
+    color: var(--text-color-muted) !important;
 }
 
 .photographs-section .features-story-main .story-meta {
