@@ -7,7 +7,7 @@
             </div> 
             <?php
             // Get photograph stories using the same function as other sections
-            $photos_query = get_portfolio_stories('photographs', 6);
+            $photos_query = get_portfolio_stories('photographs', 12);
             
             if ($photos_query->have_posts()) {
                 $story_count = 0;
