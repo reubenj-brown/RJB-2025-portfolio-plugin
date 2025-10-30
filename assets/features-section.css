@@ -57,9 +57,9 @@
     font-size: 24.5px;
 }
 
-/* Secondary story headlines - back to original */
+/* Secondary story headlines - match architecture scroller */
 .features-story-small h2 {
-    font-size: 29.5px;
+    font-size: 24px;
     margin-bottom: 12px;
 }
 
