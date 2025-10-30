@@ -608,6 +608,10 @@
     margin-bottom: 16px;
 }
 
+.architecture-scroll-item .story-link:hover h2 {
+    color: var(--highlight-color);
+}
+
 .architecture-scroll-item .story-content p:not(.story-meta) {
     margin-bottom: 16px;
     color: var(--text-color-muted); /* Grey standfirst text */
