@@ -1,11 +1,11 @@
 /* Cronkite Section Styles */
 
-/* Override stories-grid to be 3-wide for Cronkite section */
+/* Desktop: 3-wide grid */
 .cronkite-section .stories-grid {
     grid-template-columns: repeat(3, 1fr);
 }
 
-/* Tablet and Mobile - horizontal scroller */
+/* Tablet and Mobile - horizontal scroller - match architecture scroller styling */
 @media (max-width: 1200px) {
     .cronkite-section .stories-grid {
         display: flex;
@@ -13,16 +13,20 @@
         gap: 2rem;
         overflow-x: auto;
         overflow-y: hidden;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
+        width: 100%;
         padding-bottom: 16px; /* Space for scrollbar */
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
 
     .cronkite-section .story-item {
-        flex: 0 0 350px; /* Fixed width for horizontal scroll items */
+        flex: 0 0 450px; /* Match architecture-scroll-item width */
+        display: flex;
+        flex-direction: column;
+        position: relative;
     }
 
-    /* Custom scrollbar styling */
+    /* Custom scrollbar styling - match architecture scroll */
     .cronkite-section .stories-grid::-webkit-scrollbar {
         height: 8px;
     }
@@ -42,8 +46,23 @@
     }
 }
 
-@media (max-width: 480px) {
+/* Mobile - match architecture scroll dimensions */
+@media (max-width: 768px) {
+    .cronkite-section .stories-grid {
+        gap: 2rem;
+    }
+
     .cronkite-section .story-item {
-        flex: 0 0 300px; /* Smaller width on very small screens */
+        flex: 0 0 350px; /* Match architecture-scroll-item mobile width */
+    }
+}
+
+@media (max-width: 480px) {
+    .cronkite-section .stories-grid {
+        gap: 2rem;
+    }
+
+    .cronkite-section .story-item {
+        flex: 0 0 300px; /* Match architecture-scroll-item small mobile width */
     }
 }
