@@ -200,10 +200,9 @@
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px), (max-height: 1080px) {
-    /* Primary story container - adjust for mobile content padding */
+@media (max-width: 768px) {
     .photo-primary-container {
-        width: 92vw; /* Accounts for 4vw padding on mobile */
+        width: 92vw;
         margin-bottom: 32px;
     }
     
