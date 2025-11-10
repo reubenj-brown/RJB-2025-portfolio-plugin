@@ -54,10 +54,12 @@ if ($stories_query->have_posts()) {
                                 <div class="story-image">
                                     <img src="<?php echo $story['image_url']; ?>" alt="<?php echo $story['title']; ?>" />
                                 </div>
-                                <?php if (!empty($story['metadata']['photo_credit'])) : ?>
-                                    <div class="caption"><?php echo $story['metadata']['photo_credit']; ?></div>
-                                <?php endif; ?>
                             <?php endif; ?>
+                        </a>
+                        <?php if (!empty($story['metadata']['photo_credit'])) : ?>
+                            <div class="caption">photograph: <?php echo $story['metadata']['photo_credit']; ?></div>
+                        <?php endif; ?>
+                        <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                             <div class="story-content">
                                 <h2 class="serif-font-scaled"><?php echo $story['title']; ?></h2>
                                 <?php if (!empty($story['excerpt'])) : ?>
