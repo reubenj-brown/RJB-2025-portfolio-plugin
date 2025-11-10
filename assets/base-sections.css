@@ -101,6 +101,17 @@ p {
     margin: 0;
 }
 
+/* Drop Cap - 2-line drop cap in compressed font */
+p.drop-cap::first-letter {
+    font-family: var(--compressed-font);
+    font-size: 3.2em;
+    font-weight: 400;
+    line-height: 0.9;
+    float: left;
+    margin: 0.05em 0.1em 0 0;
+    color: var(--text-color);
+}
+
 /* Credit/Caption - Photo credits, captions */
 .caption,
 .photo-credit {
