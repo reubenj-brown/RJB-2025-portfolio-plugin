@@ -43,36 +43,38 @@ if ($stories_query->have_posts()) {
 }
 ?>
 
-<section class="more-stories-section">
-    <?php if (!empty($stories)) : ?>
-        <div class="more-stories-scroll">
-            <?php foreach ($stories as $story) : ?>
-                <article class="more-stories-scroll-item">
-                    <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
-                        <?php if ($story['image_url']) : ?>
-                            <div class="story-image">
-                                <img src="<?php echo $story['image_url']; ?>" alt="<?php echo $story['title']; ?>" />
-                            </div>
-                            <?php if (!empty($story['metadata']['photo_credit'])) : ?>
-                                <div class="caption"><?php echo $story['metadata']['photo_credit']; ?></div>
+<section class="content-section">
+    <div class="section-container">
+        <?php if (!empty($stories)) : ?>
+            <div class="architecture-scroll">
+                <?php foreach ($stories as $story) : ?>
+                    <article class="architecture-scroll-item">
+                        <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
+                            <?php if ($story['image_url']) : ?>
+                                <div class="story-image">
+                                    <img src="<?php echo $story['image_url']; ?>" alt="<?php echo $story['title']; ?>" />
+                                </div>
+                                <?php if (!empty($story['metadata']['photo_credit'])) : ?>
+                                    <div class="caption"><?php echo $story['metadata']['photo_credit']; ?></div>
+                                <?php endif; ?>
                             <?php endif; ?>
-                        <?php endif; ?>
-                        <div class="story-content">
-                            <h2 class="serif-font-scaled"><?php echo !empty($story['excerpt']) ? $story['excerpt'] : $story['title']; ?></h2>
-                            <p><?php echo $story['title']; ?></p>
-                            <p class="story-meta">
-                                <?php if (!empty($story['metadata']['publication'])) : ?>
-                                    For <i><?php echo $story['metadata']['publication']; ?></i>
-                                <?php endif; ?>
-                                <?php if (!empty($story['metadata']['publish_date'])) : ?>
-                                    <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
-                                    <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
-                                <?php endif; ?>
-                            </p>
-                        </div>
-                    </a>
-                </article>
-            <?php endforeach; ?>
-        </div>
-    <?php endif; ?>
+                            <div class="story-content">
+                                <h2 class="serif-font-scaled"><?php echo !empty($story['excerpt']) ? $story['excerpt'] : $story['title']; ?></h2>
+                                <p><?php echo $story['title']; ?></p>
+                                <p class="story-meta">
+                                    <?php if (!empty($story['metadata']['publication'])) : ?>
+                                        For <i><?php echo $story['metadata']['publication']; ?></i>
+                                    <?php endif; ?>
+                                    <?php if (!empty($story['metadata']['publish_date'])) : ?>
+                                        <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
+                                        <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
+                                    <?php endif; ?>
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </div>
 </section>

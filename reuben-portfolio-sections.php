@@ -303,13 +303,6 @@ class ReubenPortfolioSections {
                 ['reuben-base-sections'],
                 '1.0.0'
             );
-
-            wp_enqueue_style(
-                'reuben-more-stories',
-                plugin_dir_url(__FILE__) . 'assets/more-stories.css',
-                ['reuben-base-sections'],
-                '1.0.0'
-            );
         }
     }
     
