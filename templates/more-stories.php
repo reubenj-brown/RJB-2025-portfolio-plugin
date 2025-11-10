@@ -49,13 +49,13 @@ if ($stories_query->have_posts()) {
             <div class="architecture-scroll">
                 <?php foreach ($stories as $story) : ?>
                     <article class="architecture-scroll-item">
-                        <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
-                            <?php if ($story['image_url']) : ?>
+                        <?php if ($story['image_url']) : ?>
+                            <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                 <div class="story-image">
                                     <img src="<?php echo $story['image_url']; ?>" alt="<?php echo $story['title']; ?>" />
                                 </div>
-                            <?php endif; ?>
-                        </a>
+                            </a>
+                        <?php endif; ?>
                         <?php if (!empty($story['metadata']['photo_credit'])) : ?>
                             <div class="caption">photograph: <?php echo $story['metadata']['photo_credit']; ?></div>
                         <?php endif; ?>
