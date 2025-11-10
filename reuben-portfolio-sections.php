@@ -230,8 +230,8 @@ class ReubenPortfolioSections {
     }
 
     public function enqueue_styles() {
-        // Only load on portfolio page
-        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page()) {
+        // Load on portfolio pages and story pages
+        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page() || is_singular('story')) {
             // Base styles for all sections
             wp_enqueue_style(
                 'reuben-base-sections',
@@ -307,8 +307,8 @@ class ReubenPortfolioSections {
     }
     
     public function enqueue_scripts() {
-        // Only load on portfolio page
-        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page()) {
+        // Load on portfolio pages and story pages
+        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page() || is_singular('story')) {
             wp_enqueue_script(
                 'reuben-cv-dropdown',
                 plugin_dir_url(__FILE__) . 'assets/cv-dropdown.js',
