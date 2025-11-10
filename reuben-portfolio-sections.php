@@ -230,8 +230,8 @@ class ReubenPortfolioSections {
     }
 
     public function enqueue_styles() {
-        // Load on portfolio pages and story pages
-        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page() || is_singular('story')) {
+        // Load on portfolio pages
+        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page()) {
             // Base styles for all sections
             wp_enqueue_style(
                 'reuben-base-sections',
@@ -239,7 +239,7 @@ class ReubenPortfolioSections {
                 [],
                 '1.0.0'
             );
-            
+
             // Individual section styles
             wp_enqueue_style(
                 'reuben-about-section',
@@ -254,42 +254,42 @@ class ReubenPortfolioSections {
                 ['reuben-base-sections'],
                 '1.0.0'
             );
-            
+
             wp_enqueue_style(
                 'reuben-stories-section',
                 plugin_dir_url(__FILE__) . 'assets/stories-section.css',
                 ['reuben-base-sections'],
                 '1.0.0'
             );
-            
+
             wp_enqueue_style(
                 'reuben-strategy-section',
                 plugin_dir_url(__FILE__) . 'assets/strategy-section.css',
                 ['reuben-base-sections'],
                 '1.0.0'
             );
-            
+
             wp_enqueue_style(
                 'reuben-cv-section',
                 plugin_dir_url(__FILE__) . 'assets/cv-section.css',
                 ['reuben-base-sections'],
                 '1.0.0'
             );
-            
+
             wp_enqueue_style(
                 'reuben-featured-story-full-bleed',
                 plugin_dir_url(__FILE__) . 'assets/featured-story-full-bleed.css',
                 ['reuben-base-sections'],
                 '1.0.0'
             );
-            
+
             wp_enqueue_style(
                 'reuben-photographs-section',
                 plugin_dir_url(__FILE__) . 'assets/photographs-section.css',
                 ['reuben-base-sections'],
                 '3.3.0'
             );
-            
+
             wp_enqueue_style(
                 'reuben-reviews-section',
                 plugin_dir_url(__FILE__) . 'assets/reviews-section.css',
@@ -304,11 +304,28 @@ class ReubenPortfolioSections {
                 '1.0.0'
             );
         }
+
+        // Load only architecture scroller styles on story pages for more_stories shortcode
+        if (is_singular('story')) {
+            wp_enqueue_style(
+                'reuben-base-sections',
+                plugin_dir_url(__FILE__) . 'assets/base-sections.css',
+                [],
+                '1.0.0'
+            );
+
+            wp_enqueue_style(
+                'reuben-stories-section',
+                plugin_dir_url(__FILE__) . 'assets/stories-section.css',
+                ['reuben-base-sections'],
+                '1.0.0'
+            );
+        }
     }
     
     public function enqueue_scripts() {
-        // Load on portfolio pages and story pages
-        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page() || is_singular('story')) {
+        // Only load on portfolio pages
+        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page()) {
             wp_enqueue_script(
                 'reuben-cv-dropdown',
                 plugin_dir_url(__FILE__) . 'assets/cv-dropdown.js',
