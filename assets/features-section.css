@@ -202,7 +202,7 @@
     }
 
     .features-story-small h2 {
-        font-size: 24px; /* Secondary story headlines */
+        font-size: 20px !important; /* Secondary story headlines */
     }
 
     /* Features section body text 16px on mobile */
