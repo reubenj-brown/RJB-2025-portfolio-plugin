@@ -1,0 +1,99 @@
+/* More Stories Section */
+
+.more-stories-section {
+    margin-bottom: 3rem;
+}
+
+/* Horizontal Scroll Area */
+.more-stories-scroll {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    padding-bottom: 16px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar styling */
+.more-stories-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.more-stories-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.more-stories-scroll::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.more-stories-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Scroll Items */
+.more-stories-scroll-item {
+    flex: 0 0 450px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Image styling */
+.more-stories-scroll-item .story-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.more-stories-scroll-item .story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Text spacing and styling */
+.more-stories-scroll-item .story-content h2 {
+    margin-bottom: 16px;
+}
+
+.more-stories-scroll-item .story-link:hover h2 {
+    color: var(--highlight-color);
+}
+
+.more-stories-scroll-item .story-content p:not(.story-meta) {
+    margin-bottom: 16px;
+    color: var(--text-color-muted);
+}
+
+.more-stories-scroll-item .story-content .story-meta {
+    margin-bottom: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .more-stories-scroll {
+        gap: 2rem;
+    }
+
+    .more-stories-scroll-item {
+        flex: 0 0 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .more-stories-scroll {
+        gap: 2rem;
+    }
+
+    .more-stories-scroll-item {
+        flex: 0 0 300px;
+    }
+}

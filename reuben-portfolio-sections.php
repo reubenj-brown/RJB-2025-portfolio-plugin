@@ -59,6 +59,7 @@ class ReubenPortfolioSections {
         add_shortcode('featured_story_text', [$this, 'featured_story_text']);
         add_shortcode('featured_story_full_bleed', [$this, 'featured_story_full_bleed']);
         add_shortcode('vertical_video', [$this, 'vertical_video']);
+        add_shortcode('more_stories', [$this, 'more_stories']);
     }
     
     /**
@@ -302,6 +303,13 @@ class ReubenPortfolioSections {
                 ['reuben-base-sections'],
                 '1.0.0'
             );
+
+            wp_enqueue_style(
+                'reuben-more-stories',
+                plugin_dir_url(__FILE__) . 'assets/more-stories.css',
+                ['reuben-base-sections'],
+                '1.0.0'
+            );
         }
     }
     
@@ -432,11 +440,17 @@ class ReubenPortfolioSections {
         include plugin_dir_path(__FILE__) . 'templates/vertical-video.php';
         return ob_get_clean();
     }
-    
-    
-    
-    
-    
+
+    public function more_stories($atts) {
+        $atts = shortcode_atts([
+            'limit' => 5
+        ], $atts);
+
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/more-stories.php';
+        return ob_get_clean();
+    }
+
     /**
      * Add custom "source" field to media library attachment edit screen
      */
