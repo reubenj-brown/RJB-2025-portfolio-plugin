@@ -1,11 +1,11 @@
 <!-- Featured Story Full Bleed -->
 <section class="featured-story-full-bleed" id="top">
     <div class="full-bleed-background"
-         data-fallback-image="<?php echo esc_url(home_url('/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft13.webp')); ?>">
+         data-fallback-image="<?php echo esc_url(home_url('/wp-content/uploads/2025/11/reuben-j-brown-almeria-greenhouses-el-ejido-agriculture.avif')); ?>">
         <video autoplay muted loop playsinline>
             <source src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Eviction-of-Cortijo-El-Uno-Almeria-Spain-Greenhouse-Farms-Invernadero-Reuben-J-Brown.mp4')); ?>" type="video/mp4">
         </video>
-        <div class="fallback-image" style="background-image: url('<?php echo esc_url(home_url('/wp-content/uploads/2025/06/Reuben-j-brown-multimedia-journalist-homepage-images-draft13.webp')); ?>')"></div>
+        <div class="fallback-image" style="background-image: url('<?php echo esc_url(home_url('/wp-content/uploads/2025/11/reuben-j-brown-almeria-greenhouses-el-ejido-agriculture.avif')); ?>')"></div>
     </div>
     <div class="full-bleed-content">
         <div class="story-text">
