@@ -192,6 +192,11 @@
         margin-bottom: 1.5rem;
     }
 
+    .story-text .story-meta,
+    .story-text .story-meta p {
+        font-size: 14px !important;
+    }
+
     .full-bleed-footer .footer-logo {
         width: 35px;
         height: 35px;
