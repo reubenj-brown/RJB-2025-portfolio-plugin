@@ -3,7 +3,7 @@
     <div class="section-container">
         <div class="reviews-content">
             <div class="strategy-intro">
-                <h3 class="serif-font-scaled">Before this, I was Digital Editor at <i>The Architectural Review</i>, where I wrote on architecture and politics and worked on cross-platform audience strategy, after graduating from the University of Cambridge, where I was president of the architecture society</h3>
+                <h3 class="serif-font-scaled">Before this, I was Digital Editor at <i>The Architectural Review</i>, where I wrote on architecture and politics and worked on cross-platform audience strategy, after I graduated from the University of Cambridge</h3>
             </div>
             <?php
             // Get reviews stories using the same function as other sections
