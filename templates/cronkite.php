@@ -1,7 +1,7 @@
 <!-- Cronkite Section -->
 <div class="cronkite-section">
     <div class="strategy-intro">
-        <h3 class="serif-font-scaled">This year, I’m pursuing these stories in my MA in Investigative Journalism at the Walter Cronkite School of Journalism, Arizona State University. I’m also a <a href="https://cronkite.asu.edu/specializations/business-journalism-fellowship-graduate-fellowship/">Steele Fellow</a> at Cronkite’s Reynolds Center for Business Journalism</h3>
+        <h3 class="serif-font-scaled">I’m currently based in Phoenix, pursuing an MA in Investigative Journalism at the Walter Cronkite School. I’m also a <a href="https://cronkite.asu.edu/specializations/business-journalism-fellowship-graduate-fellowship/">Steele Fellow</a> at Cronkite’s Reynolds Center for Business Journalism</h3>
     </div>
     <section class="content-section">
         <div class="section-container">
