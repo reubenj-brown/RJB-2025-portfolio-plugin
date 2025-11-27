@@ -251,6 +251,7 @@
 /* Architecture scroll area text spacing and styling */
 .architecture-scroll-item .story-content h2 {
     margin-bottom: 16px;
+    font-size: 24px !important; /* 24px headline on desktop */
 }
 
 .architecture-scroll-item .story-content p:not(.story-meta) {
@@ -260,6 +261,7 @@
 
 .architecture-scroll-item .story-content .story-meta {
     margin-bottom: 0;
+    font-family: var(--primary-font) !important; /* Innovator Grotesk font */
 }
 
 /* Tablet Responsive */
@@ -297,9 +299,9 @@
         gap: 24px;
     }
 
-    /* Architecture scroller tablet responsive - 300px width */
+    /* Architecture scroller tablet responsive - 250px width (matching mobile) */
     .architecture-scroll-item {
-        flex: 0 0 300px;
+        flex: 0 0 250px;
     }
 }
 
@@ -383,6 +385,10 @@
 
     .architecture-scroll-item {
         flex: 0 0 250px; /* Shrunk mobile width */
+    }
+
+    .architecture-scroll-item .story-content h2 {
+        font-size: 20px !important; /* 20px headline on mobile */
     }
 }
 
