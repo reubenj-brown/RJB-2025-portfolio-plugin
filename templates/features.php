@@ -39,8 +39,11 @@
                             <p><?php echo $first_story['excerpt']; ?></p>
                         <?php endif; ?>
                         <p class="story-meta">
+                            <?php if (!empty($first_story['metadata']['medium'])) : ?>
+                                <?php echo $first_story['metadata']['medium']; ?>
+                            <?php endif; ?>
                             <?php if (!empty($first_story['metadata']['publication'])) : ?>
-                                For <i><?php echo $first_story['metadata']['publication']; ?></i>
+                                <?php echo !empty($first_story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo $first_story['metadata']['publication']; ?></i>
                             <?php endif; ?>
                             <?php if (!empty($first_story['metadata']['publish_date'])) : ?>
                                 <?php echo !empty($first_story['metadata']['publication']) ? ' in ' : ''; ?>
@@ -68,8 +71,11 @@
                                 </a>
                             </h2>
                             <p class="story-meta">
+                                <?php if (!empty($story['metadata']['medium'])) : ?>
+                                    <?php echo $story['metadata']['medium']; ?>
+                                <?php endif; ?>
                                 <?php if (!empty($story['metadata']['publication'])) : ?>
-                                    For <i><?php echo $story['metadata']['publication']; ?></i>
+                                    <?php echo !empty($story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo $story['metadata']['publication']; ?></i>
                                 <?php endif; ?>
                                 <?php if (!empty($story['metadata']['publish_date'])) : ?>
                                     <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>

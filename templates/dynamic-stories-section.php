@@ -52,10 +52,13 @@ $show_meta = $atts['show_meta'] === 'true';
                             <h3><?php the_excerpt(); ?></h3>
                         <?php endif; ?>
                         
-                        <?php if ($show_meta && (!empty($meta['publication']) || !empty($meta['publish_date']))) : ?>
+                        <?php if ($show_meta && (!empty($meta['medium']) || !empty($meta['publication']) || !empty($meta['publish_date']))) : ?>
                             <p class="story-meta">
+                                <?php if (!empty($meta['medium'])) : ?>
+                                    <?php echo esc_html($meta['medium']); ?>
+                                <?php endif; ?>
                                 <?php if (!empty($meta['publication'])) : ?>
-                                    For <i><?php echo esc_html($meta['publication']); ?></i>
+                                    <?php echo !empty($meta['medium']) ? ' for ' : 'For '; ?><i><?php echo esc_html($meta['publication']); ?></i>
                                 <?php endif; ?>
                                 <?php if (!empty($meta['publish_date'])) : ?>
                                     <?php echo !empty($meta['publication']) ? ' in ' : ''; ?>
@@ -98,10 +101,13 @@ $show_meta = $atts['show_meta'] === 'true';
                                             <p><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
                                         <?php endif; ?>
                                         
-                                        <?php if ($show_meta && (!empty($meta['publication']) || !empty($meta['publish_date']))) : ?>
+                                        <?php if ($show_meta && (!empty($meta['medium']) || !empty($meta['publication']) || !empty($meta['publish_date']))) : ?>
                                             <p class="story-meta">
+                                                <?php if (!empty($meta['medium'])) : ?>
+                                                    <?php echo esc_html($meta['medium']); ?>
+                                                <?php endif; ?>
                                                 <?php if (!empty($meta['publication'])) : ?>
-                                                    For <i><?php echo esc_html($meta['publication']); ?></i>
+                                                    <?php echo !empty($meta['medium']) ? ' for ' : 'For '; ?><i><?php echo esc_html($meta['publication']); ?></i>
                                                 <?php endif; ?>
                                                 <?php if (!empty($meta['publish_date'])) : ?>
                                                     <?php echo !empty($meta['publication']) ? ' in ' : ''; ?>
@@ -131,10 +137,13 @@ $show_meta = $atts['show_meta'] === 'true';
                                         <p class="story-excerpt"><?php echo wp_trim_words(get_the_excerpt(), 30); ?></p>
                                     <?php endif; ?>
                                     
-                                    <?php if ($show_meta && (!empty($meta['publication']) || !empty($meta['publish_date']))) : ?>
+                                    <?php if ($show_meta && (!empty($meta['medium']) || !empty($meta['publication']) || !empty($meta['publish_date']))) : ?>
                                         <p class="story-meta">
+                                            <?php if (!empty($meta['medium'])) : ?>
+                                                <?php echo esc_html($meta['medium']); ?>
+                                            <?php endif; ?>
                                             <?php if (!empty($meta['publication'])) : ?>
-                                                For <i><?php echo esc_html($meta['publication']); ?></i>
+                                                <?php echo !empty($meta['medium']) ? ' for ' : 'For '; ?><i><?php echo esc_html($meta['publication']); ?></i>
                                             <?php endif; ?>
                                             <?php if (!empty($meta['publish_date'])) : ?>
                                                 <?php echo !empty($meta['publication']) ? ' in ' : ''; ?>
@@ -174,10 +183,13 @@ $show_meta = $atts['show_meta'] === 'true';
                                             <p><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
                                         <?php endif; ?>
                                         
-                                        <?php if ($show_meta && (!empty($meta['publication']) || !empty($meta['publish_date']))) : ?>
+                                        <?php if ($show_meta && (!empty($meta['medium']) || !empty($meta['publication']) || !empty($meta['publish_date']))) : ?>
                                             <p class="story-meta">
+                                                <?php if (!empty($meta['medium'])) : ?>
+                                                    <?php echo esc_html($meta['medium']); ?>
+                                                <?php endif; ?>
                                                 <?php if (!empty($meta['publication'])) : ?>
-                                                    For <i><?php echo esc_html($meta['publication']); ?></i>
+                                                    <?php echo !empty($meta['medium']) ? ' for ' : 'For '; ?><i><?php echo esc_html($meta['publication']); ?></i>
                                                 <?php endif; ?>
                                                 <?php if (!empty($meta['publish_date'])) : ?>
                                                     <?php echo !empty($meta['publication']) ? ' in ' : ''; ?>

@@ -51,8 +51,11 @@
                                                 <p><?php echo $story['excerpt']; ?></p>
                                             <?php endif; ?>
                                             <p class="story-meta">
+                                                <?php if (!empty($story['metadata']['medium'])) : ?>
+                                                    <?php echo $story['metadata']['medium']; ?>
+                                                <?php endif; ?>
                                                 <?php if (!empty($story['metadata']['publication'])) : ?>
-                                                    For <i><?php echo $story['metadata']['publication']; ?></i>
+                                                    <?php echo !empty($story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo $story['metadata']['publication']; ?></i>
                                                 <?php endif; ?>
                                                 <?php if (!empty($story['metadata']['publish_date'])) : ?>
                                                     <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
@@ -84,8 +87,11 @@
                                             <h2 class="serif-font-scaled"><?php echo !empty($story['excerpt']) ? $story['excerpt'] : $story['title']; ?></h2>
                                             <p><?php echo $story['title']; ?></p>
                                             <p class="story-meta">
+                                                <?php if (!empty($story['metadata']['medium'])) : ?>
+                                                    <?php echo $story['metadata']['medium']; ?>
+                                                <?php endif; ?>
                                                 <?php if (!empty($story['metadata']['publication'])) : ?>
-                                                    For <i><?php echo $story['metadata']['publication']; ?></i>
+                                                    <?php echo !empty($story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo $story['metadata']['publication']; ?></i>
                                                 <?php endif; ?>
                                                 <?php if (!empty($story['metadata']['publish_date'])) : ?>
                                                     <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>

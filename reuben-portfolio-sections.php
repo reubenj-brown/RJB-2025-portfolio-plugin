@@ -81,6 +81,15 @@ class ReubenPortfolioSections {
                         'placeholder' => 'e.g., The Architectural Review',
                     ),
                     array(
+                        'key' => 'field_medium',
+                        'label' => 'Medium',
+                        'name' => 'medium',
+                        'type' => 'text',
+                        'instructions' => 'The medium(s) of the story (e.g., Photo and video, Writing, Photography)',
+                        'required' => 0,
+                        'placeholder' => 'e.g., Photo and video',
+                    ),
+                    array(
                         'key' => 'field_publish_date',
                         'label' => 'Publication Date',
                         'name' => 'publish_date',

@@ -19,6 +19,7 @@ if ($stories_query->have_posts()) {
 
         // Get story metadata
         $publication = get_field('publication');
+        $medium = get_field('medium');
         $publish_date = get_field('publish_date');
         $external_url = get_field('external_url');
         $photo_credit = get_field('photo_credit');
@@ -33,6 +34,7 @@ if ($stories_query->have_posts()) {
             'image_url' => $image_url,
             'metadata' => [
                 'publication' => $publication,
+                'medium' => $medium,
                 'publish_date' => $publish_date,
                 'external_url' => $external_url,
                 'photo_credit' => $photo_credit
@@ -60,8 +62,11 @@ if ($stories_query->have_posts()) {
                             <div class="story-content">
                                 <h2 class="serif-font-scaled"><?php echo $story['title']; ?></h2>
                                 <p class="story-meta">
+                                    <?php if (!empty($story['metadata']['medium'])) : ?>
+                                        <?php echo $story['metadata']['medium']; ?>
+                                    <?php endif; ?>
                                     <?php if (!empty($story['metadata']['publication'])) : ?>
-                                        For <i><?php echo $story['metadata']['publication']; ?></i>
+                                        <?php echo !empty($story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo $story['metadata']['publication']; ?></i>
                                     <?php endif; ?>
                                     <?php if (!empty($story['metadata']['publish_date'])) : ?>
                                         <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
