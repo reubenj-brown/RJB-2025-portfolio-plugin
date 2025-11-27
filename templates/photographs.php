@@ -75,6 +75,20 @@
                                         <?php if (!empty($first_story['excerpt'])) : ?>
                                             <p class="photo-primary-standfirst"><?php echo esc_html($first_story['excerpt']); ?></p>
                                         <?php endif; ?>
+                                        <?php if (!empty($first_story['metadata']['medium']) || !empty($first_story['metadata']['publication']) || !empty($first_story['metadata']['publish_date'])) : ?>
+                                            <p class="story-meta">
+                                                <?php if (!empty($first_story['metadata']['medium'])) : ?>
+                                                    <?php echo esc_html($first_story['metadata']['medium']); ?>
+                                                <?php endif; ?>
+                                                <?php if (!empty($first_story['metadata']['publication'])) : ?>
+                                                    <?php echo !empty($first_story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo esc_html($first_story['metadata']['publication']); ?></i>
+                                                <?php endif; ?>
+                                                <?php if (!empty($first_story['metadata']['publish_date'])) : ?>
+                                                    <?php echo !empty($first_story['metadata']['publication']) ? ' in ' : ''; ?>
+                                                    <?php echo date('F Y', strtotime($first_story['metadata']['publish_date'])); ?>
+                                                <?php endif; ?>
+                                            </p>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </a>
