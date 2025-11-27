@@ -172,6 +172,15 @@ class ReubenPortfolioSections {
                             ),
                         ),
                     ),
+                    array(
+                        'key' => 'field_hero_video_url',
+                        'label' => 'Hero Video URL',
+                        'name' => 'hero_video_url',
+                        'type' => 'url',
+                        'instructions' => 'URL to MP4 video for Video Hero Story template (optional). Leave empty to use featured image instead.',
+                        'required' => 0,
+                        'placeholder' => 'https://example.com/video.mp4',
+                    ),
                 ),
                 'location' => array(
                     array(
