@@ -80,7 +80,7 @@
                         <p class="cv-dates">2020–23</p>
                     </div>
                     <div class="cv-entry">
-                        <p class="cv-additional">State schools in Brighton, U.K.; nerdy grades</p>
+                        <p class="cv-additional">Before this, state schools in Brighton, U.K.; nerdy grades</p>
                     </div>
                 </div>
             </div>
