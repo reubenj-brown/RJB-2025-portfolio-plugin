@@ -3,7 +3,7 @@
     <div class="section-container">
         <div class="photographs-content">
             <div class="strategy-intro">
-                <h3 class="serif-font-scaled">Few stories I work on work without photographs. I’ve freelanced for <i>The Wall Street Journal</i> and assisted leading editorial and architectural photographers on shoots for magazines and TV</h3>
+                <h3 class="serif-font-scaled">As a photographer, I’ve freelanced for <i>The Wall Street Journal</i> and worked as an assistant on shoots for magazines and TV</h3>
             </div> 
             <?php
             // Get photograph stories using the same function as other sections
