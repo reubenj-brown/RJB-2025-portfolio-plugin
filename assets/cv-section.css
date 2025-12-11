@@ -28,7 +28,7 @@
 .cv-section p {
     line-height: 1.2;
     margin: 0 !important;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .cv-section .cv-entry {
@@ -81,10 +81,7 @@
 
 /* Tablet Responsive */
 @media (max-width: 1200px) {
-    
-    .cv-section p {
-        font-size: 16px;
-    }
+    /* Paragraph size now consistent at 16px across all breakpoints */
 }
 
 /* CV Dropdown arrows - hidden on desktop */
