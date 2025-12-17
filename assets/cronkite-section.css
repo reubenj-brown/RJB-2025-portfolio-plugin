@@ -1,12 +1,19 @@
 /* Cronkite Section Styles */
 
-/* Desktop: 3-wide grid */
+/* Desktop: 4-wide grid */
 .cronkite-section .stories-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
-/* Tablet and Mobile - horizontal scroller - match architecture scroller styling */
+/* Tablet: 2-wide grid */
 @media (max-width: 1200px) {
+    .cronkite-section .stories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile - horizontal scroller - match architecture scroller styling */
+@media (max-width: 768px) {
     .cronkite-section .stories-grid {
         display: flex;
         flex-direction: row;
@@ -20,7 +27,7 @@
     }
 
     .cronkite-section .story-item {
-        flex: 0 0 450px; /* Match architecture-scroll-item width */
+        flex: 0 0 350px; /* Match architecture-scroll-item mobile width */
         display: flex;
         flex-direction: column;
         position: relative;
@@ -46,22 +53,7 @@
     }
 }
 
-/* Mobile - match architecture scroll dimensions */
-@media (max-width: 768px) {
-    .cronkite-section .stories-grid {
-        gap: 2rem;
-    }
-
-    .cronkite-section .story-item {
-        flex: 0 0 350px; /* Match architecture-scroll-item mobile width */
-    }
-}
-
 @media (max-width: 480px) {
-    .cronkite-section .stories-grid {
-        gap: 2rem;
-    }
-
     .cronkite-section .story-item {
         flex: 0 0 300px; /* Match architecture-scroll-item small mobile width */
     }
