@@ -79,6 +79,17 @@
     margin: 0;
 }
 
+/* Desktop-only alignment for specific sections */
+@media (min-width: 769px) {
+    #skills-entries {
+        text-align: center;
+    }
+
+    #education-entries {
+        text-align: right;
+    }
+}
+
 /* Tablet Responsive */
 @media (max-width: 1200px) {
     /* Paragraph size now consistent at 16px across all breakpoints */
