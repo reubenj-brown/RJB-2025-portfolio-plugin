@@ -81,11 +81,13 @@
 
 /* Desktop-only alignment for specific sections */
 @media (min-width: 1201px) {
-    #skills-entries {
+    #skills-entries,
+    h2[data-target="skills-entries"] {
         text-align: center;
     }
 
-    #education-entries {
+    #education-entries,
+    h2[data-target="education-entries"] {
         text-align: right;
     }
 }
