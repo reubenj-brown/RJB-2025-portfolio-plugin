@@ -219,6 +219,7 @@
 
 /* Story Meta */
 .story-meta {
+    font-family: var(--primary-font);
     color: var(--text-color-muted);
     font-size: 16px;
 }
