@@ -104,7 +104,7 @@
                                         <div class="story-content">
                                             <h2 class="serif-font-scaled">
                                                 <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : esc_url($story['permalink']); ?>"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
-                                                    <?php echo esc_html($story['short_headline']); ?>
+                                                    <?php echo esc_html($story['title']); ?>
                                                 </a>
                                             </h2>
                                             <?php if (!empty($story['excerpt'])) : ?>
