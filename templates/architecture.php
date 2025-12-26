@@ -1,21 +1,17 @@
-<!-- Architecture Section -->
+<!-- Profiles/Architecture Section - Simple Scroller -->
 <section class="content-section">
     <div class="section-container">
         <div class="stories-content">
-            <div class="strategy-intro">
-                <h3 class="serif-font-scaled">Before this, I was Digital Editor at <i>The Architectural Review</i>, where I wrote on architecture and politics and worked on cross-platform audience strategy. I graduated from the University of Cambridge, where I was president of the architecture society. I was Production Assistant at <a href="theworldaround.com">The World Around</a>, where I helped to launch the Young Climate Prize, and I worked on TV shoots for BBC Maestro.</h3>
-            </div>
             <?php
-            // Get architecture stories using the same function as other sections
-            $architecture_query = get_portfolio_stories('profiles', 11);
-            
-            if ($architecture_query->have_posts()) {
-                $story_count = 0;
+            // Get profile stories
+            $profiles_query = get_portfolio_stories('profiles', 12);
+
+            if ($profiles_query->have_posts()) {
                 $stories = [];
-                
+
                 // Collect stories into array
-                while ($architecture_query->have_posts()) {
-                    $architecture_query->the_post();
+                while ($profiles_query->have_posts()) {
+                    $profiles_query->the_post();
                     $stories[] = [
                         'id' => get_the_ID(),
                         'title' => get_the_title(),
@@ -26,90 +22,50 @@
                     ];
                 }
                 wp_reset_postdata();
-                
-                if (!empty($stories)) {
-                    $featured_stories = array_slice($stories, 0, 2); // First two for featured grid
-                    $remaining_stories = array_slice($stories, 2);   // Rest for horizontal scroll
-            ?>
-                    <!-- Top Two Featured Stories Grid -->
-                    <?php if (!empty($featured_stories)) : ?>
-                        <div class="architecture-featured-grid">
-                            <?php foreach ($featured_stories as $story) : ?>
-                                <article class="story-item">
-                                    <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
-                                        <?php if ($story['image_url']) : ?>
-                                            <div class="story-image">
-                                                <img src="<?php echo $story['image_url']; ?>" alt="<?php echo $story['title']; ?>" />
-                                            </div>
-                                            <?php if (!empty($story['metadata']['photo_credit'])) : ?>
-                                                <div class="caption"><?php echo $story['metadata']['photo_credit']; ?></div>
-                                            <?php endif; ?>
-                                        <?php endif; ?>
-                                        <div class="story-content">
-                                            <h2 class="serif-font-scaled"><?php echo $story['title']; ?></h2>
-                                            <?php if (!empty($story['excerpt'])) : ?>
-                                                <p><?php echo $story['excerpt']; ?></p>
-                                            <?php endif; ?>
-                                            <p class="story-meta">
-                                                <?php if (!empty($story['metadata']['medium'])) : ?>
-                                                    <?php echo $story['metadata']['medium']; ?>
-                                                <?php endif; ?>
-                                                <?php if (!empty($story['metadata']['publication'])) : ?>
-                                                    <?php echo !empty($story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo $story['metadata']['publication']; ?></i>
-                                                <?php endif; ?>
-                                                <?php if (!empty($story['metadata']['publish_date'])) : ?>
-                                                    <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
-                                                    <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
-                                                <?php endif; ?>
-                                            </p>
-                                        </div>
-                                    </a>
-                                </article>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
 
+                if (!empty($stories)) {
+            ?>
                     <!-- Horizontal Scroll Area -->
-                    <?php if (!empty($remaining_stories)) : ?>
-                        <div class="architecture-scroll">
-                            <?php foreach ($remaining_stories as $story) : ?>
-                                <article class="architecture-scroll-item">
-                                    <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
-                                        <?php if ($story['image_url']) : ?>
-                                            <div class="story-image">
-                                                <img src="<?php echo $story['image_url']; ?>" alt="<?php echo $story['title']; ?>" />
-                                            </div>
-                                            <?php if (!empty($story['metadata']['photo_credit'])) : ?>
-                                                <div class="caption"><?php echo $story['metadata']['photo_credit']; ?></div>
-                                            <?php endif; ?>
-                                        <?php endif; ?>
-                                        <div class="story-content">
-                                            <h2 class="serif-font-scaled"><?php echo !empty($story['excerpt']) ? $story['excerpt'] : $story['title']; ?></h2>
-                                            <p><?php echo $story['title']; ?></p>
-                                            <p class="story-meta">
-                                                <?php if (!empty($story['metadata']['medium'])) : ?>
-                                                    <?php echo $story['metadata']['medium']; ?>
-                                                <?php endif; ?>
-                                                <?php if (!empty($story['metadata']['publication'])) : ?>
-                                                    <?php echo !empty($story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo $story['metadata']['publication']; ?></i>
-                                                <?php endif; ?>
-                                                <?php if (!empty($story['metadata']['publish_date'])) : ?>
-                                                    <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
-                                                    <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
-                                                <?php endif; ?>
-                                            </p>
+                    <div class="architecture-scroll">
+                        <?php foreach ($stories as $story) : ?>
+                            <article class="architecture-scroll-item">
+                                <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
+                                    <?php if ($story['image_url']) : ?>
+                                        <div class="story-image">
+                                            <img src="<?php echo $story['image_url']; ?>" alt="<?php echo $story['title']; ?>" />
                                         </div>
-                                    </a>
-                                </article>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
+                                        <?php if (!empty($story['metadata']['photo_credit'])) : ?>
+                                            <div class="caption"><?php echo $story['metadata']['photo_credit']; ?></div>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                    <div class="story-content">
+                                        <h2 class="serif-font-scaled"><?php echo $story['title']; ?></h2>
+                                        <?php if (!empty($story['excerpt'])) : ?>
+                                            <p><?php echo $story['excerpt']; ?></p>
+                                        <?php endif; ?>
+                                        <p class="story-meta">
+                                            <?php if (!empty($story['metadata']['medium'])) : ?>
+                                                <?php echo $story['metadata']['medium']; ?>
+                                            <?php endif; ?>
+                                            <?php if (!empty($story['metadata']['publication'])) : ?>
+                                                <?php echo !empty($story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo $story['metadata']['publication']; ?></i>
+                                            <?php endif; ?>
+                                            <?php if (!empty($story['metadata']['publish_date'])) : ?>
+                                                <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
+                                                <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
+                                            <?php endif; ?>
+                                        </p>
+                                    </div>
+                                </a>
+                            </article>
+                        <?php endforeach; ?>
+                    </div>
             <?php
                 } else {
-                    echo '<p class="no-stories-message">No architecture stories found.</p>';
+                    echo '<p class="no-stories-message">No profile stories found.</p>';
                 }
             } else {
-                echo '<p class="no-stories-message">No architecture stories found.</p>';
+                echo '<p class="no-stories-message">No profile stories found.</p>';
             }
             ?>
         </div>
