@@ -3,15 +3,15 @@
     <div class="section-container">
         <div class="stories-content">
             <?php
-            // Get profile stories
-            $profiles_query = get_portfolio_stories('profiles', 12);
+            // Get architecture stories
+            $architecture_query = get_portfolio_stories('architecture', 12);
 
-            if ($profiles_query->have_posts()) {
+            if ($architecture_query->have_posts()) {
                 $stories = [];
 
                 // Collect stories into array
-                while ($profiles_query->have_posts()) {
-                    $profiles_query->the_post();
+                while ($architecture_query->have_posts()) {
+                    $architecture_query->the_post();
                     $stories[] = [
                         'id' => get_the_ID(),
                         'title' => get_the_title(),
@@ -62,10 +62,10 @@
                     </div>
             <?php
                 } else {
-                    echo '<p class="no-stories-message">No profile stories found.</p>';
+                    echo '<p class="no-stories-message">No architecture stories found.</p>';
                 }
             } else {
-                echo '<p class="no-stories-message">No profile stories found.</p>';
+                echo '<p class="no-stories-message">No architecture stories found.</p>';
             }
             ?>
         </div>
