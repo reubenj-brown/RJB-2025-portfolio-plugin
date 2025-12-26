@@ -50,7 +50,7 @@
                     </div>
                     <div class="cv-entry">
                         <p class="cv-role">Photography</p>
-                        <p class="cv-dates">Adobe Lightroom, Photoshop</p>
+                        <p class="cv-dates">Adobe Lightroom, Photoshop, Photo Mechanic</p>
                     </div>
                     <div class="cv-entry">
                         <p class="cv-role">Content Management and Analytics</p>
