@@ -210,4 +210,13 @@ p.drop-cap::first-letter {
     p {
         font-size: 16px;
     }
+
+    .story-meta,
+    p.story-meta {
+        font-size: 14px;
+    }
+
+    .caption {
+        font-size: 11px;
+    }
 }
