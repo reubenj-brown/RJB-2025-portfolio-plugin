@@ -205,6 +205,10 @@
         font-size: 20px !important; /* Secondary story headlines */
     }
 
+    .caption {
+        font-size: 11px;
+    }
+
     /* Features section body text 16px on mobile */
     .features-story-main p:not(.story-meta) {
         font-family: var(--serif-font);

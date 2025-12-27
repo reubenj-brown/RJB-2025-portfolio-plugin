@@ -116,6 +116,10 @@
 }
 
 @media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
+    .about-content {
+        padding: 0 1rem;
+    }
+
     .large-intro-text {
         font-size: 29.5px !important;
     }
@@ -130,10 +134,6 @@
 }
 
 @media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
-    .about-content {
-        padding: 2vw 0 0 0;
-    }
-
     .about-intro {
         margin-bottom: 2rem;
     }

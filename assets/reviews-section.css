@@ -396,6 +396,11 @@
     .architecture-scroll-item .story-content h2 {
         font-size: 20px !important; /* 20px headline on mobile */
     }
+
+    .story-meta,
+    p.story-meta {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
