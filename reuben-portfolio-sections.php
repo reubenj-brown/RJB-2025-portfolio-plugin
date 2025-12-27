@@ -323,8 +323,8 @@ class ReubenPortfolioSections {
             );
         }
 
-        // Load only architecture scroller styles on story pages for more_stories shortcode
-        if (is_singular('story')) {
+        // Load only architecture scroller styles on story pages and story archive for more_stories shortcode
+        if (is_singular('story') || is_post_type_archive('story') || is_tax('story_category')) {
             wp_enqueue_style(
                 'reuben-base-sections',
                 plugin_dir_url(__FILE__) . 'assets/base-sections.css',
