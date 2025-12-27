@@ -135,14 +135,7 @@
     background: #a1a1a1;
 }
 
-.photo-item {
-    flex: 0 0 450px; /* Fixed width for horizontal scroll */
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-/* Photo items use architecture scroller structure and styling from reviews-section.css */
+/* Photo items use architecture-scroll-item class and styling from reviews-section.css */
 
 /* Tablet Responsive */
 @media (max-width: 1200px) {
@@ -176,7 +169,7 @@
         gap: 2rem;
     }
 
-    .photo-item {
+    .photographs-grid .architecture-scroll-item {
         flex: 0 0 350px; /* Smaller width on mobile */
     }
 
@@ -207,7 +200,7 @@
         gap: 2rem;
     }
 
-    .photo-item {
+    .photographs-grid .architecture-scroll-item {
         flex: 0 0 300px; /* Even smaller width on small mobile */
     }
 }
