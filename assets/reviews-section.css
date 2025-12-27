@@ -126,6 +126,7 @@
 
 .reviews-secondary-content {
     text-align: left;
+    margin-top: 1rem; 
 }
 
 /* Secondary headline uses standard h2 from base-sections.css */
