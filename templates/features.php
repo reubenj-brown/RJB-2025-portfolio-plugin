@@ -27,7 +27,7 @@
             $remaining_stories = array_slice($stories, 1);
     ?>
             <!-- Left half - Main featured story -->
-            <div class="features-left">
+            <div class="features-left" #stories>
                 <div class="features-story-main">
                     <div class="story-content">
                         <h2>
