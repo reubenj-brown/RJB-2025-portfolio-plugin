@@ -281,13 +281,6 @@ class ReubenPortfolioSections {
             );
 
             wp_enqueue_style(
-                'reuben-strategy-section',
-                plugin_dir_url(__FILE__) . 'assets/strategy-section.css',
-                ['reuben-base-sections'],
-                '1.0.0'
-            );
-
-            wp_enqueue_style(
                 'reuben-cv-section',
                 plugin_dir_url(__FILE__) . 'assets/cv-section.css',
                 ['reuben-base-sections'],
