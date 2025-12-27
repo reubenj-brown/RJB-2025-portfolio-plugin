@@ -12,8 +12,8 @@
     }
 }
 
-/* Mobile - horizontal scroller - match architecture scroller styling */
-@media (max-width: 768px), (max-height: 768px) {
+/* Mobile - horizontal scroller - match architecture scroller styling - See breakpoint reference in base-sections.css */
+@media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
     .cronkite-section .stories-grid {
         display: flex;
         flex-direction: row;
@@ -53,7 +53,7 @@
     }
 }
 
-@media (max-width: 480px), (max-height: 480px) {
+@media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
     .cronkite-section .story-item {
         flex: 0 0 300px; /* Match architecture-scroll-item small mobile width */
     }

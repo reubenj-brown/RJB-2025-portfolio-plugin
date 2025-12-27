@@ -176,8 +176,8 @@
 }
 
 
-/* Mobile Responsive */
-@media (max-width: 768px), (max-height: 768px) {
+/* Mobile Responsive - See breakpoint reference in base-sections.css */
+@media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
     .story-text {
         max-width: 94vw;
         width: 94vw;
@@ -207,7 +207,7 @@
     }
 }
 
-@media (max-width: 480px), (max-height: 480px) {
+@media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
 
     .story-text h2 {
         margin-bottom: 0.75rem;

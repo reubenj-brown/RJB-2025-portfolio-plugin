@@ -26,6 +26,35 @@
     }
 }
 
+/* ========================================================================
+   RESPONSIVE BREAKPOINT REFERENCE - SINGLE SOURCE OF TRUTH
+   ======================================================================== */
+/*
+   All breakpoints across the site should use these values.
+   To change breakpoints globally, update these values and search/replace.
+
+   TABLET BREAKPOINT: 1200px (width only)
+   Usage: @media (max-width: 1200px)
+
+   MOBILE BREAKPOINT: 768px (width OR height)
+   Usage: @media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px))
+   Note: The compound condition ensures height takes precedence over tablet width
+
+   SMALL MOBILE BREAKPOINT: 480px (width OR height)
+   Usage: @media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px))
+
+   SMALL TABLET BREAKPOINT: 900px (width OR height) - Used in specific sections
+   Usage: @media (max-width: 900px), ((max-width: 1200px) and (max-height: 900px))
+
+   WHY THE COMPOUND LOGIC?
+   For a display with w=1000px, h=700px:
+   - Tablet (1200px width) matches ✓
+   - Mobile (768px height) also matches ✓
+   The compound condition ensures mobile styles override tablet styles
+   when height is below the mobile threshold.
+*/
+/* ======================================================================== */
+
 .ast-scroll-top {
     display: none !important;
 }
@@ -163,8 +192,8 @@ p.drop-cap::first-letter {
     }
 }
 
-/* Mobile Typography Adjustments */
-@media (max-width: 768px), (max-height: 768px) {
+/* Mobile Typography Adjustments - See breakpoint reference at top of file */
+@media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
     h1 {
         font-size: 12vw; /* Adaptive viewport-based sizing */
         min-font-size: 32px;

@@ -412,15 +412,16 @@
     
 }
 
-/* Small Tablet Responsive */
-@media (max-width: 900px), (max-height: 900px) {
+/* Small Tablet Responsive - See breakpoint reference in base-sections.css */
+@media (max-width: 900px), ((max-width: 1200px) and (max-height: 900px)) {
     .stories-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
 }
 
-@media (max-width: 768px), (max-height: 768px) {
+/* Mobile Responsive - See breakpoint reference in base-sections.css */
+@media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
     .stories-intro {
         margin-bottom: 3rem;
         max-width: 100%;
@@ -489,7 +490,8 @@
     }
 }
 
-@media (max-width: 480px), (max-height: 480px) {
+/* Small Mobile Responsive - See breakpoint reference in base-sections.css */
+@media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
     .stories-intro {
         margin-bottom: 2rem;
     }
@@ -623,8 +625,8 @@
 }
 
 
-/* Responsive - Mobile - Match Photography section dimensions */
-@media (max-width: 768px), (max-height: 768px) {
+/* Responsive - Mobile - Match Photography section dimensions - See breakpoint reference in base-sections.css */
+@media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
     .architecture-featured-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -640,7 +642,7 @@
     }
 }
 
-@media (max-width: 480px), (max-height: 480px) {
+@media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
     .architecture-scroll {
         gap: 2rem; /* Same as photographs-grid small mobile */
     }
