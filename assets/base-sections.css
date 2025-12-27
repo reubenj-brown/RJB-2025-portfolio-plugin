@@ -160,6 +160,17 @@ p.drop-cap::first-letter {
 }
 
 
+.story-meta,
+p.story-meta {
+    color: var(--text-color-muted);
+}
+
+.story-meta i,
+p.story-meta i{
+    color: var(--text-color);
+}
+
+
 /* Strategy intro section styling */
 .strategy-intro {
     text-align: center;
