@@ -36,7 +36,7 @@
                             </a>
                         </h1>
                         <?php if (!empty($first_story['excerpt'])) : ?>
-                            <p><?php echo $first_story['excerpt']; ?></p>
+                            <h2><?php echo $first_story['excerpt']; ?></h2>
                         <?php endif; ?>
                         <p class="story-meta">
                             <?php if (!empty($first_story['metadata']['medium'])) : ?>
