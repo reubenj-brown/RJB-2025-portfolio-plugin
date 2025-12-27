@@ -78,7 +78,7 @@
                                             <img src="<?php echo esc_url($story['featured_image']); ?>" alt="<?php echo esc_attr($story['title']); ?>" />
                                         </div>
                                         <div class="reviews-secondary-content">
-                                            <h3 class="reviews-secondary-headline"><?php echo esc_html($story['title']); ?></h3>
+                                            <h2><?php echo esc_html($story['title']); ?></h2>
                                             <p class="story-meta">
                                                 <?php if (!empty($story['metadata']['medium'])) : ?>
                                                     <?php echo esc_html($story['metadata']['medium']); ?>

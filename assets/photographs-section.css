@@ -173,14 +173,7 @@
 }
 
 /* Match architecture scroll area text spacing and styling EXACTLY */
-.photographs-section .features-story-main .story-content h2 {
-    margin-bottom: 16px !important;
-    font-family: var(--serif-font) !important;
-    font-size: 24px !important;
-    line-height: inherit !important;
-    font-weight: inherit !important;
-    text-transform: none !important;
-}
+/* h2 uses standard base-sections.css styling */
 
 .photographs-section .features-story-main .story-content p:not(.story-meta) {
     margin-bottom: 16px !important;
