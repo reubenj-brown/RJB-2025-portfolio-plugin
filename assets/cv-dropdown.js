@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Only run on mobile devices
     function initCVDropdowns() {
-        const headers = document.querySelectorAll('.cv-header');
-        
+        const headers = document.querySelectorAll('.cv-column h2[data-target]');
+
         headers.forEach(header => {
             header.addEventListener('click', function() {
                 // Only work on mobile (768px and below)
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth > 768) {
             // Desktop: ensure all sections are visible and reset arrows
             const entries = document.querySelectorAll('.cv-entries');
-            const headers = document.querySelectorAll('.cv-header');
+            const headers = document.querySelectorAll('.cv-column h2[data-target]');
             const arrows = document.querySelectorAll('.cv-arrow');
             
             entries.forEach(entry => {

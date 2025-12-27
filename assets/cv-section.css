@@ -122,7 +122,7 @@
     }
 
     /* Make headers clickable on mobile */
-    .cv-header {
+    .cv-column h2 {
         cursor: pointer;
         user-select: none;
         display: flex;
@@ -147,7 +147,7 @@
     }
 
     /* Rotate arrow when expanded - 180 degrees only */
-    .cv-header.expanded .cv-arrow {
+    .cv-column h2.expanded .cv-arrow {
         transform: rotate(180deg);
     }
 
