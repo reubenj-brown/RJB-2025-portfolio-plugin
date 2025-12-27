@@ -51,7 +51,9 @@
     text-align: center;
 }
 
-/* h1 now defined in base-sections.css */
+.photo-primary-overlay h1 {
+    color: white !important;
+}
 
 .photo-primary-standfirst {
     font-family: var(--serif-font);
