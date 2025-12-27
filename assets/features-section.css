@@ -146,12 +146,6 @@
     .features-story-main .story-content {
         text-align: center;
     }
-
-    /* Features section body text 16px on tablet */
-    .features-story-main p:not(.story-meta) {
-        font-family: var(--serif-font);
-        font-size: calc(16px * 1.23); /* 16px * 1.23 = 19.68px - scaled for serif font */
-    }
 }
 
 /* Mobile responsive - See breakpoint reference in base-sections.css */
@@ -169,19 +163,6 @@
 
     .features-story-main .story-image {
         width: 100%;
-    }
-
-    /* Features section headline sizes on mobile */
-    /* h1 now defined in base-sections.css */
-
-    .features-story-small h2 {
-        font-size: 20px !important; /* Secondary story headlines */
-    }
-
-    /* Features section body text 16px on mobile */
-    .features-story-main p:not(.story-meta) {
-        font-family: var(--serif-font);
-        font-size: calc(16px * 1.23); /* 16px * 1.23 = 19.68px - scaled for serif font */
     }
 
     /* Keep secondary stories horizontal on mobile with square images */
