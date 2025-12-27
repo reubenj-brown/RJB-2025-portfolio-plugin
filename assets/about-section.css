@@ -18,7 +18,7 @@
 }
 
 /* Mobile: extend gradient to screen edges */
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 768px) {
     .content-section.about-section::before {
         left: -4vw;
         right: -4vw;
@@ -115,7 +115,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 768px) {
     .large-intro-text {
         font-size: 29.5px !important;
     }
@@ -129,15 +129,15 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px), (max-height: 480px) {
     .about-content {
         padding: 2vw 0 0 0;
     }
-    
+
     .about-intro {
         margin-bottom: 2rem;
     }
-    
+
     .large-intro-text {
         font-size: 45px !important;
     }

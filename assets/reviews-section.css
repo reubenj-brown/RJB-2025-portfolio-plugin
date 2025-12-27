@@ -323,7 +323,7 @@
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 768px) {
     .reviews-layout {
         gap: 32px;
     }
@@ -398,7 +398,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px), (max-height: 480px) {
     .architecture-scroll {
         gap: 2rem; /* Same as photographs-grid small mobile */
     }

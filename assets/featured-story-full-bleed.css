@@ -177,16 +177,16 @@
 
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 768px) {
     .story-text {
         max-width: 94vw;
         width: 94vw;
     }
-    
+
     .story-text h2 {
         margin-bottom: 1rem;
     }
-    
+
     .story-text h3 {
         font-size: 20px !important;
         margin-bottom: 1.5rem;
@@ -207,12 +207,12 @@
     }
 }
 
-@media (max-width: 480px) {
-    
+@media (max-width: 480px), (max-height: 480px) {
+
     .story-text h2 {
         margin-bottom: 0.75rem;
     }
-    
+
     .story-text h3 {
         margin-bottom: 1rem;
     }

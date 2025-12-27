@@ -164,7 +164,7 @@ p.drop-cap::first-letter {
 }
 
 /* Mobile Typography Adjustments */
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 768px) {
     h1 {
         font-size: 12vw; /* Adaptive viewport-based sizing */
         min-font-size: 32px;

@@ -221,7 +221,7 @@
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 768px) {
     .photo-primary-container {
         width: 92vw;
         margin-bottom: 32px;
@@ -259,7 +259,7 @@
     /* Mobile responsive - maintain architecture scroller text styling */
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px), (max-height: 480px) {
     .photographs-grid {
         gap: 2rem;
     }
