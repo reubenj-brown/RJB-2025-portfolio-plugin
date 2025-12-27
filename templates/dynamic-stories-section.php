@@ -42,7 +42,7 @@ $show_meta = $atts['show_meta'] === 'true';
                     <?php endif; ?>
                     
                     <div class="story-content">
-                        <h2 class="serif-font-scaled">
+                        <h2>
                             <a href="<?php echo !empty($meta['external_url']) ? esc_url($meta['external_url']) : get_permalink(); ?>"<?php echo !empty($meta['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                 <?php the_title(); ?>
                             </a>
@@ -95,7 +95,7 @@ $show_meta = $atts['show_meta'] === 'true';
                                     <?php endif; ?>
                                     
                                     <div class="story-content">
-                                        <h2 class="serif-font-scaled"><?php the_title(); ?></h2>
+                                        <h2><?php the_title(); ?></h2>
                                         
                                         <?php if ($show_excerpt && has_excerpt()) : ?>
                                             <p><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
@@ -131,7 +131,7 @@ $show_meta = $atts['show_meta'] === 'true';
                         ?>
                             <article class="story-list-item">
                                 <a href="<?php echo !empty($meta['external_url']) ? esc_url($meta['external_url']) : get_permalink(); ?>" class="story-link"<?php echo !empty($meta['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
-                                    <h2 class="serif-font-scaled"><?php the_title(); ?></h2>
+                                    <h2><?php the_title(); ?></h2>
                                     
                                     <?php if ($show_excerpt && has_excerpt()) : ?>
                                         <p class="story-excerpt"><?php echo wp_trim_words(get_the_excerpt(), 30); ?></p>
@@ -177,7 +177,7 @@ $show_meta = $atts['show_meta'] === 'true';
                                     <?php endif; ?>
                                     
                                     <div class="story-content">
-                                        <h2 class="serif-font-scaled"><?php the_title(); ?></h2>
+                                        <h2><?php the_title(); ?></h2>
                                         
                                         <?php if ($show_excerpt && has_excerpt()) : ?>
                                             <p><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>

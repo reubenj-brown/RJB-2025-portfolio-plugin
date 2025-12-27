@@ -2,7 +2,7 @@
     <div class="section-container">
         <div class="cv-content">
             <div class="cv-column work-column">
-                <h2 class="serif-font-scaled cv-header" data-target="work-entries">Work <span class="cv-arrow">↓</span></h2>
+                <h2 class="cv-header" data-target="work-entries">Work <span class="cv-arrow">↓</span></h2>
                 <div class="cv-entries" id="work-entries">
                     <div class="cv-entry">
                         <p class="cv-role">Steele Fellow in Investigative Business Journalism</p>
@@ -38,7 +38,7 @@
             </div>
 
             <div class="cv-column skills-column">
-                <h2 class="serif-font-scaled cv-header" data-target="skills-entries">Skills & Software <span class="cv-arrow">↓</span></h2>
+                <h2 class="cv-header" data-target="skills-entries">Skills & Software <span class="cv-arrow">↓</span></h2>
                 <div class="cv-entries" id="skills-entries">
                     <div class="cv-entry">
                         <p class="cv-role">Video and Podcast Production</p>
@@ -67,7 +67,7 @@
             </div>
             
             <div class="cv-column education-column">
-                <h2 class="serif-font-scaled cv-header" data-target="education-entries">Education <span class="cv-arrow">↓</span></h2>
+                <h2 class="cv-header" data-target="education-entries">Education <span class="cv-arrow">↓</span></h2>
                 <div class="cv-entries" id="education-entries">
                     <div class="cv-entry">
                         <p class="cv-degree">M.A. Investigative Journalism</p>

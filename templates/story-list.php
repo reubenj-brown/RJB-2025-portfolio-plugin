@@ -1,6 +1,6 @@
 <!-- Additional Stories List -->
 <div class="more-stories">
-    <h2 class="more-stories-title serif-font-scaled">More for <i>The Architectural Review</i></h2>
+    <h2 class="more-stories-title">More for <i>The Architectural Review</i></h2>
     <div class="story-links">
         <a href="#" class="story-link">
             <p class="link-text">Learning from the 'additive architecture' of Jørn Utzon, a community centre for Syrian refugees in Turkey provides social infrastructure in a fortified shell</p>

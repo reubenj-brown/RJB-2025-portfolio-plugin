@@ -73,8 +73,8 @@ h1 {
 
 /* Headline - Main content headings */
 h2 {
-    font-family: var(--primary-font);
-    font-size: 24px;
+    font-family: var(--serif-font);
+    font-size: calc(24px * 1.23); /* 29.52px - Serif scaled to match sans-serif x-height */
     font-weight: 400;
     line-height: 1.2;
     color: var(--text-color);
@@ -83,8 +83,8 @@ h2 {
 
 /* Standfirst - Sub-headings, emphasis text */
 h3 {
-    font-family: var(--primary-font);
-    font-size: 24px;
+    font-family: var(--serif-font);
+    font-size: calc(24px * 1.23); /* 29.52px - Serif scaled to match sans-serif x-height */
     font-weight: 400;
     line-height: 1.3;
     color: var(--text-color);
@@ -127,19 +127,7 @@ p.drop-cap::first-letter {
 
 /* Font Size Adjustment for Legitima */
 /* Scale Legitima up by 1.23x to match Innovator Grotesk x-height */
-
-/* h2 serif scaled: 32px * 1.23 = 39.36px - removed */
-
-/* h3 serif scaled: 24px * 1.23 = 29.52px */
-h3.serif-font-scaled {
-    font-family: var(--serif-font);
-    font-size: calc(24px * 1.23);
-}
-
-/* Generic serif scaled for other elements */
-.serif-font-scaled {
-    font-family: var(--serif-font);
-}
+/* Note: h2 and h3 now use serif font by default with 1.23 scaling */
 
 /* Strategy intro section styling */
 .strategy-intro {
@@ -181,20 +169,15 @@ h3.serif-font-scaled {
         font-size: 12vw; /* Adaptive viewport-based sizing */
         min-font-size: 32px;
     }
-    
+
+    h2 {
+        font-size: calc(20px * 1.23); /* 24.6px - Mobile serif scaling */
+    }
+
     h3 {
-        font-size: 20px;
+        font-size: calc(20px * 1.23); /* 24.6px - Mobile serif scaling */
     }
-    
-    /* Mobile serif scaling */
-    h2.serif-font-scaled {
-        font-size: calc(20px * 1.23); /* 20px * 1.23 = 24.6px */
-    }
-    
-    h3.serif-font-scaled {
-        font-size: calc(20px * 1.23); /* 20px * 1.23 = 24.6px */
-    }
-    
+
     p {
         font-size: 16px;
     }

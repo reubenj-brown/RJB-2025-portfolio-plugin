@@ -8,7 +8,7 @@
         </div>
         <div class="caption">Luke O'Donovan</div>
         <div class="story-content">
-            <h2 class="serif-font-scaled">Material Cultures</h2>
+            <h2>Material Cultures</h2>
             <p>The London-based practice combines architecture with materials research and educational programmes to engender a transformation in architectural production</p>
             <p class="story-meta">For <i>The Architectural Review</i> in November 2024</p>
         </div>
@@ -21,7 +21,7 @@
         </div>
         <div class="caption">Tim Wagner / MAK</div>
         <div class="story-content">
-            <h2 class="serif-font-scaled">Protest architecture</h2>
+            <h2>Protest architecture</h2>
             <p>A new book and exhibition highlight the aesthetic triumph and practical nous of ‘protest architecture’, but its actual political record deserves further scrutiny</p>
             <p class="story-meta">For <i>The Architectural Review</i> in May 2024</p>
         </div>
@@ -34,7 +34,7 @@
         </div>
         <div class="caption">Reuben J. Brown</div>
         <div class="story-content">
-            <h2 class="serif-font-scaled">Big Wall</h2>
+            <h2>Big Wall</h2>
             <p>At Storror's ‘Big Wall Open’, parkour lands in new, physical, territory</p>
             <p class="story-meta">For <i>Re—Compose</i> in December 2023</p>
         </div>

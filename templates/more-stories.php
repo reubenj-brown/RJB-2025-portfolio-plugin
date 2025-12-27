@@ -60,7 +60,7 @@ if ($stories_query->have_posts()) {
                         <?php endif; ?>
                         <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                             <div class="story-content">
-                                <h2 class="serif-font-scaled"><?php echo $story['title']; ?></h2>
+                                <h2><?php echo $story['title']; ?></h2>
                                 <p class="story-meta">
                                     <?php if (!empty($story['metadata']['medium'])) : ?>
                                         <?php echo $story['metadata']['medium']; ?>

@@ -3,7 +3,7 @@
     <div class="section-container">
         <div class="photographs-content">
             <div class="strategy-intro">
-                <h3 class="serif-font-scaled">As a photographer, I’ve freelanced for <i>The Wall Street Journal</i> and worked as an assistant on shoots for magazines and TV</h3>
+                <h3>As a photographer, I’ve freelanced for <i>The Wall Street Journal</i> and worked as an assistant on shoots for magazines and TV</h3>
             </div> 
             <?php
             // Get photograph stories using the same function as other sections
@@ -102,7 +102,7 @@
                                 <article class="photo-item">
                                     <div class="features-story-main">
                                         <div class="story-content">
-                                            <h2 class="serif-font-scaled">
+                                            <h2>
                                                 <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : esc_url($story['permalink']); ?>"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                                     <?php echo esc_html($story['title']); ?>
                                                 </a>

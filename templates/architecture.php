@@ -39,7 +39,7 @@
                                         <?php endif; ?>
                                     <?php endif; ?>
                                     <div class="story-content">
-                                        <h2 class="serif-font-scaled"><?php echo $story['title']; ?></h2>
+                                        <h2><?php echo $story['title']; ?></h2>
                                         <?php if (!empty($story['excerpt'])) : ?>
                                             <p><?php echo $story['excerpt']; ?></p>
                                         <?php endif; ?>

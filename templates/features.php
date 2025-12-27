@@ -30,7 +30,7 @@
             <div class="features-left">
                 <div class="features-story-main">
                     <div class="story-content">
-                        <h2 class="serif-font-scaled">
+                        <h2>
                             <a href="<?php echo !empty($first_story['metadata']['external_url']) ? esc_url($first_story['metadata']['external_url']) : $first_story['permalink']; ?>"<?php echo !empty($first_story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                 <?php echo !empty($first_story['metadata']['short_headline']) ? $first_story['metadata']['short_headline'] : $first_story['title']; ?>
                             </a>
@@ -65,7 +65,7 @@
                 <?php foreach ($remaining_stories as $story) : ?>
                     <div class="features-story-small">
                         <div class="story-content">
-                            <h2 class="serif-font-scaled">
+                            <h2>
                                 <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : $story['permalink']; ?>"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                     <?php echo $story['title']; ?>
                                 </a>

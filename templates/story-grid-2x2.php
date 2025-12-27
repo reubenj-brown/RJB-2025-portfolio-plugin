@@ -4,7 +4,7 @@
     <!-- Top Row -->
     <article class="story-item-2x2">
         <div class="story-content">
-            <h2 class="serif-font-scaled">Flak Towers</h2>
+            <h2>Flak Towers</h2>
             <p>In Vienna's Augarten park, towering concrete monuments to Nazi air defence remain as contested symbols of history, memory, and urban planning</p>
             <p class="story-meta">For <i>The Architectural Review</i> in September 2024</p>
         </div>
@@ -16,7 +16,7 @@
 
     <article class="story-item-2x2">
         <div class="story-content">
-            <h2 class="serif-font-scaled">The Death of the Queen</h2>
+            <h2>The Death of the Queen</h2>
             <p>From Buckingham Palace to council estates, the Queen's death revealed the complex relationship between monarchy, media, and public mourning in modern Britain</p>
             <p class="story-meta">For <i>Panoramic</i> in December 2022</p>
         </div>
@@ -29,7 +29,7 @@
     <!-- Bottom Row -->
     <article class="story-item-2x2">
         <div class="story-content">
-            <h2 class="serif-font-scaled">Acquedotto Nottolini</h2>
+            <h2>Acquedotto Nottolini</h2>
             <p>Built in the 19th century, this remarkable aqueduct system transformed Lucca's landscape and remains a testament to engineering ambition in the Italian countryside</p>
             <p class="story-meta">For <i>The Architectural Review</i> in June 2024</p>
         </div>
@@ -41,7 +41,7 @@
 
     <article class="story-item-2x2">
         <div class="story-content">
-            <h2 class="serif-font-scaled">Riots and Resistance in Walthamstow</h2>
+            <h2>Riots and Resistance in Walthamstow</h2>
             <p>When far-right violence erupted across England, Walthamstow's rapid mobilisation of anti-racist counter-protests demonstrated the power of community solidarity</p>
             <p class="story-meta">For <i>openDemocracy</i> in August 2024</p>
         </div>

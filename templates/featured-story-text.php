@@ -5,7 +5,7 @@
     </div>
     <div class="caption">photograph: Reuben J. Brown</div>
     <div class="story-content">
-        <h2 class="serif-font-scaled">The Cost of a Miracle</h2>
+        <h2>The Cost of a Miracle</h2>
         <h3>In Europe's driest region, a vast plastic sea covers a flourishing agricultural system built on intensity and innovation. But the cracks in Almeria's "miracle" are growing, too</h3>
         <p class="story-meta">For <i>Panoramic</i> in May 2025</p>
     </div>

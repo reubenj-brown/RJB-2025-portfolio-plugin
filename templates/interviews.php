@@ -12,7 +12,7 @@
             </div>
             <div class="caption">Reuben J. Brown</div>
             <div class="story-content">
-                <h2 class="serif-font-scaled">The Feminist City with Leslie Kern</h2>
+                <h2>The Feminist City with Leslie Kern</h2>
                 <p></p>
                 <p class="story-meta">For <i>Talking Volumes</i> in July 2021</p>
             </div>
@@ -27,7 +27,7 @@
             </div>
             <div class="caption">Reuben J. Brown</div>
             <div class="story-content">
-                <h2 class="serif-font-scaled">Sofia Karim’s Architecture at the ‘Hinterlands of Human Experience’</h2>
+                <h2>Sofia Karim’s Architecture at the ‘Hinterlands of Human Experience’</h2>
                 <p></p>
                 <p class="story-meta">For <i>Panoramic</i> in May 2023</p>
             </div>
@@ -42,7 +42,7 @@
             </div>
             <div class="caption">Reuben J. Brown</div>
             <div class="story-content">
-                <h2 class="serif-font-scaled">All the sonnets of Shakespeare with Paul Edmondson Sir Stanley Wells</h2>
+                <h2>All the sonnets of Shakespeare with Paul Edmondson Sir Stanley Wells</h2>
                 <p></p>
                 <p class="story-meta">For the <i>University of Cambridge Festival Podcast</i> in May 2022</p>
             </div>

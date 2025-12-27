@@ -3,7 +3,7 @@
     <div class="section-container">
         <div class="reviews-content">
             <div class="strategy-intro">
-                <h3 class="serif-font-scaled">After graduating from the University of Cambridge I was Digital Editor of <i>The Architectural Review</i>, where I wrote on architecture and politics and worked on cross-platform audience strategy</h3>
+                <h3>After graduating from the University of Cambridge I was Digital Editor of <i>The Architectural Review</i>, where I wrote on architecture and politics and worked on cross-platform audience strategy</h3>
             </div>
             <?php
             // Get reviews stories using the same function as other sections
@@ -144,7 +144,7 @@
                                         <?php endif; ?>
                                     <?php endif; ?>
                                     <div class="story-content">
-                                        <h2 class="serif-font-scaled"><?php echo !empty($story['excerpt']) ? $story['excerpt'] : $story['title']; ?></h2>
+                                        <h2><?php echo !empty($story['excerpt']) ? $story['excerpt'] : $story['title']; ?></h2>
                                         <p><?php echo $story['title']; ?></p>
                                         <p class="story-meta">
                                             <?php if (!empty($story['metadata']['medium'])) : ?>
