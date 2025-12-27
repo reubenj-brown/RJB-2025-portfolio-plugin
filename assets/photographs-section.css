@@ -142,42 +142,34 @@
     position: relative;
 }
 
-/* Secondary stories now use .features-story-main classes and inherit styling from page-portfolio.php */
-
-/* Override layout and styling for photographs section secondary stories */
-.photographs-section .features-story-main {
-    flex-direction: column-reverse !important;
-    align-items: stretch !important;
-    gap: 16px !important;
+/* Photo items use architecture scroller structure - match architecture-scroll-item styling */
+.photo-item .story-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
 }
 
-.photographs-section .features-story-main .story-content {
-    flex: none !important;
-    width: 100% !important;
-    text-align: left !important;
-    margin: 0 !important;
+.photo-item .story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
-.photographs-section .features-story-main .story-image {
-    flex: none !important;
-    width: 100% !important;
-    margin-bottom: 0 !important;
+.photo-item .story-content h2 {
+    margin-bottom: 16px;
+    font-size: 24px !important; /* 24px headline on desktop */
 }
 
-/* Match architecture scroll area text spacing and styling EXACTLY */
-/* h2 uses standard base-sections.css styling */
-
-.photographs-section .features-story-main .story-content p:not(.story-meta) {
-    margin-bottom: 16px !important;
-    color: var(--text-color-muted) !important; /* Grey standfirst text */
-    font-family: var(--primary-font) !important;
-    font-size: 16px !important;
-    font-weight: 400 !important;
-    line-height: 1.5 !important;
+.photo-item .story-content p:not(.story-meta) {
+    margin-bottom: 16px;
+    color: var(--text-color-muted); /* Grey standfirst text */
 }
 
-.photographs-section .features-story-main .story-content .story-meta {
-    margin-bottom: 0 !important;
+.photo-item .story-content .story-meta {
+    margin-bottom: 0;
+    font-family: var(--primary-font) !important; /* Innovator Grotesk font */
 }
 
 /* Tablet Responsive */
@@ -215,7 +207,11 @@
     .photo-item {
         flex: 0 0 350px; /* Smaller width on mobile */
     }
-    
+
+    .photo-item .story-content h2 {
+        font-size: 20px !important; /* 20px headline on mobile */
+    }
+
     /* Primary story overlay - ensure 90% width on mobile */
     .photo-primary-overlay {
         width: 90%;

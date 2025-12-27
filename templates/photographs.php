@@ -100,17 +100,30 @@
                         <div class="photographs-grid">
                             <?php foreach ($remaining_stories as $story) : ?>
                                 <article class="photo-item">
-                                    <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : esc_url($story['permalink']); ?>"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
-                                        <div class="features-story-main">
-                                            <div class="story-content">
-                                                <h2><?php echo esc_html($story['title']); ?></h2>
-                                                <?php if (!empty($story['excerpt'])) : ?>
-                                                    <p><?php echo esc_html($story['excerpt']); ?></p>
-                                                <?php endif; ?>
-                                            </div>
+                                    <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : esc_url($story['permalink']); ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
+                                        <?php if (!empty($story['images'])) : ?>
                                             <div class="story-image">
-                                                <img src="<?php echo esc_url($story['images'][0]['url']); ?>" alt="<?php echo esc_attr($story['images'][0]['alt']); ?>" />
+                                                <img src="<?php echo esc_url($story['images'][0]['url']); ?>" alt="<?php echo esc_attr($story['title']); ?>" />
                                             </div>
+                                            <?php if (!empty($story['metadata']['photo_credit'])) : ?>
+                                                <div class="caption"><?php echo esc_html($story['metadata']['photo_credit']); ?></div>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                        <div class="story-content">
+                                            <h2><?php echo !empty($story['excerpt']) ? esc_html($story['excerpt']) : esc_html($story['title']); ?></h2>
+                                            <p><?php echo esc_html($story['title']); ?></p>
+                                            <p class="story-meta">
+                                                <?php if (!empty($story['metadata']['medium'])) : ?>
+                                                    <?php echo esc_html($story['metadata']['medium']); ?>
+                                                <?php endif; ?>
+                                                <?php if (!empty($story['metadata']['publication'])) : ?>
+                                                    <?php echo !empty($story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo esc_html($story['metadata']['publication']); ?></i>
+                                                <?php endif; ?>
+                                                <?php if (!empty($story['metadata']['publish_date'])) : ?>
+                                                    <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
+                                                    <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
+                                                <?php endif; ?>
+                                            </p>
                                         </div>
                                     </a>
                                 </article>
