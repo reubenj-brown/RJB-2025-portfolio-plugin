@@ -103,9 +103,7 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-.photo-primary-overlay .story-meta::after {
-    content: " →";
-}
+/* .story-meta::after arrow inherited from stories-section.css */
 
 .photo-primary-overlay .story-meta i {
     color: white !important;

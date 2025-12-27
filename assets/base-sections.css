@@ -152,6 +152,9 @@ p.drop-cap::first-letter {
     color: var(--text-color-muted);
     margin: 8px 0 4px 0;
     text-align: right;
+    background: var(--caption-bg);
+    padding: 2px 0;
+    width: 100%;
 }
 
 /* Font Size Adjustment for Legitima */

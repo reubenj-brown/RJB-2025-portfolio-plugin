@@ -90,18 +90,9 @@
     display: block;
 }
 
-/* Features section caption styling */
+/* Features section caption styling - Base styles in base-sections.css */
 .features-story-main .caption {
-    font-family: var(--primary-font);
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.4;
-    color: var(--text-color-muted);
-    margin: 8px 0 0 0;
-    text-align: right;
-    background: var(--caption-bg);
-    padding: 2px 0;
-    width: 100%;
+    margin: 8px 0 0 0; /* Override base margin */
 }
 
 .features-right {
