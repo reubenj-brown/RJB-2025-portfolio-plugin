@@ -10,8 +10,8 @@
     <div class="full-bleed-content">
         <div class="story-text">
             <a href="/stories/the-cost-of-a-miracle/" target="_blank" rel="noopener noreferrer">
-                <h2><i>The Cost of a Miracle</i></h2>
-                <h3>In Europe’s driest region, a vast plastic sea covers an agricultural system built on intensity and innovation. But the cracks in Almería’s miracle are growing, too</h3>
+                <h1>The Cost of a Miracle</h1>
+                <h3>In Europe's driest region, a vast plastic sea covers an agricultural system built on intensity and innovation. But the cracks in Almería's miracle are growing, too</h3>
                 <p class="story-meta">For <i>Panoramic</i> in May 2025</p>
             </a>
         </div>

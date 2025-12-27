@@ -30,11 +30,11 @@
             <div class="features-left" #stories>
                 <div class="features-story-main">
                     <div class="story-content">
-                        <h2>
+                        <h1>
                             <a href="<?php echo !empty($first_story['metadata']['external_url']) ? esc_url($first_story['metadata']['external_url']) : $first_story['permalink']; ?>"<?php echo !empty($first_story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                 <?php echo !empty($first_story['metadata']['short_headline']) ? $first_story['metadata']['short_headline'] : $first_story['title']; ?>
                             </a>
-                        </h2>
+                        </h1>
                         <?php if (!empty($first_story['excerpt'])) : ?>
                             <p><?php echo $first_story['excerpt']; ?></p>
                         <?php endif; ?>

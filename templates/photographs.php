@@ -71,7 +71,7 @@
                                 <div class="photo-primary-image">
                                     <img src="<?php echo esc_url($first_story['images'][0]['url']); ?>" alt="<?php echo esc_attr($first_story['images'][0]['alt']); ?>" />
                                     <div class="photo-primary-overlay">
-                                        <h2 class="photo-primary-headline"><?php echo esc_html($first_story['short_headline']); ?></h2>
+                                        <h1><?php echo esc_html($first_story['short_headline']); ?></h1>
                                         <?php if (!empty($first_story['excerpt'])) : ?>
                                             <p class="photo-primary-standfirst"><?php echo esc_html($first_story['excerpt']); ?></p>
                                         <?php endif; ?>

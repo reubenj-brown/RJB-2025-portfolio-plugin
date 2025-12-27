@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="reviews-primary-content">
                                     <a href="<?php echo !empty($primary_story['metadata']['external_url']) ? esc_url($primary_story['metadata']['external_url']) : esc_url($primary_story['permalink']); ?>" class="reviews-primary-text-link"<?php echo !empty($primary_story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
-                                        <h2 class="reviews-primary-headline"><?php echo esc_html($primary_story['short_headline']); ?></h2>
+                                        <h1><?php echo esc_html($primary_story['short_headline']); ?></h1>
                                         <?php if (!empty($primary_story['excerpt'])) : ?>
                                             <p class="reviews-primary-standfirst"><?php echo esc_html($primary_story['excerpt']); ?></p>
                                         <?php endif; ?>

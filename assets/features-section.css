@@ -35,14 +35,14 @@
 }
 
 /* Ensure headlines use text color */
-.features-story-main h2 a,
+.features-story-main h1 a,
 .features-story-small h2 a {
     color: var(--text-color) !important;
     text-decoration: none;
 }
 
 /* Features section hover effects - highlight color with no transition */
-.features-story-main h2 a:hover,
+.features-story-main h1 a:hover,
 .features-story-small h2 a:hover {
     color: var(--highlight-color) !important;
     transition: none;
@@ -63,16 +63,7 @@
     margin-bottom: 12px;
 }
 
-/* Primary story headline - PP Right Serif at 96px */
-.features-story-main h2 {
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    font-family: var(--compressed-font);
-    font-size: 96px;
-    font-weight: 400;
-    font-style: normal;
-    text-transform: uppercase;
-}
+/* Primary story headline - h1 now defined in base-sections.css */
 
 .features-story-main .story-image {
     flex: 0 0 calc(60% - 14.4px); /* 60% minus 60% of gap */
@@ -188,9 +179,7 @@
     }
 
     /* Features section headline sizes on mobile */
-    .features-story-main h2 {
-        font-size: 64px; /* Primary story headline - compressed font */
-    }
+    /* h1 now defined in base-sections.css */
 
     .features-story-small h2 {
         font-size: 20px !important; /* Secondary story headlines */
