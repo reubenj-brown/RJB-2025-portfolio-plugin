@@ -100,21 +100,19 @@
                         <div class="photographs-grid">
                             <?php foreach ($remaining_stories as $story) : ?>
                                 <article class="photo-item">
-                                    <div class="features-story-main">
-                                        <div class="story-content">
-                                            <h2>
-                                                <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : esc_url($story['permalink']); ?>"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
-                                                    <?php echo esc_html($story['title']); ?>
-                                                </a>
-                                            </h2>
-                                            <?php if (!empty($story['excerpt'])) : ?>
-                                                <p><?php echo esc_html($story['excerpt']); ?></p>
-                                            <?php endif; ?>
+                                    <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : esc_url($story['permalink']); ?>"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
+                                        <div class="features-story-main">
+                                            <div class="story-content">
+                                                <h2><?php echo esc_html($story['title']); ?></h2>
+                                                <?php if (!empty($story['excerpt'])) : ?>
+                                                    <p><?php echo esc_html($story['excerpt']); ?></p>
+                                                <?php endif; ?>
+                                            </div>
+                                            <div class="story-image">
+                                                <img src="<?php echo esc_url($story['images'][0]['url']); ?>" alt="<?php echo esc_attr($story['images'][0]['alt']); ?>" />
+                                            </div>
                                         </div>
-                                        <div class="story-image">
-                                            <img src="<?php echo esc_url($story['images'][0]['url']); ?>" alt="<?php echo esc_attr($story['images'][0]['alt']); ?>" />
-                                        </div>
-                                    </div>
+                                    </a>
                                 </article>
                             <?php endforeach; ?>
                         </div>
