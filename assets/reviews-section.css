@@ -195,13 +195,15 @@
 }
 
 /* Architecture section image styling - match story grid 4:3 aspect ratio */
-.architecture-scroll-item .story-image {
+.architecture-scroll-item .story-image,
+.photo-item .story-image {
     width: 100%;
     aspect-ratio: 4/3;
     overflow: hidden;
 }
 
-.architecture-scroll-item .story-image img {
+.architecture-scroll-item .story-image img,
+.photo-item .story-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -210,17 +212,20 @@
 }
 
 /* Architecture scroll area text spacing and styling */
-.architecture-scroll-item .story-content h2 {
+.architecture-scroll-item .story-content h2,
+.photo-item .story-content h2 {
     margin-bottom: 16px;
     font-size: 24px !important; /* 24px headline on desktop */
 }
 
-.architecture-scroll-item .story-content p:not(.story-meta) {
+.architecture-scroll-item .story-content p:not(.story-meta),
+.photo-item .story-content p:not(.story-meta) {
     margin-bottom: 16px;
     color: var(--text-color-muted); /* Grey standfirst text */
 }
 
-.architecture-scroll-item .story-content .story-meta {
+.architecture-scroll-item .story-content .story-meta,
+.photo-item .story-content .story-meta {
     margin-bottom: 0;
     font-family: var(--primary-font) !important; /* Innovator Grotesk font */
 }
@@ -341,7 +346,8 @@
         flex: 0 0 250px; /* Shrunk mobile width */
     }
 
-    .architecture-scroll-item .story-content h2 {
+    .architecture-scroll-item .story-content h2,
+    .photo-item .story-content h2 {
         font-size: 20px !important; /* 20px headline on mobile */
     }
 }

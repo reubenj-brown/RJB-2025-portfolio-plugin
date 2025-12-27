@@ -142,35 +142,7 @@
     position: relative;
 }
 
-/* Photo items use architecture scroller structure - match architecture-scroll-item styling */
-.photo-item .story-image {
-    width: 100%;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-}
-
-.photo-item .story-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
-
-.photo-item .story-content h2 {
-    margin-bottom: 16px;
-    font-size: 24px !important; /* 24px headline on desktop */
-}
-
-.photo-item .story-content p:not(.story-meta) {
-    margin-bottom: 16px;
-    color: var(--text-color-muted); /* Grey standfirst text */
-}
-
-.photo-item .story-content .story-meta {
-    margin-bottom: 0;
-    font-family: var(--primary-font) !important; /* Innovator Grotesk font */
-}
+/* Photo items use architecture scroller structure and styling from reviews-section.css */
 
 /* Tablet Responsive */
 @media (max-width: 1200px) {
@@ -206,10 +178,6 @@
 
     .photo-item {
         flex: 0 0 350px; /* Smaller width on mobile */
-    }
-
-    .photo-item .story-content h2 {
-        font-size: 20px !important; /* 20px headline on mobile */
     }
 
     /* Primary story overlay - ensure 90% width on mobile */
