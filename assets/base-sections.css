@@ -74,7 +74,7 @@ h1 {
 /* Headline - Main content headings */
 h2 {
     font-family: var(--serif-font);
-    font-size: calc(24px * 1.23); /* 29.52px - Serif scaled to match sans-serif x-height */
+    font-size: 24px;
     font-weight: 400;
     line-height: 1.2;
     color: var(--text-color);
@@ -171,7 +171,7 @@ p.drop-cap::first-letter {
     }
 
     h2 {
-        font-size: calc(20px * 1.23); /* 24.6px - Mobile serif scaling */
+        font-size: 20px;
     }
 
     h3 {
