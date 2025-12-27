@@ -48,16 +48,6 @@
     transition: none;
 }
 
-/* Primary story spacing removed - now handled below with font styling */
-.features-story-main h2 {
-    color: var(--text-color-muted);
-    margin-bottom: 2rem;
-    line-height: 1.3;
-}
-
-
-/* Primary story headline - h1 now defined in base-sections.css */
-
 .features-story-main .story-image {
     flex: 0 0 calc(60% - 14.4px); /* 60% minus 60% of gap */
     aspect-ratio: 4/3;
