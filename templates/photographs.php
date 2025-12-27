@@ -110,8 +110,10 @@
                                             <?php endif; ?>
                                         <?php endif; ?>
                                         <div class="story-content">
-                                            <h2><?php echo !empty($story['excerpt']) ? esc_html($story['excerpt']) : esc_html($story['title']); ?></h2>
-                                            <p><?php echo esc_html($story['title']); ?></p>
+                                            <h2><?php echo esc_html($story['title']); ?></h2>
+                                            <?php if (!empty($story['excerpt'])) : ?>
+                                                <p><?php echo esc_html($story['excerpt']); ?></p>
+                                            <?php endif; ?>
                                             <p class="story-meta">
                                                 <?php if (!empty($story['metadata']['medium'])) : ?>
                                                     <?php echo esc_html($story['metadata']['medium']); ?>
