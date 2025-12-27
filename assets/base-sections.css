@@ -159,6 +159,9 @@ p.drop-cap::first-letter {
     width: 100%;
 }
 
+.story-image {
+    margin-bottom: 8px;
+}
 
 .story-meta,
 p.story-meta {
