@@ -52,7 +52,7 @@
                                         <?php if (!empty($primary_story['excerpt'])) : ?>
                                             <p class="reviews-primary-standfirst"><?php echo esc_html($primary_story['excerpt']); ?></p>
                                         <?php endif; ?>
-                                        <p class="reviews-primary-meta">
+                                        <p class="story-meta">
                                             <?php if (!empty($primary_story['metadata']['medium'])) : ?>
                                                 <?php echo esc_html($primary_story['metadata']['medium']); ?>
                                             <?php endif; ?>
@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="reviews-secondary-content">
                                             <h3 class="reviews-secondary-headline"><?php echo esc_html($story['title']); ?></h3>
-                                            <p class="reviews-secondary-meta">
+                                            <p class="story-meta">
                                                 <?php if (!empty($story['metadata']['medium'])) : ?>
                                                     <?php echo esc_html($story['metadata']['medium']); ?>
                                                 <?php endif; ?>
