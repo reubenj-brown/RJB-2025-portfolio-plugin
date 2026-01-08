@@ -1,28 +1,30 @@
 /* Base Portfolio Sections CSS */
 /* Shared styles for all sections */
-/* Note: CSS Variables are now defined globally in theme style.css */
-/* Fallback values to ensure variables work if theme CSS doesn't load first */
 
-/* Simple fallback - redefine variables if not already defined */
+/* CSS Variables - Primary definitions for portfolio sections */
 :root {
     --content-bg: white;
+    --main-content-bg: white;
     --text-color: #000;
     --text-color-muted: #808080;
     --link-color: #808080;
     --link-hover-color: #39e58f;
     --caption-bg: rgba(255, 255, 255, 0.9);
     --h3-link-color: rgba(128, 128, 128, 0.5);
+    --section-heading-color: #808080;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --content-bg: #050505;
+        --main-content-bg: #050505;
         --text-color: white;
         --text-color-muted: #a8a8a8;
         --link-color: white;
         --link-hover-color: #39e58f;
         --caption-bg: rgba(5, 5, 5, 0.9);
         --h3-link-color: #a8a8a8;
+        --section-heading-color: #808080;
     }
 }
 
