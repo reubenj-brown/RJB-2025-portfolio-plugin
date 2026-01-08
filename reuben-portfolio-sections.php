@@ -248,8 +248,8 @@ class ReubenPortfolioSections {
     }
 
     public function enqueue_styles() {
-        // Load on portfolio pages
-        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page()) {
+        // Load on portfolio pages and story archive
+        if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page() || is_post_type_archive('story') || is_tax('story_category')) {
             // Base styles for all sections
             wp_enqueue_style(
                 'reuben-base-sections',
