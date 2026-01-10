@@ -48,6 +48,9 @@ if ($stories_query->have_posts()) {
 <section class="content-section">
     <div class="section-container">
         <?php if (!empty($stories)) : ?>
+            <div class="strategy-intro">
+                <h3>More stories</h3>
+            </div>
             <div class="architecture-scroll">
                 <?php foreach ($stories as $story) : ?>
                     <article class="architecture-scroll-item">
