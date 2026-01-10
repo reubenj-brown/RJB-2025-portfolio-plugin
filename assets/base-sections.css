@@ -162,6 +162,11 @@ p.drop-cap::first-letter {
     width: 100%;
 }
 
+/* Article Note - Sans-serif text for editorial notes */
+.article-note {
+    font-family: var(--primary-font) !important;
+}
+
 .story-image {
     margin-bottom: 8px;
 }
