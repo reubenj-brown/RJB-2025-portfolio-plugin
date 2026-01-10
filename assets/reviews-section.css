@@ -18,6 +18,7 @@
     gap: 64px; /* Match Features section gap */
     position: relative;
     align-items: start;
+    margin-bottom: 64px;
 }
 
 /* Divider line between columns */
@@ -158,7 +159,6 @@
     padding-bottom: 16px; /* Space for scrollbar */
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    margin-top: 64px; /* Space between Reviews and Architecture sections */
 }
 
 /* Grey dividing line only for story templates */
@@ -281,6 +281,7 @@
 @media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
     .reviews-layout {
         gap: 32px;
+        margin-bottom: 48px;
     }
 
     /* Primary story stacks vertically on mobile */
@@ -334,7 +335,6 @@
     /* Architecture scroller mobile responsive */
     .architecture-scroll {
         gap: 2rem; /* Same as photographs-grid */
-        margin-top: 48px; /* Reduced margin on mobile */
     }
 
     .architecture-scroll-item {
