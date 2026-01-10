@@ -41,7 +41,7 @@
 
 .large-intro-text {
     font-family: var(--serif-font) !important;
-    font-size: 3vw !important;
+    font-size: min(3vw, 63px) !important;
     line-height: 1.2 !important;
     font-weight: 400 !important;
     color: #000 !important;
@@ -80,7 +80,7 @@
     }
 
     .large-intro-text {
-        font-size: 3vw !important;
+        font-size: min(3vw, 63px) !important;
         text-align: center;
         margin: 0 auto;
         max-width: 900px;
