@@ -348,7 +348,13 @@
     }
 
     .architecture-scroll-item .story-content h2 {
+        margin-top: 8px;
+        margin-bottom: 12px;
         font-size: 20px !important; /* 20px headline on mobile */
+    }
+
+    .architecture-scroll-item .story-content p:not(.story-meta) {
+        margin-bottom: 12px;
     }
 }
 

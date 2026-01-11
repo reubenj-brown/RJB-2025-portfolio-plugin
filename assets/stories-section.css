@@ -610,6 +610,15 @@
     .architecture-scroll-item {
         flex: 0 0 350px; /* Same as photo-item mobile width */
     }
+
+    .architecture-scroll-item .story-content h2 {
+        margin-top: 8px;
+        margin-bottom: 12px;
+    }
+
+    .architecture-scroll-item .story-content p:not(.story-meta) {
+        margin-bottom: 12px;
+    }
 }
 
 @media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
