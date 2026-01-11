@@ -263,6 +263,10 @@
     }
 
     /* Architecture scroller tablet responsive - 250px width (matching mobile) */
+    .architecture-scroll {
+        gap: 24px;
+    }
+
     .architecture-scroll-item {
         flex: 0 0 250px;
     }
@@ -336,7 +340,7 @@
 
     /* Architecture scroller mobile responsive */
     .architecture-scroll {
-        gap: 2rem; /* Same as photographs-grid */
+        gap: 16px;
     }
 
     .architecture-scroll-item {
@@ -350,7 +354,7 @@
 
 @media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
     .architecture-scroll {
-        gap: 2rem; /* Same as photographs-grid small mobile */
+        gap: 16px;
     }
 
     .architecture-scroll-item {
