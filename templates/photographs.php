@@ -105,9 +105,6 @@
                                             <div class="story-image">
                                                 <img src="<?php echo esc_url($story['images'][0]['url']); ?>" alt="<?php echo esc_attr($story['title']); ?>" />
                                             </div>
-                                            <?php if (!empty($story['metadata']['photo_credit'])) : ?>
-                                                <div class="caption"><?php echo esc_html($story['metadata']['photo_credit']); ?></div>
-                                            <?php endif; ?>
                                         <?php endif; ?>
                                         <div class="story-content">
                                             <h2><?php echo esc_html($story['title']); ?></h2>
