@@ -195,7 +195,7 @@ p.story-meta i{
 
 /* More stories heading - font styles only, no spacing */
 .more-stories-head {
-    font-family: var(--compressed-font);
+    font-family: var(--compressed-font) !important;
     text-align: left;
     color: var(--text-color);
     line-height: 1.3;
