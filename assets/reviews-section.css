@@ -49,7 +49,7 @@
 
 .reviews-primary-image {
     flex: 0 0 40%;
-    aspect-ratio: 3/4 !important; /* Portrait aspect ratio */
+    aspect-ratio: 4/5 !important; /* Portrait aspect ratio */
     position: relative;
     min-height: 0; /* Ensure aspect-ratio works with flexbox */
     height: auto !important; /* Let aspect-ratio control height */
@@ -280,7 +280,7 @@
 
 .reviews-section .reviews-primary-image,
 .reviews-section .reviews-secondary-image {
-    aspect-ratio: 3/4 !important;
+    aspect-ratio: 4/5 !important;
 }
 
 /* Mobile Responsive - See breakpoint reference in base-sections.css */
