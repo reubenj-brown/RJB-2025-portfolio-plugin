@@ -573,6 +573,7 @@
 
 /* Architecture scroll area text spacing and styling */
 .architecture-scroll-item .story-content h2 {
+    margin-top: 0;
     margin-bottom: 16px;
 }
 
