@@ -30,7 +30,7 @@
 }
 
 .features-story-main .story-content {
-    flex: 0 0 calc(40% - 9.6px); /* 40% minus 40% of gap */
+    flex: 0 0 calc(50% - 12px); /* 50% minus half of gap */
     text-align: center;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .features-story-main .story-image {
-    flex: 0 0 calc(60% - 14.4px); /* 60% minus 60% of gap */
+    flex: 0 0 calc(50% - 12px); /* 50% minus half of gap */
     aspect-ratio: 4/3;
     overflow: hidden;
     position: relative;
