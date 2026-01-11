@@ -162,11 +162,11 @@
 @media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
     .photo-primary-container {
         width: 92vw;
-        margin-bottom: 32px;
+        margin-bottom: 16px;
     }
-    
+
     .photographs-grid {
-        gap: 2rem;
+        gap: 16px;
     }
 
     .photographs-grid .architecture-scroll-item {
@@ -201,7 +201,7 @@
 
 @media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
     .photographs-grid {
-        gap: 2rem;
+        gap: 16px;
     }
 
     .photographs-grid .architecture-scroll-item {
