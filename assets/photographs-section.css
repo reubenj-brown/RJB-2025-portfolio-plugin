@@ -107,7 +107,7 @@
         top: auto;
         bottom: 36px;
         left: 0;
-        margin: 0 16px;
+        margin: 0;
         transform: translateY(0);
    
     }
@@ -122,7 +122,6 @@
 @media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
     .photo-primary-container {
         width: 92vw;
-        margin-bottom: 16px;
     }
 
     .photo-primary-standfirst {
