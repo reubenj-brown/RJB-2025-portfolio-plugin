@@ -197,7 +197,7 @@ p.story-meta i{
 .more-stories-head {
     font-family: var(--compressed-font) !important;
     font-size: 72px !important;
-    text-align: left;
+    text-align: center !important;
     color: var(--text-color);
     line-height: 1.3;
 }
