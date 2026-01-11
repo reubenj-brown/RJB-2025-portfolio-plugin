@@ -192,6 +192,10 @@
         font-size: 14px;
     }
 
+    .photo-primary-overlay .story-meta {
+        font-size: 14px;
+    }
+
     /* Mobile responsive - maintain architecture scroller text styling */
 }
 
