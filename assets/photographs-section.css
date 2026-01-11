@@ -102,40 +102,7 @@
     font-weight: 600;
 }
 
-.photographs-grid {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    width: 100%;
-    padding-bottom: 16px; /* Space for scrollbar */
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-}
-
-/* No divider line needed for horizontal scroll */
-
-/* Custom scrollbar styling */
-.photographs-grid::-webkit-scrollbar {
-    height: 8px;
-}
-
-.photographs-grid::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.photographs-grid::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 4px;
-}
-
-.photographs-grid::-webkit-scrollbar-thumb:hover {
-    background: #a1a1a1;
-}
-
-/* Photo items use architecture-scroll-item class and styling from reviews-section.css */
+/* Photographs now use architecture-scroll class and styling from reviews-section.css */
 
 /* Tablet Responsive */
 @media (max-width: 1200px) {
@@ -165,14 +132,6 @@
         margin-bottom: 16px;
     }
 
-    .photographs-grid {
-        gap: 16px;
-    }
-
-    .photographs-grid .architecture-scroll-item {
-        flex: 0 0 350px; /* Smaller width on mobile */
-    }
-
     /* Primary story overlay - ensure 90% width on mobile */
     .photo-primary-overlay {
         width: 90%;
@@ -199,12 +158,4 @@
     /* Mobile responsive - maintain architecture scroller text styling */
 }
 
-@media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
-    .photographs-grid {
-        gap: 16px;
-    }
-
-    .photographs-grid .architecture-scroll-item {
-        flex: 0 0 300px; /* Even smaller width on small mobile */
-    }
-}
+/* Small mobile uses architecture-scroll styling from reviews-section.css */

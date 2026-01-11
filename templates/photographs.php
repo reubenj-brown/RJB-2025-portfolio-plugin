@@ -97,7 +97,7 @@
 
                     <!-- Secondary Stories Grid -->
                     <?php if (!empty($remaining_stories)) : ?>
-                        <div class="photographs-grid">
+                        <div class="architecture-scroll">
                             <?php foreach ($remaining_stories as $story) : ?>
                                 <article class="architecture-scroll-item">
                                     <a href="<?php echo !empty($story['metadata']['external_url']) ? esc_url($story['metadata']['external_url']) : esc_url($story['permalink']); ?>" class="story-link"<?php echo !empty($story['metadata']['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
