@@ -241,7 +241,7 @@
 
 .view-all-heading {
     font-family: var(--primary-font) !important;
-    font-size: 24px !important;
+    font-size: 1.5rem !important;
     font-weight: 400 !important;
     color: var(--text-color-muted);
     transition: color 0.3s ease;
@@ -332,7 +332,7 @@
 
 .story-list-item .story-meta {
     color: var(--text-color-muted);
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 /* View All Stories Link */
@@ -347,7 +347,7 @@
     color: #39e58f;
     text-decoration: none;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.125rem;
     transition: color 0.3s ease;
 }
 
@@ -506,7 +506,7 @@
 
 /* Architecture featured grid primary stories - larger headlines */
 .architecture-featured-grid .story-item h2 {
-    font-size: calc(24px * 1.23); /* 24px * 1.23 = 29.52px for serif font scaling */
+    font-size: 1.875rem; /* 30px for serif font scaling */
 }
 
 /* Featured Grid - Top Two Stories */

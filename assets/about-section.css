@@ -58,7 +58,7 @@
 
 .about-text p {
     margin-bottom: 1.5rem;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .about-text p:last-child {
@@ -103,7 +103,7 @@
     }
     
     .large-intro-text {
-        font-size: 48px !important;
+        font-size: 3rem !important;
         text-align: center !important;
         margin: 0 auto;
         max-width: 900px;
@@ -121,15 +121,15 @@
     }
 
     .large-intro-text {
-        font-size: 29.5px !important;
+        font-size: 1.84375rem !important;
     }
 
     .about-intro p {
-        font-size: 29.5px !important;
+        font-size: 1.84375rem !important;
     }
 
     .about-text p {
-        font-size: 16px;
+        font-size: 1rem;
     }
 }
 
@@ -139,6 +139,6 @@
     }
 
     .large-intro-text {
-        font-size: 45px !important;
+        font-size: 2.8125rem !important;
     }
 }

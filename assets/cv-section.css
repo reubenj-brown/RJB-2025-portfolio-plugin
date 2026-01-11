@@ -28,7 +28,7 @@
 .cv-section p {
     line-height: 1.2;
     margin: 0 !important;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .cv-section .cv-entry {
@@ -112,7 +112,7 @@
     /* Show arrows on mobile */
     .cv-arrow {
         display: inline;
-        font-size: 24px;
+        font-size: 1.5rem;
         margin-left: 0.5rem;
         font-family: var(--primary-font);
         font-weight: 400;

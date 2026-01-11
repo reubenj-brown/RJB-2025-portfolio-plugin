@@ -99,7 +99,7 @@
 .story-text h3 {
     font-family: var(--serif-font);
     color: white;
-    font-size: calc(20px * 1.23); /* 20px * 1.23 = 24.6px - scaled for serif font */
+    font-size: 1.5rem; /* 24px - scaled for serif font */
     margin-bottom: 2rem;
     line-height: 1.3;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
@@ -139,7 +139,7 @@
 }
 
 .full-bleed-footer .copyright {
-    font-size: 12px;
+    font-size: 0.75rem;
     color: white;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
@@ -185,13 +185,13 @@
     /* h1 now defined in base-sections.css */
 
     .story-text h3 {
-        font-size: 20px !important;
+        font-size: 1.25rem !important;
         margin-bottom: 1.5rem;
     }
 
     .story-text .story-meta,
     .story-text .story-meta p {
-        font-size: 14px !important;
+        font-size: 0.875rem !important;
     }
 
     .full-bleed-footer .footer-logo {
