@@ -253,7 +253,7 @@
     }
 
     .reviews-primary-standfirst {
-        font-size: calc(18px * 1.23);
+        font-size: 20px;
     }
 
     /* Secondary stories STAY 3-wide on tablet */
@@ -309,7 +309,7 @@
     /* h1 now defined in base-sections.css */
 
     .reviews-primary-standfirst {
-        font-size: calc(16px * 1.23);
+        font-size: 20px;
         margin-bottom: 1.5rem;
     }
 
@@ -335,8 +335,6 @@
     .reviews-secondary-content {
         text-align: left;
     }
-
-    /* Secondary headline uses standard h2 */
 
     /* Architecture scroller mobile responsive */
     .architecture-scroll {
