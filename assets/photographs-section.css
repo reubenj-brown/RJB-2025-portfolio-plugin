@@ -102,14 +102,14 @@
 
 /* Tablet Responsive */
 @media (max-width: 1200px) {
-    /* Primary story - switch to bottom positioning */
+    /* Primary story - switch to bottom positioning, centered */
     .photo-primary-overlay {
         top: auto;
         bottom: 36px;
-        left: 0;
+        left: 50%;
         margin: 0;
-        transform: translateY(0);
-   
+        transform: translateX(-50%);
+        max-width: 90%;
     }
 
     .photo-primary-standfirst {
