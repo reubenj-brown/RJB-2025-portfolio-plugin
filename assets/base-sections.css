@@ -193,6 +193,11 @@ p.story-meta i{
     color: var(--text-color); /* Ensure strategy-intro text is white in dark mode */
 }
 
+/* More stories section */
+.more-stories-section {
+    margin-top: 72px;
+}
+
 /* More stories heading - font styles only, no spacing */
 .more-stories-head {
     font-family: var(--compressed-font) !important;
