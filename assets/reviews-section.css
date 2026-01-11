@@ -344,7 +344,7 @@
     }
 
     .architecture-scroll-item {
-        flex: 0 0 250px; /* Shrunk mobile width */
+        flex: 0 0 220px; /* Shrunk mobile width */
     }
 
     .architecture-scroll-item .story-content h2 {
@@ -358,6 +358,6 @@
     }
 
     .architecture-scroll-item {
-        flex: 0 0 250px; /* Same as larger mobile width */
+        flex: 0 0 220px; /* Same as larger mobile width */
     }
 }
