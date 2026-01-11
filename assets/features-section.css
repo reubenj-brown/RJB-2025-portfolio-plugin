@@ -89,10 +89,8 @@
 }
 
 .features-story-small .story-image {
-    width: 120px;
-    height: 120px;
-    max-height: 120px;
-    aspect-ratio: 1/1;
+    width: 12vw;
+    height: 10vw;
     overflow: hidden;
     flex-shrink: 0;
     position: relative;
@@ -136,6 +134,13 @@
     .features-story-main .story-content {
         text-align: center;
     }
+    
+        .features-story-small .story-image {
+        width: 120px;
+        height: 120px;
+        aspect-ratio: 1/1;
+        max-height: 120px;
+    }
 }
 
 /* Mobile responsive - See breakpoint reference in base-sections.css */
@@ -163,12 +168,5 @@
 
     .features-story-small .story-content {
         flex: 1;
-    }
-
-    .features-story-small .story-image {
-        width: 120px;
-        height: 120px;
-        aspect-ratio: 1/1;
-        max-height: 120px;
     }
 }
