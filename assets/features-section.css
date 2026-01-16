@@ -122,7 +122,7 @@
     }
 
     .features-left {
-        margin-bottom: 32px;
+        margin-bottom: 64px;
     }
 
     /* Keep text left of image on tablet */
@@ -145,6 +145,10 @@
 
 /* Mobile responsive - See breakpoint reference in base-sections.css */
 @media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
+    .features-left {
+        margin-bottom: 32px;
+    }
+
     .features-story-main {
         flex-direction: column;
     }
