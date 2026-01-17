@@ -278,6 +278,10 @@ p.story-meta i{
         max-width: 100%;
         padding: 5rem 1rem;
     }
+
+    .more-stories-section {
+        margin-top: 3rem;
+    }
 }
 
 /* Small Mobile Responsive - See breakpoint reference at top of file */
