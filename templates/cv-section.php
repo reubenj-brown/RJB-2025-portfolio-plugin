@@ -61,7 +61,7 @@
                         <p class="cv-dates">GitHub, VS Code, Claude Code, HTML, CSS, JS</p>
                     </div>
                     <div class="cv-entry">
-                        <p class="cv-dates">Full U.K. driving license</p>
+                        <p class="cv-dates">Full U.K. and U.S. driving licenses</p>
                     </div>
                 </div>
             </div>
