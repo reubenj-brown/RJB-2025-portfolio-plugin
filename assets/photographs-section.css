@@ -109,6 +109,7 @@
         left: 50%;
         margin: 0;
         transform: translateX(-50%);
+        width: 90%;
         max-width: 90%;
     }
 
