@@ -5,7 +5,7 @@
             <span class="display-headline">Arizona</span>
         </div>
         <div class="strategy-intro-body">
-            <h3>I'm currently based in Phoenix, pursuing an MA in Investigative Journalism at the Walter Cronkite School. I'm also a <a href="https://cronkite.asu.edu/specializations/business-journalism-fellowship-graduate-fellowship/">Steele Fellow</a> at Cronkite's Reynolds Center for Business Journalism</h3>
+            <h3>I’m currently based in Phoenix, pursuing an MA in Investigative Journalism at the Walter Cronkite School. I’m also a <a href="https://cronkite.asu.edu/specializations/business-journalism-fellowship-graduate-fellowship/">Steele Fellow</a> at Cronkite’s Reynolds Center for Business Journalism</h3>
         </div>
     </div>
     <section class="content-section">
