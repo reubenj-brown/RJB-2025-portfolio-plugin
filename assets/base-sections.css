@@ -194,7 +194,8 @@ p.story-meta i{
 
 /* Strategy Intro - Two Column Layout */
 .strategy-intro {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
     align-items: flex-end;
     gap: 2rem;
     padding: 200px 0 160px 0;
