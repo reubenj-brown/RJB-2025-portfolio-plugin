@@ -183,14 +183,47 @@ p.story-meta i{
 }
 
 
-/* Strategy intro section styling */
+/* Display Headline - Shared compressed font style for section titles and contact links */
+.display-headline {
+    font-family: var(--compressed-font) !important;
+    font-size: 8vw;
+    line-height: 1.2 !important;
+    font-weight: 400 !important;
+    color: var(--text-color);
+}
+
+/* Strategy Intro - Two Column Layout */
 .strategy-intro {
-    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+    padding: 200px 0 160px 0;
+    margin: 0 auto;
+}
+
+.strategy-intro-headline {
+    flex: 0 0 50%;
+    text-align: left;
+}
+
+.strategy-intro-body {
+    flex: 0 0 calc(50% - 2rem);
 }
 
 .strategy-intro h3 {
-    text-align: center;
-    color: var(--text-color); /* Ensure strategy-intro text is white in dark mode */
+    text-align: left;
+    line-height: 1.3;
+    color: var(--text-color);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Strategy intro link styling - 50% grey/white */
+.strategy-intro a {
+    color: var(--h3-link-color) !important;
+}
+
+.strategy-intro a:hover {
+    color: var(--link-hover-color) !important;
 }
 
 /* More stories section */
@@ -209,15 +242,6 @@ p.story-meta i{
     margin-bottom: 0;
 }
 
-/* Strategy intro link styling - 50% grey/white */
-.strategy-intro a {
-    color: var(--h3-link-color) !important;
-}
-
-.strategy-intro a:hover {
-    color: var(--link-hover-color) !important;
-}
-
 /* No stories message styling */
 .no-stories-message {
     text-align: center;
@@ -225,21 +249,12 @@ p.story-meta i{
     padding: 4rem;
 }
 
-/* Strategy Section */
-.strategy-intro {
-    max-width: 900px;
-    margin: 0 auto 0 auto;
-    padding: 200px 0 160px 0;
-}
-
-.strategy-intro h3 {
-    line-height: 1.3;
-    color: var(--text-color);
-    transition: opacity 0.3s ease, filter 0.3s ease;
-}
-
 /* Tablet Typography Adjustments */
 @media (max-width: 1200px) {
+    .display-headline {
+        font-size: 12vw !important;
+    }
+
     p {
         font-size: 1rem;
     }
@@ -273,10 +288,32 @@ p.story-meta i{
         font-size: 0.6875rem;
     }
 
+    .display-headline {
+        font-size: min(16vw, 72px) !important;
+    }
+
     .strategy-intro {
+        flex-direction: column;
+        align-items: center;
         margin-bottom: 0;
         max-width: 100%;
         padding: 5rem 1rem;
+        gap: 1.5rem;
+    }
+
+    .strategy-intro-headline {
+        flex: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .strategy-intro-body {
+        flex: none;
+        width: 100%;
+    }
+
+    .strategy-intro h3 {
+        text-align: center;
     }
 
     .more-stories-section {

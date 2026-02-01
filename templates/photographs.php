@@ -3,7 +3,12 @@
     <div class="section-container">
         <div class="photographs-content">
             <div class="strategy-intro">
-                <h3>As a photographer, I’ve freelanced for <i>The Wall Street Journal</i> and worked as an assistant on shoots for magazines and TV</h3>
+                <div class="strategy-intro-headline">
+                    <span class="display-headline">Photography</span>
+                </div>
+                <div class="strategy-intro-body">
+                    <h3>As a photographer, I've freelanced for <i>The Wall Street Journal</i> and worked as an assistant on shoots for magazines and TV</h3>
+                </div>
             </div> 
             <?php
             // Get photograph stories using the same function as other sections
