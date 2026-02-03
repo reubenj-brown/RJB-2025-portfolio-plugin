@@ -14,8 +14,8 @@
             <div class="video-grid">
 
                 <article class="video-item">
-                    <div class="video-thumbnail" data-video-src="#">
-                        <video src="#" muted playsinline preload="metadata"></video>
+                    <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Detention_Centers_Arizona_Surprise_Reuben_J_Brown_1080p.mp4')); ?>">
+                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Detention_Centers_Arizona_Surprise_Reuben_J_Brown_1080p.mp4')); ?>" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
                             <svg viewBox="0 0 24 24" fill="none"><polygon points="8,5 19,12 8,19" fill="white"/></svg>
                         </div>
@@ -27,8 +27,8 @@
                 </article>
 
                 <article class="video-item">
-                    <div class="video-thumbnail" data-video-src="#">
-                        <video src="#" muted playsinline preload="metadata"></video>
+                    <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/San_Rafael_Valley_Border_Wall_Reuben_J_Brown.mp4')); ?>">
+                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/San_Rafael_Valley_Border_Wall_Reuben_J_Brown.mp4')); ?>" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
                             <svg viewBox="0 0 24 24" fill="none"><polygon points="8,5 19,12 8,19" fill="white"/></svg>
                         </div>
