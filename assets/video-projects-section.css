@@ -138,6 +138,12 @@
         margin-right: -2vw;
     }
 
+    .video-grid::before,
+    .video-grid::after {
+        content: '';
+        flex: 0 0 calc(2vw - 16px);
+    }
+
     .video-grid::-webkit-scrollbar {
         height: 8px;
     }
@@ -160,14 +166,6 @@
         flex: 0 0 250px;
         scroll-snap-align: start;
     }
-
-    .video-item:first-child {
-        margin-left: 2vw;
-    }
-
-    .video-item:last-child {
-        margin-right: 2vw;
-    }
 }
 
 /* Mobile Responsive - See breakpoint reference in base-sections.css */
@@ -177,16 +175,13 @@
         margin-right: -4vw;
     }
 
+    .video-grid::before,
+    .video-grid::after {
+        flex: 0 0 calc(4vw - 16px);
+    }
+
     .video-item {
         flex: 0 0 200px;
-    }
-
-    .video-item:first-child {
-        margin-left: 4vw;
-    }
-
-    .video-item:last-child {
-        margin-right: 4vw;
     }
 
     .video-item .story-content h2 {
