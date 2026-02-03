@@ -40,8 +40,8 @@
                 </article>
 
                 <article class="video-item">
-                    <div class="video-thumbnail" data-video-src="#">
-                        <video src="#" muted playsinline preload="metadata"></video>
+                    <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Reynolds_Center_Short-Form-Vertical-Video-Publisher-Revenue_Reuben_J_Brown.mp4')); ?>">
+                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Reynolds_Center_Short-Form-Vertical-Video-Publisher-Revenue_Reuben_J_Brown.mp4')); ?>" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
                             <svg viewBox="0 0 24 24" fill="none"><polygon points="8,5 19,12 8,19" fill="white"/></svg>
                         </div>
