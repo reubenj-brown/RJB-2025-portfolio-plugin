@@ -88,7 +88,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(255, 255, 255, 0.66);
     z-index: 10000;
     align-items: center;
     justify-content: center;
@@ -107,10 +107,10 @@
 .video-lightbox-close {
     position: absolute;
     top: 24px;
-    right: 24px;
+    left: 24px;
     background: none;
     border: none;
-    color: white;
+    color: var(--text-color);
     font-size: 2rem;
     cursor: pointer;
     line-height: 1;
@@ -121,6 +121,13 @@
 
 .video-lightbox-close:hover {
     opacity: 1;
+}
+
+/* Dark mode lightbox */
+@media (prefers-color-scheme: dark) {
+    .video-lightbox {
+        background: rgba(0, 0, 0, 0.66);
+    }
 }
 
 /* Tablet Responsive */
@@ -163,7 +170,7 @@
 
     .video-lightbox-close {
         top: 16px;
-        right: 16px;
+        left: 16px;
     }
 }
 
