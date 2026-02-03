@@ -6,9 +6,6 @@
                 <div class="strategy-intro-headline">
                     <span class="display-headline">Video</span>
                 </div>
-                <div class="strategy-intro-body">
-                    <h3>Short-form video projects spanning documentary, reportage, and visual storytelling</h3>
-                </div>
             </div>
 
             <div class="video-grid">
@@ -47,7 +44,7 @@
                         </div>
                     </div>
                     <div class="story-content">
-                        <h2>Why News Publishers Are Pivoting to Videos Like This One</h2>
+                        <h2>Why News Publishers Are Making Videos Like This One</h2>
                         <p class="story-meta">2:29</p>
                     </div>
                 </article>
