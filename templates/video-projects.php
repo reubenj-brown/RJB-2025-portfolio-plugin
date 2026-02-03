@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <div class="story-content">
-                        <h2>Legal Personhood for the Colorado River</h2>
+                        <h2>The Colorado River Becomes a Legal Person</h2>
                         <p class="story-meta">2:43</p>
                     </div>
                 </article>
