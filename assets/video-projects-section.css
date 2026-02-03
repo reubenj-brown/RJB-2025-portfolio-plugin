@@ -124,15 +124,8 @@
     }
 }
 
-/* Tablet Responsive */
+/* Tablet + Mobile: horizontal scroller */
 @media (max-width: 1200px) {
-    .video-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Mobile Responsive - See breakpoint reference in base-sections.css */
-@media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
     .video-grid {
         display: flex;
         overflow-x: auto;
@@ -141,8 +134,8 @@
         scrollbar-width: thin;
         gap: 16px;
         padding-bottom: 16px;
-        margin-left: -4vw;
-        margin-right: -4vw;
+        margin-left: -2vw;
+        margin-right: -2vw;
     }
 
     .video-grid::-webkit-scrollbar {
@@ -164,8 +157,28 @@
     }
 
     .video-item {
-        flex: 0 0 200px;
+        flex: 0 0 250px;
         scroll-snap-align: start;
+    }
+
+    .video-item:first-child {
+        margin-left: 2vw;
+    }
+
+    .video-item:last-child {
+        margin-right: 2vw;
+    }
+}
+
+/* Mobile Responsive - See breakpoint reference in base-sections.css */
+@media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
+    .video-grid {
+        margin-left: -4vw;
+        margin-right: -4vw;
+    }
+
+    .video-item {
+        flex: 0 0 200px;
     }
 
     .video-item:first-child {
