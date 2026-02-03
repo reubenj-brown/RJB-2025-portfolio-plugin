@@ -48,6 +48,7 @@ class ReubenPortfolioSections {
         add_shortcode('reuben_strategy', [$this, 'strategy_section']);
         add_shortcode('reuben_cv', [$this, 'cv_section']);
         add_shortcode('reuben_cronkite', [$this, 'cronkite_section']);
+        add_shortcode('reuben_video_projects', [$this, 'video_projects_section']);
 
         // Dynamic stories shortcode
         add_shortcode('reuben_dynamic_stories', [$this, 'dynamic_stories_section']);
@@ -314,6 +315,13 @@ class ReubenPortfolioSections {
                 ['reuben-base-sections'],
                 '1.0.0'
             );
+
+            wp_enqueue_style(
+                'reuben-video-projects-section',
+                plugin_dir_url(__FILE__) . 'assets/video-projects-section.css',
+                ['reuben-base-sections'],
+                '1.0.0'
+            );
         }
 
         // Load only architecture scroller styles on story pages and story archive for more_stories shortcode
@@ -406,7 +414,13 @@ class ReubenPortfolioSections {
         include plugin_dir_path(__FILE__) . 'templates/cronkite.php';
         return ob_get_clean();
     }
-    
+
+    public function video_projects_section($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/video-projects.php';
+        return ob_get_clean();
+    }
+
     /**
      * Dynamic Stories Section - pulls from WordPress posts
      */
