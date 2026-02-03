@@ -143,8 +143,6 @@
         padding-bottom: 16px;
         margin-left: -4vw;
         margin-right: -4vw;
-        padding-left: 4vw;
-        padding-right: 4vw;
     }
 
     .video-grid::-webkit-scrollbar {
@@ -168,6 +166,14 @@
     .video-item {
         flex: 0 0 200px;
         scroll-snap-align: start;
+    }
+
+    .video-item:first-child {
+        margin-left: 4vw;
+    }
+
+    .video-item:last-child {
+        margin-right: 4vw;
     }
 
     .video-item .story-content h2 {
