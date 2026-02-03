@@ -63,6 +63,11 @@
     width: 20px;
     height: 20px;
     margin-left: 2px;
+    /* Round the corners using stroke */
+    stroke: currentColor; 
+    stroke-width: 4px; /* Double the desired radius */
+    stroke-linejoin: round;
+    paint-order: stroke fill; /* Ensures the fill stays inside the rounded stroke */
 }
 
 .video-thumbnail:hover .video-play-btn {
