@@ -21,8 +21,8 @@
                         </div>
                     </div>
                     <div class="story-content">
-                        <h2>Video Project Title</h2>
-                        <p class="story-meta">2:34</p>
+                        <h2>ICE Is Turning Warehouses Into Detention Centers</h2>
+                        <p class="story-meta">2:27</p>
                     </div>
                 </article>
 
@@ -34,8 +34,8 @@
                         </div>
                     </div>
                     <div class="story-content">
-                        <h2>Video Project Title</h2>
-                        <p class="story-meta">1:48</p>
+                        <h2>New Border Wall Construction in the San Rafael Valley</h2>
+                        <p class="story-meta">2:19</p>
                     </div>
                 </article>
 
@@ -47,8 +47,8 @@
                         </div>
                     </div>
                     <div class="story-content">
-                        <h2>Video Project Title</h2>
-                        <p class="story-meta">3:12</p>
+                        <h2>Why News Publishers Are Pivoting to Videos Like This One</h2>
+                        <p class="story-meta">2:29</p>
                     </div>
                 </article>
 
@@ -60,8 +60,8 @@
                         </div>
                     </div>
                     <div class="story-content">
-                        <h2>Video Project Title</h2>
-                        <p class="story-meta">4:05</p>
+                        <h2>Legal Personhood for the Colorado River</h2>
+                        <p class="story-meta">2:43</p>
                     </div>
                 </article>
 
