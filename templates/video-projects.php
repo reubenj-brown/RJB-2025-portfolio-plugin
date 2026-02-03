@@ -14,7 +14,20 @@
                     <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Detention_Centers_Arizona_Surprise_Reuben_J_Brown_1080p.mp4')); ?>">
                         <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Detention_Centers_Arizona_Surprise_Reuben_J_Brown_1080p.mp4')); ?>" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
-                            <svg viewBox="0 0 24 24" fill="none"><polygon points="8,5 19,12 8,19" fill="white"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path 
+                                d="M9.8,5.6 
+                                   l8.2,5.2 
+                                   c1,0.6 1,2.2 0,2.8 
+                                   l-8.2,5.2 
+                                   c-1,0.6 -2.3,-0.1 -2.3,-1.4 
+                                   V6.6 
+                                   c0,-1.3 1.3,-2 2.3,-1.4 
+                                   z" 
+                                fill="white" 
+                                stroke-linejoin="round" 
+                              />
+                            </svg>
                         </div>
                     </div>
                     <div class="story-content">
@@ -27,7 +40,20 @@
                     <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/San_Rafael_Valley_Border_Wall_Reuben_J_Brown.mp4')); ?>">
                         <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/San_Rafael_Valley_Border_Wall_Reuben_J_Brown.mp4')); ?>" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
-                            <svg viewBox="0 0 24 24" fill="none"><polygon points="8,5 19,12 8,19" fill="white"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path 
+                                d="M9.8,5.6 
+                                   l8.2,5.2 
+                                   c1,0.6 1,2.2 0,2.8 
+                                   l-8.2,5.2 
+                                   c-1,0.6 -2.3,-0.1 -2.3,-1.4 
+                                   V6.6 
+                                   c0,-1.3 1.3,-2 2.3,-1.4 
+                                   z" 
+                                fill="white" 
+                                stroke-linejoin="round" 
+                              />
+                            </svg>
                         </div>
                     </div>
                     <div class="story-content">
@@ -40,7 +66,20 @@
                     <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Reynolds_Center_Short-Form-Vertical-Video-Publisher-Revenue_Reuben_J_Brown.mp4')); ?>">
                         <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Reynolds_Center_Short-Form-Vertical-Video-Publisher-Revenue_Reuben_J_Brown.mp4')); ?>" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
-                            <svg viewBox="0 0 24 24" fill="none"><polygon points="8,5 19,12 8,19" fill="white"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path 
+                                d="M9.8,5.6 
+                                   l8.2,5.2 
+                                   c1,0.6 1,2.2 0,2.8 
+                                   l-8.2,5.2 
+                                   c-1,0.6 -2.3,-0.1 -2.3,-1.4 
+                                   V6.6 
+                                   c0,-1.3 1.3,-2 2.3,-1.4 
+                                   z" 
+                                fill="white" 
+                                stroke-linejoin="round" 
+                              />
+                            </svg>
                         </div>
                     </div>
                     <div class="story-content">
@@ -53,7 +92,20 @@
                     <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/CRIT_Cronkite_News_RIVER_REUBEN_J_BROWN_Jan15.mp4')); ?>">
                         <video src="#" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
-                            <svg viewBox="0 0 24 24" fill="none"><polygon points="8,5 19,12 8,19" fill="white"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path 
+                                d="M9.8,5.6 
+                                   l8.2,5.2 
+                                   c1,0.6 1,2.2 0,2.8 
+                                   l-8.2,5.2 
+                                   c-1,0.6 -2.3,-0.1 -2.3,-1.4 
+                                   V6.6 
+                                   c0,-1.3 1.3,-2 2.3,-1.4 
+                                   z" 
+                                fill="white" 
+                                stroke-linejoin="round" 
+                              />
+                            </svg>
                         </div>
                     </div>
                     <div class="story-content">
