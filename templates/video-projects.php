@@ -12,7 +12,7 @@
 
                 <article class="video-item">
                     <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Detention_Centers_Arizona_Surprise_Reuben_J_Brown_1080p.mp4')); ?>">
-                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Detention_Centers_Arizona_Surprise_Reuben_J_Brown_1080p.mp4')); ?>" muted playsinline preload="metadata"></video>
+                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Detention_Centers_Arizona_Surprise_Reuben_J_Brown_1080p.mp4')); ?>" poster="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Detention_Centers_Reel_Video_Still_Thumbnail_Reuben_J_Brown.jpg')); ?>" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path 
@@ -37,7 +37,7 @@
 
                 <article class="video-item">
                     <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/San_Rafael_Valley_Border_Wall_Reuben_J_Brown.mp4')); ?>">
-                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/San_Rafael_Valley_Border_Wall_Reuben_J_Brown.mp4')); ?>" muted playsinline preload="metadata"></video>
+                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/San_Rafael_Valley_Border_Wall_Reuben_J_Brown.mp4')); ?>" poster="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/san-rafael-valley-border-wall-reel-reuben-j-brown-thumbnail.jpg')); ?>" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path 
@@ -62,7 +62,7 @@
 
                 <article class="video-item">
                     <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Reynolds_Center_Short-Form-Vertical-Video-Publisher-Revenue_Reuben_J_Brown.mp4')); ?>">
-                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Reynolds_Center_Short-Form-Vertical-Video-Publisher-Revenue_Reuben_J_Brown.mp4')); ?>" muted playsinline preload="metadata"></video>
+                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Reynolds_Center_Short-Form-Vertical-Video-Publisher-Revenue_Reuben_J_Brown.mp4')); ?>" poster="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Publisher_Vertical_Video_Reel_Thumbnail_Reuben_J_Brown.jpg')); ?>" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path 
@@ -87,7 +87,7 @@
 
                 <article class="video-item">
                     <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/CRIT_Cronkite_News_RIVER_REUBEN_J_BROWN_Jan15.mp4')); ?>">
-                        <video src="#" muted playsinline preload="metadata"></video>
+                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/CRIT_Cronkite_News_RIVER_REUBEN_J_BROWN_Jan15.mp4')); ?>" poster="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/CRIT_Colorado_River_Personhood_Thumbnail_Reuben_J_Brown.jpg')); ?>" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path 
