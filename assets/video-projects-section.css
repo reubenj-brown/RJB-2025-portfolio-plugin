@@ -62,7 +62,6 @@
 .video-play-btn svg {
     width: 20px;
     height: 20px;
-    margin-left: 2px;
 }
 
 .video-thumbnail:hover .video-play-btn {
