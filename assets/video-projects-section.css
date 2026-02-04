@@ -137,6 +137,7 @@
         scroll-snap-type: x mandatory;
         scrollbar-width: thin;
         gap: 16px;
+        padding-bottom: 1rem;
         margin-right: -2vw;
     }
 
