@@ -162,6 +162,10 @@
         flex: 0 0 250px;
         scroll-snap-align: start;
     }
+
+    .video-item:last-child {
+        margin-right: 2vw;
+    }
 }
 
 /* Mobile Responsive - See breakpoint reference in base-sections.css */
@@ -172,6 +176,10 @@
 
     .video-item {
         flex: 0 0 200px;
+    }
+
+    .video-item:last-child {
+        margin-right: 4vw;
     }
 
     .video-item .story-content h2 {
