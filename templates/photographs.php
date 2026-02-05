@@ -7,7 +7,7 @@
                     <span class="display-headline">Photography</span>
                 </div>
                 <div class="strategy-intro-body">
-                    <h3>As a photographer, I’ve freelanced for <i>The Wall Street Journal</i> and worked as an photo assistant for editorial and TV clients. I’m a member of the LA Press Photographers Association.</h3>
+                    <h3>As a photographer, I’ve freelanced for <i>The Wall Street Journal</i> and worked as a photo assistant for editorial and TV clients. I’m a member of the LA Press Photographers Association.</h3>
                 </div>
             </div> 
             <?php
