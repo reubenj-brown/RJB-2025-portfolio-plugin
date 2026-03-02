@@ -41,16 +41,16 @@
                 <h2 data-target="skills-entries">Skills & Software <span class="cv-arrow">↓</span></h2>
                 <div class="cv-entries" id="skills-entries">
                     <div class="cv-entry">
-                        <p class="cv-role">Video and Podcast Production</p>
-                        <p class="cv-dates">Adobe Premiere, Audition, After Effects, Apple Logic Pro, Final Cut Pro</p>
-                    </div>
-                    <div class="cv-entry">
-                        <p class="cv-role">Graphic Design and Production</p>
-                        <p class="cv-dates">Adobe InDesign, Illustrator, Affinity Designer, Autocad, Rhino</p>
+                        <p class="cv-role">Code, Data,  Visualization</p>
+                        <p class="cv-dates">Python, SQL, Excel, GitHub, VS Code, Claude Code, HTML, CSS, JS, Mapbox, Adobe InDesign, Illustrator, Affinity, Autocad, Rhino 3D</p>
                     </div>
                     <div class="cv-entry">
                         <p class="cv-role">Photography</p>
-                        <p class="cv-dates">Adobe Lightroom, Photoshop, Photo Mechanic</p>
+                        <p class="cv-dates">Mirrorless stills and video, Adobe Lightroom, Photoshop, Photo Mechanic, off-camera flash, aerial photography</p>
+                    </div>
+                    <div class="cv-entry">
+                        <p class="cv-role">Video and Podcast Production</p>
+                        <p class="cv-dates">Adobe Premiere, Audition, After Effects, Apple Logic Pro, Final Cut Pro</p>
                     </div>
                     <div class="cv-entry">
                         <p class="cv-role">Content Management and Analytics</p>
@@ -72,7 +72,7 @@
                     <div class="cv-entry">
                         <p class="cv-degree">M.A. Investigative Journalism</p>
                         <p class="cv-institution">Arizona State University</p>
-                        <p class="cv-dates">2025–26</p>
+                        <p class="cv-dates">2025–26 | 4.0 G.P.A.</p>
                     </div>
                     <div class="cv-entry">
                         <p class="cv-degree">B.A. Architecture</p>
