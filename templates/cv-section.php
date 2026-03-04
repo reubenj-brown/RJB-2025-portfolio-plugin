@@ -57,10 +57,6 @@
                         <p class="cv-dates">WordPress, Google Analytics, Microsoft Excel, Adobe Campaigns, Shopify, Upland Adestra</p>
                     </div>
                     <div class="cv-entry">
-                        <p class="cv-role">Web Development</p>
-                        <p class="cv-dates">GitHub, VS Code, Claude Code, HTML, CSS, JS</p>
-                    </div>
-                    <div class="cv-entry">
                         <p class="cv-dates">Full U.K. and U.S. driving licenses</p>
                     </div>
                 </div>
