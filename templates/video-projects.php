@@ -11,8 +11,8 @@
             <div class="video-grid">
 
                 <article class="video-item">
-                    <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Detention_Centers_Arizona_Surprise_Reuben_J_Brown_1080p.mp4')); ?>">
-                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Detention_Centers_Arizona_Surprise_Reuben_J_Brown_1080p.mp4')); ?>" poster="<?php echo esc_url(home_url('/wp-content/uploads/2026/02/Detention_Centers_Reel_Video_Still_Thumbnail_Reuben_J_Brown.jpg')); ?>" muted playsinline preload="metadata"></video>
+                    <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/03/Reuben_J_Brown_BORDERLANDSTOKYO_Fukushima.mp4')); ?>">
+                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/03/Reuben_J_Brown_BORDERLANDSTOKYO_Fukushima.mp4')); ?>" poster="<?php echo esc_url(home_url('/wp-content/uploads/2026/03/euben_J_Brown_BORDERLANDSTOKYO_Fukushima.jpg-scaled.jpg')); ?>" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path 
@@ -30,8 +30,8 @@
                         </div>
                     </div>
                     <div class="story-content">
-                        <h2>ICE Is Turning Warehouses Into Detention Centers</h2>
-                        <p class="story-meta">2:27</p>
+                        <h2>15 Years After Fukushima, Why Japan is Backing Nuclear</h2>
+                        <p class="story-meta">3:31</p>
                     </div>
                 </article>
 
