@@ -12,7 +12,7 @@
 
                 <article class="video-item">
                     <div class="video-thumbnail" data-video-src="<?php echo esc_url(home_url('/wp-content/uploads/2026/03/Reuben_J_Brown_BORDERLANDSTOKYO_Fukushima.mp4')); ?>">
-                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/03/Reuben_J_Brown_BORDERLANDSTOKYO_Fukushima.mp4')); ?>" poster="<?php echo esc_url(home_url('/wp-content/uploads/2026/03/euben_J_Brown_BORDERLANDSTOKYO_Fukushima.jpg-scaled.jpg')); ?>" muted playsinline preload="metadata"></video>
+                        <video src="<?php echo esc_url(home_url('/wp-content/uploads/2026/03/Reuben_J_Brown_BORDERLANDSTOKYO_Fukushima.mp4')); ?>" poster="<?php echo esc_url(home_url('/wp-content/uploads/2026/03/Reuben_J_Brown_BORDERLANDSTOKYO_Fukushima-scaled.jpg')); ?>" muted playsinline preload="metadata"></video>
                         <div class="video-play-btn">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path 
