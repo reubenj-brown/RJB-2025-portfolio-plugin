@@ -163,16 +163,15 @@
    Photo Picture (Individual Images)
    ======================================== */
 .photo-picture {
-    flex: 0 0 auto;
+    flex: 0 0 300px;
     height: 60vh;
-    width: auto;
     scroll-snap-align: start;
 }
 
 .photo-picture img {
     height: 100%;
-    width: auto;
-    object-fit: contain;
+    width: 300px;
+    object-fit: cover;
     display: block;
 }
 
@@ -180,21 +179,21 @@
    Photo Description (Text at End)
    ======================================== */
 .photo-description {
-    flex: 0 0 auto;
-    max-width: 600px;
-    min-width: 400px;
+    flex: 0 0 300px;
+    width: 300px;
     height: 60vh;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     padding-right: 4vw;
+    padding-bottom: 1rem;
     scroll-snap-align: start;
 }
 
 .photo-description p {
-    font-family: var(--primary-font);
-    font-size: 1rem;
+    font-family: var(--serif-font);
+    font-size: 1.5rem;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.4;
     color: var(--text-color);
     margin: 0;
 }
@@ -220,8 +219,8 @@
         font-size: 5vw;
     }
 
-    .photo-description {
-        min-width: 300px;
+    .photo-description p {
+        font-size: 1.25rem;
     }
 }
 
@@ -295,6 +294,11 @@
         max-width: 100%;
         height: auto;
         padding: 0;
+        align-items: flex-start;
+    }
+
+    .photo-description p {
+        font-size: 1.125rem;
     }
 }
 
