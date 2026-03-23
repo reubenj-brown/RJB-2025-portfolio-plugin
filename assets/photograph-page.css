@@ -49,7 +49,7 @@
     top: calc(2vw + 60px); /* Below site header */
     z-index: 90;
     padding: 24px 4vw;
-    background: var(--content-bg);
+    width: fit-content;
     text-align: left;
 }
 
