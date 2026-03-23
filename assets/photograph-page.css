@@ -13,6 +13,7 @@
 .photo-page-intro {
     padding: 120px 4vw 80px 4vw;
     max-width: 800px;
+    margin: 0 auto;
 }
 
 /* ========================================
@@ -165,14 +166,12 @@
     height: 60vh;
     display: flex;
     align-items: flex-end;
-    padding-right: 4vw;
-    padding-bottom: 1rem;
     scroll-snap-align: start;
 }
 
 .photo-description p {
     font-family: var(--serif-font);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.4;
     color: var(--text-color);
@@ -200,9 +199,6 @@
         font-size: 5vw;
     }
 
-    .photo-description p {
-        font-size: 1.25rem;
-    }
 }
 
 /* ========================================
