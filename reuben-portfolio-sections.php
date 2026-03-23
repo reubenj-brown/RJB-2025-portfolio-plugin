@@ -202,92 +202,6 @@ class ReubenPortfolioSections {
                 'instruction_placement' => 'label',
                 'hide_on_screen' => '',
             ));
-
-            // Photography Page Sections field group
-            $photo_section_types = array(
-                'stories' => 'Stories',
-                'portraits' => 'Portraits',
-                'infrastructure' => 'Infrastructure',
-                'events' => 'Events',
-                'cities' => 'Cities',
-                'landscapes' => 'Landscapes',
-            );
-
-            $photo_fields = array();
-            foreach ($photo_section_types as $key => $label) {
-                $photo_fields[] = array(
-                    'key' => 'field_photo_' . $key . '_sets',
-                    'label' => $label . ' Photo Sets',
-                    'name' => $key . '_photo_sets',
-                    'type' => 'repeater',
-                    'instructions' => 'Add photo sets for the ' . $label . ' section',
-                    'required' => 0,
-                    'min' => 0,
-                    'max' => 0,
-                    'layout' => 'block',
-                    'button_label' => 'Add Photo Set',
-                    'sub_fields' => array(
-                        array(
-                            'key' => 'field_photo_' . $key . '_title',
-                            'label' => 'Set Title',
-                            'name' => 'set_title',
-                            'type' => 'text',
-                            'instructions' => 'Title for this photo set (displayed in block caps)',
-                            'required' => 1,
-                        ),
-                        array(
-                            'key' => 'field_photo_' . $key . '_meta',
-                            'label' => 'Set Meta',
-                            'name' => 'set_meta',
-                            'type' => 'text',
-                            'instructions' => 'Metadata line (e.g., "Photo series for <i>Publication</i> in Date")',
-                            'required' => 0,
-                        ),
-                        array(
-                            'key' => 'field_photo_' . $key . '_images',
-                            'label' => 'Images',
-                            'name' => 'images',
-                            'type' => 'gallery',
-                            'instructions' => 'Add images for the horizontal scroll gallery',
-                            'required' => 1,
-                            'return_format' => 'array',
-                            'preview_size' => 'medium',
-                            'library' => 'all',
-                            'min' => 1,
-                            'max' => 0,
-                        ),
-                        array(
-                            'key' => 'field_photo_' . $key . '_description',
-                            'label' => 'Description',
-                            'name' => 'description',
-                            'type' => 'textarea',
-                            'instructions' => 'Description text shown at the end of the scroll (optional)',
-                            'required' => 0,
-                            'rows' => 4,
-                        ),
-                    ),
-                );
-            }
-
-            acf_add_local_field_group(array(
-                'key' => 'group_photography_sections',
-                'title' => 'Photography Page Sections',
-                'fields' => $photo_fields,
-                'location' => array(
-                    array(
-                        array(
-                            'param' => 'page_template',
-                            'operator' => '==',
-                            'value' => 'page-photography.php',
-                        ),
-                    ),
-                ),
-                'menu_order' => 0,
-                'position' => 'normal',
-                'style' => 'default',
-                'label_placement' => 'top',
-                'instruction_placement' => 'label',
-            ));
         }
     }
 
@@ -530,24 +444,34 @@ class ReubenPortfolioSections {
     /**
      * Photo Section Shortcode - renders a photography section
      * Usage: [photo_section type="stories"] or [photo_section type="portraits"]
+     *
+     * Queries story posts in the corresponding "photo-{type}" category
+     * e.g., type="portraits" queries stories in "photo-portraits" category
      */
     public function photo_section($atts) {
         $atts = shortcode_atts([
             'type' => 'stories',
         ], $atts);
 
-        // Map type to section title
-        $section_titles = array(
-            'stories' => 'Stories',
-            'portraits' => 'Portraits',
-            'infrastructure' => 'Infrastructure',
-            'events' => 'Events',
-            'cities' => 'Cities',
-            'landscapes' => 'Landscapes',
+        // Map type to section title and category slug
+        $section_config = array(
+            'stories' => array('title' => 'Stories', 'category' => 'photo-stories'),
+            'portraits' => array('title' => 'Portraits', 'category' => 'photo-portraits'),
+            'infrastructure' => array('title' => 'Infrastructure', 'category' => 'photo-infrastructure'),
+            'events' => array('title' => 'Events', 'category' => 'photo-events'),
+            'cities' => array('title' => 'Cities', 'category' => 'photo-cities'),
+            'landscapes' => array('title' => 'Landscapes', 'category' => 'photo-landscapes'),
         );
 
-        $section_type = sanitize_key($atts['type']);
-        $section_title = isset($section_titles[$section_type]) ? $section_titles[$section_type] : ucfirst($section_type);
+        $type = sanitize_key($atts['type']);
+
+        if (isset($section_config[$type])) {
+            $section_type = $section_config[$type]['category'];
+            $section_title = $section_config[$type]['title'];
+        } else {
+            $section_type = 'photo-' . $type;
+            $section_title = ucfirst($type);
+        }
 
         ob_start();
         include plugin_dir_path(__FILE__) . 'photography-sections/photo-section.php';
