@@ -81,7 +81,7 @@
     position: sticky;
     top: calc(2vw + 60px + 10vw + 48px); /* Header + headline height + padding */
     align-self: flex-start;
-    flex: 0 0 450px;
+    flex: 0 0 300px;
     height: fit-content;
     z-index: 80;
 }
@@ -163,15 +163,15 @@
    Photo Picture (Individual Images)
    ======================================== */
 .photo-picture {
-    flex: 0 0 300px;
+    flex: 0 0 auto;
     height: 60vh;
     scroll-snap-align: start;
 }
 
 .photo-picture img {
     height: 100%;
-    width: 300px;
-    object-fit: cover;
+    width: auto;
+    object-fit: contain;
     display: block;
 }
 
@@ -211,7 +211,7 @@
     }
 
     .photo-title {
-        flex: 0 0 300px;
+        flex: 0 0 250px;
         top: calc(80px + 12vw + 48px);
     }
 
