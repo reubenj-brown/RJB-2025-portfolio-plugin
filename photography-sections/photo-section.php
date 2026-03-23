@@ -58,18 +58,22 @@ if (!$photo_query->have_posts()) {
         }
         $meta_string = implode(' ', $meta_parts);
 
-        // Get images - try photo_gallery first, then featured image
+        // Get images from photo_gallery_urls field (one URL per line)
         $images = array();
-        $photo_gallery = get_field('photo_gallery', $story_id);
-        if (!empty($photo_gallery)) {
-            foreach ($photo_gallery as $gallery_item) {
-                if (!empty($gallery_item['image'])) {
-                    $images[] = $gallery_item['image'];
+        $photo_gallery_urls = get_field('photo_gallery_urls', $story_id);
+        if (!empty($photo_gallery_urls)) {
+            $urls = array_filter(array_map('trim', explode("\n", $photo_gallery_urls)));
+            foreach ($urls as $url) {
+                if (!empty($url)) {
+                    $images[] = array(
+                        'url' => $url,
+                        'alt' => get_the_title(),
+                    );
                 }
             }
         }
 
-        // Fallback to featured image if no gallery
+        // Fallback to featured image if no gallery URLs
         if (empty($images) && has_post_thumbnail($story_id)) {
             $images[] = array(
                 'url' => get_the_post_thumbnail_url($story_id, 'full'),
@@ -81,6 +85,9 @@ if (!$photo_query->have_posts()) {
         if (empty($images)) {
             continue;
         }
+
+        // Get photo description (custom field instead of excerpt)
+        $photo_description = get_field('photo_description', $story_id);
     ?>
         <div class="photo-set">
             <div class="photo-title">
@@ -101,9 +108,9 @@ if (!$photo_query->have_posts()) {
                     </div>
                 <?php endforeach; ?>
 
-                <?php if (has_excerpt()) : ?>
+                <?php if (!empty($photo_description)) : ?>
                     <div class="photo-description">
-                        <p><?php echo wp_kses_post(get_the_excerpt()); ?></p>
+                        <p><?php echo wp_kses_post($photo_description); ?></p>
                     </div>
                 <?php endif; ?>
             </div>
