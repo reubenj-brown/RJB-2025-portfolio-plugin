@@ -1,0 +1,316 @@
+/**
+ * Photography Page Styles
+ * Single CSS file for all photography page sections
+ */
+
+/* ========================================
+   CSS Variables (inherit from base-sections.css)
+   ======================================== */
+
+/* ========================================
+   Photo Page Intro
+   ======================================== */
+.photo-page-intro {
+    padding: 120px 4vw 80px 4vw;
+    max-width: 800px;
+}
+
+.photo-page-intro h3 {
+    font-family: var(--primary-font);
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.photo-page-intro h3 a {
+    color: var(--text-color-muted);
+    text-decoration: none;
+}
+
+.photo-page-intro h3 a:hover {
+    color: var(--link-hover-color);
+}
+
+/* ========================================
+   Photo Type (Section Container)
+   ======================================== */
+.photo-type {
+    position: relative;
+    padding: 0 0 120px 0;
+}
+
+/* ========================================
+   Photo Type Headline (Sticky Section Header)
+   ======================================== */
+.photo-type-headline {
+    position: sticky;
+    top: calc(2vw + 60px); /* Below site header */
+    z-index: 90;
+    padding: 24px 4vw;
+    background: var(--content-bg);
+    text-align: left;
+}
+
+.photo-type-headline h2 {
+    font-family: var(--compressed-font) !important;
+    font-size: 8vw;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--link-hover-color); /* Highlight green #39e58f */
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   Photo Set (Individual Set Container)
+   ======================================== */
+.photo-set {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 40px 4vw;
+    min-height: 60vh;
+}
+
+/* ========================================
+   Photo Title (Sticky Title Column)
+   ======================================== */
+.photo-title {
+    position: sticky;
+    top: calc(2vw + 60px + 10vw + 48px); /* Header + headline height + padding */
+    align-self: flex-start;
+    flex: 0 0 450px;
+    height: fit-content;
+    z-index: 80;
+}
+
+.photo-title h3 {
+    font-family: var(--compressed-font) !important;
+    font-size: 4vw; /* Half of headline size */
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text-color);
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+}
+
+.photo-title .story-meta {
+    font-family: var(--primary-font);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-color-muted);
+    margin: 0;
+}
+
+.photo-title .story-meta i {
+    font-style: italic;
+}
+
+/* ========================================
+   Photo Scroll (Horizontal Scroller)
+   ======================================== */
+.photo-scroll {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 16px; /* Space for scrollbar */
+    align-items: center;
+}
+
+/* Custom scrollbar styling */
+.photo-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.photo-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.photo-scroll::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.photo-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Dark mode scrollbar */
+@media (prefers-color-scheme: dark) {
+    .photo-scroll::-webkit-scrollbar-track {
+        background: #333;
+    }
+
+    .photo-scroll::-webkit-scrollbar-thumb {
+        background: #666;
+    }
+
+    .photo-scroll::-webkit-scrollbar-thumb:hover {
+        background: #888;
+    }
+}
+
+/* ========================================
+   Photo Picture (Individual Images)
+   ======================================== */
+.photo-picture {
+    flex: 0 0 auto;
+    height: 60vh;
+    width: auto;
+    scroll-snap-align: start;
+}
+
+.photo-picture img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* ========================================
+   Photo Description (Text at End)
+   ======================================== */
+.photo-description {
+    flex: 0 0 auto;
+    max-width: 600px;
+    min-width: 400px;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    padding-right: 4vw;
+    scroll-snap-align: start;
+}
+
+.photo-description p {
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* ========================================
+   Tablet Responsive (max-width: 1200px)
+   ======================================== */
+@media (max-width: 1200px) {
+    .photo-type-headline {
+        top: 80px; /* Adjusted for stacked header */
+    }
+
+    .photo-type-headline h2 {
+        font-size: 10vw;
+    }
+
+    .photo-title {
+        flex: 0 0 300px;
+        top: calc(80px + 12vw + 48px);
+    }
+
+    .photo-title h3 {
+        font-size: 5vw;
+    }
+
+    .photo-description {
+        min-width: 300px;
+    }
+}
+
+/* ========================================
+   Mobile Responsive (max-width: 768px)
+   ======================================== */
+@media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
+    .photo-page-intro {
+        padding: 100px 4vw 60px 4vw;
+    }
+
+    .photo-type {
+        padding-bottom: 80px;
+    }
+
+    .photo-type-headline {
+        position: sticky;
+        top: 70px;
+        padding: 16px 4vw;
+    }
+
+    .photo-type-headline h2 {
+        font-size: 12vw;
+    }
+
+    /* Stack layout on mobile */
+    .photo-set {
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px 4vw;
+        min-height: auto;
+    }
+
+    /* Title loses sticky, moves below scroll */
+    .photo-title {
+        position: static;
+        flex: none;
+        width: 100%;
+        order: 2; /* Move below photo-scroll */
+    }
+
+    .photo-title h3 {
+        font-size: 7vw;
+    }
+
+    /* Photo scroll takes full width */
+    .photo-scroll {
+        order: 1;
+        width: 100%;
+        gap: 16px;
+        scroll-snap-type: x mandatory;
+    }
+
+    /* Images take 100% width on mobile */
+    .photo-picture {
+        flex: 0 0 100%;
+        width: 100%;
+        height: auto;
+    }
+
+    .photo-picture img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Description at 100% width */
+    .photo-description {
+        flex: 0 0 100%;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 0;
+    }
+}
+
+/* ========================================
+   Small Mobile (max-width: 480px)
+   ======================================== */
+@media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
+    .photo-page-intro {
+        padding: 90px 4vw 40px 4vw;
+    }
+
+    .photo-type-headline h2 {
+        font-size: 14vw;
+    }
+
+    .photo-title h3 {
+        font-size: 8vw;
+    }
+}
