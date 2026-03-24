@@ -30,7 +30,7 @@
 .photo-type-headline {
     position: sticky;
     top: calc(2vw + 60px); /* Below site header */
-    z-index: 90;
+    z-index: 80;
     padding: 24px 2vw;
     width: fit-content;
     text-align: left;
@@ -65,7 +65,7 @@
     align-self: flex-start;
     flex: 0 0 300px;
     height: fit-content;
-    z-index: 80;
+    z-index: 90;
 }
 
 .photo-title h3 {
