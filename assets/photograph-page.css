@@ -8,8 +8,20 @@
    ======================================== */
 
 /* ========================================
-   Photo Page Intro
+   Photo Page Intro with Gradient
    ======================================== */
+.photo-intro-gradient {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(to bottom, var(--highlight-color) 0%, var(--highlight-color) 40%, var(--content-bg, white) 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+    .photo-intro-gradient {
+        background: linear-gradient(to bottom, var(--highlight-color) 0%, var(--highlight-color) 40%, var(--content-bg, #050505) 100%);
+    }
+}
+
 .photo-page-intro {
     padding: 120px 4vw 80px 4vw;
     max-width: 800px;
