@@ -33,6 +33,10 @@
     .photo-intro-gradient {
         padding-top: 80px;
     }
+
+    .photo-page-intro h3 {
+        font-size: 3rem;
+    }
 }
 
 /* Mobile */
@@ -40,12 +44,21 @@
     .photo-intro-gradient {
         padding-top: 70px;
     }
+
+    .photo-page-intro h3 {
+        font-size: 1.84375rem;
+    }
 }
 
 .photo-page-intro {
     padding: 40px 4vw;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+}
+
+/* Match large-intro-text sizing */
+.photo-page-intro h3 {
+    font-size: min(3vw, 63px);
 }
 
 /* ========================================
