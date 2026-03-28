@@ -3,13 +3,30 @@
 // Get the limit from shortcode attributes
 $limit = isset($atts['limit']) ? intval($atts['limit']) : 5;
 
-// Query most recent stories
-$stories_query = new WP_Query([
+// Build query args - exclude photo-* categories
+$query_args = [
     'post_type' => 'story',
     'posts_per_page' => $limit,
     'orderby' => 'date',
     'order' => 'DESC'
-]);
+];
+
+// Exclude photo-* categories if the helper function exists
+if (function_exists('get_photo_category_slugs')) {
+    $photo_slugs = get_photo_category_slugs();
+    if (!empty($photo_slugs)) {
+        $query_args['tax_query'] = [
+            [
+                'taxonomy' => 'story_category',
+                'field' => 'slug',
+                'terms' => $photo_slugs,
+                'operator' => 'NOT IN'
+            ]
+        ];
+    }
+}
+
+$stories_query = new WP_Query($query_args);
 
 $stories = [];
 
