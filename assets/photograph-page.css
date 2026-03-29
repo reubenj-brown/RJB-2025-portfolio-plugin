@@ -45,13 +45,17 @@
         padding-top: 70px;
     }
 
+    .photo-page-intro {
+        padding: 40px 4vw;
+    }
+
     .photo-page-intro h3 {
         font-size: 1.84375rem;
     }
 }
 
 .photo-page-intro {
-    padding: 40px 4vw;
+    padding: 0;
     max-width: 900px;
     margin: 0 auto;
 }
