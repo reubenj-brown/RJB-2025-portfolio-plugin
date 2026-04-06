@@ -65,6 +65,12 @@
     font-size: min(3vw, 63px);
 }
 
+/* Override strategy-intro padding on photography page */
+.photo-intro-gradient .strategy-intro {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 /* ========================================
    Photo Type (Section Container)
    ======================================== */
