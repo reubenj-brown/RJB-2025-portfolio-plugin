@@ -71,6 +71,11 @@
     padding-bottom: 0;
 }
 
+/* Even text wrap for photography intro */
+.strategy-intro-body h3 {
+    text-wrap: balance;
+}
+
 /* ========================================
    Photo Type (Section Container)
    ======================================== */
