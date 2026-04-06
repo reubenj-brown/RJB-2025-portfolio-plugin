@@ -19,12 +19,12 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    background: linear-gradient(to bottom, var(--highlight-color) 0%, var(--highlight-color) 40%, var(--content-bg, white) 100%);
+    background: linear-gradient(to bottom, var(--highlight-color) 0%, var(--highlight-color) 5%, var(--content-bg, white) 100%);
 }
 
 @media (prefers-color-scheme: dark) {
     .photo-intro-gradient {
-        background: linear-gradient(to bottom, var(--highlight-color) 0%, var(--highlight-color) 40%, var(--content-bg, #050505) 100%);
+        background: linear-gradient(to bottom, var(--highlight-color) 0%, var(--highlight-color) 5%, var(--content-bg, #050505) 100%);
     }
 }
 
