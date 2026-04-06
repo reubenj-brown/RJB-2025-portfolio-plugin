@@ -132,7 +132,7 @@
     font-size: 14px;
     font-weight: 400;
     color: var(--text-color-muted);
-    margin: 0 0 12px 0;
+    margin: 0;
 }
 
 /* Remove arrow from story-meta on photo page */
@@ -152,7 +152,7 @@
     font-weight: 400;
     color: var(--highlight-color);
     text-decoration: none;
-    margin-top: 8px;
+    margin: 8px 0 12px 0;
     transition: opacity 0.12s ease;
 }
 
