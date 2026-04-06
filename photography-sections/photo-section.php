@@ -54,7 +54,7 @@ if (!$photo_query->have_posts()) {
             $meta_parts[] = 'for <i>' . esc_html($metadata['publication']) . '</i>';
         }
         if (!empty($metadata['publish_date'])) {
-            $meta_parts[] = 'in ' . esc_html($metadata['publish_date']);
+            $meta_parts[] = esc_html($metadata['publish_date']);
         }
         $meta_string = implode(' ', $meta_parts);
 

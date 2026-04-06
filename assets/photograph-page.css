@@ -135,6 +135,11 @@
     margin: 0 0 12px 0;
 }
 
+/* Remove arrow from story-meta on photo page */
+.photo-title .story-meta::after {
+    content: "";
+}
+
 .photo-title .story-meta i {
     font-style: italic;
 }
