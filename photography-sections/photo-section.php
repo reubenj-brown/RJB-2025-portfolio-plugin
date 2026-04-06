@@ -45,18 +45,18 @@ if (!$photo_query->have_posts()) {
         $story_id = get_the_ID();
         $metadata = function_exists('get_story_metadata') ? get_story_metadata($story_id) : array();
 
-        // Build meta string
-        $meta_parts = array();
-        if (!empty($metadata['medium'])) {
-            $meta_parts[] = esc_html($metadata['medium']);
-        }
+        // Build meta string (exclude medium on photography page)
+        $meta_string = '';
         if (!empty($metadata['publication'])) {
-            $meta_parts[] = 'for <i>' . esc_html($metadata['publication']) . '</i>';
+            $meta_string .= '<i>' . esc_html($metadata['publication']) . '</i>';
+            // Add comma after publication if there's also a date
+            if (!empty($metadata['publish_date'])) {
+                $meta_string .= ', ';
+            }
         }
         if (!empty($metadata['publish_date'])) {
-            $meta_parts[] = esc_html($metadata['publish_date']);
+            $meta_string .= esc_html($metadata['publish_date']);
         }
-        $meta_string = implode(' ', $meta_parts);
 
         // Get images from photo_gallery_urls field (one URL per line)
         $images = array();
