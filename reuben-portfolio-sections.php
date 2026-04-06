@@ -171,6 +171,16 @@ class ReubenPortfolioSections {
                         'placeholder' => 'A brief description of this photo set...',
                     ),
                     array(
+                        'key' => 'field_photo_read_more_button',
+                        'label' => 'Photography page read more button?',
+                        'name' => 'photo_read_more_button',
+                        'type' => 'true_false',
+                        'instructions' => 'Show a "Read more →" button on the photography page that links to the full story.',
+                        'required' => 0,
+                        'default_value' => 0,
+                        'ui' => 1,
+                    ),
+                    array(
                         'key' => 'field_hero_video_url',
                         'label' => 'Hero Video URL',
                         'name' => 'hero_video_url',

@@ -77,10 +77,6 @@
     text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
 }
 
-.photo-primary-meta::after {
-    content: " →";
-}
-
 .photo-primary-meta i {
     color: white !important;
     font-weight: 600;

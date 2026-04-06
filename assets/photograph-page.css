@@ -132,11 +132,32 @@
     font-size: 14px;
     font-weight: 400;
     color: var(--text-color-muted);
-    margin: 0;
+    margin: 0 0 12px 0;
 }
 
 .photo-title .story-meta i {
     font-style: italic;
+}
+
+/* Read More Button (Photo Page) */
+.photo-read-more-pill {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--highlight-color);
+    border: 1px solid var(--highlight-color);
+    border-radius: 25px;
+    text-decoration: none;
+    font-family: var(--primary-font) !important;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    transition: all 0.12s ease;
+    margin-top: 4px;
+}
+
+.photo-read-more-pill:hover {
+    background: white;
+    color: #000;
 }
 
 /* ========================================

@@ -96,6 +96,13 @@ if (!$photo_query->have_posts()) {
                 <?php if (!empty($meta_string)) : ?>
                     <p class="story-meta"><?php echo $meta_string; ?></p>
                 <?php endif; ?>
+
+                <?php
+                // Show "Read more" button if checkbox is checked
+                $show_read_more = get_field('photo_read_more_button', $story_id);
+                if ($show_read_more) : ?>
+                    <a href="<?php echo esc_url(get_permalink($story_id)); ?>" class="photo-read-more-pill">Read more →</a>
+                <?php endif; ?>
             </div>
 
             <div class="photo-scroll">
