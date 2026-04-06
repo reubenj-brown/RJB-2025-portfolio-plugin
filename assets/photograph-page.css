@@ -149,6 +149,7 @@
     font-family: var(--serif-font);
     font-size: 1.5rem;
     font-weight: 400;
+    font-style: italic;
     color: var(--highlight-color);
     text-decoration: none;
     margin: 0 0 12px 0;
