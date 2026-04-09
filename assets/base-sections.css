@@ -192,6 +192,18 @@ p.story-meta i{
     color: var(--link-hover-color);
 }
 
+/* Ensure links in display headline maintain highlight color */
+.display-headline a,
+.strategy-intro-headline a {
+    color: var(--link-hover-color) !important;
+    text-decoration: none;
+}
+
+.display-headline a:hover,
+.strategy-intro-headline a:hover {
+    opacity: 0.7;
+}
+
 /* Strategy Intro */
 .strategy-intro {
     align-items: center;
