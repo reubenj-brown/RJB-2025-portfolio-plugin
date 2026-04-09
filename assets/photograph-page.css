@@ -379,8 +379,8 @@
 }
 
 .photo-lightbox-image {
-    max-height: 90vh;
-    max-width: 90vw;
+    max-height: 96vh;
+    max-width: 96vw;
     object-fit: contain;
 }
 
