@@ -462,7 +462,7 @@ class ReubenPortfolioSections {
             'stories' => array('title' => 'Stories', 'category' => 'photo-stories'),
             'portraits' => array('title' => 'Portraits', 'category' => 'photo-portraits'),
             'infrastructure' => array('title' => 'Infrastructure', 'category' => 'photo-infrastructure'),
-            'events' => array('title' => 'Events', 'category' => 'photo-events'),
+            'politics' => array('title' => 'Politics', 'category' => 'photo-politics'),
             'cities' => array('title' => 'Cities', 'category' => 'photo-cities'),
             'landscapes' => array('title' => 'Landscapes', 'category' => 'photo-landscapes'),
         );

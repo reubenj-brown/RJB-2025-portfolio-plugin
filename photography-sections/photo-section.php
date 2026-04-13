@@ -4,7 +4,7 @@
  * Renders a photography section by querying story posts in a specific category
  *
  * Expected variables:
- * - $section_type: string (photo-stories, photo-portraits, photo-infrastructure, photo-events, photo-cities, photo-landscapes)
+ * - $section_type: string (photo-stories, photo-portraits, photo-infrastructure, photo-politics, photo-cities, photo-landscapes)
  * - $section_title: string (display title for the section)
  */
 
