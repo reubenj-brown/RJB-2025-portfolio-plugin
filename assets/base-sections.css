@@ -3,15 +3,38 @@
 
 /* CSS Variables - Primary definitions for portfolio sections */
 :root {
-    --content-bg: white;
-    --main-content-bg: white;
-    --text-color: #000;
-    --text-color-muted: #808080;
-    --link-color: #808080;
-    --link-hover-color: #39e58f;
-    --caption-bg: rgba(255, 255, 255, 0.9);
-    --h3-link-color: rgba(128, 128, 128, 0.5);
-    --section-heading-color: #808080;
+--content-bg: white;
+--main-content-bg: white;
+--text-color: #000;
+--text-color-muted: #808080;
+--link-color: #808080;
+--link-hover-color: #39e58f;
+--caption-bg: rgba(255, 255, 255, 0.9);
+--h3-link-color: #808080;
+--section-heading-color: #808080;
+
+     /*Greens*/
+  --highlight-color: #39e58f;
+  --cr-lime: #39e58f;
+  --cr-sprite: #d1ffe8; 
+  --cr-palm: #38b04a;
+
+  /*Warms*/
+  --cr-cherry: #ff193b;
+  --cr-sakura: #ffccd4;
+  
+  --cr-mango: #ffba1a;
+  --cr-page: #fff9f2;
+  
+  --cr-jaffna: #ff811a;
+
+  /*Blues*/
+  --cr-navy: #0a2066; 
+  --cr-cobalt: #003cff;
+  --cr-delft: #809eff;
+  --cr-lavender: #f5f9fc;
+  --cr-powder: #339fff;
+    
 }
 
 @media (prefers-color-scheme: dark) {
