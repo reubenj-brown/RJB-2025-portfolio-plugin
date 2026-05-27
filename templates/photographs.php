@@ -4,10 +4,10 @@
         <div class="photographs-content">
             <div class="strategy-intro">
                 <div class="strategy-intro-headline">
-                    <span class="display-headline"><a href="/photography">Photography</a></span>
+                    <span class="display-headline">Photography</span>
                 </div>
                 <div class="strategy-intro-body">
-                    <h3>I’ve freelanced for <i>The Wall Street Journal</i> and been published in <i>Icarus Complex</i>. I’ve worked as a photo assistant for editorial and TV clients, and am a member of the LA Press Photographers Association</h3>
+                    <h3>I’ve freelanced for <i>The Wall Street Journal</i> and been published in <i>Icarus Complex</i>. I’ve worked as a photo assistant for editorial and TV clients, and am a member of the LA Press Photographers Association. <i><a href="/photography">See more →</a></i></h3>
                 </div>
             </div> 
             <?php
