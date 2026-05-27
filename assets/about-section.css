@@ -37,6 +37,7 @@
 /* Large intro text */
 .about-intro {
     margin-bottom: 4rem;
+    text-wrap: balance;
 }
 
 .large-intro-text {
