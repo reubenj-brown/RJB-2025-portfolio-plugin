@@ -12,6 +12,25 @@
 }
 
 /* Primary Full-Width Story */
+
+/* Hover effect matching homepage hero section */
+.photo-primary-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.photo-primary-link:hover {
+    transform: translateY(-2px);
+}
+
+.photo-primary-link:hover .photo-primary-overlay h1,
+.photo-primary-link:hover .photo-primary-standfirst,
+.photo-primary-link:hover .photo-primary-overlay .story-meta {
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
 .photo-primary-container {
     width: 96vw;
     margin: 0 auto 2rem auto;
