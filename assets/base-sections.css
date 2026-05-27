@@ -1,55 +1,7 @@
 /* Base Portfolio Sections CSS */
 /* Shared styles for all sections */
 
-/* CSS Variables - Primary definitions for portfolio sections */
-:root {
---content-bg: white;
---main-content-bg: white;
---text-color: #000;
---text-color-muted: #808080;
---link-color: #808080;
---link-hover-color: #39e58f;
---caption-bg: rgba(255, 255, 255, 0.9);
---h3-link-color: #808080;
---section-heading-color: #808080;
-
-     /*Greens*/
-  --highlight-color: #39e58f;
-  --cr-lime: #39e58f;
-  --cr-sprite: #d1ffe8; 
-  --cr-palm: #38b04a;
-
-  /*Warms*/
-  --cr-cherry: #ff193b;
-  --cr-sakura: #ffccd4;
-  
-  --cr-mango: #ffba1a;
-  --cr-page: #fff9f2;
-  
-  --cr-jaffna: #ff811a;
-
-  /*Blues*/
-  --cr-navy: #0a2066; 
-  --cr-cobalt: #003cff;
-  --cr-delft: #809eff;
-  --cr-lavender: #f5f9fc;
-  --cr-powder: #339fff;
-    
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --content-bg: #050505;
-        --main-content-bg: #050505;
-        --text-color: white;
-        --text-color-muted: #a8a8a8;
-        --link-color: white;
-        --link-hover-color: #39e58f;
-        --caption-bg: rgba(5, 5, 5, 0.9);
-        --h3-link-color: #a8a8a8;
-        --section-heading-color: #808080;
-    }
-}
+/* CSS variables are defined in the theme's style.css — no re-declarations here. */
 
 /* ========================================================================
    RESPONSIVE BREAKPOINT REFERENCE - SINGLE SOURCE OF TRUTH
@@ -108,14 +60,6 @@
 
 /* Unified Typography System */
 /* Supermax - Major section titles */
-a {
-    color: var(--link-color);
-}
-
-a:hover {
-    color: var(--link-hover-color);
-}
-
 h1 {
     font-family: var(--compressed-font) !important;
     font-size: 6rem;
