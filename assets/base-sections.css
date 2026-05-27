@@ -157,7 +157,7 @@ p.story-meta i{
     font-size: 8vw;
     line-height: 1.2 !important;
     font-weight: 400 !important;
-    color: var(--link-hover-color);
+    color: var(--text-color);
 }
 
 /* Ensure links in display headline maintain highlight color */
