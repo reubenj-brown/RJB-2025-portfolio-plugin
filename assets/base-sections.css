@@ -117,7 +117,7 @@ a:hover {
 }
 
 h1 {
-    font-family: var(--compressed-font);
+    font-family: var(--compressed-font) !important;
     font-size: 6rem;
     font-weight: 400;
     font-style: normal;
@@ -129,7 +129,7 @@ h1 {
 
 /* Headline - Main content headings */
 h2 {
-    font-family: var(--serif-font);
+    font-family: var(--serif-font) !important;
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.2;
@@ -139,7 +139,7 @@ h2 {
 
 /* Standfirst - Sub-headings, emphasis text */
 h3 {
-    font-family: var(--serif-font);
+    font-family: var(--serif-font) !important;
     font-size: 1.875rem;
     font-weight: 400;
     line-height: 1.3;
