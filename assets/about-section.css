@@ -6,24 +6,6 @@
     background: transparent !important;
 }
 
-.content-section.about-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -2vw;
-    right: -2vw;
-    bottom: 0;
-    background: linear-gradient(to bottom, #39e58f 0%, #39e58f 60%, var(--content-bg) 100%);
-    z-index: -1;
-}
-
-/* Mobile: extend gradient to screen edges - See breakpoint reference in base-sections.css */
-@media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
-    .content-section.about-section::before {
-        left: -4vw;
-        right: -4vw;
-    }
-}
 
 .about-content {
     width: 100%;
