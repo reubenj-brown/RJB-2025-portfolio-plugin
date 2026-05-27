@@ -126,10 +126,6 @@
 
 /* Tablet + Mobile: horizontal scroller */
 @media (max-width: 1200px) {
-    .video-projects-content {
-        overflow: visible;
-    }
-
     .video-grid {
         display: flex;
         overflow-x: auto;
@@ -138,7 +134,7 @@
         scrollbar-width: thin;
         gap: 16px;
         padding-bottom: 1rem;
-        margin-right: -2vw;
+        padding-right: 2vw;
     }
 
     .video-grid::-webkit-scrollbar {
@@ -165,22 +161,18 @@
     }
 
     .video-item:last-child {
-        margin-right: 2vw;
+        margin-right: 0;
     }
 }
 
 /* Mobile Responsive - See breakpoint reference in base-sections.css */
 @media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
     .video-grid {
-        margin-right: -4vw;
+        padding-right: 4vw;
     }
 
     .video-item {
         flex: 0 0 200px;
-    }
-
-    .video-item:last-child {
-        margin-right: 4vw;
     }
 
     .video-item .story-content h2 {
