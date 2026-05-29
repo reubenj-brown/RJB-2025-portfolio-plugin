@@ -5,14 +5,15 @@
  */
 
 // Get stories from WordPress using the helper function from theme
-$stories_query = function_exists('get_portfolio_stories') 
-    ? get_portfolio_stories($atts['category'], intval($atts['limit']))
+$order = in_array(strtoupper($atts['order']), ['ASC', 'DESC']) ? strtoupper($atts['order']) : 'DESC';
+$stories_query = function_exists('get_portfolio_stories')
+    ? get_portfolio_stories($atts['category'], intval($atts['limit']), null, $order)
     : new WP_Query([
         'post_type' => 'story',
         'posts_per_page' => intval($atts['limit']),
         'post_status' => 'publish',
         'orderby' => 'date',
-        'order' => 'DESC'
+        'order' => $order
     ]);
 
 $show_excerpt = $atts['show_excerpt'] === 'true';

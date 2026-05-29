@@ -506,7 +506,8 @@ class ReubenPortfolioSections {
             'layout' => 'grid', // grid, list, featured
             'show_excerpt' => 'true',
             'show_meta' => 'true',
-            'show_view_all' => 'false'
+            'show_view_all' => 'false',
+            'order' => 'DESC'
         ], $atts);
         
         ob_start();
