@@ -35,6 +35,10 @@
     text-align: center;
 }
 
+.features-story-main .story-content h1 {
+    line-height: 0.9;
+}
+
 /* Ensure headlines use text color */
 .features-story-main h1 a,
 .features-story-small h2 a {
