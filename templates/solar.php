@@ -11,7 +11,7 @@
     <section class="content-section">
         <div class="section-container">
             <div class="stories-content">
-                <?php echo do_shortcode('[reuben_dynamic_stories category="solar" layout="grid" limit="3" show_view_all="false" show_excerpt="true"]'); ?>
+                <?php echo do_shortcode('[reuben_dynamic_stories category="cracking-the-sun" layout="grid" limit="3" show_view_all="false" show_excerpt="true"]'); ?>
             </div>
         </div>
     </section>
