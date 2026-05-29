@@ -1,5 +1,9 @@
 /* Solar Special Report Section Styles */
 
+.solar-section .strategy-intro {
+    padding-bottom: 4rem;
+}
+
 /* Desktop: 3-wide grid */
 .solar-section .stories-grid {
     grid-template-columns: repeat(3, 1fr);

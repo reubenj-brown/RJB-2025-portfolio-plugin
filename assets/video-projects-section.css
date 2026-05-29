@@ -1,5 +1,9 @@
 /* Video Projects Section Styles */
 
+.video-projects-content .strategy-intro {
+    padding-bottom: 4rem;
+}
+
 .video-projects-content {
     width: 100%;
     max-width: 100%;
