@@ -4,6 +4,16 @@
     padding-bottom: 4rem;
 }
 
+.solar-kicker {
+    font-family: var(--primary-font);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cr-lime);
+    margin-bottom: 0.75rem;
+}
+
 /* Desktop: 3-wide grid */
 .solar-section .stories-grid {
     grid-template-columns: repeat(3, 1fr);

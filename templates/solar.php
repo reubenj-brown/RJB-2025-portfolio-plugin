@@ -2,6 +2,7 @@
 <div class="solar-section">
     <div class="strategy-intro">
         <div class="strategy-intro-headline">
+            <p class="solar-kicker">Special report</p>
             <span class="display-headline">Cracking the Sun</span>
         </div>
     </div>
