@@ -48,6 +48,7 @@ class ReubenPortfolioSections {
         add_shortcode('reuben_strategy', [$this, 'strategy_section']);
         add_shortcode('reuben_cv', [$this, 'cv_section']);
         add_shortcode('reuben_cronkite', [$this, 'cronkite_section']);
+        add_shortcode('reuben_solar', [$this, 'solar_section']);
         add_shortcode('reuben_video_projects', [$this, 'video_projects_section']);
 
         // Dynamic stories shortcode
@@ -324,6 +325,13 @@ class ReubenPortfolioSections {
             );
 
             wp_enqueue_style(
+                'reuben-solar-section',
+                plugin_dir_url(__FILE__) . 'assets/solar-section.css',
+                ['reuben-base-sections'],
+                '1.0.0'
+            );
+
+            wp_enqueue_style(
                 'reuben-video-projects-section',
                 plugin_dir_url(__FILE__) . 'assets/video-projects-section.css',
                 ['reuben-base-sections'],
@@ -436,6 +444,12 @@ class ReubenPortfolioSections {
     public function cronkite_section($atts) {
         ob_start();
         include plugin_dir_path(__FILE__) . 'templates/cronkite.php';
+        return ob_get_clean();
+    }
+
+    public function solar_section($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/solar.php';
         return ob_get_clean();
     }
 
