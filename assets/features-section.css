@@ -4,6 +4,7 @@
     align-items: flex-start;
     position: relative;
     background: transparent !important;
+    padding-top: 4rem;
 }
 
 .features-section::before {
