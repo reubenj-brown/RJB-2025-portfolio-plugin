@@ -1,5 +1,10 @@
 <!-- Solar Special Report Section -->
 <div class="solar-section">
+    <div class="strategy-intro">
+        <div class="strategy-intro-headline">
+            <span class="display-headline">Cracking the Sun</span>
+        </div>
+    </div>
     <section class="content-section">
         <div class="section-container">
             <div class="stories-content">
