@@ -1,11 +1,19 @@
 <!-- Featured Story Full Bleed -->
+<?php
+$hero_fallback = home_url('/wp-content/uploads/2025/11/reuben-j-brown-almeria-greenhouses-el-ejido-agriculture.avif');
+$hero_video    = home_url('/wp-content/uploads/2025/07/Eviction-of-Cortijo-El-Uno-Almeria-Spain-Greenhouse-Farms-Invernadero-Reuben-J-Brown.mp4');
+?>
 <section class="featured-story-full-bleed" id="top">
-    <div class="full-bleed-background"
-         data-fallback-image="<?php echo esc_url(home_url('/wp-content/uploads/2025/11/reuben-j-brown-almeria-greenhouses-el-ejido-agriculture.avif')); ?>">
-        <video autoplay muted loop playsinline>
-            <source src="<?php echo esc_url(home_url('/wp-content/uploads/2025/07/Eviction-of-Cortijo-El-Uno-Almeria-Spain-Greenhouse-Farms-Invernadero-Reuben-J-Brown.mp4')); ?>" type="video/mp4">
-        </video>
-        <div class="fallback-image" style="background-image: url('<?php echo esc_url(home_url('/wp-content/uploads/2025/11/reuben-j-brown-almeria-greenhouses-el-ejido-agriculture.avif')); ?>')"></div>
+    <div class="full-bleed-background">
+        <!-- AVIF still is the LCP element: loaded eagerly at high priority -->
+        <img class="fallback-image"
+             src="<?php echo esc_url($hero_fallback); ?>"
+             alt=""
+             width="2560" height="1600"
+             fetchpriority="high" decoding="async">
+        <!-- Video is deferred: source attached + played by JS after window load -->
+        <video class="full-bleed-video" muted loop playsinline preload="none"
+               data-src="<?php echo esc_url($hero_video); ?>"></video>
     </div>
     <div class="full-bleed-content">
         <div class="story-text">
@@ -20,70 +28,46 @@
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
     const video = document.querySelector('.featured-story-full-bleed video');
     const background = document.querySelector('.full-bleed-background');
+    if (!video || !background) return;
 
-    if (video && background) {
-        // Check if video element can play - if not, show fallback immediately
-        if (video.error || !video.canPlayType || !video.canPlayType('video/mp4')) {
-            console.log('Video not supported or has error, showing fallback image');
-            background.classList.add('video-error');
-        }
+    // The AVIF still is already painted (LCP). Only start the video once the
+    // page has finished loading so it never competes with the critical path.
+    function loadHeroVideo() {
+        // Bail out gracefully on unsupported / save-data / very slow connections.
+        if (!video.canPlayType || !video.canPlayType('video/mp4')) return;
+        const conn = navigator.connection;
+        if (conn && (conn.saveData || /^(slow-2g|2g)$/.test(conn.effectiveType || ''))) return;
 
-        // Handle video load errors
-        video.addEventListener('error', function() {
-            console.log('Video failed to load, showing fallback image');
-            background.classList.add('video-error');
-        });
+        video.src = video.dataset.src;
 
-        // Handle video stall/timeout (slow connection) - but only if video hasn't loaded yet
-        video.addEventListener('stalled', function() {
-            if (video.readyState < 3) { // Only show fallback if video hasn't loaded enough data
-                console.log('Video stalled during loading, showing fallback image');
-                background.classList.add('video-error');
-            }
-        });
-
-        // Timeout fallback for very slow connections
-        const loadTimeout = setTimeout(function() {
-            if (video.readyState < 3) { // HAVE_FUTURE_DATA
-                console.log('Video load timeout, showing fallback image');
-                background.classList.add('video-error');
-            }
-        }, 3000); // 3 second timeout
-
-        // Clear timeout if video loads successfully
         video.addEventListener('canplaythrough', function() {
-            clearTimeout(loadTimeout);
-            background.classList.remove('video-error');
-            background.classList.add('video-loaded');
-            console.log('Video loaded successfully, hiding fallback image');
+            background.classList.add('video-loaded'); // fades the AVIF out via CSS
         });
-
-        // Ensure video keeps looping and playing
-        video.addEventListener('ended', function() {
-            video.currentTime = 0;
-            video.play();
-        });
-
-        // Handle video pause (ensure it restarts)
+        // Keep it looping/playing.
+        video.addEventListener('ended', function() { video.currentTime = 0; video.play(); });
         video.addEventListener('pause', function() {
-            if (!background.classList.contains('video-error')) {
-                video.play();
-            }
+            if (background.classList.contains('video-loaded')) video.play();
         });
+        // On any failure just leave the AVIF still showing.
+        video.addEventListener('error', function() { background.classList.remove('video-loaded'); });
 
-        // Also handle if video source fails to load
-        video.addEventListener('loadstart', function() {
-            const source = video.querySelector('source');
-            if (source) {
-                source.addEventListener('error', function() {
-                    console.log('Video source failed to load, showing fallback image');
-                    background.classList.add('video-error');
-                });
-            }
-        });
+        video.load();
+        const p = video.play();
+        if (p && p.catch) p.catch(function() {});
     }
-});
+
+    function schedule() {
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadHeroVideo, { timeout: 2000 });
+        } else {
+            setTimeout(loadHeroVideo, 200);
+        }
+    }
+
+    if (document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule);
+})();
 </script>

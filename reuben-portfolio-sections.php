@@ -13,9 +13,6 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Debug: Log when plugin file is loaded
-error_log('ReubenPortfolioSections: Plugin file loaded at ' . date('Y-m-d H:i:s'));
-
 class ReubenPortfolioSections {
     
     public function __construct() {
@@ -31,9 +28,6 @@ class ReubenPortfolioSections {
 
         // Register meta field for REST API
         add_action('rest_api_init', [$this, 'register_media_source_rest_field']);
-        
-        // Debug: Log that plugin is loaded
-        error_log('ReubenPortfolioSections: Plugin constructor loaded');
     }
     
     public function register_shortcodes() {
@@ -256,87 +250,108 @@ class ReubenPortfolioSections {
         ]);
     }
 
+    /**
+     * Section CSS files that make up the portfolio/homepage bundle.
+     * base-sections.css MUST stay first (others rely on its variables/resets).
+     */
+    private function portfolio_css_files() {
+        return [
+            'base-sections.css',
+            'about-section.css',
+            'features-section.css',
+            'stories-section.css',
+            'cv-section.css',
+            'featured-story-full-bleed.css',
+            'photographs-section.css',
+            'reviews-section.css',
+            'cronkite-section.css',
+            'solar-section.css',
+            'video-projects-section.css',
+        ];
+    }
+
+    /**
+     * filemtime-based cache-busting version for an asset (falls back to plugin version).
+     */
+    private function asset_ver($file) {
+        $path = plugin_dir_path(__FILE__) . 'assets/' . $file;
+        return file_exists($path) ? filemtime($path) : '1.3';
+    }
+
+    /**
+     * Concatenate the portfolio section CSS into one cached file in uploads/.
+     * Rebuilt automatically whenever any source file changes. Returns false if
+     * the combined file can't be written (caller falls back to individual files).
+     *
+     * @return array|false ['url' => ..., 'ver' => ...] or false
+     */
+    private function combined_portfolio_css() {
+        $files     = $this->portfolio_css_files();
+        $asset_dir = plugin_dir_path(__FILE__) . 'assets/';
+
+        $upload     = wp_upload_dir();
+        if (!empty($upload['error'])) {
+            return false;
+        }
+        $cache_dir  = trailingslashit($upload['basedir']) . 'reuben-portfolio';
+        $cache_file = $cache_dir . '/portfolio-combined.css';
+        $cache_url  = trailingslashit($upload['baseurl']) . 'reuben-portfolio/portfolio-combined.css';
+
+        // Newest source modification time.
+        $latest = 0;
+        foreach ($files as $f) {
+            $path = $asset_dir . $f;
+            if (file_exists($path)) {
+                $latest = max($latest, (int) filemtime($path));
+            }
+        }
+
+        // (Re)build when missing or any source is newer than the cached bundle.
+        if (!file_exists($cache_file) || filemtime($cache_file) < $latest) {
+            if (!file_exists($cache_dir) && !wp_mkdir_p($cache_dir)) {
+                return false;
+            }
+            $combined = '';
+            foreach ($files as $f) {
+                $path = $asset_dir . $f;
+                if (file_exists($path)) {
+                    $combined .= "\n/* ===== {$f} ===== */\n" . file_get_contents($path) . "\n";
+                }
+            }
+            if (file_put_contents($cache_file, $combined) === false) {
+                return false;
+            }
+        }
+
+        return ['url' => $cache_url, 'ver' => filemtime($cache_file)];
+    }
+
+    /**
+     * Fallback: enqueue the section CSS as individual files (used only if the
+     * combined bundle can't be generated).
+     */
+    private function enqueue_portfolio_css_individually() {
+        wp_enqueue_style('reuben-base-sections', plugin_dir_url(__FILE__) . 'assets/base-sections.css', [], $this->asset_ver('base-sections.css'));
+        foreach ($this->portfolio_css_files() as $f) {
+            if ($f === 'base-sections.css') {
+                continue;
+            }
+            $handle = 'reuben-' . basename($f, '.css');
+            wp_enqueue_style($handle, plugin_dir_url(__FILE__) . 'assets/' . $f, ['reuben-base-sections'], $this->asset_ver($f));
+        }
+    }
+
     public function enqueue_styles() {
         // Load on portfolio pages and story archive
         if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page() || is_post_type_archive('story') || is_tax('story_category')) {
-            // Base styles for all sections
-            wp_enqueue_style(
-                'reuben-base-sections',
-                plugin_dir_url(__FILE__) . 'assets/base-sections.css',
-                [],
-                '1.0.0'
-            );
-
-            // Individual section styles
-            wp_enqueue_style(
-                'reuben-about-section',
-                plugin_dir_url(__FILE__) . 'assets/about-section.css',
-                ['reuben-base-sections'],
-                '1.0.0'
-            );
-
-            wp_enqueue_style(
-                'reuben-features-section',
-                plugin_dir_url(__FILE__) . 'assets/features-section.css',
-                ['reuben-base-sections'],
-                '1.0.0'
-            );
-
-            wp_enqueue_style(
-                'reuben-stories-section',
-                plugin_dir_url(__FILE__) . 'assets/stories-section.css',
-                ['reuben-base-sections'],
-                '1.0.0'
-            );
-
-            wp_enqueue_style(
-                'reuben-cv-section',
-                plugin_dir_url(__FILE__) . 'assets/cv-section.css',
-                ['reuben-base-sections'],
-                '1.0.0'
-            );
-
-            wp_enqueue_style(
-                'reuben-featured-story-full-bleed',
-                plugin_dir_url(__FILE__) . 'assets/featured-story-full-bleed.css',
-                ['reuben-base-sections'],
-                '1.0.0'
-            );
-
-            wp_enqueue_style(
-                'reuben-photographs-section',
-                plugin_dir_url(__FILE__) . 'assets/photographs-section.css',
-                ['reuben-base-sections'],
-                '3.3.0'
-            );
-
-            wp_enqueue_style(
-                'reuben-reviews-section',
-                plugin_dir_url(__FILE__) . 'assets/reviews-section.css',
-                ['reuben-base-sections'],
-                '1.0.0'
-            );
-
-            wp_enqueue_style(
-                'reuben-cronkite-section',
-                plugin_dir_url(__FILE__) . 'assets/cronkite-section.css',
-                ['reuben-base-sections'],
-                '1.0.0'
-            );
-
-            wp_enqueue_style(
-                'reuben-solar-section',
-                plugin_dir_url(__FILE__) . 'assets/solar-section.css',
-                ['reuben-base-sections'],
-                '1.0.0'
-            );
-
-            wp_enqueue_style(
-                'reuben-video-projects-section',
-                plugin_dir_url(__FILE__) . 'assets/video-projects-section.css',
-                ['reuben-base-sections'],
-                '1.0.0'
-            );
+            // Serve one combined, cached stylesheet instead of ~10 render-blocking
+            // requests. Falls back to individual files if it can't be written.
+            $combined = $this->combined_portfolio_css();
+            if ($combined) {
+                wp_enqueue_style('reuben-portfolio-combined', $combined['url'], [], $combined['ver']);
+            } else {
+                $this->enqueue_portfolio_css_individually();
+            }
         }
 
         // Load only architecture scroller styles on story pages and story archive for more_stories shortcode
@@ -345,14 +360,14 @@ class ReubenPortfolioSections {
                 'reuben-base-sections',
                 plugin_dir_url(__FILE__) . 'assets/base-sections.css',
                 [],
-                '1.0.0'
+                $this->asset_ver('base-sections.css')
             );
 
             wp_enqueue_style(
                 'reuben-stories-section',
                 plugin_dir_url(__FILE__) . 'assets/stories-section.css',
                 ['reuben-base-sections'],
-                '1.0.0'
+                $this->asset_ver('stories-section.css')
             );
         }
 
@@ -362,14 +377,14 @@ class ReubenPortfolioSections {
                 'reuben-base-sections',
                 plugin_dir_url(__FILE__) . 'assets/base-sections.css',
                 [],
-                '1.0.0'
+                $this->asset_ver('base-sections.css')
             );
 
             wp_enqueue_style(
                 'reuben-photograph-page',
                 plugin_dir_url(__FILE__) . 'assets/photograph-page.css',
                 ['reuben-base-sections'],
-                '1.0.0'
+                $this->asset_ver('photograph-page.css')
             );
         }
     }
