@@ -87,7 +87,7 @@ if ($stories_query->have_posts()) {
                                         <?php echo !empty($story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo $story['metadata']['publication']; ?></i>
                                     <?php endif; ?>
                                     <?php if (!empty($story['metadata']['publish_date'])) : ?>
-                                        <?php echo !empty($story['metadata']['publication']) ? ' ⋅ ' : ''; ?>
+                                        <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
                                         <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
                                     <?php endif; ?>
                                 </p>

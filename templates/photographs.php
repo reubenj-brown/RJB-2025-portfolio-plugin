@@ -89,7 +89,7 @@
                                                     <?php echo !empty($first_story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo esc_html($first_story['metadata']['publication']); ?></i>
                                                 <?php endif; ?>
                                                 <?php if (!empty($first_story['metadata']['publish_date'])) : ?>
-                                                    <?php echo !empty($first_story['metadata']['publication']) ? ' ⋅ ' : ''; ?>
+                                                    <?php echo !empty($first_story['metadata']['publication']) ? ' in ' : ''; ?>
                                                     <?php echo date('F Y', strtotime($first_story['metadata']['publish_date'])); ?>
                                                 <?php endif; ?>
                                             </p>
@@ -124,7 +124,7 @@
                                                     <?php echo !empty($story['metadata']['medium']) ? ' for ' : 'For '; ?><i><?php echo esc_html($story['metadata']['publication']); ?></i>
                                                 <?php endif; ?>
                                                 <?php if (!empty($story['metadata']['publish_date'])) : ?>
-                                                    <?php echo !empty($story['metadata']['publication']) ? ' ⋅ ' : ''; ?>
+                                                    <?php echo !empty($story['metadata']['publication']) ? ' in ' : ''; ?>
                                                     <?php echo date('F Y', strtotime($story['metadata']['publish_date'])); ?>
                                                 <?php endif; ?>
                                             </p>

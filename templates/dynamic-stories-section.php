@@ -62,7 +62,7 @@ $show_meta = $atts['show_meta'] === 'true';
                                     <?php echo !empty($meta['medium']) ? ' for ' : 'For '; ?><i><?php echo esc_html($meta['publication']); ?></i>
                                 <?php endif; ?>
                                 <?php if (!empty($meta['publish_date'])) : ?>
-                                    <?php echo !empty($meta['publication']) ? ' ⋅ ' : ''; ?>
+                                    <?php echo !empty($meta['publication']) ? ' in ' : ''; ?>
                                     <?php echo esc_html($meta['publish_date']); ?>
                                 <?php endif; ?>
                             </p>
@@ -111,7 +111,7 @@ $show_meta = $atts['show_meta'] === 'true';
                                                     <?php echo !empty($meta['medium']) ? ' for ' : 'For '; ?><i><?php echo esc_html($meta['publication']); ?></i>
                                                 <?php endif; ?>
                                                 <?php if (!empty($meta['publish_date'])) : ?>
-                                                    <?php echo !empty($meta['publication']) ? ' ⋅ ' : ''; ?>
+                                                    <?php echo !empty($meta['publication']) ? ' in ' : ''; ?>
                                                     <?php echo esc_html($meta['publish_date']); ?>
                                                 <?php endif; ?>
                                             </p>
@@ -147,7 +147,7 @@ $show_meta = $atts['show_meta'] === 'true';
                                                 <?php echo !empty($meta['medium']) ? ' for ' : 'For '; ?><i><?php echo esc_html($meta['publication']); ?></i>
                                             <?php endif; ?>
                                             <?php if (!empty($meta['publish_date'])) : ?>
-                                                <?php echo !empty($meta['publication']) ? ' ⋅ ' : ''; ?>
+                                                <?php echo !empty($meta['publication']) ? ' in ' : ''; ?>
                                                 <?php echo esc_html($meta['publish_date']); ?>
                                             <?php endif; ?>
                                         </p>
@@ -193,7 +193,7 @@ $show_meta = $atts['show_meta'] === 'true';
                                                     <?php echo !empty($meta['medium']) ? ' for ' : 'For '; ?><i><?php echo esc_html($meta['publication']); ?></i>
                                                 <?php endif; ?>
                                                 <?php if (!empty($meta['publish_date'])) : ?>
-                                                    <?php echo !empty($meta['publication']) ? ' ⋅ ' : ''; ?>
+                                                    <?php echo !empty($meta['publication']) ? ' in ' : ''; ?>
                                                     <?php echo esc_html($meta['publish_date']); ?>
                                                 <?php endif; ?>
                                             </p>
