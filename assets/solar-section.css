@@ -11,7 +11,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--cr-cobalt);
-    margin-bottom: 0;
+    margin-bottom: -12px;
 }
 
 /* Desktop: 3-wide grid */
