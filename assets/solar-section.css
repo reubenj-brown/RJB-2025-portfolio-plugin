@@ -1,6 +1,7 @@
 /* Solar Special Report Section Styles */
 
 .solar-section .strategy-intro {
+    padding-top: 0;
     padding-bottom: 4rem;
 }
 
