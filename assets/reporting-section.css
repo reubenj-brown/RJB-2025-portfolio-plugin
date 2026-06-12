@@ -1,13 +1,13 @@
-/* Cronkite Section Styles */
+/* Reporting Section Styles */
 
 /* Desktop: 4-wide grid */
-.cronkite-section .stories-grid {
+.reporting-section .stories-grid {
     grid-template-columns: repeat(4, 1fr);
 }
 
 /* Tablet: 2-wide grid */
 @media (max-width: 1200px) {
-    .cronkite-section .stories-grid {
+    .reporting-section .stories-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
     }
@@ -15,7 +15,7 @@
 
 /* Mobile - horizontal scroller - match architecture scroller styling - See breakpoint reference in base-sections.css */
 @media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
-    .cronkite-section .stories-grid {
+    .reporting-section .stories-grid {
         display: flex;
         flex-direction: row;
         gap: 16px;
@@ -27,7 +27,7 @@
         -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
 
-    .cronkite-section .story-item {
+    .reporting-section .story-item {
         flex: 0 0 220px; /* Match architecture-scroll-item mobile width */
         display: flex;
         flex-direction: column;
@@ -35,27 +35,27 @@
     }
 
     /* Custom scrollbar styling - match architecture scroll */
-    .cronkite-section .stories-grid::-webkit-scrollbar {
+    .reporting-section .stories-grid::-webkit-scrollbar {
         height: 8px;
     }
 
-    .cronkite-section .stories-grid::-webkit-scrollbar-track {
+    .reporting-section .stories-grid::-webkit-scrollbar-track {
         background: #f1f1f1;
         border-radius: 4px;
     }
 
-    .cronkite-section .stories-grid::-webkit-scrollbar-thumb {
+    .reporting-section .stories-grid::-webkit-scrollbar-thumb {
         background: #c1c1c1;
         border-radius: 4px;
     }
 
-    .cronkite-section .stories-grid::-webkit-scrollbar-thumb:hover {
+    .reporting-section .stories-grid::-webkit-scrollbar-thumb:hover {
         background: #a1a1a1;
     }
 }
 
 @media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
-    .cronkite-section .story-item {
+    .reporting-section .story-item {
         flex: 0 0 220px; /* Match architecture-scroll-item small mobile width */
     }
 }

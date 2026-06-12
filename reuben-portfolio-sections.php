@@ -28,6 +28,9 @@ class ReubenPortfolioSections {
 
         // Register meta field for REST API
         add_action('rest_api_init', [$this, 'register_media_source_rest_field']);
+
+        // Load the interactive viz runtime as an ES module
+        add_filter('script_loader_tag', [$this, 'viz_module_type'], 10, 2);
     }
     
     public function register_shortcodes() {
@@ -41,9 +44,12 @@ class ReubenPortfolioSections {
         add_shortcode('reuben_photographs', [$this, 'photographs_section']);
         add_shortcode('reuben_strategy', [$this, 'strategy_section']);
         add_shortcode('reuben_cv', [$this, 'cv_section']);
-        add_shortcode('reuben_cronkite', [$this, 'cronkite_section']);
+        add_shortcode('reuben_reporting', [$this, 'reporting_section']);
         add_shortcode('reuben_solar', [$this, 'solar_section']);
         add_shortcode('reuben_video_projects', [$this, 'video_projects_section']);
+
+        // Interactive data-viz islands (Svelte + D3, built under interactive/)
+        add_shortcode('reuben_viz', [$this, 'viz_embed']);
 
         // Dynamic stories shortcode
         add_shortcode('reuben_dynamic_stories', [$this, 'dynamic_stories_section']);
@@ -264,7 +270,7 @@ class ReubenPortfolioSections {
             'featured-story-full-bleed.css',
             'photographs-section.css',
             'reviews-section.css',
-            'cronkite-section.css',
+            'reporting-section.css',
             'solar-section.css',
             'video-projects-section.css',
         ];
@@ -401,7 +407,73 @@ class ReubenPortfolioSections {
             );
         }
     }
-    
+
+    /**
+     * [reuben_viz id="solar-output" src="https://…/data.json" title="…"]
+     *
+     * Prints a placeholder div that the interactive runtime (interactive/dist/
+     * rjb-viz.js) hydrates with the matching Svelte island. The runtime is
+     * enqueued only on pages that actually use a viz. Any extra atts are passed
+     * through as data-* attributes and become props on the component.
+     */
+    public function viz_embed($atts) {
+        $atts = shortcode_atts([
+            'id'    => '',
+            'src'   => '',
+            'title' => '',
+            'class' => '',
+        ], $atts, 'reuben_viz');
+
+        if ($atts['id'] === '') {
+            return '';
+        }
+
+        $this->enqueue_viz_runtime();
+
+        $data = 'data-viz="' . esc_attr($atts['id']) . '"';
+        if ($atts['src'] !== '') {
+            $data .= ' data-src="' . esc_url($atts['src']) . '"';
+        }
+        if ($atts['title'] !== '') {
+            $data .= ' data-title="' . esc_attr($atts['title']) . '"';
+        }
+
+        $class = trim('rjb-viz ' . $atts['class']);
+
+        return '<div class="' . esc_attr($class) . '" ' . $data . '></div>';
+    }
+
+    /**
+     * Enqueue the compiled island runtime once per request. filemtime() is the
+     * version so a fresh build busts the cache automatically. No-op if dist/
+     * hasn't been built yet.
+     */
+    private function enqueue_viz_runtime() {
+        $rel  = 'interactive/dist/rjb-viz.js';
+        $path = plugin_dir_path(__FILE__) . $rel;
+        if (!file_exists($path)) {
+            return;
+        }
+        wp_enqueue_script(
+            'rjb-viz',
+            plugin_dir_url(__FILE__) . $rel,
+            [],
+            filemtime($path),
+            true
+        );
+    }
+
+    /**
+     * The runtime and its lazy chunks are ES modules, so the entry <script>
+     * needs type="module". WordPress has no native flag for this.
+     */
+    public function viz_module_type($tag, $handle) {
+        if ($handle === 'rjb-viz') {
+            $tag = str_replace('<script ', '<script type="module" ', $tag);
+        }
+        return $tag;
+    }
+
     public function about_section($atts) {
         ob_start();
         include plugin_dir_path(__FILE__) . 'templates/about-section.php';
@@ -456,9 +528,9 @@ class ReubenPortfolioSections {
         return ob_get_clean();
     }
 
-    public function cronkite_section($atts) {
+    public function reporting_section($atts) {
         ob_start();
-        include plugin_dir_path(__FILE__) . 'templates/cronkite.php';
+        include plugin_dir_path(__FILE__) . 'templates/reporting.php';
         return ob_get_clean();
     }
 
