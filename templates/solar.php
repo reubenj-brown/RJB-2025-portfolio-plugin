@@ -5,6 +5,7 @@
             <p class="solar-kicker">Special report</p>
             <span class="display-headline">Cracking the Sun</span>
         </div>
+        <p class="strategy-intro-body"><em>How an abundance of Chinese solar technology is changing Africa, Europe, and the world</em></p>
     </div>
     <section class="content-section">
         <div class="section-container">
