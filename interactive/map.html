@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diamond Gas Sakura — full-width dev</title>
+    <style>
+      /* Full-bleed: no body chrome, so the map renders edge-to-edge exactly as
+         it will span the full width of the page on the live site. */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+      .rjb-viz {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rjb-viz" data-viz="diamond-gas-sakura"></div>
+    <script type="module" src="/src/mount.js"></script>
+  </body>
+</html>

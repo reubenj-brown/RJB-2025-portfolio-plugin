@@ -1,0 +1,6 @@
+node_modules/
+.vite/
+*.log
+
+# NOTE: dist/ is intentionally committed. It is the compiled output that
+# WordPress enqueues, and the host (Hostinger) has no Node to build it.
