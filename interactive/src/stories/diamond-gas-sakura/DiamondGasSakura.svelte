@@ -494,6 +494,29 @@
       Arial,
       sans-serif
     );
+
+    /* Mode-aware tokens (light defaults). Brand hues come from the site's
+       --cr-* palette; the dark overrides live in the media query below so each
+       colour has a single source. */
+    --dgs-ocean: var(--cr-lavender, #f5f9fc);
+    --dgs-land: #ffffff;
+    --dgs-border: var(--cr-50grey, #808080);
+    --dgs-line: var(--cr-cherry, #ff193b);
+    --dgs-marker-stroke: #ffffff;
+    --dgs-grid: #d8dee3;
+    --dgs-text: var(--text-color, #111);
+    --dgs-muted: var(--cr-50grey, #808080);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .dgs-map-container {
+      --dgs-ocean: var(--cr-navy, #0a2066);
+      --dgs-land: #000000;
+      --dgs-border: var(--cr-75grey, #bfbfbf);
+      --dgs-grid: rgba(255, 255, 255, 0.15);
+      --dgs-text: var(--text-color, #ffffff);
+      --dgs-muted: var(--cr-75grey, #bfbfbf);
+    }
   }
 
   .dgs-map-figure {
@@ -509,7 +532,7 @@
   }
 
   .dgs-ocean {
-    fill: #f5f9fc;
+    fill: var(--dgs-ocean);
   }
 
   /* .dgs-land and .dgs-borders are added to the SVG by D3 at runtime, so
@@ -517,13 +540,13 @@
      with :global() so the styles survive compilation and still apply only
      inside this component. */
   .dgs-map-container :global(.dgs-land) {
-    fill: #ffffff;
+    fill: var(--dgs-land);
     stroke: none;
   }
 
   .dgs-map-container :global(.dgs-borders) {
     fill: none;
-    stroke: #808080;
+    stroke: var(--dgs-border);
     stroke-opacity: 0.5;
     stroke-width: 0.5px;
     vector-effect: non-scaling-stroke;
@@ -531,7 +554,7 @@
 
   .dgs-path {
     fill: none;
-    stroke: #ff193b;
+    stroke: var(--dgs-line);
     stroke-width: 1.8px;
     stroke-linejoin: round;
     stroke-linecap: round;
@@ -539,21 +562,21 @@
   }
 
   .dgs-ship-arrow {
-    fill: #ff193b;
-    stroke: #ffffff;
+    fill: var(--dgs-line);
+    stroke: var(--dgs-marker-stroke);
     stroke-width: 1px;
     stroke-linejoin: round;
   }
 
   .dgs-chart-hover-dot {
-    fill: #ff193b;
-    stroke: #ffffff;
+    fill: var(--dgs-line);
+    stroke: var(--dgs-marker-stroke);
     stroke-width: 1.5px;
   }
 
   .dgs-chart-line {
     fill: none;
-    stroke: #ff193b;
+    stroke: var(--dgs-line);
     stroke-width: 1.8px;
     stroke-linejoin: round;
     stroke-linecap: round;
@@ -563,7 +586,7 @@
   /* Axis gridlines + labels are created by JS at runtime, so scope them with
      :global() to survive Svelte's compile-time CSS pruning. */
   .dgs-map-container :global(.dgs-axis-grid) {
-    stroke: #d8dee3;
+    stroke: var(--dgs-grid);
     stroke-width: 1px;
     stroke-dasharray: 2 3;
     vector-effect: non-scaling-stroke;
@@ -571,7 +594,7 @@
 
   .dgs-map-container :global(.dgs-axis-label),
   .dgs-map-container :global(.dgs-axis-title) {
-    fill: #808080;
+    fill: var(--dgs-muted);
     font-size: 10px;
     font-weight: 600;
   }
@@ -588,7 +611,7 @@
     transform: translateX(-50%);
     font-size: 36px;
     font-weight: 600;
-    color: #111;
+    color: var(--dgs-text);
     line-height: 1.1;
     pointer-events: none;
     z-index: 10;
@@ -621,21 +644,21 @@
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #808080;
+    color: var(--dgs-muted);
     margin-bottom: 4px;
   }
 
   .dgs-readout-value {
     font-size: 36px;
     font-weight: 600;
-    color: #111;
+    color: var(--dgs-text);
     line-height: 1.1;
   }
 
   .dgs-source {
     text-align: center;
     font-size: 11px;
-    color: #999;
+    color: var(--dgs-muted);
     padding: 12px 8px 8px;
   }
 </style>

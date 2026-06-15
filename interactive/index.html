@@ -11,9 +11,16 @@
         padding: 0 1rem 6rem;
         font-family: system-ui, sans-serif;
         color: #222;
+        background: #fff;
       }
       .rjb-viz { margin: 3rem 0; }
       code { background: #f2f2f2; padding: 0 0.3em; border-radius: 3px; }
+      /* Mirror the site's dark mode so islands that switch on
+         prefers-color-scheme can be previewed faithfully in this harness. */
+      @media (prefers-color-scheme: dark) {
+        body { color: #e8e8e8; background: #050505; }
+        code { background: #1f1f1f; }
+      }
     </style>
   </head>
   <body>
