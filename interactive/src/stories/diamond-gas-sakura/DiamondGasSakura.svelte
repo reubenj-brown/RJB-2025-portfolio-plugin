@@ -211,12 +211,19 @@
     d3json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
       .then(function (world) {
         const countries = topojson.feature(world, world.objects.countries);
-        const borders = topojson.mesh(world, world.objects.countries);
+        // Drop Antarctica (id 010): in this equirectangular projection it just
+        // smears across the bottom as a harsh cut-off band.
+        const land = countries.features.filter((d) => String(d.id) !== "010");
+        const borders = topojson.mesh(
+          world,
+          world.objects.countries,
+          (a, b) => String(a.id) !== "010" && String(b.id) !== "010",
+        );
 
         select(svg)
           .select(".dgs-land-layer")
           .selectAll("path")
-          .data(countries.features)
+          .data(land)
           .enter()
           .append("path")
           .attr("class", "dgs-land")
@@ -381,7 +388,10 @@
     // Mobile follow-cam: a regional window centred on the ship that pans to the
     // highlighted country (Iran, then Taiwan/Japan) during those beats. (To
     // revert to a strictly ship-centred cam, force wIran = wTJ = 0 below.)
-    const MOBILE_VB_W = 240;
+    // Height-driven so a full-screen portrait viewport frames a sensible
+    // latitude band instead of overshooting the map's 500-unit height; the
+    // width follows the device aspect.
+    const MOBILE_VB_H = 300;
     const IRAN_PT = projection([55, 29]);
     const TJ_PT = [(twP[0] + jpP[0]) / 2, (twP[1] + jpP[1]) / 2];
     function ramp(p, a, b, c, d) {
@@ -394,14 +404,16 @@
       const sx = sp ? sp.x : FULL_VB.x + FULL_VB.w / 2;
       const sy = sp ? sp.y : FULL_VB.y + FULL_VB.h / 2;
       const ir = dwellBands[2];
-      const tjStart = dwellBands[4].lo;
+      // Pan to Taiwan/Japan only for the final (arbitrage) card — NOT during
+      // the Brazil/flip card (index 4), where the cam stays on the ship.
+      const tjStart = dwellBands[5].lo;
       const wIran = ramp(p, ir.lo - 0.05, ir.lo + 0.02, ir.hi - 0.02, ir.hi + 0.05);
       const wTJ = smoothstep(clamp((p - (tjStart - 0.05)) / 0.08, 0, 1));
       const wShip = clamp(1 - wIran - wTJ, 0, 1);
       const cx = sx * wShip + IRAN_PT[0] * wIran + TJ_PT[0] * wTJ;
       const cy = sy * wShip + IRAN_PT[1] * wIran + TJ_PT[1] * wTJ;
-      const w = MOBILE_VB_W;
-      const h = w * (svgH / svgW);
+      const h = MOBILE_VB_H;
+      const w = h * (svgW / svgH);
       setVB({ x: cx - w / 2, y: cy - h / 2, w, h });
     }
     function applyZoom(p, sp) {
@@ -489,7 +501,10 @@
 
     function applyStage(stage) {
       const cl = rootEl.classList;
-      cl.toggle("show-japan", stage >= 1 && stage < 5);
+      cl.toggle("hi-date", stage === 1);
+      // Japan is the destination through stage 4, then returns at the final
+      // stage (6) alongside Taiwan for the dual-highlight comparison.
+      cl.toggle("show-japan", (stage >= 1 && stage < 5) || stage === 6);
       cl.toggle("show-cameron", stage >= 1 && stage < 5);
       cl.toggle("show-nagoya", stage >= 1 && stage < 5);
       cl.toggle("hi-gas", stage >= 2 && stage < 4);
@@ -538,6 +553,11 @@
       applyZoom(p, sp);
       const screenScale = curVBWidth / svgW;
       updateAnnoScale(screenScale);
+
+      // Track line: width in user units = target px * screenScale, so the
+      // stroke renders at a constant ~2.2px regardless of zoom (matching the
+      // counter-scaled chevron and labels).
+      voyagePath.style.strokeWidth = (2.2 * screenScale).toFixed(3) + "px";
 
       // Path reveal.
       voyagePath.style.strokeDashoffset =
@@ -678,11 +698,13 @@
     --dgs-border: var(--cr-50grey, #808080);
     --dgs-line: var(--cr-cherry, #ff193b);
     --dgs-sakura: var(--cr-sakura, #ffccd4);
+    --dgs-sprite: var(--cr-sprite, #d1ffe8);
     --dgs-marker-stroke: #ffffff;
     --dgs-text: var(--text-color, #111);
     --dgs-muted: var(--cr-50grey, #808080);
     --dgs-step-bg: rgba(255, 255, 255, 0.86);
     --dgs-panel-bg: rgba(255, 255, 255, 0.92);
+    --dgs-panel-solid: #ffffff;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -694,6 +716,7 @@
       --dgs-muted: var(--cr-75grey, #bfbfbf);
       --dgs-step-bg: rgba(8, 12, 28, 0.72);
       --dgs-panel-bg: rgba(8, 12, 28, 0.92);
+      --dgs-panel-solid: #05080f;
     }
   }
 
@@ -741,9 +764,13 @@
      static markup, so Svelte would prune any partly-scoped selector that
      references them — these must be fully :global(). */
   :global(.dgs-scrolly.show-japan .dgs-land[data-cid="392"]),
-  :global(.dgs-scrolly.show-iran .dgs-land[data-cid="364"]),
-  :global(.dgs-scrolly.show-taiwan .dgs-land[data-cid="158"]) {
+  :global(.dgs-scrolly.show-iran .dgs-land[data-cid="364"]) {
     fill: var(--dgs-sakura);
+  }
+  /* Taiwan gets its own colour so the final stage shows Japan (sakura) and
+     Taiwan (sprite) distinctly. */
+  :global(.dgs-scrolly.show-taiwan .dgs-land[data-cid="158"]) {
+    fill: var(--dgs-sprite);
   }
 
   .dgs-path {
@@ -859,6 +886,8 @@
     -moz-font-feature-settings: "tnum";
   }
 
+  :global(.dgs-scrolly.hi-date #dgs-date),
+  :global(.dgs-scrolly.hi-date #dgs-date),
   :global(.dgs-scrolly.hi-gas #dgs-gas-value),
   :global(.dgs-scrolly.hi-cargo #dgs-cargo-value),
   :global(.dgs-scrolly.hi-dest #dgs-dest-value) {
@@ -892,33 +921,41 @@
     color: var(--dgs-text);
     padding: 18px 22px;
     border-radius: 10px;
-    font-size: clamp(18px, 2.4vw, 24px);
+    font-family: var(--serif-font, Georgia, "Times New Roman", serif);
+    font-size: clamp(19px, 2.5vw, 25px);
     line-height: 1.45;
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
   }
 
-  /* --- Mobile: ship-following map fills the top 60%, a 2x2 readout grid
-     (clockwise from top-left: Date, Destination, Asia gas price, Cargo value)
-     fills the bottom 40%. --- */
+  /* --- Mobile: the ship-following map fills the whole screen; the 2x2 readout
+     grid (clockwise from top-left: Date, Destination, Asia gas price, Cargo
+     value) sits in a solid overlay pinned to the bottom; the prose moves to the
+     upper part so the centred ship chevron is never covered. --- */
   @media (max-width: 640px) {
     .dgs-graphic {
-      inset: 0 0 auto 0;
-      height: 60vh;
+      inset: 0;
+      height: auto;
     }
+    .dgs-step {
+      top: 11%;
+      width: min(560px, 90vw);
+    }
+    /* Compact 2x2 grid in a solid overlay pinned to the bottom; --dgs-footer-h
+       lets the page lift it above a sticky site footer (default 0). */
     .dgs-readouts {
       display: grid;
       position: absolute;
-      top: 60vh;
+      top: auto;
       bottom: 0;
       left: 0;
       right: 0;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 12px 16px;
-      padding: 18px 20px;
-      align-content: center;
-      background: var(--dgs-panel-bg);
+      grid-auto-rows: min-content;
+      align-content: end;
+      gap: 4px 16px;
+      padding: 12px 20px calc(1rem + var(--dgs-footer-h, 0px));
+      background: var(--dgs-panel-solid);
     }
     .dgs-readout {
       position: static;
