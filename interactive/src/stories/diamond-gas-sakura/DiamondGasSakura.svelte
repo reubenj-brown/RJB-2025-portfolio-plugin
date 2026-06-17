@@ -244,36 +244,46 @@
       { id: "kaohsiung", ll: [120.31, 22.62], label: "Kaohsiung", dx: 10, dy: 18, anchor: "start" },
     ];
 
+    // Each annotation is built anchor-relative (children around 0,0) and the
+    // group is translated to the projected point. A per-frame scale is applied
+    // around that anchor so labels/leaders stay a constant size on screen even
+    // as the map zooms (see updateAnnoScale).
+    const annoGroups = [];
+
     ANNOS.forEach((a) => {
       const [px, py] = projection(a.ll);
+      const down = a.dy > 0;
       const g = document.createElementNS(SVGNS, "g");
       g.setAttribute("id", "dgs-anno-" + a.id);
       g.setAttribute("class", "dgs-anno");
+      g.setAttribute("transform", `translate(${px.toFixed(2)},${py.toFixed(2)})`);
 
       const dot = document.createElementNS(SVGNS, "circle");
       dot.setAttribute("class", "dgs-anno-dot");
-      dot.setAttribute("cx", px.toFixed(2));
-      dot.setAttribute("cy", py.toFixed(2));
-      dot.setAttribute("r", "2");
+      dot.setAttribute("cx", "0");
+      dot.setAttribute("cy", "0");
+      dot.setAttribute("r", "1.4");
       g.appendChild(dot);
 
       const line = document.createElementNS(SVGNS, "line");
       line.setAttribute("class", "dgs-anno-leader");
-      line.setAttribute("x1", px.toFixed(2));
-      line.setAttribute("y1", py.toFixed(2));
-      line.setAttribute("x2", (px + a.dx).toFixed(2));
-      line.setAttribute("y2", (py + a.dy).toFixed(2));
+      line.setAttribute("x1", "0");
+      line.setAttribute("y1", "0");
+      line.setAttribute("x2", a.dx.toFixed(2));
+      line.setAttribute("y2", a.dy.toFixed(2));
       g.appendChild(line);
 
       const text = document.createElementNS(SVGNS, "text");
       text.setAttribute("class", "dgs-anno-label");
-      text.setAttribute("x", (px + a.dx).toFixed(2));
-      text.setAttribute("y", (py + a.dy - 3).toFixed(2));
+      text.setAttribute("x", a.dx.toFixed(2));
+      // Downward leaders place the label below the line end; upward above it.
+      text.setAttribute("y", (a.dy + (down ? 7 : -3)).toFixed(2));
       text.setAttribute("text-anchor", a.anchor);
       text.textContent = a.label;
       g.appendChild(text);
 
       annoLayer.appendChild(g);
+      annoGroups.push({ el: g, ax: px, ay: py });
     });
 
     // Iran country label (no leader; sits over the highlighted country).
@@ -282,14 +292,28 @@
       const g = document.createElementNS(SVGNS, "g");
       g.setAttribute("id", "dgs-anno-iran");
       g.setAttribute("class", "dgs-anno");
+      g.setAttribute("transform", `translate(${ix.toFixed(2)},${iy.toFixed(2)})`);
       const text = document.createElementNS(SVGNS, "text");
       text.setAttribute("class", "dgs-anno-label dgs-anno-country");
-      text.setAttribute("x", ix.toFixed(2));
-      text.setAttribute("y", iy.toFixed(2));
+      text.setAttribute("x", "0");
+      text.setAttribute("y", "0");
       text.setAttribute("text-anchor", "middle");
       text.textContent = "IRAN";
       g.appendChild(text);
       annoLayer.appendChild(g);
+      annoGroups.push({ el: g, ax: ix, ay: iy });
+    }
+
+    let lastAnnoScale = -1;
+    function updateAnnoScale(s) {
+      if (Math.abs(s - lastAnnoScale) < 0.002) return;
+      lastAnnoScale = s;
+      for (const a of annoGroups) {
+        a.el.setAttribute(
+          "transform",
+          `translate(${a.ax.toFixed(2)},${a.ay.toFixed(2)}) scale(${s.toFixed(3)})`,
+        );
+      }
     }
 
     // --- Opening zoom box (tight on the Gulf / Cameron) ---
@@ -302,20 +326,56 @@
       w: z0w,
       h: z0h,
     };
-    const ZOOM_END = 0.12;
-    let lastZoomE = -1;
+    // Closing zoom box (tight on Taiwan + Japan), mirroring the opening one.
+    const twP = projection([120.31, 22.62]);
+    const jpP = projection([136.91, 35.18]);
+    const eMinX = Math.min(twP[0], jpP[0]),
+      eMaxX = Math.max(twP[0], jpP[0]);
+    const eMinY = Math.min(twP[1], jpP[1]),
+      eMaxY = Math.max(twP[1], jpP[1]);
+    let eW = eMaxX - eMinX + 120;
+    let eH = eW / VB_ASPECT;
+    if (eH < eMaxY - eMinY + 80) {
+      eH = eMaxY - eMinY + 80;
+      eW = eH * VB_ASPECT;
+    }
+    const END_VB = {
+      x: (eMinX + eMaxX) / 2 - eW / 2,
+      y: (eMinY + eMaxY) / 2 - eH / 2,
+      w: eW,
+      h: eH,
+    };
+
+    const ZOOM_IN_END = 0.1; // opening Gulf zoom completes
+    const ZOOM_OUT_START = 0.85; // closing Taiwan/Japan zoom begins
+    let curVBWidth = FULL_VB.w; // tracked so markers/labels can counter-scale
+    let lastVB = "";
+    function blend(a, b, e) {
+      return {
+        x: lerp(a.x, b.x, e),
+        y: lerp(a.y, b.y, e),
+        w: lerp(a.w, b.w, e),
+        h: lerp(a.h, b.h, e),
+      };
+    }
+    function setVB(b) {
+      curVBWidth = b.w;
+      const s = `${b.x.toFixed(1)} ${b.y.toFixed(1)} ${b.w.toFixed(1)} ${b.h.toFixed(1)}`;
+      if (s === lastVB) return;
+      lastVB = s;
+      svg.setAttribute("viewBox", s);
+    }
     function applyZoom(p) {
-      const e = reduceMotion ? 1 : smoothstep(clamp(p / ZOOM_END, 0, 1));
-      if (e === lastZoomE) return;
-      lastZoomE = e;
-      const x = lerp(START_VB.x, FULL_VB.x, e);
-      const y = lerp(START_VB.y, FULL_VB.y, e);
-      const w = lerp(START_VB.w, FULL_VB.w, e);
-      const h = lerp(START_VB.h, FULL_VB.h, e);
-      svg.setAttribute(
-        "viewBox",
-        `${x.toFixed(1)} ${y.toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)}`,
-      );
+      if (reduceMotion) {
+        setVB(FULL_VB);
+      } else if (p <= ZOOM_IN_END) {
+        setVB(blend(START_VB, FULL_VB, smoothstep(clamp(p / ZOOM_IN_END, 0, 1))));
+      } else if (p >= ZOOM_OUT_START) {
+        const e = smoothstep(clamp((p - ZOOM_OUT_START) / (1 - ZOOM_OUT_START), 0, 1));
+        setVB(blend(FULL_VB, END_VB, e));
+      } else {
+        setVB(FULL_VB);
+      }
     }
 
     // --- HUD elements ---
@@ -325,17 +385,44 @@
     const destEl = rootEl.querySelector("#dgs-dest-value");
     const shipMarker = rootEl.querySelector("#dgs-ship-marker");
 
-    // --- Step fractions + adaptive fade windows ---
-    const stepFracs = STEPS.map(
+    // --- Step timeline (date) vs scroll position -------------------------
+    // The date advances at a near-constant rate, EXCEPT each inter-step
+    // segment's scroll length is capped (SEG_CAP) so the long Mar 6 -> Apr 4
+    // crossing no longer dominates the scroll. stepDateFracs drive the clock;
+    // stepScrollFracs place the prose + map cues along the scroll.
+    const stepDateFracs = STEPS.map(
       (s) => (new Date(s.date).getTime() - T_START) / (T_END - T_START),
     );
-    const stepWindows = stepFracs.map((f, i) => {
+    const SEG_CAP = 0.18;
+    const segW = [];
+    for (let i = 0; i < stepDateFracs.length - 1; i++) {
+      segW[i] = Math.min(stepDateFracs[i + 1] - stepDateFracs[i], SEG_CAP);
+    }
+    const segTotal = segW.reduce((a, b) => a + b, 0) || 1;
+    const stepScrollFracs = [0];
+    for (let i = 0; i < segW.length; i++) {
+      stepScrollFracs[i + 1] = stepScrollFracs[i] + segW[i] / segTotal;
+    }
+
+    // Scroll progress -> date fraction (piecewise-linear through the steps).
+    function dateFracAt(p) {
+      if (p <= 0) return 0;
+      if (p >= 1) return 1;
+      let i = 0;
+      while (i < stepScrollFracs.length - 1 && p > stepScrollFracs[i + 1]) i++;
+      const lo = stepScrollFracs[i],
+        hi = stepScrollFracs[i + 1];
+      const local = hi === lo ? 0 : (p - lo) / (hi - lo);
+      return lerp(stepDateFracs[i], stepDateFracs[i + 1], local);
+    }
+
+    const stepWindows = stepScrollFracs.map((f, i) => {
       let nearest = Infinity;
-      if (i > 0) nearest = Math.min(nearest, f - stepFracs[i - 1]);
-      if (i < stepFracs.length - 1)
-        nearest = Math.min(nearest, stepFracs[i + 1] - f);
+      if (i > 0) nearest = Math.min(nearest, f - stepScrollFracs[i - 1]);
+      if (i < stepScrollFracs.length - 1)
+        nearest = Math.min(nearest, stepScrollFracs[i + 1] - f);
       if (!isFinite(nearest)) nearest = 0.12;
-      return Math.min(0.07, nearest * 0.6);
+      return Math.min(0.08, nearest * 0.5);
     });
     const stepEls = [...rootEl.querySelectorAll(".dgs-step")];
 
@@ -344,15 +431,15 @@
       const vh = window.innerHeight;
       const range = Math.max(H - vh, 1);
       stepEls.forEach((el, i) => {
-        const centerY = stepFracs[i] * range + vh / 2;
+        const centerY = stepScrollFracs[i] * range + vh / 2;
         el.style.top = centerY.toFixed(1) + "px";
       });
     }
 
     function stageAt(p) {
       let s = 1;
-      for (let i = 0; i < stepFracs.length; i++) {
-        if (p >= stepFracs[i] - 1e-6) s = i + 1;
+      for (let i = 0; i < stepScrollFracs.length; i++) {
+        if (p >= stepScrollFracs[i] - 1e-6) s = i + 1;
       }
       return s;
     }
@@ -372,7 +459,7 @@
 
     function updateProse(p) {
       for (let i = 0; i < stepEls.length; i++) {
-        const d = Math.abs(p - stepFracs[i]);
+        const d = Math.abs(p - stepScrollFracs[i]);
         const w = stepWindows[i];
         const plateau = w * 0.45;
         let op;
@@ -397,22 +484,26 @@
       const range = Math.max(H - vh, 1);
       const p = clamp(-rect.top / range, 0, 1);
 
-      const curMs = T_START + p * (T_END - T_START);
+      const curMs = T_START + dateFracAt(p) * (T_END - T_START);
+
+      // Zoom first, then size the markers/labels to the current zoom so they
+      // stay constant on screen.
+      applyZoom(p);
+      const mScale = curVBWidth / FULL_VB.w;
+      updateAnnoScale(mScale);
 
       // Path reveal.
       voyagePath.style.strokeDashoffset =
         (pathLen * (1 - lenFracAt(curMs))).toFixed(1) + "px";
 
-      // Ship marker.
+      // Ship marker (counter-scaled so the chevron stays a fixed size).
       const sp = interpolateShip(curMs);
       if (sp) {
         shipMarker.setAttribute(
           "transform",
-          `translate(${sp.x.toFixed(2)},${sp.y.toFixed(2)}) rotate(${sp.heading.toFixed(1)})`,
+          `translate(${sp.x.toFixed(2)},${sp.y.toFixed(2)}) rotate(${sp.heading.toFixed(1)}) scale(${mScale.toFixed(3)})`,
         );
       }
-
-      applyZoom(p);
 
       // Date (guard by day).
       const dayStr = new Date(curMs).toDateString();
@@ -520,7 +611,7 @@
     position: relative;
     width: 100vw;
     margin-left: calc(50% - 50vw);
-    height: 700vh;
+    height: 400vh;
 
     font-family: var(
       --primary-font,
@@ -649,11 +740,11 @@
   .dgs-scrolly :global(.dgs-anno-label) {
     fill: var(--dgs-text);
     font-family: var(--primary-font, system-ui, sans-serif);
-    font-size: 11px;
+    font-size: 7px;
     font-weight: 600;
   }
   .dgs-scrolly :global(.dgs-anno-country) {
-    font-size: 13px;
+    font-size: 8px;
     letter-spacing: 0.12em;
   }
 
