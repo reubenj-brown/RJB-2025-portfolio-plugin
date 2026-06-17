@@ -512,7 +512,7 @@
       // The cargo-value emphasis hands off to the destination as the cargo is
       // flipped from Japan to Taiwan (stage 4 -> 5).
       cl.toggle("hi-cargo", stage === 4);
-      cl.toggle("hi-dest", stage >= 5);
+      cl.toggle("hi-dest", stage === 5);
       cl.toggle("show-taiwan", stage >= 5);
       cl.toggle("show-kaohsiung", stage >= 5);
       destEl.textContent = stage >= 5 ? "Kaohsiung, Taiwan" : "Nagoya, Japan";
