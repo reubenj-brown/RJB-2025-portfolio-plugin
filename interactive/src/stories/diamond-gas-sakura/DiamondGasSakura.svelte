@@ -393,10 +393,13 @@
     const stepDateFracs = STEPS.map(
       (s) => (new Date(s.date).getTime() - T_START) / (T_END - T_START),
     );
+    // Cap long segments AND floor short ones, so every step gets a real dwell
+    // (the floor effectively "slows down" the closely-dated early beats).
     const SEG_CAP = 0.18;
+    const SEG_FLOOR = 0.12;
     const segW = [];
     for (let i = 0; i < stepDateFracs.length - 1; i++) {
-      segW[i] = Math.min(stepDateFracs[i + 1] - stepDateFracs[i], SEG_CAP);
+      segW[i] = clamp(stepDateFracs[i + 1] - stepDateFracs[i], SEG_FLOOR, SEG_CAP);
     }
     const segTotal = segW.reduce((a, b) => a + b, 0) || 1;
     const stepScrollFracs = [0];
@@ -416,30 +419,34 @@
       return lerp(stepDateFracs[i], stepDateFracs[i + 1], local);
     }
 
-    const stepWindows = stepScrollFracs.map((f, i) => {
-      let nearest = Infinity;
-      if (i > 0) nearest = Math.min(nearest, f - stepScrollFracs[i - 1]);
-      if (i < stepScrollFracs.length - 1)
-        nearest = Math.min(nearest, stepScrollFracs[i + 1] - f);
-      if (!isFinite(nearest)) nearest = 0.12;
-      return Math.min(0.08, nearest * 0.5);
+    // Each step "owns" the scroll range nearest to it (Voronoi on the
+    // scroll-fracs), so its prose stays fully visible — static at ~1/3 down,
+    // since the blocks live in the pinned layer — across that whole band while
+    // the map keeps animating. Adjacent bands overlap by FADE for a crossfade.
+    const PROSE_FADE = 0.05;
+    const stepBands = stepScrollFracs.map((f, i) => {
+      const lo =
+        i === 0
+          ? -Infinity
+          : (stepScrollFracs[i - 1] + f) / 2 - PROSE_FADE / 2;
+      const hi =
+        i === stepScrollFracs.length - 1
+          ? Infinity
+          : (f + stepScrollFracs[i + 1]) / 2 + PROSE_FADE / 2;
+      return { lo, hi };
     });
     const stepEls = [...rootEl.querySelectorAll(".dgs-step")];
 
-    function layoutSteps() {
-      const H = scrolly.offsetHeight;
-      const vh = window.innerHeight;
-      const range = Math.max(H - vh, 1);
-      stepEls.forEach((el, i) => {
-        const centerY = stepScrollFracs[i] * range + vh / 2;
-        el.style.top = centerY.toFixed(1) + "px";
-      });
-    }
-
+    // Stage advances at each step's lower band edge (the midpoint to its
+    // predecessor), so map cues fire exactly as that step's card becomes the
+    // dominant one on screen.
+    const stageThresh = stepScrollFracs.map((f, i) =>
+      i === 0 ? -Infinity : (stepScrollFracs[i - 1] + f) / 2,
+    );
     function stageAt(p) {
       let s = 1;
-      for (let i = 0; i < stepScrollFracs.length; i++) {
-        if (p >= stepScrollFracs[i] - 1e-6) s = i + 1;
+      for (let i = 1; i < stageThresh.length; i++) {
+        if (p >= stageThresh[i]) s = i + 1;
       }
       return s;
     }
@@ -451,7 +458,10 @@
       cl.toggle("show-nagoya", stage >= 1 && stage < 5);
       cl.toggle("hi-gas", stage >= 2 && stage < 4);
       cl.toggle("show-iran", stage === 3);
-      cl.toggle("hi-cargo", stage >= 4);
+      // The cargo-value emphasis hands off to the destination as the cargo is
+      // flipped from Japan to Taiwan (stage 4 -> 5).
+      cl.toggle("hi-cargo", stage === 4);
+      cl.toggle("hi-dest", stage >= 5);
       cl.toggle("show-taiwan", stage >= 5);
       cl.toggle("show-kaohsiung", stage >= 5);
       destEl.textContent = stage >= 5 ? "Kaohsiung, Taiwan" : "Nagoya, Japan";
@@ -459,14 +469,13 @@
 
     function updateProse(p) {
       for (let i = 0; i < stepEls.length; i++) {
-        const d = Math.abs(p - stepScrollFracs[i]);
-        const w = stepWindows[i];
-        const plateau = w * 0.45;
+        const { lo, hi } = stepBands[i];
         let op;
-        if (d <= plateau) op = 1;
-        else if (d >= w) op = 0;
-        else op = 1 - (d - plateau) / (w - plateau);
-        stepEls[i].style.opacity = op.toFixed(3);
+        if (p <= lo || p >= hi) op = 0;
+        else if (p < lo + PROSE_FADE) op = (p - lo) / PROSE_FADE;
+        else if (p > hi - PROSE_FADE) op = (hi - p) / PROSE_FADE;
+        else op = 1;
+        stepEls[i].style.opacity = clamp(op, 0, 1).toFixed(3);
       }
     }
 
@@ -538,11 +547,9 @@
       }
     }
     function onResize() {
-      layoutSteps();
       onScroll();
     }
 
-    layoutSteps();
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
@@ -595,14 +602,14 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="dgs-steps">
-    {#each STEPS as step, i}
-      <div class="dgs-step" data-stage={i + 1}>
-        <p class="dgs-step-inner">{step.prose}</p>
-      </div>
-    {/each}
+    <div class="dgs-steps">
+      {#each STEPS as step, i}
+        <div class="dgs-step" data-stage={i + 1}>
+          <p class="dgs-step-inner">{step.prose}</p>
+        </div>
+      {/each}
+    </div>
   </div>
 </div>
 
@@ -812,7 +819,8 @@
   }
 
   :global(.dgs-scrolly.hi-gas #dgs-gas-value),
-  :global(.dgs-scrolly.hi-cargo #dgs-cargo-value) {
+  :global(.dgs-scrolly.hi-cargo #dgs-cargo-value),
+  :global(.dgs-scrolly.hi-dest #dgs-dest-value) {
     color: var(--cr-cherry, #ff193b);
   }
 
@@ -824,11 +832,13 @@
     pointer-events: none;
   }
 
+  /* Pinned (inside .dgs-sticky) so each block stays static at ~1/3 down the
+     viewport while the map animates beneath it; only opacity changes. */
   .dgs-step {
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 36%;
+    transform: translateX(-50%);
     width: min(640px, 86vw);
     text-align: center;
     opacity: 0;
