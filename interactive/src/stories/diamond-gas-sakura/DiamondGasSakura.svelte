@@ -365,8 +365,49 @@
       lastVB = s;
       svg.setAttribute("viewBox", s);
     }
-    function applyZoom(p) {
-      if (reduceMotion) {
+    // Viewport measurements (refreshed on resize). isMobile switches the map
+    // to a ship-following camera; svgW/svgH let markers + labels be sized in
+    // true screen pixels regardless of zoom or device.
+    let isMobile = false;
+    let svgW = 1;
+    let svgH = 1;
+    function measure() {
+      const r = svg.getBoundingClientRect();
+      svgW = r.width || 1;
+      svgH = r.height || 1;
+      isMobile = window.innerWidth <= 640;
+    }
+
+    // Mobile follow-cam: a regional window centred on the ship that pans to the
+    // highlighted country (Iran, then Taiwan/Japan) during those beats. (To
+    // revert to a strictly ship-centred cam, force wIran = wTJ = 0 below.)
+    const MOBILE_VB_W = 240;
+    const IRAN_PT = projection([55, 29]);
+    const TJ_PT = [(twP[0] + jpP[0]) / 2, (twP[1] + jpP[1]) / 2];
+    function ramp(p, a, b, c, d) {
+      if (p <= a || p >= d) return 0;
+      if (p < b) return smoothstep((p - a) / (b - a));
+      if (p <= c) return 1;
+      return smoothstep((d - p) / (d - c));
+    }
+    function applyMobileCam(p, sp) {
+      const sx = sp ? sp.x : FULL_VB.x + FULL_VB.w / 2;
+      const sy = sp ? sp.y : FULL_VB.y + FULL_VB.h / 2;
+      const ir = dwellBands[2];
+      const tjStart = dwellBands[4].lo;
+      const wIran = ramp(p, ir.lo - 0.05, ir.lo + 0.02, ir.hi - 0.02, ir.hi + 0.05);
+      const wTJ = smoothstep(clamp((p - (tjStart - 0.05)) / 0.08, 0, 1));
+      const wShip = clamp(1 - wIran - wTJ, 0, 1);
+      const cx = sx * wShip + IRAN_PT[0] * wIran + TJ_PT[0] * wTJ;
+      const cy = sy * wShip + IRAN_PT[1] * wIran + TJ_PT[1] * wTJ;
+      const w = MOBILE_VB_W;
+      const h = w * (svgH / svgW);
+      setVB({ x: cx - w / 2, y: cy - h / 2, w, h });
+    }
+    function applyZoom(p, sp) {
+      if (isMobile) {
+        applyMobileCam(p, sp);
+      } else if (reduceMotion) {
         setVB(FULL_VB);
       } else if (p <= ZOOM_IN_END) {
         setVB(blend(START_VB, FULL_VB, smoothstep(clamp(p / ZOOM_IN_END, 0, 1))));
@@ -419,34 +460,29 @@
       return lerp(stepDateFracs[i], stepDateFracs[i + 1], local);
     }
 
-    // Each step "owns" the scroll range nearest to it (Voronoi on the
-    // scroll-fracs), so its prose stays fully visible — static at ~1/3 down,
-    // since the blocks live in the pinned layer — across that whole band while
-    // the map keeps animating. Adjacent bands overlap by FADE for a crossfade.
-    const PROSE_FADE = 0.05;
-    const stepBands = stepScrollFracs.map((f, i) => {
-      const lo =
-        i === 0
-          ? -Infinity
-          : (stepScrollFracs[i - 1] + f) / 2 - PROSE_FADE / 2;
+    // Each step has a dwell window centred on its scroll-frac. The blocks live
+    // in the pinned layer, so they sit static at ~1/3 down while visible. The
+    // windows DON'T fill the track — DWELL_HALF of each adjacent segment is
+    // dwell and the remainder is a blank gap (no text) between cards.
+    const PROSE_FADE = 0.04;
+    const DWELL_HALF = 0.34;
+    const dwellBands = stepScrollFracs.map((c, i) => {
+      const prevSeg = i > 0 ? c - stepScrollFracs[i - 1] : Infinity;
+      const nextSeg =
+        i < stepScrollFracs.length - 1 ? stepScrollFracs[i + 1] - c : Infinity;
+      const lo = i === 0 ? -Infinity : c - DWELL_HALF * prevSeg;
       const hi =
-        i === stepScrollFracs.length - 1
-          ? Infinity
-          : (f + stepScrollFracs[i + 1]) / 2 + PROSE_FADE / 2;
+        i === stepScrollFracs.length - 1 ? Infinity : c + DWELL_HALF * nextSeg;
       return { lo, hi };
     });
     const stepEls = [...rootEl.querySelectorAll(".dgs-step")];
 
-    // Stage advances at each step's lower band edge (the midpoint to its
-    // predecessor), so map cues fire exactly as that step's card becomes the
-    // dominant one on screen.
-    const stageThresh = stepScrollFracs.map((f, i) =>
-      i === 0 ? -Infinity : (stepScrollFracs[i - 1] + f) / 2,
-    );
+    // Stage advances when each card begins to appear, so map cues fire with the
+    // card and persist through the following blank gap until the next appears.
     function stageAt(p) {
       let s = 1;
-      for (let i = 1; i < stageThresh.length; i++) {
-        if (p >= stageThresh[i]) s = i + 1;
+      for (let i = 1; i < dwellBands.length; i++) {
+        if (p >= dwellBands[i].lo) s = i + 1;
       }
       return s;
     }
@@ -469,7 +505,7 @@
 
     function updateProse(p) {
       for (let i = 0; i < stepEls.length; i++) {
-        const { lo, hi } = stepBands[i];
+        const { lo, hi } = dwellBands[i];
         let op;
         if (p <= lo || p >= hi) op = 0;
         else if (p < lo + PROSE_FADE) op = (p - lo) / PROSE_FADE;
@@ -494,23 +530,24 @@
       const p = clamp(-rect.top / range, 0, 1);
 
       const curMs = T_START + dateFracAt(p) * (T_END - T_START);
+      const sp = interpolateShip(curMs);
 
-      // Zoom first, then size the markers/labels to the current zoom so they
-      // stay constant on screen.
-      applyZoom(p);
-      const mScale = curVBWidth / FULL_VB.w;
-      updateAnnoScale(mScale);
+      // Camera first, then size markers/labels in true screen px (one user unit
+      // of a scaled group renders as one px), so they're constant across zoom
+      // levels and devices.
+      applyZoom(p, sp);
+      const screenScale = curVBWidth / svgW;
+      updateAnnoScale(screenScale);
 
       // Path reveal.
       voyagePath.style.strokeDashoffset =
         (pathLen * (1 - lenFracAt(curMs))).toFixed(1) + "px";
 
       // Ship marker (counter-scaled so the chevron stays a fixed size).
-      const sp = interpolateShip(curMs);
       if (sp) {
         shipMarker.setAttribute(
           "transform",
-          `translate(${sp.x.toFixed(2)},${sp.y.toFixed(2)}) rotate(${sp.heading.toFixed(1)}) scale(${mScale.toFixed(3)})`,
+          `translate(${sp.x.toFixed(2)},${sp.y.toFixed(2)}) rotate(${sp.heading.toFixed(1)}) scale(${(screenScale * 1.5).toFixed(3)})`,
         );
       }
 
@@ -547,9 +584,11 @@
       }
     }
     function onResize() {
+      measure();
       onScroll();
     }
 
+    measure();
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
@@ -586,19 +625,22 @@
     </div>
 
     <div class="dgs-hud">
-      <div class="dgs-date" id="dgs-date">February 24</div>
       <div class="dgs-readouts">
-        <div class="dgs-readout" id="dgs-gas">
-          <div class="dgs-readout-label">Asia gas price</div>
-          <div class="dgs-readout-value dgs-num" id="dgs-gas-value">—</div>
+        <div class="dgs-readout dgs-r-date">
+          <div class="dgs-readout-label">Date</div>
+          <div class="dgs-readout-value dgs-num" id="dgs-date">February 24</div>
         </div>
-        <div class="dgs-readout" id="dgs-cargo">
+        <div class="dgs-readout dgs-r-dest">
+          <div class="dgs-readout-label">Destination</div>
+          <div class="dgs-readout-value" id="dgs-dest-value">Nagoya, Japan</div>
+        </div>
+        <div class="dgs-readout dgs-r-cargo">
           <div class="dgs-readout-label">Cargo value</div>
           <div class="dgs-readout-value dgs-num" id="dgs-cargo-value">—</div>
         </div>
-        <div class="dgs-readout" id="dgs-dest">
-          <div class="dgs-readout-label">Destination</div>
-          <div class="dgs-readout-value" id="dgs-dest-value">Nagoya, Japan</div>
+        <div class="dgs-readout dgs-r-gas">
+          <div class="dgs-readout-label">Asia gas price</div>
+          <div class="dgs-readout-value dgs-num" id="dgs-gas-value">—</div>
         </div>
       </div>
     </div>
@@ -744,14 +786,17 @@
     stroke-width: 0.75px;
     vector-effect: non-scaling-stroke;
   }
+  /* The annotation groups are JS-scaled so 1 user unit == 1 screen px (see
+     screenScale), so these font-sizes are effectively true pixels on every
+     device. */
   .dgs-scrolly :global(.dgs-anno-label) {
     fill: var(--dgs-text);
     font-family: var(--primary-font, system-ui, sans-serif);
-    font-size: 7px;
+    font-size: 13px;
     font-weight: 600;
   }
   .dgs-scrolly :global(.dgs-anno-country) {
-    font-size: 8px;
+    font-size: 16px;
     letter-spacing: 0.12em;
   }
 
@@ -763,37 +808,33 @@
     z-index: 2;
   }
 
-  .dgs-date {
-    position: absolute;
-    top: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: clamp(28px, 5vw, 56px);
-    font-weight: 600;
-    color: var(--dgs-text);
-    line-height: 1.1;
-    font-feature-settings: "tnum";
-    -webkit-font-feature-settings: "tnum";
-    -moz-font-feature-settings: "tnum";
-  }
-
+  /* Desktop: one readout pinned in each corner (clockwise from top-left:
+     Date, Destination, Cargo value, Asia gas price). display:contents lets the
+     four cells position against the full-viewport HUD. */
   .dgs-readouts {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 28px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 24px;
-    padding: 0 28px;
+    display: contents;
   }
 
-  .dgs-readout:nth-child(2) {
-    text-align: center;
+  .dgs-readout {
+    position: absolute;
   }
-  .dgs-readout:last-child {
+  .dgs-r-date {
+    top: 28px;
+    left: 28px;
+  }
+  .dgs-r-dest {
+    top: 28px;
+    right: 28px;
     text-align: right;
+  }
+  .dgs-r-cargo {
+    bottom: 28px;
+    right: 28px;
+    text-align: right;
+  }
+  .dgs-r-gas {
+    bottom: 28px;
+    left: 28px;
   }
 
   .dgs-readout-label {
@@ -857,41 +898,53 @@
     backdrop-filter: blur(4px);
   }
 
-  /* --- Mobile: map top half, readouts bottom-half panel --- */
+  /* --- Mobile: ship-following map fills the top 60%, a 2x2 readout grid
+     (clockwise from top-left: Date, Destination, Asia gas price, Cargo value)
+     fills the bottom 40%. --- */
   @media (max-width: 640px) {
     .dgs-graphic {
       inset: 0 0 auto 0;
-      height: 50vh;
-    }
-    .dgs-date {
-      top: 12px;
-      font-size: 28px;
+      height: 60vh;
     }
     .dgs-readouts {
-      top: 50vh;
+      display: grid;
+      position: absolute;
+      top: 60vh;
       bottom: 0;
       left: 0;
       right: 0;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px 16px;
       padding: 18px 20px;
-      gap: 16px;
-      flex-direction: column;
-      justify-content: center;
-      align-items: stretch;
+      align-content: center;
       background: var(--dgs-panel-bg);
     }
-    .dgs-readout,
-    .dgs-readout:nth-child(2),
-    .dgs-readout:last-child {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
+    .dgs-readout {
+      position: static;
+      top: auto;
+      bottom: auto;
+      left: auto;
+      right: auto;
+    }
+    .dgs-r-date {
+      grid-area: 1 / 1;
       text-align: left;
     }
-    .dgs-readout-label {
-      margin-bottom: 0;
+    .dgs-r-dest {
+      grid-area: 1 / 2;
+      text-align: right;
+    }
+    .dgs-r-gas {
+      grid-area: 2 / 1;
+      text-align: left;
+    }
+    .dgs-r-cargo {
+      grid-area: 2 / 2;
+      text-align: right;
     }
     .dgs-readout-value {
-      font-size: 24px;
+      font-size: 22px;
     }
   }
 
