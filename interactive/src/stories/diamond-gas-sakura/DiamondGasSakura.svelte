@@ -997,7 +997,7 @@
       grid-auto-rows: min-content;
       align-content: end;
       gap: 4px 16px;
-      padding: 12px 20px calc(var(--dgs-footer-clear) + var(--dgs-edge-gap));
+      padding: 12px 4vw calc(var(--dgs-footer-clear) + var(--dgs-edge-gap));
       background: var(--dgs-panel-solid);
     }
     .dgs-readout {
