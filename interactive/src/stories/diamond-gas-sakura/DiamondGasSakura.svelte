@@ -20,26 +20,27 @@
     {
       date: "2026-02-24",
       prose:
-        "On February 24, the M/V Diamond Gas Sakura left Cameron, Louisiana, carrying enough fuel to power its destination city, Nagoya, for a week.",
+        'On <span class="dgs-hl">February 24</span>, the M/V Diamond Gas Sakura left Cameron, Louisiana, carrying enough fuel to power its destination city, Nagoya, for a week.',
     },
     {
       date: "2026-02-27",
       prose:
-        "Energy markets were in a calm period entering spring, and the seven-week journey should have been uneventful.",
+        '<span class="dgs-hl">Energy markets</span> were in a calm period entering spring, and the seven-week journey should have been uneventful.',
     },
     {
       date: "2026-02-28",
       prose:
-        "But four days into the voyage, the U.S. and Israel launched a war on Iran. In retaliation, the Islamic Republic blockaded the Strait of Hormuz and cut off the world from 20 percent of its L.N.G.",
+        'But four days into the voyage, the U.S. and Israel launched a war on <span class="dgs-hl">Iran</span>. In retaliation, the Islamic Republic blockaded the Strait of Hormuz and cut off the world from 20 percent of its L.N.G.',
     },
     {
       date: "2026-03-04",
-      prose: "The Diamond Gas Sakura’s cargo was suddenly a lot more valuable.",
+      prose:
+        'The Diamond Gas Sakura’s cargo was suddenly a lot more <span class="dgs-hl">valuable</span>.',
     },
     {
       date: "2026-03-06",
       prose:
-        "As the ship traced Brazil’s northern coast in early March, the L.N.G.’s owner Mitsubishi flipped the fuel to Taiwan’s national energy company.",
+        'As the ship traced Brazil’s northern coast in early March, the L.N.G.’s owner Mitsubishi flipped the fuel to <span class="dgs-hl">Taiwan</span>’s national energy company.',
     },
     {
       date: "2026-04-04",
@@ -463,19 +464,23 @@
     for (let i = 0; i < segW.length; i++) {
       stepScrollFracs[i + 1] = stepScrollFracs[i] + segW[i] / segTotal;
     }
-    // Reserve a blank intro at the very start: the reader sees the opening map
-    // (Gulf/Cameron, ship at rest, no path) and must scroll a bit before the
-    // first card fades in. Squeeze the whole timeline into [INTRO_LEAD, 1].
+    // Reserve a blank intro at the start AND a blank outro at the end: the
+    // reader scrolls a bit before the first card fades in, and the final card
+    // fades out before 100% so the closing stretch rests on the finished map
+    // (full path, ship arrived) with no text. Squeeze the timeline into
+    // [INTRO_LEAD, 1 - OUTRO_TAIL].
     const INTRO_LEAD = 0.1;
+    const OUTRO_TAIL = 0.08;
+    const SPAN = 1 - INTRO_LEAD - OUTRO_TAIL;
     for (let i = 0; i < stepScrollFracs.length; i++) {
-      stepScrollFracs[i] = INTRO_LEAD + (1 - INTRO_LEAD) * stepScrollFracs[i];
+      stepScrollFracs[i] = INTRO_LEAD + SPAN * stepScrollFracs[i];
     }
 
     // Scroll progress -> date fraction (piecewise-linear through the steps).
     // Held at the start date through the intro lead.
     function dateFracAt(p) {
       if (p <= stepScrollFracs[0]) return 0;
-      if (p >= 1) return 1;
+      if (p >= stepScrollFracs[stepScrollFracs.length - 1]) return 1;
       let i = 0;
       while (i < stepScrollFracs.length - 1 && p > stepScrollFracs[i + 1]) i++;
       const lo = stepScrollFracs[i],
@@ -493,12 +498,14 @@
     const dwellBands = stepScrollFracs.map((c, i) => {
       // Treat the intro lead as the first card's "previous segment" so card 0
       // fades in partway through the intro instead of being visible at p=0.
+      // Intro lead is card 0's "previous segment"; outro tail is the last
+      // card's "next segment" — so card 0 fades in within the intro and the
+      // final card fades out within the outro (before 100%).
       const prevSeg = i > 0 ? c - stepScrollFracs[i - 1] : INTRO_LEAD;
       const nextSeg =
-        i < stepScrollFracs.length - 1 ? stepScrollFracs[i + 1] - c : Infinity;
+        i < stepScrollFracs.length - 1 ? stepScrollFracs[i + 1] - c : OUTRO_TAIL;
       const lo = c - DWELL_HALF * prevSeg;
-      const hi =
-        i === stepScrollFracs.length - 1 ? Infinity : c + DWELL_HALF * nextSeg;
+      const hi = c + DWELL_HALF * nextSeg;
       return { lo, hi };
     });
     const stepEls = [...rootEl.querySelectorAll(".dgs-step")];
@@ -685,7 +692,7 @@
     <div class="dgs-steps">
       {#each STEPS as step, i}
         <div class="dgs-step" data-stage={i + 1}>
-          <p class="dgs-step-inner">{step.prose}</p>
+          <p class="dgs-step-inner">{@html step.prose}</p>
         </div>
       {/each}
     </div>
@@ -969,6 +976,12 @@
     line-height: 1.45;
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
+  }
+
+  /* Highlighted words inside the prose. The spans are injected via {@html}, so
+     Svelte can't see them at compile time — scope with :global(). */
+  .dgs-scrolly :global(.dgs-hl) {
+    color: var(--cr-cherry, #ff193b);
   }
 
   /* --- Mobile: the ship-following map fills the whole screen; the 2x2 readout
