@@ -42,7 +42,7 @@
                 <div class="cv-entries" id="skills-entries">
                     <div class="cv-entry">
                         <p class="cv-role">Code, Data,  Visualization</p>
-                        <p class="cv-dates">Python, SQL, Excel, GitHub, VS Code, Claude Code, HTML, CSS, JS, Mapbox, Adobe InDesign, Illustrator, Affinity, Autocad, Rhino 3D</p>
+                        <p class="cv-dates">Python, Svelte, D3.js, SQL, Excel, GitHub, VS Code, Claude Code, HTML, CSS, JS, Mapbox, Adobe InDesign, Illustrator, Affinity, Autocad, Rhino 3D</p>
                     </div>
                     <div class="cv-entry">
                         <p class="cv-role">Photography</p>
