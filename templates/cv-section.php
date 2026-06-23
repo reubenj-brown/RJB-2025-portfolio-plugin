@@ -24,16 +24,6 @@
                         <p class="cv-company">The World Around</p>
                         <p class="cv-dates">2022</p>
                     </div>
-                    <div class="cv-entry">
-                        <p class="cv-role">President</p>
-                        <p class="cv-company">ARCSOC, the University of Cambridge Architecture Society</p>
-                        <p class="cv-dates">2022–23</p>
-                    </div>
-                    <div class="cv-entry">
-                        <p class="cv-role">Founder and Co-host</p>
-                        <p class="cv-company">Talking Volumes</p>
-                        <p class="cv-dates">2020–22</p>
-                    </div>
                 </div>
             </div>
 
