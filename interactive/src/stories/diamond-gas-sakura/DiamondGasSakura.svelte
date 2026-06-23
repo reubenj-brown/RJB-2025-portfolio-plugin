@@ -705,6 +705,32 @@
     --dgs-step-bg: rgba(255, 255, 255, 0.86);
     --dgs-panel-bg: rgba(255, 255, 255, 0.92);
     --dgs-panel-solid: #ffffff;
+
+    /* Clearances for the site's fixed header / sticky footer (branded story
+       pages: header-branded.php + footer-branded.php). The corner readouts and
+       the mobile readout panel are pushed toward centre by exactly the bar
+       height plus a gap so they never sit under the chrome. Values mirror the
+       header/footer CSS per breakpoint; overrides below match the site's 1200px
+       and 768px breakpoints. */
+    --dgs-header-clear: calc(60px + 2vw); /* .site-header height > 1200px */
+    --dgs-footer-clear: calc(40px + 2vw); /* footer: logo 40px + 1vw*2 pad */
+    --dgs-edge-gap: 16px;
+  }
+
+  /* Tablet: header switches to height:auto (~1rem pad + ~30px content). */
+  @media (max-width: 1200px) {
+    .dgs-scrolly {
+      --dgs-header-clear: 64px;
+    }
+  }
+
+  /* Mobile: header is 60px + top safe-area; footer shrinks (28px logo, 1vw top
+     pad, 2vw + bottom safe-area). */
+  @media (max-width: 768px) {
+    .dgs-scrolly {
+      --dgs-header-clear: calc(60px + env(safe-area-inset-top, 0px));
+      --dgs-footer-clear: calc(32px + 3vw + env(safe-area-inset-bottom, 0px));
+    }
   }
 
   @media (prefers-color-scheme: dark) {
@@ -846,21 +872,21 @@
     position: absolute;
   }
   .dgs-r-date {
-    top: 28px;
+    top: calc(var(--dgs-header-clear) + var(--dgs-edge-gap));
     left: 28px;
   }
   .dgs-r-dest {
-    top: 28px;
+    top: calc(var(--dgs-header-clear) + var(--dgs-edge-gap));
     right: 28px;
     text-align: right;
   }
   .dgs-r-cargo {
-    bottom: 28px;
+    bottom: calc(var(--dgs-footer-clear) + var(--dgs-edge-gap));
     right: 28px;
     text-align: right;
   }
   .dgs-r-gas {
-    bottom: 28px;
+    bottom: calc(var(--dgs-footer-clear) + var(--dgs-edge-gap));
     left: 28px;
   }
 
@@ -941,8 +967,8 @@
       top: 11%;
       width: min(560px, 90vw);
     }
-    /* Compact 2x2 grid in a solid overlay pinned to the bottom; --dgs-footer-h
-       lets the page lift it above a sticky site footer (default 0). */
+    /* Compact 2x2 grid in a solid overlay pinned to the bottom. The bottom
+       padding clears the sticky site footer so the figures aren't covered. */
     .dgs-readouts {
       display: grid;
       position: absolute;
@@ -954,7 +980,7 @@
       grid-auto-rows: min-content;
       align-content: end;
       gap: 4px 16px;
-      padding: 12px 20px calc(1rem + var(--dgs-footer-h, 0px));
+      padding: 12px 20px calc(var(--dgs-footer-clear) + var(--dgs-edge-gap));
       background: var(--dgs-panel-solid);
     }
     .dgs-readout {
