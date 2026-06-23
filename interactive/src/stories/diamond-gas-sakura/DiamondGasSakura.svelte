@@ -459,10 +459,18 @@
     for (let i = 0; i < segW.length; i++) {
       stepScrollFracs[i + 1] = stepScrollFracs[i] + segW[i] / segTotal;
     }
+    // Reserve a blank intro at the very start: the reader sees the opening map
+    // (Gulf/Cameron, ship at rest, no path) and must scroll a bit before the
+    // first card fades in. Squeeze the whole timeline into [INTRO_LEAD, 1].
+    const INTRO_LEAD = 0.1;
+    for (let i = 0; i < stepScrollFracs.length; i++) {
+      stepScrollFracs[i] = INTRO_LEAD + (1 - INTRO_LEAD) * stepScrollFracs[i];
+    }
 
     // Scroll progress -> date fraction (piecewise-linear through the steps).
+    // Held at the start date through the intro lead.
     function dateFracAt(p) {
-      if (p <= 0) return 0;
+      if (p <= stepScrollFracs[0]) return 0;
       if (p >= 1) return 1;
       let i = 0;
       while (i < stepScrollFracs.length - 1 && p > stepScrollFracs[i + 1]) i++;
@@ -479,10 +487,12 @@
     const PROSE_FADE = 0.04;
     const DWELL_HALF = 0.34;
     const dwellBands = stepScrollFracs.map((c, i) => {
-      const prevSeg = i > 0 ? c - stepScrollFracs[i - 1] : Infinity;
+      // Treat the intro lead as the first card's "previous segment" so card 0
+      // fades in partway through the intro instead of being visible at p=0.
+      const prevSeg = i > 0 ? c - stepScrollFracs[i - 1] : INTRO_LEAD;
       const nextSeg =
         i < stepScrollFracs.length - 1 ? stepScrollFracs[i + 1] - c : Infinity;
-      const lo = i === 0 ? -Infinity : c - DWELL_HALF * prevSeg;
+      const lo = c - DWELL_HALF * prevSeg;
       const hi =
         i === stepScrollFracs.length - 1 ? Infinity : c + DWELL_HALF * nextSeg;
       return { lo, hi };
