@@ -20,10 +20,10 @@
     grid-template-columns: repeat(3, 1fr);
 }
 
-/* Tablet: 2-wide grid */
+/* Tablet: 3-wide grid */
 @media (max-width: 1200px) {
     .solar-section .stories-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 24px;
     }
 }
