@@ -697,7 +697,7 @@
     position: relative;
     width: 100vw;
     margin-left: calc(50% - 50vw);
-    height: 400vh;
+    height: 600vh;
 
     font-family: var(
       --primary-font,
