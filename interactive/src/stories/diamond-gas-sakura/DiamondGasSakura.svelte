@@ -204,8 +204,12 @@
     const voyagePath = rootEl.querySelector("#dgs-voyage-path");
     voyagePath.setAttribute("d", buildPathD(shipBefore));
     const pathLen = voyagePath.getTotalLength();
-    voyagePath.style.strokeDasharray = pathLen + "px";
-    voyagePath.style.strokeDashoffset = pathLen + "px";
+    // Set dash via presentation ATTRIBUTES with unitless (user-unit) numbers,
+    // not CSS style with a "px" unit: Safari ignores stroke-dasharray/-offset
+    // when set as CSS px and renders the whole path; attributes work in every
+    // browser. (pathLen is already in user units from getTotalLength.)
+    voyagePath.setAttribute("stroke-dasharray", pathLen.toFixed(1));
+    voyagePath.setAttribute("stroke-dashoffset", pathLen.toFixed(1));
 
     // --- Load world basemap (CDN at runtime), tag countries by id ---
     d3json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
@@ -569,9 +573,12 @@
       // counter-scaled chevron and labels).
       voyagePath.style.strokeWidth = (2.2 * screenScale).toFixed(3) + "px";
 
-      // Path reveal.
-      voyagePath.style.strokeDashoffset =
-        (pathLen * (1 - lenFracAt(curMs))).toFixed(1) + "px";
+      // Path reveal (unitless attribute — see note where dasharray is set;
+      // Safari ignores the CSS px form and shows the whole path).
+      voyagePath.setAttribute(
+        "stroke-dashoffset",
+        (pathLen * (1 - lenFracAt(curMs))).toFixed(1),
+      );
 
       // Ship marker (counter-scaled so the chevron stays a fixed size).
       if (sp) {
@@ -883,21 +890,21 @@
   }
   .dgs-r-date {
     top: calc(var(--dgs-header-clear) + var(--dgs-edge-gap));
-    left: 28px;
+    left: 2vw;
   }
   .dgs-r-dest {
     top: calc(var(--dgs-header-clear) + var(--dgs-edge-gap));
-    right: 28px;
+    right: 2vw;
     text-align: right;
   }
   .dgs-r-cargo {
     bottom: calc(var(--dgs-footer-clear) + var(--dgs-edge-gap));
-    right: 28px;
+    right: 2vw;
     text-align: right;
   }
   .dgs-r-gas {
     bottom: calc(var(--dgs-footer-clear) + var(--dgs-edge-gap));
-    left: 28px;
+    left: 2vw;
   }
 
   .dgs-readout-label {
