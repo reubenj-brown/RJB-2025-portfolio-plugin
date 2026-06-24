@@ -641,8 +641,9 @@ class ReubenPortfolioSections {
 
     public function more_stories($atts) {
         $atts = shortcode_atts([
-            'limit' => 5,
-            'tag'   => '',
+            'limit'   => 5,
+            'tag'     => '',
+            'heading' => 'More stories',
         ], $atts);
 
         ob_start();
