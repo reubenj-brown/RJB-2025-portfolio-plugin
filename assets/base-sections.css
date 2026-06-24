@@ -238,10 +238,6 @@ p.story-meta i{
     .display-headline {
         font-size: 12vw !important;
     }
-
-    p {
-        font-size: 1rem;
-    }
 }
 
 /* Mobile Typography Adjustments - See breakpoint reference at top of file */
@@ -251,16 +247,8 @@ p.story-meta i{
         margin-bottom: 1rem;
     }
 
-    h2 {
-        font-size: 1.25rem;
-    }
-
     h3 {
         font-size: 1.5rem;
-    }
-
-    p {
-        font-size: 0.875rem;
     }
 
     .story-meta,
