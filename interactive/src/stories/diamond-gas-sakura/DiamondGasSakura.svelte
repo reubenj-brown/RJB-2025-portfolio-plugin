@@ -724,7 +724,9 @@
     --dgs-sakura: var(--cr-sakura, #ffccd4);
     --dgs-sprite: var(--cr-sprite, #d1ffe8);
     --dgs-marker-stroke: #ffffff;
-    --dgs-text: var(--text-color, #111);
+    /* Light-only component: pin text dark (don't follow the site's
+       --text-color, which the theme flips to white under OS dark mode). */
+    --dgs-text: #111;
     --dgs-muted: var(--cr-50grey, #808080);
     --dgs-step-bg: rgba(255, 255, 255, 0.86);
     --dgs-panel-bg: rgba(255, 255, 255, 0.92);
@@ -757,18 +759,6 @@
     }
   }
 
-  @media (prefers-color-scheme: dark) {
-    .dgs-scrolly {
-      --dgs-ocean: var(--cr-navy, #0a2066);
-      --dgs-land: #000000;
-      --dgs-border: var(--cr-75grey, #bfbfbf);
-      --dgs-text: var(--text-color, #ffffff);
-      --dgs-muted: var(--cr-75grey, #bfbfbf);
-      --dgs-step-bg: rgba(8, 12, 28, 0.72);
-      --dgs-panel-bg: rgba(8, 12, 28, 0.92);
-      --dgs-panel-solid: #05080f;
-    }
-  }
 
   /* --- Sticky graphic --- */
   .dgs-sticky {
