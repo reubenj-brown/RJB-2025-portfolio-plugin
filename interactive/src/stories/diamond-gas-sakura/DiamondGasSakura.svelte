@@ -1001,7 +1001,13 @@
       align-content: end;
       gap: 4px 16px;
       padding: 12px 4vw calc(var(--dgs-footer-clear) + var(--dgs-edge-gap));
-      background: var(--dgs-panel-solid);
+      /* Solid white for the top 120px, then fade to cr-lavender at the bottom. */
+      background: linear-gradient(
+        to bottom,
+        var(--dgs-panel-solid) 0,
+        var(--dgs-panel-solid) 120px,
+        var(--cr-lavender, #f5f9fc) 100%
+      );
     }
     .dgs-readout {
       position: static;
