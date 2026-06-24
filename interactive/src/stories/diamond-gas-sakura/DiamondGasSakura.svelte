@@ -253,7 +253,7 @@
       { id: "cameron", ll: [-93.32, 29.8], label: "Cameron, La.", dx: -10, dy: -16, anchor: "end" },
       { id: "nagoya", ll: [136.91, 35.18], label: "Nagoya, Japan", dx: -12, dy: -14, anchor: "end" },
       { id: "hormuz", ll: [56.25, 26.57], label: "Strait of Hormuz", dx: 6, dy: 22, anchor: "start" },
-      { id: "kaohsiung", ll: [120.31, 22.62], label: "Kaohsiung", dx: 10, dy: 18, anchor: "start" },
+      { id: "kaohsiung", ll: [120.31, 22.62], label: "Kaohsiung, Taiwan", dx: 10, dy: 18, anchor: "start" },
     ];
 
     // Each annotation is built anchor-relative (children around 0,0) and the
