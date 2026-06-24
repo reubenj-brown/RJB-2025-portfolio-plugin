@@ -1,7 +1,8 @@
 <!-- More Stories Section -->
 <?php
-// Get the limit from shortcode attributes
+// Get the limit and optional tag filter from shortcode attributes
 $limit = isset($atts['limit']) ? intval($atts['limit']) : 5;
+$tag   = isset($atts['tag'])   ? sanitize_text_field($atts['tag']) : '';
 
 // Build query args - exclude photo-* categories
 $query_args = [
@@ -11,8 +12,18 @@ $query_args = [
     'order' => 'DESC'
 ];
 
-// Exclude photo-* categories if the helper function exists
-if (function_exists('get_photo_category_slugs')) {
+if ($tag) {
+    // Filter to a specific story_category slug
+    $query_args['tax_query'] = [
+        [
+            'taxonomy' => 'story_category',
+            'field'    => 'slug',
+            'terms'    => $tag,
+            'operator' => 'IN',
+        ]
+    ];
+} elseif (function_exists('get_photo_category_slugs')) {
+    // Default: exclude photo-* categories
     $photo_slugs = get_photo_category_slugs();
     if (!empty($photo_slugs)) {
         $query_args['tax_query'] = [
