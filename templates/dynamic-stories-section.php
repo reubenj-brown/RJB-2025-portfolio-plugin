@@ -18,6 +18,8 @@ $stories_query = function_exists('get_portfolio_stories')
 
 $show_excerpt = $atts['show_excerpt'] === 'true';
 $show_meta = $atts['show_meta'] === 'true';
+$show_numerals = $atts['show_numerals'] === 'true';
+$roman_numerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 ?>
 
 <section class="content-section">
@@ -162,12 +164,16 @@ $show_meta = $atts['show_meta'] === 'true';
                 <!-- Grid Layout (default) -->
                 <div class="stories-grid">
                     <?php if ($stories_query->have_posts()) : ?>
-                        <?php while ($stories_query->have_posts()) : $stories_query->the_post(); 
+                        <?php $story_index = 0; ?>
+                        <?php while ($stories_query->have_posts()) : $stories_query->the_post();
                             $meta = function_exists('get_story_metadata') ? get_story_metadata(get_the_ID()) : [];
                             $story_image = function_exists('get_story_featured_image') ? get_story_featured_image(get_the_ID(), 'large') : get_the_post_thumbnail_url(get_the_ID(), 'large');
                         ?>
                             <article class="story-item">
                                 <a href="<?php echo !empty($meta['external_url']) ? esc_url($meta['external_url']) : get_permalink(); ?>" class="story-link"<?php echo !empty($meta['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
+                                    <?php if ($show_numerals) : ?>
+                                        <h5 class="story-numeral"><?php echo $roman_numerals[$story_index]; ?></h5>
+                                    <?php endif; ?>
                                     <?php if ($story_image) : ?>
                                         <div class="story-image">
                                             <img src="<?php echo esc_url($story_image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" />
@@ -201,8 +207,8 @@ $show_meta = $atts['show_meta'] === 'true';
                                     </div>
                                 </a>
                             </article>
-                        <?php endwhile; ?>
-                        
+                        <?php $story_index++; endwhile; ?>
+
                         <!-- View All Tile - part of grid -->
                         <?php if (isset($atts['show_view_all']) && $atts['show_view_all'] === 'true') : ?>
                             <article class="story-item view-all-tile">

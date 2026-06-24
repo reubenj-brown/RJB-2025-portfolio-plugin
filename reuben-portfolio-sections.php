@@ -594,6 +594,7 @@ class ReubenPortfolioSections {
             'show_excerpt' => 'true',
             'show_meta' => 'true',
             'show_view_all' => 'false',
+            'show_numerals' => 'false',
             'order' => 'DESC'
         ], $atts);
         

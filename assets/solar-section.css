@@ -10,6 +10,10 @@
     margin-bottom: 4rem;
 }
 
+.solar-section .story-numeral {
+    text-align: center;
+}
+
 .solar-kicker {
     font-family: var(--primary-font);
     font-size: 0.75rem;
