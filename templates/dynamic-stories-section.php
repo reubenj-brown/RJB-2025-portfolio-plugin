@@ -172,7 +172,7 @@ $roman_numerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
                             <article class="story-item">
                                 <a href="<?php echo !empty($meta['external_url']) ? esc_url($meta['external_url']) : get_permalink(); ?>" class="story-link"<?php echo !empty($meta['external_url']) ? ' target="_blank" rel="noopener"' : ''; ?>>
                                     <?php if ($show_numerals) : ?>
-                                        <h5 class="story-numeral"><?php echo $roman_numerals[$story_index]; ?></h5>
+                                        <h1 class="story-numeral"><?php echo $roman_numerals[$story_index]; ?></h1>
                                     <?php endif; ?>
                                     <?php if ($story_image) : ?>
                                         <div class="story-image">

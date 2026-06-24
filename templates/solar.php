@@ -6,8 +6,8 @@
             <span class="display-headline">Cracking the Sun</span>
         </div>
         <div class="strategy-intro-body"><h3><em>How an abundance of Chinese solar technology is changing Africa, Europe, and the world</em></h3></div>
+        <p class="story-meta solar-section-meta">Reporting and data for <em>The Reynolds Center for Business Journalism</em></p>
     </div>
-    <p class="story-meta solar-section-meta">A special report</p>
     <section class="content-section">
         <div class="section-container">
             <div class="stories-content">
