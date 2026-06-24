@@ -212,9 +212,7 @@
 
 /* Architecture scroll area text spacing and styling */
 .architecture-scroll-item .story-content h2 {
-    margin-top: 16px;
     margin-bottom: 16px;
-    font-size: 1.5rem !important; /* 24px headline on desktop */
 }
 
 .architecture-scroll-item .story-content p:not(.story-meta) {
@@ -348,7 +346,6 @@
     .architecture-scroll-item .story-content h2 {
         margin-top: 8px;
         margin-bottom: 12px;
-        font-size: 1.25rem !important; /* 20px headline on mobile */
     }
 
     .architecture-scroll-item .story-content p:not(.story-meta) {
