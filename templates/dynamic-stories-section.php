@@ -99,7 +99,7 @@ $show_meta = $atts['show_meta'] === 'true';
                                         <h2><?php the_title(); ?></h2>
                                         
                                         <?php if ($show_excerpt && has_excerpt()) : ?>
-                                            <p><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
+                                            <p><?php echo get_the_excerpt(); ?></p>
                                         <?php endif; ?>
                                         
                                         <?php if ($show_meta && (!empty($meta['medium']) || !empty($meta['publication']) || !empty($meta['publish_date']))) : ?>
@@ -135,7 +135,7 @@ $show_meta = $atts['show_meta'] === 'true';
                                     <h2><?php the_title(); ?></h2>
                                     
                                     <?php if ($show_excerpt && has_excerpt()) : ?>
-                                        <p class="story-excerpt"><?php echo wp_trim_words(get_the_excerpt(), 30); ?></p>
+                                        <p class="story-excerpt"><?php echo get_the_excerpt(); ?></p>
                                     <?php endif; ?>
                                     
                                     <?php if ($show_meta && (!empty($meta['medium']) || !empty($meta['publication']) || !empty($meta['publish_date']))) : ?>
@@ -181,7 +181,7 @@ $show_meta = $atts['show_meta'] === 'true';
                                         <h2><?php the_title(); ?></h2>
                                         
                                         <?php if ($show_excerpt && has_excerpt()) : ?>
-                                            <p><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
+                                            <p><?php echo get_the_excerpt(); ?></p>
                                         <?php endif; ?>
                                         
                                         <?php if ($show_meta && (!empty($meta['medium']) || !empty($meta['publication']) || !empty($meta['publish_date']))) : ?>
