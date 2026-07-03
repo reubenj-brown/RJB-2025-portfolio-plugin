@@ -21,7 +21,6 @@
 
 .solar-kicker {
     font-family: var(--primary-font);
-    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -86,6 +85,10 @@
 
     .solar-section .stories-grid::-webkit-scrollbar-thumb:hover {
         background: #a1a1a1;
+    }
+
+    .solar-kicker {
+        margin-bottom: 0 !important;
     }
 }
 
