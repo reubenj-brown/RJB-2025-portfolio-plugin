@@ -11,36 +11,61 @@
                 </div>
             </div>
             <?php
-            // Get reviews stories using the same function as other sections
-            $reviews_query = get_portfolio_stories('reviews', 4);
+            // Manually pinned primary story (by slug). Change this slug to feature a different story.
+            $primary_slug = 'a-book-and-exhibition-highlight-the-aesthetic-triumph-of-protest-architecture-but-its-political-record-needs-examining-too';
 
-            if ($reviews_query->have_posts()) {
+            // Helper: build the story array used by this template from a post ID
+            $build_review_story = function ($story_id) {
+                $featured_image = get_story_featured_image($story_id, 'large');
+                if (!$featured_image) {
+                    return null;
+                }
+                $metadata = get_story_metadata($story_id);
+                return [
+                    'id' => $story_id,
+                    'title' => get_the_title($story_id),
+                    'short_headline' => !empty($metadata['short_headline']) ? $metadata['short_headline'] : get_the_title($story_id),
+                    'excerpt' => get_the_excerpt($story_id),
+                    'permalink' => get_permalink($story_id),
+                    'metadata' => $metadata,
+                    'featured_image' => $featured_image
+                ];
+            };
+
+            // Resolve the pinned primary story from its slug
+            $primary_post = get_page_by_path($primary_slug, OBJECT, 'story');
+            $primary_story = $primary_post ? $build_review_story($primary_post->ID) : null;
+
+            // Get reviews stories for the secondary column (request one extra in case the primary is among them)
+            $reviews_query = get_portfolio_stories('reviews', 5);
+
+            if ($reviews_query->have_posts() || $primary_story) {
                 $stories = [];
 
                 // Collect stories into array
                 while ($reviews_query->have_posts()) {
                     $reviews_query->the_post();
                     $story_id = get_the_ID();
-                    $metadata = get_story_metadata($story_id);
-                    $featured_image = get_story_featured_image($story_id, 'large');
 
-                    if ($featured_image) {
-                        $stories[] = [
-                            'id' => $story_id,
-                            'title' => get_the_title(),
-                            'short_headline' => !empty($metadata['short_headline']) ? $metadata['short_headline'] : get_the_title(),
-                            'excerpt' => get_the_excerpt(),
-                            'permalink' => get_permalink(),
-                            'metadata' => $metadata,
-                            'featured_image' => $featured_image
-                        ];
+                    // Skip the pinned primary story so it doesn't also appear as a secondary
+                    if ($primary_story && $story_id === $primary_story['id']) {
+                        continue;
+                    }
+
+                    $story = $build_review_story($story_id);
+                    if ($story) {
+                        $stories[] = $story;
                     }
                 }
                 wp_reset_postdata();
 
-                if (!empty($stories)) {
-                    $primary_story = $stories[0];
-                    $secondary_stories = array_slice($stories, 1, 3); // Get up to 3 secondary stories
+                // Fall back to the first auto-pulled story if the pinned slug wasn't found
+                if (!$primary_story && !empty($stories)) {
+                    $primary_story = array_shift($stories);
+                }
+
+                if ($primary_story) {
+                    $secondary_stories = array_slice($stories, 0, 3); // Get up to 3 secondary stories
             ?>
                     <div class="reviews-layout">
                         <!-- Primary Story - Left Column -->
