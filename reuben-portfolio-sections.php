@@ -349,19 +349,25 @@ class ReubenPortfolioSections {
 
     public function enqueue_styles() {
         // Load on portfolio pages and story archive
+        $loaded_combined = false;
         if (is_page_template('page-portfolio.php') || is_page_template('test-page.php') || is_page() || is_post_type_archive('story') || is_tax('story_category')) {
             // Serve one combined, cached stylesheet instead of ~10 render-blocking
             // requests. Falls back to individual files if it can't be written.
+            // Either way this already includes base-sections.css and stories-section.css.
             $combined = $this->combined_portfolio_css();
             if ($combined) {
                 wp_enqueue_style('reuben-portfolio-combined', $combined['url'], [], $combined['ver']);
             } else {
                 $this->enqueue_portfolio_css_individually();
             }
+            $loaded_combined = true;
         }
 
-        // Load only architecture scroller styles on story pages and story archive for more_stories shortcode
-        if (is_singular('story') || is_post_type_archive('story') || is_tax('story_category')) {
+        // Single story pages need the architecture scroller styles for the more_stories
+        // shortcode. Archives/taxonomies already get these via the combined bundle above,
+        // so only load them standalone when the bundle didn't run (avoids a second copy
+        // of base-sections/stories-section overriding the bundle's cascade).
+        if (!$loaded_combined && is_singular('story')) {
             wp_enqueue_style(
                 'reuben-base-sections',
                 plugin_dir_url(__FILE__) . 'assets/base-sections.css',
