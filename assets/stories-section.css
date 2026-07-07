@@ -549,12 +549,25 @@
     background: #a1a1a1;
 }
 
-/* Scroll Items - Match Photography section dimensions */
+/* Scroll Items - Match Photography section dimensions.
+   SINGLE SOURCE OF TRUTH for .architecture-scroll-item width across every
+   instance (homepage sections, story-page more_stories, photography, reviews).
+   This file loads in the portfolio bundle on all pages and standalone on single
+   story pages, so it covers all contexts. Widths: desktop 450 / tablet 250 /
+   mobile 220. Do not redefine these widths in other section stylesheets. */
 .architecture-scroll-item {
     flex: 0 0 450px; /* Fixed width for horizontal scroll - same as photo-item */
     display: flex;
     flex-direction: column;
     position: relative;
+}
+
+/* Tablet: 769–1200px (e.g. portrait tablet). The mobile rule below overrides
+   this to 220 at/below 768px via later source order. */
+@media (max-width: 1200px) {
+    .architecture-scroll-item {
+        flex: 0 0 250px;
+    }
 }
 
 /* Architecture section image styling - match story grid 4:3 aspect ratio */
@@ -607,7 +620,7 @@
     }
 
     .architecture-scroll-item {
-        flex: 0 0 350px; /* Same as photo-item mobile width */
+        flex: 0 0 220px; /* Mobile width */
     }
 
     .architecture-scroll-item .story-content h2 {
@@ -620,12 +633,4 @@
     }
 }
 
-@media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
-    .architecture-scroll {
-        gap: 16px;
-    }
-
-    .architecture-scroll-item {
-        flex: 0 0 300px; /* Same as photo-item small mobile width */
-    }
-}
+/* No ≤480px width step: the ≤768px rule already sets 220px down to 0. */
