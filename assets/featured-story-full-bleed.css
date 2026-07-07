@@ -80,7 +80,7 @@
 
 .story-text .featured-kicker {
     font-family: var(--primary-font);
-    font-size: 12.74px;
+    font-size: var(--fs-sm);
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
