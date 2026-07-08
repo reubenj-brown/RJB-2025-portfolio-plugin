@@ -18,7 +18,7 @@ $hero_video    = home_url('/wp-content/uploads/2025/07/Eviction-of-Cortijo-El-Un
     <div class="full-bleed-content">
         <div class="story-text">
             <a href="/stories/the-cost-of-a-miracle/" target="_blank" rel="noopener noreferrer">
-                <p class="featured-kicker">Featured story</p>
+                <p class="featured-kicker">Letter from Spain</p>
                 <h1>The Cost of a Miracle</h1>
                 <h3>In Europe’s driest region, a vast plastic sea covers an agricultural system built on intensity and innovation — but the cracks in Almería’s miracle are growing, too</h3>
                 <p class="story-meta">For <i>Panoramic</i> in May 2025</p>
