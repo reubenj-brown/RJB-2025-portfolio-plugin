@@ -56,7 +56,7 @@
                             <img src="<?php echo $first_story['image_url']; ?>" alt="<?php echo $first_story['title']; ?>">
                         </div>
                         <?php if (!empty($first_story['metadata']['photo_credit'])) : ?>
-                            <div class="caption">photograph: <?php echo $first_story['metadata']['photo_credit']; ?></div>
+                            <div class="caption"><?php echo $first_story['metadata']['photo_credit']; ?></div>
                         <?php endif; ?>
                     </div>
                 </div>
