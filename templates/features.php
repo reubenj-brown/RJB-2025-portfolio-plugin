@@ -53,10 +53,10 @@
                     </div>
                     <div class="story-image">
                         <img src="<?php echo $first_story['image_url']; ?>" alt="<?php echo $first_story['title']; ?>">
-                        <?php if (!empty($first_story['metadata']['photo_credit'])) : ?>
-                            <div class="caption">photograph: <?php echo $first_story['metadata']['photo_credit']; ?></div>
-                        <?php endif; ?>
                     </div>
+                    <?php if (!empty($first_story['metadata']['photo_credit'])) : ?>
+                        <div class="caption">photograph: <?php echo $first_story['metadata']['photo_credit']; ?></div>
+                    <?php endif; ?>
                 </div>
             </div>
 
