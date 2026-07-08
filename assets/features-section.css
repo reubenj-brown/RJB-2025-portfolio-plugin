@@ -53,8 +53,12 @@
     transition: none;
 }
 
-.features-story-main .story-image {
+.features-story-main .features-story-media {
     flex: 0 0 calc(50% - 12px); /* 50% minus half of gap */
+}
+
+.features-story-main .story-image {
+    width: 100%;
     aspect-ratio: 4/3;
     overflow: hidden;
     position: relative;
@@ -163,6 +167,11 @@
         width: 100%;
         margin-bottom: 16px;
         text-align: center;
+    }
+
+    .features-story-main .features-story-media {
+        flex: none;
+        width: 100%;
     }
 
     .features-story-main .story-image {
