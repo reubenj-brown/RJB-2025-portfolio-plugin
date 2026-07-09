@@ -1,30 +1,59 @@
 <!-- Features Section -->
 <section class="content-section features-section">
     <?php
-    // Get features stories
-    $features_query = get_portfolio_stories('features', 6);
-
-    if ($features_query->have_posts()) {
-        $story_count = 0;
-        $stories = [];
-
-        // Collect stories into array
-        while ($features_query->have_posts()) {
-            $features_query->the_post();
-            $stories[] = [
-                'id' => get_the_ID(),
-                'title' => get_the_title(),
-                'excerpt' => get_the_excerpt(),
-                'image_url' => get_story_featured_image(get_the_ID(), 'large'),
-                'metadata' => get_story_metadata(get_the_ID()),
-                'permalink' => get_permalink()
+    // Build the data array for a single story by ID.
+    if (!function_exists('rjb_build_feature_story')) {
+        function rjb_build_feature_story($id) {
+            return [
+                'id' => $id,
+                'title' => get_the_title($id),
+                'excerpt' => get_the_excerpt($id),
+                'image_url' => get_story_featured_image($id, 'large'),
+                'metadata' => get_story_metadata($id),
+                'permalink' => get_permalink($id)
             ];
         }
-        wp_reset_postdata();
+    }
 
-        if (!empty($stories)) {
-            $first_story = $stories[0];
-            $remaining_stories = array_slice($stories, 1);
+    // Find the manually flagged lead story (checkbox in the story editor).
+    // If several are flagged, the most recent one wins (default date DESC order).
+    $lead_query = new WP_Query([
+        'post_type' => 'story',
+        'post_status' => 'publish',
+        'posts_per_page' => 1,
+        'fields' => 'ids',
+        'tax_query' => [[
+            'taxonomy' => 'story_category',
+            'field' => 'slug',
+            'terms' => 'features'
+        ]],
+        'meta_query' => [[
+            'key' => 'story_lead_feature',
+            'value' => '1'
+        ]]
+    ]);
+    $lead_id = !empty($lead_query->posts) ? $lead_query->posts[0] : 0;
+    wp_reset_postdata();
+
+    // Pool of features stories, newest first (one spare beyond the 3 on the right).
+    $features_query = get_portfolio_stories('features', 5);
+    $pool_ids = !empty($features_query->posts) ? wp_list_pluck($features_query->posts, 'ID') : [];
+    wp_reset_postdata();
+
+    if ($lead_id || !empty($pool_ids)) {
+        if ($lead_id) {
+            // Manual lead: pin it left, fill the right with the rest.
+            $first_story = rjb_build_feature_story($lead_id);
+            $remaining_ids = array_values(array_diff($pool_ids, [$lead_id]));
+        } else {
+            // No manual lead: newest story is the lead.
+            $first_story = rjb_build_feature_story($pool_ids[0]);
+            $remaining_ids = array_slice($pool_ids, 1);
+        }
+
+        // Cap the right-hand column at three stories.
+        $remaining_ids = array_slice($remaining_ids, 0, 3);
+        $remaining_stories = array_map('rjb_build_feature_story', $remaining_ids);
     ?>
             <!-- Left half - Main featured story -->
             <div class="features-left" #stories>
@@ -92,7 +121,6 @@
                 <?php endforeach; ?>
             </div>
     <?php
-        }
     } else {
         echo '<p class="no-stories-message">No features stories found.</p>';
     }
