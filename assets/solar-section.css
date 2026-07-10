@@ -88,6 +88,7 @@
     }
 
     .solar-kicker {
+        font-size: var(--fs-2xs);
         margin-bottom: 0 !important;
     }
 }
