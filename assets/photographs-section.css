@@ -157,6 +157,6 @@
     }
 
     .photo-primary-overlay .story-meta {
-        font-size: 0.75rem;
+        font-size: var(--fs-xs);
     }
 }
