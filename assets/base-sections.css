@@ -255,7 +255,7 @@ p.story-meta i{
         transform: translateX(-50%);
         width: 50%;
         height: 1px;
-        background: var(--cr-50grey);
+        background: var(--cr-75grey);
     }
 }
 
