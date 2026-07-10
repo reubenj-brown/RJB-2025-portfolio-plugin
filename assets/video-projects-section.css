@@ -171,6 +171,10 @@
 
 /* Mobile Responsive - See breakpoint reference in base-sections.css */
 @media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
+    .video-projects-content .strategy-intro {
+        padding-bottom: 0;
+    }
+
     .video-grid {
         padding-right: 4vw;
     }
