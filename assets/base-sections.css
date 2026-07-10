@@ -238,6 +238,25 @@ p.story-meta i{
     .display-headline {
         font-size: 12vw !important;
     }
+
+    /* Tablet/mobile: half the bottom padding, move it to margin,
+       and add a 50%-width 1px divider where the bottom border sits */
+    .strategy-intro {
+        position: relative;
+        padding-bottom: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .strategy-intro::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 1px;
+        background: var(--cr-50grey);
+    }
 }
 
 /* Mobile Typography Adjustments - See breakpoint reference at top of file */
@@ -275,9 +294,9 @@ p.story-meta i{
 
     .strategy-intro {
         align-items: center;
-        margin-bottom: 0;
+        margin-bottom: 2.5rem;
         max-width: 100%;
-        padding: 5rem 1rem;
+        padding: 5rem 1rem 2.5rem 1rem;
         gap: 1.5rem;
     }
 
@@ -299,6 +318,6 @@ p.story-meta i{
 /* Small Mobile Responsive - See breakpoint reference at top of file */
 @media (max-width: 480px), ((max-width: 1200px) and (max-height: 480px)) {
     .strategy-intro {
-        margin-bottom: 0;
+        margin-bottom: 2.5rem;
     }
 }
