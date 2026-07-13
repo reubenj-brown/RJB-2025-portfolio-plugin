@@ -88,11 +88,11 @@
       ],
     },
     source: {
-      x: 2,
-      y: 396,
-      anchor: "start",
-      size: "--fs-3xs",
-      lh: 5,
+      x: 78,
+      y: 382.5,
+      anchor: "middle",
+      size: "--fs-2xs",
+      lh: 9,
       color: GREY,
       lines: [
         [
@@ -112,21 +112,21 @@
   // Axis tick labels are single-line, so generate them compactly.
   const leftAxis = [
     {
-      x: 2,
+      x: 0,
       y: Y_300 - 2,
       anchor: "start",
       size: "--fs-sm",
       lines: [[{ t: "300 MW", w: 600 }]],
     },
     {
-      x: 2,
+      x: 0,
       y: Y_200 - 2,
       anchor: "start",
       size: "--fs-sm",
       lines: [[{ t: "200" }]],
     },
     {
-      x: 2,
+      x: 0,
       y: Y_100 - 2,
       anchor: "start",
       size: "--fs-sm",
@@ -135,28 +135,28 @@
   ];
   const rightAxis = [
     {
-      x: 154,
+      x: 154.5,
       y: Y_300 - 2,
       anchor: "end",
       size: "--fs-sm",
       lines: [[{ t: "90¢", w: 600 }]],
     },
     {
-      x: 154,
+      x: 154.5,
       y: Y_200 - 2,
       anchor: "end",
       size: "--fs-sm",
       lines: [[{ t: "70" }]],
     },
     {
-      x: 154,
+      x: 154.5,
       y: Y_100 - 2,
       anchor: "end",
       size: "--fs-sm",
       lines: [[{ t: "50" }]],
     },
     {
-      x: 154,
+      x: 154.5,
       y: Y_0 - 2,
       anchor: "end",
       size: "--fs-sm",
@@ -177,8 +177,8 @@
   // Both bands span y 294.14–372.2 (centre 333).
   const bands = [
     {
-      x: 68,
-      y: 333,
+      x: 53.2,
+      y: 316,
       anchor: "middle",
       db: "central",
       rotate: -90,
@@ -187,8 +187,8 @@
       lines: [[{ t: "Removal of fuel subsidies" }]],
     },
     {
-      x: 142.7,
-      y: 333,
+      x: 140.2,
+      y: 358,
       anchor: "middle",
       db: "central",
       rotate: -90,
@@ -221,6 +221,9 @@
     b.rotate
       ? `translate(-50%, -50%) rotate(${b.rotate}deg)`
       : `translate(${translateForAnchor[b.anchor]}, -0.8em)`;
+  // lh is in viewBox units; convert to the px baseline-gap it represents at the
+  // reference width so the HTML overlay matches SVG mode's line spacing.
+  const lineGapPx = (b) => (b.lh ?? 5) * (REF_WIDTH / VB_W);
 </script>
 
 <div class="noil" class:noil--html={mode === "html"}>
@@ -273,12 +276,13 @@
                color:{b.color ?? INK};
                font-size:var({b.size}, 16px);"
         >
-          {#each b.lines as line}
+          {#each b.lines as line, li}
             <div
               class="noil-line"
-              style={line[0]?.size
-                ? `font-size:var(${line[0].size}, 16px)`
-                : null}
+              style="{li ? `margin-top:calc(${lineGapPx(b)}px - 1em);` : ''}{line[0]
+                ?.size
+                ? `font-size:var(${line[0].size}, 16px);`
+                : ''}"
             >
               {#each line as run}<span
                   style="{run.w ? `font-weight:${run.w};` : ''}{run.c
@@ -327,6 +331,9 @@
   .noil-block {
     position: absolute;
     white-space: nowrap;
-    line-height: 1.15;
+  }
+  /* line-height:1 so per-line margin-top is the exact baseline gap. */
+  .noil-line {
+    line-height: 1;
   }
 </style>
