@@ -20,7 +20,7 @@
 
   // --- coordinate space ----------------------------------------------------
   const VB_W = 155.99; // original SVG width — the fs↔px anchor
-  const VB_H = 410; // original 389.37, extended for the source note
+  const VB_H = 389.37; // matches the original SVG art bounds (source note fits within)
   const REF_WIDTH = 760; // desktop width the fs px-vars are calibrated to
   const K = VB_W / REF_WIDTH; // 0.2052 — user-units per px at the reference width
 
@@ -52,7 +52,7 @@
   // Positions are in viewBox units; nudge freely, there is no live preview.
   const B = {
     headline: {
-      x: 2,
+      x: 0,
       y: 268,
       anchor: "start",
       size: "--fs-4xl",
@@ -60,7 +60,7 @@
       lines: [[{ t: "Oil for Sun", w: 600 }]],
     },
     deck: {
-      x: 2,
+      x: 0,
       y: 275,
       anchor: "start",
       size: "--fs-base",
