@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nigeria Oil/Solar — dev harness</title>
+  <style>
+    /* Real Innovator Grotesk from the sibling theme repo (served via /@fs). */
+    @font-face {
+      font-family: 'Innovator Grotesk';
+      src: url('/@fs/Users/reubenj.brown/RJB-2025-Theme/fonts/InnovatorGrotesk-Regular.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Innovator Grotesk';
+      src: url('/@fs/Users/reubenj.brown/RJB-2025-Theme/fonts/InnovatorGrotesk-SemiBold.woff2') format('woff2');
+      font-weight: 600; font-style: normal; font-display: swap;
+    }
+
+    /* Theme tokens the island references at runtime (mirror of style.css). */
+    :root {
+      --cr-cobalt:#003cff; --cr-soil:#805533; --cr-50grey:#808080; --text-color:#000;
+      --primary-font:'Innovator Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      --fs-4xl:24px; --fs-3xl:22.5px; --fs-2xl:21.2px; --fs-xl:19.8px; --fs-lg:18.4px; --fs-md:17px;
+      --fs-base:14.15px; --fs-sm:12.74px; --fs-xs:11.3px; --fs-2xs:9.9px; --fs-3xs:8.5px;
+    }
+    body { margin:0; background:#FFF8ED; padding:16px; }
+    .row { display:flex; gap:24px; align-items:flex-start; }
+    .col { flex:1 1 0; min-width:0; }
+    .lab { font:13px/1.3 -apple-system, system-ui, sans-serif; color:#555; margin:0 0 8px; }
+    .lab code { background:#00000010; padding:1px 5px; border-radius:4px; }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <div class="col">
+      <p class="lab"><code>mode="svg"</code> — SVG text, scales with the chart</p>
+      <div id="svg"></div>
+    </div>
+    <div class="col">
+      <p class="lab"><code>mode="html"</code> — HTML overlay, fixed px</p>
+      <div id="html"></div>
+    </div>
+  </div>
+  <script type="module">
+    import mountIsland from './src/viz/Nigeria_Oil_Solar/index.js';
+    mountIsland(document.getElementById('svg'),  { mode: 'svg'  });
+    mountIsland(document.getElementById('html'), { mode: 'html' });
+  </script>
+</body>
+</html>
