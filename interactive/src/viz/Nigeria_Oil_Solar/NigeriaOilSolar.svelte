@@ -53,7 +53,7 @@
   const B = {
     headline: {
       x: 2,
-      y: 62,
+      y: 268,
       anchor: "start",
       size: "--fs-4xl",
       lh: 9,
@@ -61,7 +61,7 @@
     },
     deck: {
       x: 2,
-      y: 73,
+      y: 275,
       anchor: "start",
       size: "--fs-base",
       lh: 5,
@@ -81,8 +81,9 @@
       lh: 4.4,
       lines: [
         [{ t: "1.4 GW", w: 600, c: COBALT, size: "--fs-2xl" }],
-        [{ t: "of Chinese solar panels and" }],
-        [{ t: "cells imported to " }, { t: "Nigeria", w: 600 }],
+        [{ t: "of Chinese solar" }],
+        [{ t: "panels and cells" }],
+        [{ t: "imported to " }, { t: "Nigeria", w: 600 }],
         [{ t: "in March 2026" }],
       ],
     },
@@ -164,11 +165,38 @@
   ];
   const xAxis = ["2022", "’23", "’24", "’25"].map((t, i) => ({
     x: YEAR[i],
-    y: 381,
+    y: 377,
     anchor: "middle",
     size: "--fs-xs",
     lines: [[{ t }]],
   }));
+
+  // Rotated labels (90° CCW) centred on the two shaded bands. x/y is the band
+  // centre; `rotate` + `db:central` centre the text on that point.
+  // Band 1: x 54.71–81.3 (centre 68). Band 2: x 141.48–143.95 (centre 142.7).
+  // Both bands span y 294.14–372.2 (centre 333).
+  const bands = [
+    {
+      x: 68,
+      y: 333,
+      anchor: "middle",
+      db: "central",
+      rotate: -90,
+      size: "--fs-xs",
+      color: GREY,
+      lines: [[{ t: "Removal of fuel subsidies" }]],
+    },
+    {
+      x: 142.7,
+      y: 333,
+      anchor: "middle",
+      db: "central",
+      rotate: -90,
+      size: "--fs-xs",
+      color: GREY,
+      lines: [[{ t: "Iran War" }]],
+    },
+  ];
 
   const blocks = [
     B.headline,
@@ -178,6 +206,7 @@
     ...leftAxis,
     ...rightAxis,
     ...xAxis,
+    ...bands,
   ];
 
   // --- helpers -------------------------------------------------------------
@@ -187,6 +216,11 @@
   const pctX = (x) => (x / VB_W) * 100;
   const pctY = (y) => (y / VB_H) * 100;
   const translateForAnchor = { start: "0", middle: "-50%", end: "-100%" };
+  // Rotated blocks centre on their point; plain blocks anchor by baseline.
+  const htmlTransform = (b) =>
+    b.rotate
+      ? `translate(-50%, -50%) rotate(${b.rotate}deg)`
+      : `translate(${translateForAnchor[b.anchor]}, -0.8em)`;
 </script>
 
 <div class="noil" class:noil--html={mode === "html"}>
@@ -204,6 +238,8 @@
           x={b.x}
           y={b.y}
           text-anchor={b.anchor}
+          dominant-baseline={b.db ?? null}
+          transform={b.rotate ? `rotate(${b.rotate} ${b.x} ${b.y})` : null}
           fill={b.color ?? INK}
           font-size={svgFont(b.size)}
         >
@@ -232,7 +268,7 @@
           style="
                left:{pctX(b.x)}%;
                top:{pctY(b.y)}%;
-               transform:translate({translateForAnchor[b.anchor]}, -0.8em);
+               transform:{htmlTransform(b)};
                text-align:{anchorToTextAlign[b.anchor]};
                color:{b.color ?? INK};
                font-size:var({b.size}, 16px);"
