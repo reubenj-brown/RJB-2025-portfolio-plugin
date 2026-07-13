@@ -905,9 +905,7 @@
   }
 
   .dgs-readout-label {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    font-size: var(--fs-base, 14.15px);
     color: var(--dgs-muted);
     margin-bottom: 4px;
   }
@@ -1034,6 +1032,9 @@
     }
     .dgs-readout-value {
       font-size: 22px;
+    }
+    .dgs-readout-label {
+      font-size: var(--fs-sm, 12.74px);
     }
   }
 
