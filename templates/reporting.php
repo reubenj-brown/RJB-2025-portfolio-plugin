@@ -13,11 +13,11 @@
     <!-- Features grid -->
     <?php echo do_shortcode('[reuben_features]'); ?>
 
-    <!-- Cronkite grid -->
+    <!-- Reporting grid -->
     <section class="content-section">
         <div class="section-container">
             <div class="stories-content">
-                <?php echo do_shortcode('[reuben_dynamic_stories category="cronkite" layout="2-wide" limit="4" show_view_all="false" show_excerpt="true"]'); ?>
+                <?php echo do_shortcode('[reuben_dynamic_stories category="reporting" layout="2-wide" limit="4" show_view_all="false" show_excerpt="true"]'); ?>
             </div>
         </div>
     </section>
