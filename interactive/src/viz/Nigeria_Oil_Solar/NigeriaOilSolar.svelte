@@ -56,7 +56,7 @@
       y: 268,
       anchor: "start",
       size: "--fs-4xl",
-      lh: 9,
+      lh: 5,
       lines: [[{ t: "Oil for Sun", w: 600 }]],
     },
     deck: {
@@ -64,7 +64,7 @@
       y: 275,
       anchor: "start",
       size: "--fs-base",
-      lh: 5,
+      lh: 4.5,
       lines: [
         [
           { t: "Surges in Nigerian " },
@@ -78,7 +78,7 @@
       y: 15,
       anchor: "start",
       size: "--fs-xs",
-      lh: 4.4,
+      lh: 3.5,
       lines: [
         [{ t: "1.4 GW", w: 600, c: COBALT, size: "--fs-2xl" }],
         [{ t: "of Chinese solar" }],
@@ -92,7 +92,7 @@
       y: 382.5,
       anchor: "middle",
       size: "--fs-2xs",
-      lh: 9,
+      lh: 3.2,
       color: GREY,
       lines: [
         [
@@ -279,8 +279,9 @@
           {#each b.lines as line, li}
             <div
               class="noil-line"
-              style="{li ? `margin-top:calc(${lineGapPx(b)}px - 1em);` : ''}{line[0]
-                ?.size
+              style="{li
+                ? `margin-top:calc(${lineGapPx(b)}px - 1em);`
+                : ''}{line[0]?.size
                 ? `font-size:var(${line[0].size}, 16px);`
                 : ''}"
             >
