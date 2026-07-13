@@ -49,11 +49,11 @@
   // Positions are in viewBox units; nudge freely, there is no live preview.
   const B = {
     headline: {
-      x: 2, y: 272, anchor: 'start', size: '--fs-4xl', lh: 9,
+      x: 2, y: 62, anchor: 'start', size: '--fs-4xl', lh: 9,
       lines: [[{ t: 'Oil for Sun', w: 600 }]],
     },
     deck: {
-      x: 2, y: 283, anchor: 'start', size: '--fs-base', lh: 5,
+      x: 2, y: 73, anchor: 'start', size: '--fs-base', lh: 5,
       lines: [
         [{ t: 'Surges in Nigerian ' }, { t: 'solar imports', w: 600, c: COBALT }],
         [{ t: 'have tracked ' }, { t: 'petrol prices', w: 600, c: SOIL }],
