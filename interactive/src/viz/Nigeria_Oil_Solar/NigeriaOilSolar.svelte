@@ -22,7 +22,9 @@
 
   // --- coordinate space ----------------------------------------------------
   const VB_W = 155.99; // original SVG width — the fs↔px anchor
-  const VB_H = 385; // matches the original SVG art bounds (source note fits within)
+  const VB_H = 385; // bottom bound; matches the original SVG art (source note fits within)
+  const VB_Y0 = 5; // crop the empty margin above the 1.4 GW line/dot (top ≈7). All
+  // y coordinates are unchanged — this only moves the viewBox's top edge down.
   const REF_WIDTH = 760; // desktop width the fs px-vars are calibrated to
   const K = VB_W / REF_WIDTH; // 0.2052 — user-units per px at the reference width
 
@@ -79,7 +81,7 @@
       x: 104.96,
       y: 15,
       anchor: "start",
-      size: "--fs-xs",
+      size: "--fs-sm",
       lh: 3.5,
       lines: [
         [{ t: "1.4 GW", w: 600, c: COBALT, size: "--fs-2xl" }],
@@ -93,7 +95,7 @@
       x: 78,
       y: 382.5,
       anchor: "middle",
-      size: "--fs-2xs",
+      size: "--fs-xs",
       lh: 3.2,
       color: GREY,
       lines: [
@@ -169,7 +171,7 @@
     x: YEAR[i],
     y: 377,
     anchor: "middle",
-    size: "--fs-xs",
+    size: "--fs-sm",
     lines: [[{ t }]],
   }));
 
@@ -214,14 +216,14 @@
   // Body-copy region in the top-left blank: x/y = top-left corner, w/h in
   // viewBox units. Sits above the headline (y≈268) and left of the callout
   // (x≈105). Text flows/wraps within this width.
-  const BODY = { x: 2, y: 18, w: 98, h: 240, size: "--fs-base" };
+  const BODY = { x: 0, y: 7, w: 98, h: 240, size: "--fs-base" };
 
   // --- helpers -------------------------------------------------------------
   const svgFont = (v) => `calc(var(${v}, 16px) * ${K})`; // px-var -> user units
   const anchorToTextAlign = { start: "left", middle: "center", end: "right" };
   // % coords for the HTML overlay.
   const pctX = (x) => (x / VB_W) * 100;
-  const pctY = (y) => (y / VB_H) * 100;
+  const pctY = (y) => ((y - VB_Y0) / (VB_H - VB_Y0)) * 100;
   const translateForAnchor = { start: "0", middle: "-50%", end: "-100%" };
   // Rotated blocks centre on their point; plain blocks anchor by baseline.
   const htmlTransform = (b) =>
@@ -235,7 +237,7 @@
 
 <div class="noil" class:noil--html={mode === "html"}>
   <svg
-    viewBox="0 0 {VB_W} {VB_H}"
+    viewBox="0 {VB_Y0} {VB_W} {VB_H - VB_Y0}"
     role="img"
     aria-label="Nigerian solar imports have tracked petrol prices, with a 1.4 GW spike in March 2026."
   >
