@@ -16,11 +16,13 @@
   // Switch per-embed with [reuben_viz id="Nigeria_Oil_Solar" mode="html"].
   import rawSvg from "./nigeria_solar_vs_petrol_minify.svg?raw";
 
-  let { mode = "svg" } = $props();
+  // `body` is optional HTML (enclosed shortcode content) shown in the top-left
+  // blank; it wraps naturally (foreignObject in svg mode, an overlay in html).
+  let { mode = "svg", body = "" } = $props();
 
   // --- coordinate space ----------------------------------------------------
   const VB_W = 155.99; // original SVG width — the fs↔px anchor
-  const VB_H = 389.37; // matches the original SVG art bounds (source note fits within)
+  const VB_H = 385; // matches the original SVG art bounds (source note fits within)
   const REF_WIDTH = 760; // desktop width the fs px-vars are calibrated to
   const K = VB_W / REF_WIDTH; // 0.2052 — user-units per px at the reference width
 
@@ -55,7 +57,7 @@
       x: 0,
       y: 268,
       anchor: "start",
-      size: "--fs-4xl",
+      size: "--fs-6xl",
       lh: 5,
       lines: [[{ t: "Oil for Sun", w: 600 }]],
     },
@@ -64,7 +66,7 @@
       y: 275,
       anchor: "start",
       size: "--fs-base",
-      lh: 4.5,
+      lh: 4,
       lines: [
         [
           { t: "Surges in Nigerian " },
@@ -209,6 +211,11 @@
     ...bands,
   ];
 
+  // Body-copy region in the top-left blank: x/y = top-left corner, w/h in
+  // viewBox units. Sits above the headline (y≈268) and left of the callout
+  // (x≈105). Text flows/wraps within this width.
+  const BODY = { x: 2, y: 18, w: 98, h: 240, size: "--fs-base" };
+
   // --- helpers -------------------------------------------------------------
   const svgFont = (v) => `calc(var(${v}, 16px) * ${K})`; // px-var -> user units
   const anchorToTextAlign = { start: "left", middle: "center", end: "right" };
@@ -260,6 +267,18 @@
           {/each}
         </text>
       {/each}
+
+      {#if body}
+        <foreignObject x={BODY.x} y={BODY.y} width={BODY.w} height={BODY.h}>
+          <div
+            xmlns="http://www.w3.org/1999/xhtml"
+            class="noil-body"
+            style="font-size:calc(var({BODY.size}, 16px) * {K}); color:{INK};"
+          >
+            {@html body}
+          </div>
+        </foreignObject>
+      {/if}
     {/if}
   </svg>
 
@@ -295,6 +314,16 @@
         </div>
       {/each}
     </div>
+    {#if body}
+      <div
+        class="noil-body noil-body--overlay"
+        style="left:{pctX(BODY.x)}%; top:{pctY(BODY.y)}%; width:{(BODY.w /
+          VB_W) *
+          100}%; font-size:var({BODY.size}, 16px); color:{INK};"
+      >
+        {@html body}
+      </div>
+    {/if}
   {/if}
 </div>
 
@@ -336,5 +365,20 @@
   /* line-height:1 so per-line margin-top is the exact baseline gap. */
   .noil-line {
     line-height: 1;
+  }
+
+  /* Body copy: wraps within its region. In svg mode it lives in a
+     foreignObject (scales); in html mode it's an absolutely-placed overlay. */
+  .noil-body {
+    line-height: 1.4;
+  }
+  .noil-body--overlay {
+    position: absolute;
+  }
+  .noil-body :global(p) {
+    margin: 0 0 0.7em;
+  }
+  .noil-body :global(p:last-child) {
+    margin-bottom: 0;
   }
 </style>

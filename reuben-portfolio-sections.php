@@ -422,7 +422,7 @@ class ReubenPortfolioSections {
      * enqueued only on pages that actually use a viz. Any extra atts are passed
      * through as data-* attributes and become props on the component.
      */
-    public function viz_embed($atts) {
+    public function viz_embed($atts, $content = null) {
         $atts = shortcode_atts([
             'id'    => '',
             'src'   => '',
@@ -450,7 +450,15 @@ class ReubenPortfolioSections {
 
         $class = trim('rjb-viz ' . $atts['class']);
 
-        return '<div class="' . esc_attr($class) . '" ' . $data . '></div>';
+        // Enclosed content (e.g. [reuben_viz ...]body prose[/reuben_viz]) is
+        // stashed in an inert <template> the island reads and positions inside
+        // the graphic. <template> keeps it out of the pre-hydration flow.
+        $body = '';
+        if ($content !== null && trim($content) !== '') {
+            $body = '<template class="rjb-viz-body">' . do_shortcode($content) . '</template>';
+        }
+
+        return '<div class="' . esc_attr($class) . '" ' . $data . '>' . $body . '</div>';
     }
 
     /**
