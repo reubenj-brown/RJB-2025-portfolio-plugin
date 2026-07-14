@@ -1,35 +1,21 @@
 <script>
-  // Static chart art lives in the SVG (paths only — no <text>). Every label is
-  // drawn here, on top of the art, in the SVG's own 155.99-wide coordinate
-  // space. Two rendering modes let us compare type behaviour on the live site:
-  //
-  //   mode="svg"  — labels are SVG <text>. They sit in the chart's coordinate
-  //                 space and SCALE with the chart. font-size is written as
-  //                 calc(var(--fs-*) * K) so a label hits its true px size at
-  //                 the REF_WIDTH reference width (760px desktop) and scales
-  //                 proportionally at other widths.
-  //   mode="html" — labels are an HTML overlay positioned by %. font-size is
-  //                 var(--fs-*) in fixed px, so type stays a constant pixel
-  //                 size no matter how wide the chart renders. Alignment to
-  //                 chart features is approximate (no shared coordinate space).
-  //
-  // Switch per-embed with [reuben_viz id="Nigeria_Oil_Solar" mode="html"].
+  // The static chart art (bars, lines, gridlines, shaded bands) is a paths-only
+  // SVG with no <text>. Every label is drawn on top as an absolutely-positioned
+  // HTML overlay, mapped onto the chart by % of its viewBox. Font sizes are
+  // fixed px (the theme's --fs-* tokens), tunable per breakpoint via --noil-scale.
   import rawSvg from "./nigeria_solar_vs_petrol_minify.svg?raw";
 
   // `body` is optional HTML (enclosed shortcode content) shown in the top-left
-  // blank; it wraps naturally (foreignObject in svg mode, an overlay in html).
-  let { mode = "svg", body = "" } = $props();
+  // blank; it wraps naturally within its region.
+  let { body = "" } = $props();
 
   // --- coordinate space ----------------------------------------------------
-  const VB_W = 155.99; // original SVG width — the fs↔px anchor
+  const VB_W = 155.99; // original SVG width
   const VB_H = 385; // bottom bound; matches the original SVG art (source note fits within)
-  const VB_Y0 = 5; // crop the empty margin above the 1.4 GW line/dot (top ≈7). All
-  // y coordinates are unchanged — this only moves the viewBox's top edge down.
+  const VB_Y0 = 5; // crop the empty margin above the 1.4 GW line/dot (top ≈7)
   const REF_WIDTH = 760; // desktop width the fs px-vars are calibrated to
-  const K = VB_W / REF_WIDTH; // 0.2052 — user-units per px at the reference width
 
-  // Chart art with its outer <svg> wrapper stripped, so it can be injected
-  // straight into our own <svg> and share the coordinate system.
+  // Chart art with its outer <svg> wrapper stripped, injected into our own <svg>.
   const chartInner = rawSvg
     .replace(/^[\s\S]*?<svg[^>]*>/, "")
     .replace(/<\/svg>\s*$/, "");
@@ -49,11 +35,11 @@
   // Year-band centres (ticks at 11.44 / 42.91 / 74.38 / 105.85 / 137.32).
   const YEAR = [27.18, 58.65, 90.12, 121.59];
 
-  // --- text blocks (single source of truth for both renderers) -------------
+  // --- text blocks (single source of truth for the overlay) ----------------
   // Each block: an anchor point (x,y = baseline of the FIRST line), an anchor
-  // (start|middle|end), a font-size var, a line-height in user-units, and
+  // (start|middle|end), a font-size var, a line-height in viewBox units, and
   // `lines` — each line an array of runs {t, w?(weight), c?(colour)}.
-  // Positions are in viewBox units; nudge freely, there is no live preview.
+  // Positions are in viewBox units.
   const B = {
     headline: {
       x: 0,
@@ -97,7 +83,7 @@
       anchor: "middle",
       size: "--fs-xs",
       lh: 3.2,
-      wrap: true, // in html mode, wrap within `w` so it can't overflow on mobile
+      wrap: true, // wrap within `w` so it can't overflow on mobile
       w: 150,
       color: GREY,
       lines: [
@@ -178,15 +164,13 @@
   }));
 
   // Rotated labels (90° CCW) centred on the two shaded bands. x/y is the band
-  // centre; `rotate` + `db:central` centre the text on that point.
-  // Band 1: x 54.71–81.3 (centre 68). Band 2: x 141.48–143.95 (centre 142.7).
+  // centre. Band 1: x 54.71–81.3 (centre 68). Band 2: x 141.48–143.95 (centre 142.7).
   // Both bands span y 294.14–372.2 (centre 333).
   const bands = [
     {
       x: 53.2,
       y: 316,
       anchor: "middle",
-      db: "central",
       rotate: -90,
       size: "--fs-xs",
       color: GREY,
@@ -196,7 +180,6 @@
       x: 140.2,
       y: 358,
       anchor: "middle",
-      db: "central",
       rotate: -90,
       size: "--fs-xs",
       color: GREY,
@@ -223,10 +206,9 @@
   // --- helpers -------------------------------------------------------------
   // --noil-scale (default 1, overridden per breakpoint in <style>) multiplies
   // every font-size, so type can be tuned per screen size from one knob.
-  const svgFont = (v) => `calc(var(${v}, 16px) * ${K} * var(--noil-scale, 1))`;
   const htmlFont = (v) => `calc(var(${v}, 16px) * var(--noil-scale, 1))`;
   const anchorToTextAlign = { start: "left", middle: "center", end: "right" };
-  // % coords for the HTML overlay.
+  // % coords for the overlay, mapping viewBox units onto the rendered box.
   const pctX = (x) => (x / VB_W) * 100;
   const pctY = (y) => ((y - VB_Y0) / (VB_H - VB_Y0)) * 100;
   const translateForAnchor = { start: "0", middle: "-50%", end: "-100%" };
@@ -235,105 +217,62 @@
     b.rotate
       ? `translate(-50%, -50%) rotate(${b.rotate}deg)`
       : `translate(${translateForAnchor[b.anchor]}, -0.8em)`;
-  // lh is in viewBox units; convert to the px baseline-gap it represents at the
-  // reference width so the HTML overlay matches SVG mode's line spacing.
+  // lh (viewBox units) -> the px baseline-gap it represents at the reference
+  // width, applied as line spacing in the overlay.
   const lineGapPx = (b) => (b.lh ?? 5) * (REF_WIDTH / VB_W);
 </script>
 
-<div class="noil" class:noil--html={mode === "html"}>
+<div class="noil">
   <svg
     viewBox="0 {VB_Y0} {VB_W} {VB_H - VB_Y0}"
     role="img"
     aria-label="Nigerian solar imports have tracked petrol prices, with a 1.4 GW spike in March 2026."
   >
-    <!-- static chart art (bars, lines, gridlines, Iran War marker) -->
+    <!-- static chart art (bars, lines, gridlines, shaded bands) -->
     {@html chartInner}
-
-    {#if mode === "svg"}
-      {#each blocks as b}
-        <text
-          x={b.x}
-          y={b.y}
-          text-anchor={b.anchor}
-          dominant-baseline={b.db ?? null}
-          transform={b.rotate ? `rotate(${b.rotate} ${b.x} ${b.y})` : null}
-          fill={b.color ?? INK}
-          font-size={svgFont(b.size)}
-        >
-          {#each b.lines as line, li}
-            <tspan
-              x={b.x}
-              dy={li === 0 ? 0 : (b.lh ?? 5)}
-              font-size={line[0]?.size ? svgFont(line[0].size) : null}
-            >
-              {#each line as run}<tspan
-                  font-weight={run.w ?? null}
-                  fill={run.c ?? null}>{run.t}</tspan
-                >{/each}
-            </tspan>
-          {/each}
-        </text>
-      {/each}
-
-      {#if body}
-        <foreignObject x={BODY.x} y={BODY.y} width={BODY.w} height={BODY.h}>
-          <div
-            xmlns="http://www.w3.org/1999/xhtml"
-            class="noil-body"
-            style="font-size:{svgFont(BODY.size)}; color:{INK};"
-          >
-            {@html body}
-          </div>
-        </foreignObject>
-      {/if}
-    {/if}
   </svg>
 
-  {#if mode === "html"}
-    <div class="noil-overlay" aria-hidden="true">
-      {#each blocks as b}
-        <div
-          class="noil-block"
-          style="
-               left:{pctX(b.x)}%;
-               top:{pctY(b.y)}%;
-               transform:{htmlTransform(b)};
-               text-align:{anchorToTextAlign[b.anchor]};
-               color:{b.color ?? INK};
-               font-size:{htmlFont(b.size)};
-               {b.wrap
-            ? `white-space:normal; width:${(b.w / VB_W) * 100}%;`
-            : ''}"
-        >
-          {#each b.lines as line, li}
-            <div
-              class="noil-line"
-              style="{li
-                ? `margin-top:calc(${lineGapPx(b)}px - 1em);`
-                : ''}{line[0]?.size
-                ? `font-size:${htmlFont(line[0].size)};`
-                : ''}{b.wrap ? 'line-height:1.35;' : ''}"
-            >
-              {#each line as run}<span
-                  style="{run.w ? `font-weight:${run.w};` : ''}{run.c
-                    ? `color:${run.c};`
-                    : ''}">{run.t}</span
-                >{/each}
-            </div>
-          {/each}
-        </div>
-      {/each}
-    </div>
-    {#if body}
+  <div class="noil-overlay" aria-hidden="true">
+    {#each blocks as b}
       <div
-        class="noil-body noil-body--overlay"
-        style="left:{pctX(BODY.x)}%; top:{pctY(BODY.y)}%; width:{(BODY.w /
-          VB_W) *
-          100}%; font-size:{htmlFont(BODY.size)}; color:{INK};"
+        class="noil-block"
+        style="
+             left:{pctX(b.x)}%;
+             top:{pctY(b.y)}%;
+             transform:{htmlTransform(b)};
+             text-align:{anchorToTextAlign[b.anchor]};
+             color:{b.color ?? INK};
+             font-size:{htmlFont(b.size)};
+             {b.wrap ? `white-space:normal; width:${(b.w / VB_W) * 100}%;` : ''}"
       >
-        {@html body}
+        {#each b.lines as line, li}
+          <div
+            class="noil-line"
+            style="{li
+              ? `margin-top:calc(${lineGapPx(b)}px - 1em);`
+              : ''}{line[0]?.size
+              ? `font-size:${htmlFont(line[0].size)};`
+              : ''}{b.wrap ? 'line-height:1.35;' : ''}"
+          >
+            {#each line as run}<span
+                style="{run.w ? `font-weight:${run.w};` : ''}{run.c
+                  ? `color:${run.c};`
+                  : ''}">{run.t}</span
+              >{/each}
+          </div>
+        {/each}
       </div>
-    {/if}
+    {/each}
+  </div>
+
+  {#if body}
+    <div
+      class="noil-body noil-body--overlay"
+      style="left:{pctX(BODY.x)}%; top:{pctY(BODY.y)}%; width:{(BODY.w / VB_W) *
+        100}%; font-size:{htmlFont(BODY.size)}; color:{INK};"
+    >
+      {@html body}
+    </div>
   {/if}
 </div>
 
@@ -361,10 +300,6 @@
     height: auto;
     overflow: visible;
   }
-  /* SVG-mode text inherits the family; weights come from the runs. */
-  .noil svg text {
-    font-family: inherit;
-  }
 
   /* HTML overlay covers the SVG box exactly; % coords map 1:1 to the viewBox. */
   .noil-overlay {
@@ -381,8 +316,7 @@
     line-height: 1;
   }
 
-  /* Body copy: wraps within its region. In svg mode it lives in a
-     foreignObject (scales); in html mode it's an absolutely-placed overlay. */
+  /* Body copy: an absolutely-placed overlay that wraps within its region. */
   .noil-body {
     line-height: 1.4;
   }
@@ -398,8 +332,8 @@
 
   /* Responsive type: one knob per breakpoint scales all font-sizes together.
      Tune to taste (site breakpoints are 768px / 480px). <1 = smaller, >1 =
-     larger. In html mode text is fixed px, so shrinking a little on small
-     screens keeps it in proportion with the chart. */
+     larger — text is fixed px, so shrinking a little on small screens keeps it
+     in proportion with the chart. */
   @media (max-width: 768px) {
     .noil {
       --noil-scale: 0.9;

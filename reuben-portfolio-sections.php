@@ -427,7 +427,6 @@ class ReubenPortfolioSections {
             'id'    => '',
             'src'   => '',
             'title' => '',
-            'mode'  => '',
             'class' => '',
         ], $atts, 'reuben_viz');
 
@@ -443,9 +442,6 @@ class ReubenPortfolioSections {
         }
         if ($atts['title'] !== '') {
             $data .= ' data-title="' . esc_attr($atts['title']) . '"';
-        }
-        if ($atts['mode'] !== '') {
-            $data .= ' data-mode="' . esc_attr($atts['mode']) . '"';
         }
 
         $class = trim('rjb-viz ' . $atts['class']);
