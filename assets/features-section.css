@@ -36,6 +36,7 @@
 }
 
 .features-story-main .story-content h1 {
+    font-size: clamp(48px, 6vw, 6rem);
     line-height: 0.9;
 }
 
