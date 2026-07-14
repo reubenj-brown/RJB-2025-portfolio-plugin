@@ -97,6 +97,8 @@
       anchor: "middle",
       size: "--fs-xs",
       lh: 3.2,
+      wrap: true, // in html mode, wrap within `w` so it can't overflow on mobile
+      w: 150,
       color: GREY,
       lines: [
         [
@@ -295,7 +297,10 @@
                transform:{htmlTransform(b)};
                text-align:{anchorToTextAlign[b.anchor]};
                color:{b.color ?? INK};
-               font-size:var({b.size}, 16px);"
+               font-size:var({b.size}, 16px);
+               {b.wrap
+            ? `white-space:normal; width:${(b.w / VB_W) * 100}%;`
+            : ''}"
         >
           {#each b.lines as line, li}
             <div
@@ -304,7 +309,7 @@
                 ? `margin-top:calc(${lineGapPx(b)}px - 1em);`
                 : ''}{line[0]?.size
                 ? `font-size:var(${line[0].size}, 16px);`
-                : ''}"
+                : ''}{b.wrap ? 'line-height:1.35;' : ''}"
             >
               {#each line as run}<span
                   style="{run.w ? `font-weight:${run.w};` : ''}{run.c
@@ -335,6 +340,8 @@
     width: 100%;
     max-width: 760px;
     margin: 0 auto;
+    /* Never let an overlay label push the page past 100vw on mobile. */
+    overflow-x: clip;
     font-family: var(
       --primary-font,
       "Innovator Grotesk",
