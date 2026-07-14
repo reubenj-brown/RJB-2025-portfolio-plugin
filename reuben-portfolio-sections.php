@@ -455,7 +455,16 @@ class ReubenPortfolioSections {
         // the graphic. <template> keeps it out of the pre-hydration flow.
         $body = '';
         if ($content !== null && trim($content) !== '') {
-            $body = '<template class="rjb-viz-body">' . do_shortcode($content) . '</template>';
+            // wpautop runs on the whole post BEFORE shortcodes, so it mangles
+            // enclosed content (drops the first <p>, inserts stray <br>/<p></p>).
+            // Reduce its block/line tags back to blank lines, then re-paragraph
+            // cleanly so every paragraph is wrapped in a real <p>.
+            $prose = do_shortcode(trim($content));
+            $prose = preg_replace('#<p[^>]*>#i', '', $prose);
+            $prose = str_replace('</p>', "\n\n", $prose);
+            $prose = preg_replace('#<br\s*/?>#i', "\n", $prose);
+            $prose = wpautop(trim($prose));
+            $body = '<template class="rjb-viz-body">' . $prose . '</template>';
         }
 
         return '<div class="' . esc_attr($class) . '" ' . $data . '>' . $body . '</div>';
