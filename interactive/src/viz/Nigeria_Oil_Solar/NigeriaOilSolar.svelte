@@ -221,7 +221,10 @@
   const BODY = { x: 0, y: 7, w: 98, h: 240, size: "--fs-base" };
 
   // --- helpers -------------------------------------------------------------
-  const svgFont = (v) => `calc(var(${v}, 16px) * ${K})`; // px-var -> user units
+  // --noil-scale (default 1, overridden per breakpoint in <style>) multiplies
+  // every font-size, so type can be tuned per screen size from one knob.
+  const svgFont = (v) => `calc(var(${v}, 16px) * ${K} * var(--noil-scale, 1))`;
+  const htmlFont = (v) => `calc(var(${v}, 16px) * var(--noil-scale, 1))`;
   const anchorToTextAlign = { start: "left", middle: "center", end: "right" };
   // % coords for the HTML overlay.
   const pctX = (x) => (x / VB_W) * 100;
@@ -277,7 +280,7 @@
           <div
             xmlns="http://www.w3.org/1999/xhtml"
             class="noil-body"
-            style="font-size:calc(var({BODY.size}, 16px) * {K}); color:{INK};"
+            style="font-size:{svgFont(BODY.size)}; color:{INK};"
           >
             {@html body}
           </div>
@@ -297,7 +300,7 @@
                transform:{htmlTransform(b)};
                text-align:{anchorToTextAlign[b.anchor]};
                color:{b.color ?? INK};
-               font-size:var({b.size}, 16px);
+               font-size:{htmlFont(b.size)};
                {b.wrap
             ? `white-space:normal; width:${(b.w / VB_W) * 100}%;`
             : ''}"
@@ -308,7 +311,7 @@
               style="{li
                 ? `margin-top:calc(${lineGapPx(b)}px - 1em);`
                 : ''}{line[0]?.size
-                ? `font-size:var(${line[0].size}, 16px);`
+                ? `font-size:${htmlFont(line[0].size)};`
                 : ''}{b.wrap ? 'line-height:1.35;' : ''}"
             >
               {#each line as run}<span
@@ -326,7 +329,7 @@
         class="noil-body noil-body--overlay"
         style="left:{pctX(BODY.x)}%; top:{pctY(BODY.y)}%; width:{(BODY.w /
           VB_W) *
-          100}%; font-size:var({BODY.size}, 16px); color:{INK};"
+          100}%; font-size:{htmlFont(BODY.size)}; color:{INK};"
       >
         {@html body}
       </div>
@@ -340,6 +343,8 @@
     width: 100%;
     max-width: 760px;
     margin: 0 auto;
+    /* Multiplies every font-size; override per breakpoint below. */
+    --noil-scale: 1;
     /* Never let an overlay label push the page past 100vw on mobile. */
     overflow-x: clip;
     font-family: var(
@@ -389,5 +394,20 @@
   }
   .noil-body :global(p:last-child) {
     margin-bottom: 0;
+  }
+
+  /* Responsive type: one knob per breakpoint scales all font-sizes together.
+     Tune to taste (site breakpoints are 768px / 480px). <1 = smaller, >1 =
+     larger. In html mode text is fixed px, so shrinking a little on small
+     screens keeps it in proportion with the chart. */
+  @media (max-width: 768px) {
+    .noil {
+      --noil-scale: 0.9;
+    }
+  }
+  @media (max-width: 480px) {
+    .noil {
+      --noil-scale: 0.8;
+    }
   }
 </style>
