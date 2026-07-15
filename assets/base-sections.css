@@ -62,7 +62,7 @@
 /* Supermax - Major section titles */
 h1 {
     font-family: var(--compressed-font) !important;
-    font-size: clamp(48px, 6vw, 6rem);
+    font-size: clamp(3rem, 6vw, 6rem);
     font-weight: 400;
     font-style: normal;
     text-transform: uppercase;
@@ -261,11 +261,6 @@ p.story-meta i{
 
 /* Mobile Typography Adjustments - See breakpoint reference at top of file */
 @media (max-width: 768px), ((max-width: 1200px) and (max-height: 768px)) {
-    h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
-
     h2 {
         font-size: 1rem;
     }
