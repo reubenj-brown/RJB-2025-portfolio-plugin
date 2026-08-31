@@ -52,6 +52,12 @@
     background-color: black;
 }
 
+@media (prefers-color-scheme: dark) {
+    .large-intro-text {
+        color: #fff !important;
+    }
+}
+
 /* Desktop layout - single column */
 @media (min-width: 1200px) {
     .about-content {
