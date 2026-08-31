@@ -26,9 +26,11 @@ if (empty($cards) || !is_array($cards)) {
     $poster_alt    = get_post_meta($poster_id, '_wp_attachment_image_alt', true);
     $back_text     = !empty($card['back_text']) ? $card['back_text'] : '';
     $show_see_more = !empty($card['show_see_more']) && !empty($card['see_more_url']);
+    // Card box matches the media's real aspect ratio, so nothing gets cropped.
+    $card_ratio    = (!empty($poster_src[1]) && !empty($poster_src[2])) ? $poster_src[1] . '/' . $poster_src[2] : '4/5';
 ?>
     <div class="flip-card" data-media="<?php echo esc_attr($media_type); ?>">
-        <div class="flip-card-inner">
+        <div class="flip-card-inner" style="--card-ratio: <?php echo esc_attr($card_ratio); ?>;">
             <div class="flip-card-front">
                 <img class="flip-card-poster"
                      src="<?php echo esc_url($poster_src[0]); ?>"
