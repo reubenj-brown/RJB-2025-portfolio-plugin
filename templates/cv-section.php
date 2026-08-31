@@ -5,6 +5,11 @@
                 <h2 data-target="work-entries">Work <span class="cv-arrow">↓</span></h2>
                 <div class="cv-entries" id="work-entries">
                     <div class="cv-entry">
+                        <p class="cv-role">The Howard Center for Investigative Journalism</p>
+                        <p class="cv-company">Reporter</p>
+                        <p class="cv-dates">2026</p>
+                    </div>
+                    <div class="cv-entry">
                         <p class="cv-role">Steele Fellow in Investigative Business Journalism</p>
                         <p class="cv-company">The Reynolds Center</p>
                         <p class="cv-dates">2025–26</p>
