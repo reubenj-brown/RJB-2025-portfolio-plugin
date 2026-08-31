@@ -65,6 +65,9 @@ class ReubenPortfolioSections {
 
         // Photography page shortcode
         add_shortcode('photo_section', [$this, 'photo_section']);
+
+        // Photography draft page — floating card gallery
+        add_shortcode('photo_floating_gallery', [$this, 'photo_floating_gallery']);
     }
     
     /**
@@ -197,6 +200,142 @@ class ReubenPortfolioSections {
                             'param' => 'post_type',
                             'operator' => '==',
                             'value' => 'story',
+                        ),
+                    ),
+                ),
+                'menu_order' => 0,
+                'position' => 'normal',
+                'style' => 'default',
+                'label_placement' => 'top',
+                'instruction_placement' => 'label',
+                'hide_on_screen' => '',
+            ));
+
+            // Photography draft page — floating card gallery.
+            // Scoped to the draft template only, so it never appears on
+            // story posts or on the live photography page.
+            acf_add_local_field_group(array(
+                'key' => 'group_photo_floating_gallery',
+                'title' => 'Photography Draft — Floating Cards',
+                'fields' => array(
+                    array(
+                        'key' => 'field_photo_floating_cards',
+                        'label' => 'Floating Photo Cards',
+                        'name' => 'photo_floating_cards',
+                        'type' => 'repeater',
+                        'instructions' => 'One row per card. Row order is display order — drag to reorder.',
+                        'layout' => 'row',
+                        'button_label' => 'Add photo card',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'field_card_media_type',
+                                'label' => 'Media Type',
+                                'name' => 'card_media_type',
+                                'type' => 'select',
+                                'choices' => array(
+                                    'image' => 'Image',
+                                    'video' => 'Video',
+                                ),
+                                'default_value' => 'image',
+                                'required' => 1,
+                                'ui' => 1,
+                            ),
+                            array(
+                                'key' => 'field_card_image',
+                                'label' => 'Image (front face)',
+                                'name' => 'card_image',
+                                'type' => 'image',
+                                'return_format' => 'array',
+                                'preview_size' => 'medium',
+                                'library' => 'all',
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_card_media_type',
+                                            'operator' => '==',
+                                            'value' => 'image',
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            array(
+                                'key' => 'field_card_video',
+                                'label' => 'Video (front face, MP4)',
+                                'name' => 'card_video',
+                                'type' => 'file',
+                                'return_format' => 'array',
+                                'library' => 'all',
+                                'mime_types' => 'mp4',
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_card_media_type',
+                                            'operator' => '==',
+                                            'value' => 'video',
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            array(
+                                'key' => 'field_card_video_poster',
+                                'label' => 'Video Poster Image',
+                                'name' => 'card_video_poster',
+                                'type' => 'image',
+                                'instructions' => 'Shown immediately; the video loads in behind it as the card scrolls into view.',
+                                'return_format' => 'array',
+                                'preview_size' => 'medium',
+                                'library' => 'all',
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_card_media_type',
+                                            'operator' => '==',
+                                            'value' => 'video',
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            array(
+                                'key' => 'field_card_back_text',
+                                'label' => 'Back Text',
+                                'name' => 'card_back_text',
+                                'type' => 'textarea',
+                                'instructions' => 'Shown on the back of the card when flipped/revealed.',
+                                'rows' => 4,
+                            ),
+                            array(
+                                'key' => 'field_card_show_see_more',
+                                'label' => 'Show "see more" link?',
+                                'name' => 'card_show_see_more',
+                                'type' => 'true_false',
+                                'default_value' => 0,
+                                'ui' => 1,
+                            ),
+                            array(
+                                'key' => 'field_card_see_more_url',
+                                'label' => 'See More URL',
+                                'name' => 'card_see_more_url',
+                                'type' => 'url',
+                                'instructions' => 'Only used if "Show see more link?" is checked.',
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_card_show_see_more',
+                                            'operator' => '==',
+                                            'value' => '1',
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                'location' => array(
+                    array(
+                        array(
+                            'param' => 'page_template',
+                            'operator' => '==',
+                            'value' => 'page-photography-draft-2026.php',
                         ),
                     ),
                 ),
@@ -603,6 +742,16 @@ class ReubenPortfolioSections {
 
         ob_start();
         include plugin_dir_path(__FILE__) . 'photography-sections/photo-section.php';
+        return ob_get_clean();
+    }
+
+    /**
+     * [photo_floating_gallery] — photography draft page's floating card grid.
+     * Reads the photo_floating_cards repeater on the current page.
+     */
+    public function photo_floating_gallery($atts) {
+        ob_start();
+        include plugin_dir_path(__FILE__) . 'templates/photo-floating-gallery.php';
         return ob_get_clean();
     }
 
