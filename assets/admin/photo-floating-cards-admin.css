@@ -1,0 +1,86 @@
+/* Admin-only styles for the Photography Draft page's card meta box.
+   Plain wp-admin look — no new design system, just enough layout to make
+   the rows usable. */
+
+#pfc-wrap .pfc-rows {
+    margin-bottom: 12px;
+}
+
+#pfc-wrap .pfc-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+#pfc-wrap .pfc-row-placeholder {
+    border: 1px dashed #c3c4c7;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    height: 60px;
+}
+
+#pfc-wrap .pfc-row-handle {
+    cursor: move;
+    padding: 4px 6px;
+    color: #787c82;
+    user-select: none;
+}
+
+#pfc-wrap .pfc-row-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px 16px;
+}
+
+#pfc-wrap .pfc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#pfc-wrap .pfc-media-type {
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+}
+
+#pfc-wrap .pfc-back-text textarea {
+    width: 100%;
+}
+
+#pfc-wrap .pfc-preview img {
+    max-width: 80px;
+    height: auto;
+    display: block;
+    margin-top: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#pfc-wrap .pfc-field-video,
+#pfc-wrap .pfc-field-image,
+#pfc-wrap .pfc-field-see-more {
+    display: none;
+}
+
+#pfc-wrap .pfc-row.media-type-image .pfc-field-image,
+#pfc-wrap .pfc-row.media-type-video .pfc-field-video,
+#pfc-wrap .pfc-row.show-see-more .pfc-field-see-more {
+    display: flex;
+}
+
+#pfc-wrap .pfc-remove-row {
+    color: #b32d2e;
+    font-size: 20px;
+    line-height: 1;
+    padding: 4px 8px;
+}
+
+#pfc-wrap .pfc-remove-row:hover {
+    color: #dc3232;
+}
