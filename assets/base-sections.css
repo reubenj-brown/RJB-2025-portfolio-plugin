@@ -341,17 +341,23 @@ p.story-meta i{
     z-index: 10000;
     align-items: center;
     justify-content: center;
+    /* --lightbox-fade lets a page match the backdrop to whatever it runs
+       alongside. The photography draft sets it from the watercolor
+       animation's own duration so the two play together. */
+    --lightbox-fade: 0.5s;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+    transition: opacity var(--lightbox-fade) ease,
+                visibility 0s linear var(--lightbox-fade);
 }
 
 .photo-lightbox.active {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transition: opacity 0.5s ease, visibility 0s linear 0s;
+    transition: opacity var(--lightbox-fade) ease,
+                visibility 0s linear 0s;
 }
 
 .photo-lightbox-image {
