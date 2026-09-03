@@ -107,20 +107,45 @@ foreach ($cards as $card):
 </div>
 <?php endif; ?>
 <script>
-/* Per-card randomized scale + horizontal offset, assigned here rather than in
-   PHP so the full-page cache can't freeze one "random" layout for everyone.
-   Runs inline during parse, immediately after the grid, so it lands before
-   first paint — no flash, no reflow.
+/* Shuffles the cards and gives each a randomized scale and horizontal offset.
+   Done here rather than in PHP so the full-page cache can't freeze one
+   "random" arrangement for every visitor, and inline during parse — after the
+   grid, before first paint — so there's no flash and no reflow.
 
    scale  in [0.66, 1.00] of the column width
    offset in [0, 1 - scale] — so scale + offset never exceeds 1 and a card
-   mathematically cannot cross into the next column. */
+   mathematically cannot cross into the next column.
+
+   Shuffling moves the elements themselves rather than using CSS `order`, so
+   DOM order still matches visual order and the reading and tab order follow
+   what's actually on screen. It also keeps :nth-child() meaningful, which the
+   half-drop stagger and the mobile left/right pinning both depend on. The
+   order no longer matches the CMS, which is the point.
+
+   This runs before watercolor-reveal.js (deferred, and waiting on
+   DOMContentLoaded), so the lightbox's arrow-key navigation picks up the
+   shuffled order too. */
 (function () {
-    var cards = document.querySelectorAll('#photoFloatingGrid .photo-card');
-    for (var i = 0; i < cards.length; i++) {
-        var s = 0.66 + Math.random() * 0.34;
-        cards[i].style.setProperty('--card-scale', s.toFixed(4));
-        cards[i].style.setProperty('--card-offset', (Math.random() * (1 - s)).toFixed(4));
+    var grid = document.getElementById('photoFloatingGrid');
+    if (!grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.photo-card'));
+
+    // Fisher-Yates
+    for (var i = cards.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var swap = cards[i];
+        cards[i] = cards[j];
+        cards[j] = swap;
     }
+
+    // Re-inserted via a fragment, so the reorder costs one reflow, not one per card.
+    var frag = document.createDocumentFragment();
+    for (var k = 0; k < cards.length; k++) {
+        var s = 0.66 + Math.random() * 0.34;
+        cards[k].style.setProperty('--card-scale', s.toFixed(4));
+        cards[k].style.setProperty('--card-offset', (Math.random() * (1 - s)).toFixed(4));
+        frag.appendChild(cards[k]);
+    }
+    grid.appendChild(frag);
 })();
 </script>
