@@ -326,7 +326,12 @@ p.story-meta i{
    bundle and is also photograph-page.css's own dependency.
    ======================================== */
 .photo-lightbox {
-    display: none;
+    /* Kept in the layout and faded rather than display-toggled, so the
+       backdrop can transition — `display` can't animate. visibility is
+       switched with a delay equal to the fade so the overlay stays visible
+       for the whole fade-out and only then leaves the accessibility tree;
+       pointer-events keeps it from swallowing clicks while it's invisible. */
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -336,10 +341,17 @@ p.story-meta i{
     z-index: 10000;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
 }
 
 .photo-lightbox.active {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.5s ease, visibility 0s linear 0s;
 }
 
 .photo-lightbox-image {

@@ -90,8 +90,12 @@ foreach ($cards as $card):
 <?php endforeach; ?>
 </div>
 <?php if ($has_image_cards): ?>
-<div class="photo-lightbox" id="photoLightbox">
-    <button class="photo-lightbox-close" aria-label="Close image">×</button>
+<?php /* No close button: clicking anywhere dismisses, and Escape closes
+         immediately. tabindex allows focus to move into the overlay when it
+         opens, so Escape and the arrow keys land somewhere sensible and
+         focus isn't left behind on the page underneath. */ ?>
+<div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true"
+     aria-label="Expanded photograph" tabindex="-1">
     <?php /* The figure is sized to the photo's own aspect ratio inside the
              96vw/96vh box, so the canvas matches the image exactly and the
              shader's cover-fit is a no-op. The <img> is the fallback shown
