@@ -12,7 +12,9 @@ if (empty($cards) || !is_array($cards)) {
 <?php foreach ($cards as $card):
     $media_type = !empty($card['media_type']) && $card['media_type'] === 'video' ? 'video' : 'image';
     $poster_id  = $media_type === 'video' ? (int) $card['poster_id'] : (int) $card['image_id'];
-    $poster_src = $poster_id ? wp_get_attachment_image_src($poster_id, 'large') : false;
+    // 'full' — the watercolor shader samples this as a GPU texture, so it
+    // gets the original file rather than a downscaled intermediate.
+    $poster_src = $poster_id ? wp_get_attachment_image_src($poster_id, 'full') : false;
     if (!$poster_src) {
         continue;
     }
