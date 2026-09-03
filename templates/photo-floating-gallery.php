@@ -14,10 +14,22 @@ $has_image_cards = false;
 foreach ($cards as $card):
     $media_type = !empty($card['media_type']) && $card['media_type'] === 'video' ? 'video' : 'image';
     $poster_id  = $media_type === 'video' ? (int) $card['poster_id'] : (int) $card['image_id'];
-    // 'wc-card' caps the long edge at 1920 (registered in the main plugin
-    // file). Falls back to the full size automatically on any attachment
-    // that hasn't had that size generated yet.
-    $poster_src = $poster_id ? wp_get_attachment_image_src($poster_id, 'wc-card') : false;
+    // The uploaded file itself, never a WordPress-generated derivative.
+    //
+    // These are hand-encoded AVIFs at 2560px, already sized and compressed
+    // deliberately before upload. Asking WordPress for an intermediate size
+    // put a SECOND lossy generation on top of that — the 'wc-card' pass was
+    // re-encoding at quality 82 and landing between 38% and 60% of the
+    // original's bit density, which is exactly the softness and blocking this
+    // page was showing. There is no intermediate that isn't a re-encode, so
+    // the only way to show the photograph as encoded is to serve the file.
+    //
+    // The bandwidth is real (~990 KB a card against ~465 KB) but bounded: the
+    // grid is demand-loaded on an IntersectionObserver with a 400px margin, so
+    // it is paid per card actually scrolled to, never at page load. And the
+    // watercolor shader now resamples each card down to its own display size
+    // on upload, so the extra pixels cost texture memory nothing.
+    $poster_src = $poster_id ? wp_get_attachment_image_src($poster_id, 'full') : false;
     if (!$poster_src) {
         continue;
     }
@@ -38,10 +50,12 @@ foreach ($cards as $card):
     $aria_label    = $poster_alt
         ? sprintf('Reveal the note about %s', $poster_alt)
         : 'Reveal the note about this photograph';
-    // The card itself is capped at 1920 for weight; the lightbox can afford
-    // the original, since it's only fetched when someone actually expands.
-    $full_src      = wp_get_attachment_image_src($poster_id, 'full');
-    $full_url      = $full_src ? $full_src[0] : $poster_src[0];
+    // Same file as the card now that cards are served full-size. Kept as a
+    // separate attribute because the lightbox's two-stage load (show the
+    // already-cached card file, swap in the larger one once decoded) is what
+    // makes an expand feel instant, and it degrades to a single load — the
+    // controller skips the second fetch when the two URLs match.
+    $full_url      = $poster_src[0];
 ?>
 <?php if ($media_type === 'video'): ?>
     <?php /* Video cards are non-interactive: they just play. No canvas, no text
