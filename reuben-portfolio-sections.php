@@ -24,6 +24,8 @@ class ReubenPortfolioSections {
 
         // Photography draft page — floating card gallery admin UI
         add_action('after_setup_theme', [$this, 'register_card_image_size']);
+        add_filter('jpeg_quality', [$this, 'filter_jpeg_quality']);
+        add_filter('wp_editor_set_quality', [$this, 'filter_jpeg_quality']);
         add_action('add_meta_boxes_page', [$this, 'register_photo_floating_cards_metabox']);
         add_action('admin_enqueue_scripts', [$this, 'enqueue_photo_floating_cards_admin_assets']);
         add_action('save_post', [$this, 'save_photo_floating_cards']);
@@ -235,6 +237,29 @@ class ReubenPortfolioSections {
      */
     public function register_card_image_size() {
         add_image_size('wc-card', 1920, 1920, false);
+    }
+
+    /**
+     * Encoder quality for every size WordPress generates.
+     *
+     * WordPress defaults to 82, which is tuned for a general-purpose blog.
+     * On a photography portfolio it is visible — smooth gradients (sky,
+     * skin, out-of-focus background) band and mosquito around high-contrast
+     * edges, and the watercolor cards make that worse by rendering the file
+     * through a shader rather than showing it flat.
+     *
+     * 90 is roughly where JPEG stops being visible on photographic content
+     * without the file size running away: it costs about 25-30% over 82 on a
+     * detailed frame, and the cards are demand-loaded (IntersectionObserver,
+     * 400px margin) rather than all fetched at page load, so that increase
+     * lands per card actually scrolled to, not on first paint.
+     *
+     * Only applies to sizes generated AFTER this ships. Existing 'wc-card'
+     * and '-scaled' files keep the quality they were written at until the
+     * media library is regenerated.
+     */
+    public function filter_jpeg_quality($quality) {
+        return 90;
     }
 
     /**
