@@ -75,8 +75,9 @@ foreach ($cards as $card):
                 <?php endif; ?>
                 <div class="wc-card-actions">
                     <button type="button" class="wc-expand"
+                            data-card="<?php echo esc_url($poster_src[0]); ?>"
                             data-full="<?php echo esc_url($full_url); ?>"
-                            data-alt="<?php echo esc_attr($poster_alt); ?>">expand ↗</button>
+                            data-alt="<?php echo esc_attr($poster_alt); ?>">Expand ↗</button>
                     <?php if ($show_see_more): ?>
                         <a href="<?php echo esc_url($card['see_more_url']); ?>" class="wc-read-more">Read more →</a>
                     <?php endif; ?>
@@ -91,7 +92,14 @@ foreach ($cards as $card):
 <?php if ($has_image_cards): ?>
 <div class="photo-lightbox" id="photoLightbox">
     <button class="photo-lightbox-close" aria-label="Close image">×</button>
-    <img class="photo-lightbox-image" src="" alt="">
+    <?php /* The figure is sized to the photo's own aspect ratio inside the
+             96vw/96vh box, so the canvas matches the image exactly and the
+             shader's cover-fit is a no-op. The <img> is the fallback shown
+             when WebGL is unavailable or motion is reduced. */ ?>
+    <div class="photo-lightbox-figure">
+        <img class="photo-lightbox-image" src="" alt="">
+        <canvas class="photo-lightbox-gl"></canvas>
+    </div>
 </div>
 <?php endif; ?>
 <script>
