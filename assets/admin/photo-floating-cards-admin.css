@@ -84,3 +84,12 @@
 #pfc-wrap .pfc-remove-row:hover {
     color: #dc3232;
 }
+
+/* Video cards render no text layer on the front end (they just play, and
+   aren't clickable), so hide the caption fields on video rows rather than
+   letting an editor type copy that silently never appears. */
+#pfc-wrap .pfc-row.media-type-video .pfc-back-text,
+#pfc-wrap .pfc-row.media-type-video .pfc-show-see-more-toggle,
+#pfc-wrap .pfc-row.media-type-video .pfc-field-see-more {
+    display: none;
+}
