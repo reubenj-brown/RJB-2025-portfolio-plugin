@@ -23,6 +23,7 @@ class ReubenPortfolioSections {
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
 
         // Photography draft page — floating card gallery admin UI
+        add_action('after_setup_theme', [$this, 'register_card_image_size']);
         add_action('add_meta_boxes_page', [$this, 'register_photo_floating_cards_metabox']);
         add_action('admin_enqueue_scripts', [$this, 'enqueue_photo_floating_cards_admin_assets']);
         add_action('save_post', [$this, 'save_photo_floating_cards']);
@@ -216,6 +217,24 @@ class ReubenPortfolioSections {
                 'hide_on_screen' => '',
             ));
         }
+    }
+
+    /**
+     * A 1920px-long-edge size for the watercolor cards.
+     *
+     * The cards previously took the 'full' size to dodge a suspected colour
+     * problem, but the profile turns out to survive resizing intact on this
+     * server (Imagick, which WP tells to preserve icc/icm), so full-size
+     * files bought nothing but weight — a ~30-card page downloading 2560px
+     * originals. 1920 is still well past what a ~400px-wide card can show,
+     * even at DPR 3.
+     *
+     * $crop = false fits inside a 1920x1920 box rather than cropping, so
+     * this caps the LONG edge and leaves the aspect ratio alone — which
+     * matters, since --card-ratio is derived from these dimensions.
+     */
+    public function register_card_image_size() {
+        add_image_size('wc-card', 1920, 1920, false);
     }
 
     /**

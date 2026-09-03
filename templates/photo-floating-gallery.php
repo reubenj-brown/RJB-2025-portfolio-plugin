@@ -12,9 +12,10 @@ if (empty($cards) || !is_array($cards)) {
 <?php foreach ($cards as $card):
     $media_type = !empty($card['media_type']) && $card['media_type'] === 'video' ? 'video' : 'image';
     $poster_id  = $media_type === 'video' ? (int) $card['poster_id'] : (int) $card['image_id'];
-    // 'full' — the watercolor shader samples this as a GPU texture, so it
-    // gets the original file rather than a downscaled intermediate.
-    $poster_src = $poster_id ? wp_get_attachment_image_src($poster_id, 'full') : false;
+    // 'wc-card' caps the long edge at 1920 (registered in the main plugin
+    // file). Falls back to the full size automatically on any attachment
+    // that hasn't had that size generated yet.
+    $poster_src = $poster_id ? wp_get_attachment_image_src($poster_id, 'wc-card') : false;
     if (!$poster_src) {
         continue;
     }
