@@ -9,7 +9,9 @@ if (empty($cards) || !is_array($cards)) {
 }
 ?>
 <div class="photo-floating-grid" id="photoFloatingGrid">
-<?php foreach ($cards as $card):
+<?php
+$has_image_cards = false;
+foreach ($cards as $card):
     $media_type = !empty($card['media_type']) && $card['media_type'] === 'video' ? 'video' : 'image';
     $poster_id  = $media_type === 'video' ? (int) $card['poster_id'] : (int) $card['image_id'];
     // 'wc-card' caps the long edge at 1920 (registered in the main plugin
@@ -36,6 +38,10 @@ if (empty($cards) || !is_array($cards)) {
     $aria_label    = $poster_alt
         ? sprintf('Reveal the note about %s', $poster_alt)
         : 'Reveal the note about this photograph';
+    // The card itself is capped at 1920 for weight; the lightbox can afford
+    // the original, since it's only fetched when someone actually expands.
+    $full_src      = wp_get_attachment_image_src($poster_id, 'full');
+    $full_url      = $full_src ? $full_src[0] : $poster_src[0];
 ?>
 <?php if ($media_type === 'video'): ?>
     <?php /* Video cards are non-interactive: they just play. No canvas, no text
@@ -55,6 +61,7 @@ if (empty($cards) || !is_array($cards)) {
     <?php /* Stacking order is load-bearing: poster behind text, canvas on top.
              Poster in front of text makes the reveal expose the photo again
              instead of the caption. */ ?>
+    <?php $has_image_cards = true; ?>
     <div class="photo-card">
         <div class="wc-stage"
              data-src="<?php echo esc_url($poster_src[0]); ?>"
@@ -66,9 +73,14 @@ if (empty($cards) || !is_array($cards)) {
                 <?php if ($back_text): ?>
                     <div class="wc-text-body"><?php echo nl2br(esc_html($back_text)); ?></div>
                 <?php endif; ?>
-                <?php if ($show_see_more): ?>
-                    <a href="<?php echo esc_url($card['see_more_url']); ?>" class="wc-read-more">Read more →</a>
-                <?php endif; ?>
+                <div class="wc-card-actions">
+                    <button type="button" class="wc-expand"
+                            data-full="<?php echo esc_url($full_url); ?>"
+                            data-alt="<?php echo esc_attr($poster_alt); ?>">expand ↗</button>
+                    <?php if ($show_see_more): ?>
+                        <a href="<?php echo esc_url($card['see_more_url']); ?>" class="wc-read-more">Read more →</a>
+                    <?php endif; ?>
+                </div>
             </div>
             <canvas class="wc-layer wc-gl"></canvas>
         </div>
@@ -76,6 +88,12 @@ if (empty($cards) || !is_array($cards)) {
 <?php endif; ?>
 <?php endforeach; ?>
 </div>
+<?php if ($has_image_cards): ?>
+<div class="photo-lightbox" id="photoLightbox">
+    <button class="photo-lightbox-close" aria-label="Close image">×</button>
+    <img class="photo-lightbox-image" src="" alt="">
+</div>
+<?php endif; ?>
 <script>
 /* Per-card randomized scale + horizontal offset, assigned here rather than in
    PHP so the full-page cache can't freeze one "random" layout for everyone.

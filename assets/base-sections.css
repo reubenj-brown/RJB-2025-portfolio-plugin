@@ -316,3 +316,61 @@ p.story-meta i{
         margin-bottom: 2.5rem;
     }
 }
+
+/* ========================================
+   Photo Lightbox
+   Shared: the photography page opens it from its horizontal scrollers,
+   the 2026 photography draft from each card's "expand" button. Lives here
+   rather than in photograph-page.css so both can reach it — that file is
+   only enqueued on page-photography.php, while this one is in the combined
+   bundle and is also photograph-page.css's own dependency.
+   ======================================== */
+.photo-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-lightbox.active {
+    display: flex;
+}
+
+.photo-lightbox-image {
+    max-height: 96vh;
+    max-width: 96vw;
+    object-fit: contain;
+}
+
+.photo-lightbox-close {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background: none;
+    border: none;
+    color: #808080;
+    font-family: var(--primary-font);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 8px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.photo-lightbox-close:hover {
+    opacity: 1;
+}
+
+/* Dark mode lightbox */
+@media (prefers-color-scheme: dark) {
+    .photo-lightbox {
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
